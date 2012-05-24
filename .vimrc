@@ -25,8 +25,8 @@ set nosol " leave my cursor where it was
 " Files/Backups
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set backup " make backup file
-set backupdir=c:\progra~1\vim\vimfiles\backup,~/.vim/backup " where to put backup files
-set directory=c:\progra~1\vim\vimfiles\temp,~/.vim/temp " directory for temp files
+set backupdir=~/.vim/backup " where to put backup files
+set directory=~/.vim/temp " directory for temp files
 set makeef=error.err " When using make, where should it dump the file
 set sessionoptions+=globals " What should be saved during sessions being saved
 set sessionoptions+=localoptions " What should be saved during sessions being saved
