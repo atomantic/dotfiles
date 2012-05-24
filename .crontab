@@ -1,0 +1,4 @@
+# update gems nightly
+0 1 * * *  gem update heroku
+0 2 * * *  rvm get head;rvm reload
+0 3 * * *  gem update -V

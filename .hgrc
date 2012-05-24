@@ -1,0 +1,9 @@
+[ui]
+username = Adam Eivy <adam.eivy@disney.com>
+editor = vim
+[hooks]
+commit.autopush = hg push
+precommit = ./precommit.sh
+[web]
+push_ssl = false
+#allow_push = *

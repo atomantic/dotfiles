@@ -1,0 +1,43 @@
+#########################################
+# Utility Functions
+
+# Create a new git repo with one README commit and CD into it
+function gitnr() { mkdir $1; cd $1; git init; touch README; git add README; git commit -mFirst-commit;}
+
+# Do a Matrix movie effect of falling characters
+function matrix1() {
+echo -e "\e[1;40m" ; clear ; while :; do echo $LINES $COLUMNS $(( $RANDOM % $COLUMNS)) $(( $RANDOM % 72 )) ;sleep 0.05; done|gawk '{ letters="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()"; c=$4; letter=substr(letters,c,1);a[$3]=0;for (x in a) {o=a[x];a[x]=a[x]+1; printf "\033[%s;%sH\033[2;32m%s",o,x,letter; printf "\033[%s;%sH\033[1;37m%s\033[0;0H",a[x],x,letter;if (a[x] >= $1) { a[x]=0; } }}'
+}
+
+function matrix2() {
+echo -e "\e[1;40m" ; clear ; characters=$( jot -c 94 33 | tr -d '\n' ) ; while :; do echo $LINES $COLUMNS $(( $RANDOM % $COLUMNS)) $(( $RANDOM % 72 )) $characters ;sleep 0.05; done|gawk '{ letters=$5; c=$4; letter=substr(letters,c,1);a[$3]=0;for (x in a) {o=a[x];a[x]=a[x]+1; printf "\033[%s;%sH\033[2;32m%s",o,x,letter; printf "\033[%s;%sH\033[1;37m%s\033[0;0H",a[x],x,letter;if (a[x] >= $1) { a[x]=0; } }}'
+}
+
+# Use Mac OSX Preview to open a man page in a more handsome format
+function manp() {
+  man -t $1 | open -f -a /Applications/Preview.app
+}
+
+# Show normally hidden system and dotfile types of files
+# in Mac OSX Finder
+function showhiddenfiles() {
+  defaults write com.apple.Finder AppleShowAllFiles YES
+  osascript -e 'tell application "Finder" to quit'
+  sleep 0.25
+  osascript -e 'tell application "Finder" to activate'
+}
+
+# Hide (back to defaults) normally hidden system and dotfile types of files
+# in Mac OSX Finder
+function hidehiddenfiles() {
+  defaults write com.apple.Finder AppleShowAllFiles NO
+  osascript -e 'tell application "Finder" to quit'
+  sleep 0.25
+  osascript -e 'tell application "Finder" to activate'
+}
+
+# kill all instances of a process by name
+function skill()
+{
+    sudo kill -9 `ps ax | grep $1 | grep -v grep | awk '{print $1}'`
+}

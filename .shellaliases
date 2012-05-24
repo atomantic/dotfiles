@@ -1,0 +1,75 @@
+#!/bin/sh
+
+#########################################
+# Connectivity
+#alias ssh.host ='ssh user@host.net'
+
+#########################################
+# Commands to run apps
+alias run.clojure.repl='java -cp ${CLOJURE_HOME}/clojure.jar clojure.lang.Repl'
+alias run.jlineclojure.repl='java -cp ${CLOJURE_HOME}/jline-0.9.91.jar:${CLOJURE_HOME}/clojure.jar jline.ConsoleRunner clojure.lang.Repl'
+alias run.clojure.script='java -cp ${CLOJURE_HOME}/clojure.jar clojure.main'
+
+#########################################
+# Commands to change dirs
+alias to.temp='cd ${MYTEMP}'
+alias to.downloads='cd ${MYDOWNLOADS}'
+alias to.dropbox='cd ~/Dropbox'
+alias to.docs='cd ${MYDOCUMENTS}'
+alias to.code='cd ${MYCODE}'
+alias to.scratch='cd ${MYSCRATCH}'
+
+alias to.devapps='cd ${MYDEVAPPS}'
+
+
+#################################
+# Simple Program Name Shortening
+alias aq=aquamacs
+alias g=git
+
+
+#############################
+# Utilities
+
+# Flush the DNS on Mac
+alias dnsflush='dscacheutil -flushcache'
+
+# Copy and paste and prune the usless newline
+alias pbcopynn='tr -d "\n" | pbcopy'
+
+# Set the extended MacOS attributes on a file such that Quicklook will open it as text
+alias qltext='xattr -wx com.apple.FinderInfo "54 45 58 54 21 52 63 68 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00" $1'
+#alias qltext2='osascript -e tell application "Finder" to set file type of ((POSIX file "$1") as alias) to "TEXT"'
+
+# Git Scribe Commands
+alias gsgp='git scribe gen pdf && open output/book.pdf'
+alias gsgh='git scribe gen html && open output/book.html'
+
+# Show network connections
+# Often useful to prefix with SUDO to see more system level network usage
+alias network.connections='lsof -l -i +L -R -V'
+alias network.established='lsof -l -i +L -R -V | grep ESTABLISHED'
+alias network.internalip="ifconfig en0 | egrep -o '([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+)'"
+alias network.externalip='curl -s http://checkip.dyndns.org/ | sed "s/[a-zA-Z<>/ :]//g"'
+
+# Files used, anywhere on the filesystem
+alias files.usage='sudo fs_usage -e -f filesystem|grep -v CACHE_HIT|grep -v grep'
+# Files being opened
+alias files.open='sudo fs_usage -e -f filesystem|grep -v CACHE_HIT|grep -v grep|grep open'
+# Files in use in the Users directory
+alias files.usage.user='sudo fs_usage -e -f filesystem|grep -v CACHE_HIT|grep -v grep|grep Users'
+
+# Directory listings
+# LS_COLORS='no=01;37:fi=01;37:di=07;96:ln=01;36:pi=01;32:so=01;35:do=01;35:bd=01;33:cd=01;33:ex=01;31:mi=00;05;37:or=00;05;37:'
+# -G Add colors to ls
+# -l Long format
+# -h Short size suffixes (B, K, M, G, P)
+# -p Postpend slash to folders
+alias ls='ls -G -h -p '
+alias ll='ls -l -G -h -p '
+
+# Restart Apache on Mac
+alias apacherestart="sudo /usr/sbin/apachectl restart"
+
+#Personal Commands
+alias game.seek='txt="";for i in {1..20};do txt=$txt"$i. ";done;txt=$txt" Ready or not, here I come";say $txt'
