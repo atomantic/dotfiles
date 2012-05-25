@@ -1,6 +1,6 @@
 [user]
 	name = Adam Eivy
-	email = atomantic@gmail.com
+	email = adam.eivy@disney.com
 
 [color]
 # ui = true is a superset of all the more specific color options
@@ -35,7 +35,7 @@
 	excludesfile = ~/.gitignore
 	quotepath = false
 	# line endings
-	# force LF durring add
+	# force LF during add
 	autocrlf = input
 	# autocrlf = true # for windows to convert to CRLF on checkout and LF on add
 	# warn but allow line ending conversion to proceed
@@ -200,23 +200,23 @@
 [url "git://github.wdig.com/"]
 	insteadOf = "dgh://"
 	pushInsteadOf = "dhg://"
-	# Example: git clone dhg://atomantic/Portal-Application-Framework
-[url "git://github.wdig.com/atomantic/"]
-   insteadOf = "dgha://"
-   pushInsteadOf = "dhga://"
+	# Example: git clone dhg://eivya001/Portal-Application-Framework
+[url "git://github.wdig.com/eivya001/"]
+   insteadOf = "dghm://"
+   pushInsteadOf = "dghm://"
    # Example: git clone dhg://Portal-Application-Framework
 [url "git@github.wdig.com:"]
 	insteadOf = "dghs://"
-	pushInsteadOf = "ghs://"
-[url "git@github.wdig.com:atomantic/"]
+	pushInsteadOf = "dghs://"
+[url "git@github.wdig.com:eivya001/"]
     insteadOf = "dghsm://"
-    pushInsteadOf = "ghsm://"
+    pushInsteadOf = "dghsm://"
 [url "https://github.wdig.com/"]
 	insteadOf = "dghh://"
-	pushInsteadOf = "ghh://"
-[url "https://github.wdig.com/atomantic/"]
+	pushInsteadOf = "dghh://"
+[url "https://github.wdig.com/eivya001/"]
     insteadOf = "dghhm://"
-    pushInsteadOf = "ghhm://"
+    pushInsteadOf = "dghhm://"
         
 [credential]
     # cache creds (git help credential-cache)
