@@ -1,10 +1,11 @@
 --- 
-:bulk_threshold: 1000
+:backtrace: false
 :benchmark: false
+:bulk_threshold: 1000
 :sources: 
 - http://gems.rubyforge.org/
+- http://rubygems.corp.dig.com/
 :update_sources: true
-install: --env-shebang
-:backtrace: false
 :verbose: true
+install: --env-shebang
 update: --env-shebang

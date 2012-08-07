@@ -31,6 +31,9 @@ alias g=git
 #############################
 # Utilities
 
+# recursive dos2unix in current directory
+alias dos2lf='dos2unix `find ./ -type f`'
+
 # Flush the DNS on Mac
 alias dnsflush='dscacheutil -flushcache'
 
