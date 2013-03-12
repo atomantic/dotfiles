@@ -158,8 +158,6 @@
 [diff]
 	#tool = myaraxis
 	tool = opendiff
-[init]
-    templatedir = /usr/local/git/share/git-core/templates/hooks/
 [mergetool]
 	prompt = false
 	keepBackup = false
