@@ -1,2 +1,3 @@
 .vim/backup/*
 .vim/temp/*
+.vim/.netrwhist
