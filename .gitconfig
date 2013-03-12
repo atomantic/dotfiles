@@ -28,6 +28,9 @@
 	changed = green
 	untracked = cyan
 
+[advice]
+    statusHints = false
+
 [gui]
 	fontdiff = -family Monaco -size 10 -weight normal -slant roman -underline 0 -overstrike 0
 
@@ -42,8 +45,8 @@
 	safecrlf = warn
 	# prevent crlf (then you will have to deal with the problem -- dos2unix, etc)
 	#safecrlf = true
-	editor = vim
-	#editor = mate -w
+	#editor = vim
+	editor = mate -w
 
 [alias]
 	br = branch -a
@@ -143,28 +146,30 @@
 
 [apply]
 	whitespace = nowarn
+	
+#Enable the recording of resolved conflicts, so that identical hunks can be resolved automatically later on
 [rerere]
 	enabled = 1
 
 [difftool]
 	prompt = false
-[difftool "myaraxis"]
-	cmd = araxisgitdiff ONE $LOCAL THREE FOUR $REMOTE
+[difftool "opendiff"]
+	cmd = opendiff ONE $LOCAL THREE FOUR $REMOTE
 [diff]
-#	tool = araxis
-	tool = myaraxis
-	
-[init]
-     templatedir = /usr/local/git/share/git-core/templates/hooks/
+	#tool = myaraxis
+	tool = opendiff
 
+[init]
+    templatedir = /usr/local/git/share/git-core/templates/hooks/
 [mergetool]
 	prompt = false
 	keepBackup = false
-[mergetool "myaraxis"]
-    cmd = araxisgitmerge $PWD/$REMOTE $PWD/$BASE $PWD/$LOCAL $PWD/$MERGED
+[mergetool "opendiff"]
+    cmd = /usr/bin/opendiff $2 $5 -merge $1
 [merge]
-#	tool = araxis
-	tool = myaraxis
+	tool = opendiff
+	# Always show a diffstat at the end of a merge
+	stat = true
 
 [branch]
     # Automatically set up pull to be --rebase
@@ -200,27 +205,30 @@
     insteadOf = "ghhm://"
     pushInsteadOf = "ghhm://"
     
-[url "git://github.wdig.com/"]
+[url "git://github.disney.com/"]
 	insteadOf = "dgh://"
 	pushInsteadOf = "dhg://"
 	# Example: git clone dhg://eivya001/Portal-Application-Framework
-[url "git://github.wdig.com/eivya001/"]
+[url "git://github.disney.com/eivya001/"]
    insteadOf = "dghm://"
    pushInsteadOf = "dghm://"
    # Example: git clone dhg://Portal-Application-Framework
-[url "git@github.wdig.com:"]
+[url "git@github.disney.com:"]
 	insteadOf = "dghs://"
 	pushInsteadOf = "dghs://"
-[url "git@github.wdig.com:eivya001/"]
+[url "git@github.disney.com:eivya001/"]
     insteadOf = "dghsm://"
     pushInsteadOf = "dghsm://"
-[url "https://github.wdig.com/"]
+[url "https://github.disney.com/"]
 	insteadOf = "dghh://"
 	pushInsteadOf = "dghh://"
-[url "https://github.wdig.com/eivya001/"]
+[url "https://github.disney.com/eivya001/"]
     insteadOf = "dghhm://"
     pushInsteadOf = "dghhm://"
         
 [credential]
     # cache creds (git help credential-cache)
 	helper = cache
+	
+#[filter "tabspace"]
+#	clean = "expand -t 4 "

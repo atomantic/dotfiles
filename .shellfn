@@ -41,3 +41,12 @@ function skill()
 {
     sudo kill -9 `ps ax | grep $1 | grep -v grep | awk '{print $1}'`
 }
+
+function schef()
+{
+    sudo chef-client
+}
+
+function fixperms(){
+    find . \( -name "*.sh" -or -type d \) -exec chmod 755 {} \; && find . -type f ! -name "*.sh" -exec chmod 644 {} \;
+}
