@@ -153,6 +153,9 @@
 [diff]
 #	tool = araxis
 	tool = myaraxis
+	
+[init]
+     templatedir = /usr/local/git/share/git-core/templates/hooks/
 
 [mergetool]
 	prompt = false
