@@ -15,7 +15,7 @@ syntax on " syntax highlighting on
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set history=1000 " How many lines of history to remember
 set cf " enable error files and error jumping
-set clipboard+=unnamed " turns out I do like sharing windows clipboard
+" set clipboard+=unnamed " turns out I do like sharing windows clipboard
 set ffs=unix,dos,mac " support all three, in this order
 set viminfo+=! " make sure it can save viminfo
 set isk+=_,$,@,%,# " none of these should be word dividers, so make them not be
