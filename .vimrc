@@ -147,12 +147,12 @@ endfunction
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Mappings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <up> <ESC>:bp<RETURN> " left arrow (normal mode) switches buffers
-map <down> <ESC>:bn<RETURN> " right arrow (normal mode) switches buffers
-map <right> <ESC>:Tlist<RETURN> " show taglist
-map <left> <ESC>:NERDTreeToggle<RETURN>  " moves left fa split
-map <F2> <ESC>ggVG:call SuperRetab()<left>
-map <F12> ggVGg? " apply rot13 for people snooping over shoulder, good fun
+" map <up> <ESC>:bp<RETURN> " left arrow (normal mode) switches buffers
+" map <down> <ESC>:bn<RETURN> " right arrow (normal mode) switches buffers
+" map <right> <ESC>:Tlist<RETURN> " show taglist
+" map <left> <ESC>:NERDTreeToggle<RETURN>  " moves left fa split
+" map <F2> <ESC>ggVG:call SuperRetab()<left>
+" map <F12> ggVGg? " apply rot13 for people snooping over shoulder, good fun
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Useful abbrevs
