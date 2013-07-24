@@ -24,3 +24,6 @@ export PATH=$PATH:/opt/chef/bin:/opt/chef/embedded/bin
 #Zend
 export PATH=$PATH:/usr/local/zend/bin
 export PATH=$PATH:/usr/local/zend/mysql/bin
+
+# NPM
+export PATH=$PATH:/usr/local/share/npm/bin
