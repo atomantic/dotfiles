@@ -2,3 +2,6 @@
 0 1 * * *  gem update heroku
 0 2 * * *  rvm get head;rvm reload
 0 3 * * *  gem update -V
+# update homebrew packages
+0 4 * * *  brew upgrade
+0 5 * * *  npm update npm -g
