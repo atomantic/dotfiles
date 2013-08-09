@@ -153,20 +153,22 @@
 
 [difftool]
 	prompt = false
-[difftool "opendiff"]
-	cmd = opendiff ONE $LOCAL THREE FOUR $REMOTE
 [diff]
 	#tool = myaraxis
-	tool = opendiff
+	tool = diffmerge
 [init]
     templatedir = /usr/local/git/share/git-core/templates/hooks/
 [mergetool]
 	prompt = false
 	keepBackup = false
-[mergetool "opendiff"]
-    cmd = /usr/bin/opendiff $2 $5 -merge $1
+[difftool "diffmerge"]
+	cmd = diffmerge \"$LOCAL\" \"$REMOTE\"
+[mergetool "diffmerge"]
+	cmd = "diffmerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$(if test -f \"$BASE\"; then echo \"$BASE\"; else echo \"$LOCAL\"; fi)\" \"$REMOTE\""
+	trustExitCode = true
+    
 [merge]
-	tool = opendiff
+	tool = diffmerge
 	# Always show a diffstat at the end of a merge
 	stat = true
 
@@ -231,3 +233,5 @@
 	
 #[filter "tabspace"]
 #	clean = "expand -t 4 "
+[push]
+	default = matching

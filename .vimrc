@@ -15,7 +15,7 @@ syntax on " syntax highlighting on
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set history=1000 " How many lines of history to remember
 set cf " enable error files and error jumping
-set clipboard+=unnamed " turns out I do like sharing windows clipboard
+" set clipboard+=unnamed " turns out I do like sharing windows clipboard
 set ffs=unix,dos,mac " support all three, in this order
 set viminfo+=! " make sure it can save viminfo
 set isk+=_,$,@,%,# " none of these should be word dividers, so make them not be
@@ -147,12 +147,12 @@ endfunction
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Mappings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <up> <ESC>:bp<RETURN> " left arrow (normal mode) switches buffers
-map <down> <ESC>:bn<RETURN> " right arrow (normal mode) switches buffers
-map <right> <ESC>:Tlist<RETURN> " show taglist
-map <left> <ESC>:NERDTreeToggle<RETURN>  " moves left fa split
-map <F2> <ESC>ggVG:call SuperRetab()<left>
-map <F12> ggVGg? " apply rot13 for people snooping over shoulder, good fun
+" map <up> <ESC>:bp<RETURN> " left arrow (normal mode) switches buffers
+" map <down> <ESC>:bn<RETURN> " right arrow (normal mode) switches buffers
+" map <right> <ESC>:Tlist<RETURN> " show taglist
+" map <left> <ESC>:NERDTreeToggle<RETURN>  " moves left fa split
+" map <F2> <ESC>ggVG:call SuperRetab()<left>
+" map <F12> ggVGg? " apply rot13 for people snooping over shoulder, good fun
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Useful abbrevs
