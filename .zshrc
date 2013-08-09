@@ -27,3 +27,4 @@ plugins=(git svn brew github macports osx rvm gradle ant compleat dirpersist gem
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
+unsetopt correct
