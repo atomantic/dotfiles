@@ -46,7 +46,7 @@
 	# prevent crlf (then you will have to deal with the problem -- dos2unix, etc)
 	#safecrlf = true
 	#editor = vim
-	editor = mate -w
+	editor = subl -w
 
 [alias]
 	br = branch -a
@@ -59,7 +59,7 @@
 	dc = diff --staged
 	dw = diff --word-diff
 	dcw = diff --color-words
-	dm = !git diff | mate
+	dm = !git diff | subl
 	dv = !git diff | vim
 	who = shortlog -s --
 	ph = push
