@@ -27,3 +27,5 @@ export PATH=$PATH:/usr/local/zend/mysql/bin
 
 # NPM
 export PATH=$PATH:/usr/local/share/npm/bin
+
+export PATH=$PATH:~/.nvm/v0.10.22/bin
