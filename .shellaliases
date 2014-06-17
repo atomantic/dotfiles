@@ -77,4 +77,9 @@ alias apacherestart="sudo /usr/sbin/apachectl restart"
 #Personal Commands
 alias game.seek='txt="";for i in {1..20};do txt=$txt"$i. ";done;txt=$txt" Ready or not, here I come";say $txt'
 
-alias dev2did='grunt concat:mobile;grunt min:mobile; git cam "new mobile build"; git push; git rev-parse HEAD;cd ../DisneyID_UI_Chef;git pull;cd ../DisneyID_UI;sed -i '"'"''"'"' '"'"'s/"UI_Release": "[a-z0-9]*"/"UI_Release": "'"'"'$(git rev-parse HEAD)'"'"'"/'"'"' ../DisneyID_UI_Chef/environments/did-qa/UI-Dev-Mobile.json;cd ../DisneyID_UI_Chef;git add .;git commit -m "update dev2did machine with new deployment commit";git push;cd /var/www/projects/did/DisneyID_UI'
+alias dev2did='grunt concat:mobile;grunt min:mobile; git cam "new mobile build"; git push; git rev-parse HEAD;cd ../DisneyID_UI_Chef;git pull;cd ../DisneyID_UI;sed -i '"'"''"'"' '"'"'s/"UI_Release": "[a-z0-9]*"/"UI_Release": "'"'"'$(git rev-parse HEAD)'"'"'"/'"'"' ../DisneyID_UI_Chef/environments/did-qa/UI-Dev-Mobile.json;cd ../DisneyID_UI_Chef;git add .;git commit -m "update dev2did machine with new deployment commit";git push;cd /var/www/projects/did/DisneyID_UI'#Git Tools
+
+#Git Tools
+# assumes git-up is installed (gem install git-up)
+# switches to 'develop' branch, updates all local branches (nicely using git-up), removes all local branches already merged into 'develop'
+alias gitdev='git checkout develop; git-up; git branch --merged develop | grep -v "\* develop" | xargs -n 1 git branch -d; git branch;'
