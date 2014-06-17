@@ -235,3 +235,6 @@
 #	clean = "expand -t 4 "
 [push]
 	default = matching
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
