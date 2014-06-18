@@ -19,6 +19,12 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 #sudo scutil --set LocalHostName "antic"
 #sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "antic"
 
+# always boot in verbose mode (not OSX GUI mode)
+sudo nvram boot-args="-v";
+
+# allow 'locate' command
+sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist 
+
 # Set standby delay to 24 hours (default is 1 hour)
 sudo pmset -a standbydelay 86400
 
