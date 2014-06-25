@@ -7,6 +7,8 @@ tap caskroom/versions
 cask install dropbox 2> /dev/null
 cask install google-chrome 2> /dev/null
 cask install google-chrome-canary 2> /dev/null
+cask install firefox 2> /dev/null
+cask install firefox-aurora 2> /dev/null
 cask install total-terminal 2> /dev/null
 cask install macvim 2> /dev/null
 cask install sublime-text 2> /dev/null
