@@ -139,7 +139,6 @@
 	fixup = "!sh -c 'git commit -m \"fixup! $(git log -1 --format='\\''%s'\\'' $@)\"' -"
 	squash = "!sh -c 'git commit -m \"squash! $(git log -1 --format='\\''%s'\\'' $@)\"' -"
 	ccfq = "!sh -c 'git add $1 && git commit -m\"Placeholder\"' -"
-	logme = log --author=Matthew --stat -C
 	cob = checkout -b
 	sno = show --name-only
 	logsimple = log --graph --abbrev-commit --pretty=oneline --all --decorate
@@ -182,50 +181,7 @@
     
     # in a few months, look into the include directive (after bug fixes)
     token = MOVEALONG
-
-[url "git://github.com/"]
-	insteadOf = "ghg://"
-	pushInsteadOf = "ghg://"
-	# Example: git clone ghg://ntschutta/emacs
-	
-# ghgm (github git me)
-[url "git://github.com/atomantic/"]
-    insteadOf = "ghgm://"
-    pushInsteadOf = "ghgm://"
-    # Example: git clone ghgm://hellogitworld
-[url "git@github.com:"]
-	insteadOf = "ghs://"
-	pushInsteadOf = "ghs://"
-[url "git@github.com:atomantic/"]
-    insteadOf = "ghsm://"
-    pushInsteadOf = "ghsm://"
-[url "https://github.com/"]
-	insteadOf = "ghh://"
-	pushInsteadOf = "ghh://"
-[url "https://github.com/atomantic/"]
-    insteadOf = "ghhm://"
-    pushInsteadOf = "ghhm://"
     
-[url "git://github.disney.com/"]
-	insteadOf = "dgh://"
-	pushInsteadOf = "dhg://"
-	# Example: git clone dhg://eivya001/Portal-Application-Framework
-[url "git://github.disney.com/eivya001/"]
-   insteadOf = "dghm://"
-   pushInsteadOf = "dghm://"
-   # Example: git clone dhg://Portal-Application-Framework
-[url "git@github.disney.com:"]
-	insteadOf = "dghs://"
-	pushInsteadOf = "dghs://"
-[url "git@github.disney.com:eivya001/"]
-    insteadOf = "dghsm://"
-    pushInsteadOf = "dghsm://"
-[url "https://github.disney.com/"]
-	insteadOf = "dghh://"
-	pushInsteadOf = "dghh://"
-[url "https://github.disney.com/eivya001/"]
-    insteadOf = "dghhm://"
-    pushInsteadOf = "dghhm://"
         
 [credential]
     # cache creds (git help credential-cache)

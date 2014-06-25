@@ -38,11 +38,13 @@ echo "DOTFILESDIRRELATIVETOHOME = $DOTFILESDIRRELATIVETOHOME"
 
 pushd ~
 
+symlinkifne .bowerrc
 symlinkifne .crontab
 symlinkifne .gemrc
 symlinkifne .gitconfig
 symlinkifne .gitignore
 symlinkifne .hgrc
+symlinkifne .npmrc
 symlinkifne .profile
 symlinkifne .rvmrc
 symlinkifne .screenrc
@@ -51,6 +53,14 @@ symlinkifne .shellfn
 symlinkifne .shellpaths
 symlinkifne .shellvars
 symlinkifne .vim
+# in case there was already a ~/.vim
+# but it doesn't contain these folders
+symlinkifne .vim/autoload
+symlinkifne .vim/backup
+symlinkifne .vim/bundle
+symlinkifne .vim/colors
+symlinkifne .vim/temp
+symlinkifne .vim/.netrwhist
 symlinkifne .vimrc
 symlinkifne .zlogout
 symlinkifne .zprofile
