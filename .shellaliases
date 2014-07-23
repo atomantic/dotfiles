@@ -77,7 +77,7 @@ alias apacherestart="sudo /usr/sbin/apachectl restart"
 #Personal Commands
 alias game.seek='txt="";for i in {1..20};do txt=$txt"$i. ";done;txt=$txt" Ready or not, here I come";say $txt'
 
-alias dev2did='grunt concat:mobile;grunt min:mobile; git cam "new mobile build"; git push; git rev-parse HEAD;cd ../DisneyID_UI_Chef;git pull;cd ../DisneyID_UI;sed -i '"'"''"'"' '"'"'s/"UI_Release": "[a-z0-9]*"/"UI_Release": "'"'"'$(git rev-parse HEAD)'"'"'"/'"'"' ../DisneyID_UI_Chef/environments/did-qa/UI-Dev-Mobile.json;cd ../DisneyID_UI_Chef;git add .;git commit -m "update dev2did machine with new deployment commit";git push;cd /var/www/projects/did/DisneyID_UI'
+alias dev2did='git co dev2did;grunt; git cam "new mobile build"; git push; git rev-parse HEAD;cd ../DisneyID_UI_Chef;git pull;cd ../DisneyID_UI;sed -i '"'"''"'"' '"'"'s/"UI_Release": "[a-z0-9]*"/"UI_Release": "'"'"'$(git rev-parse HEAD)'"'"'"/'"'"' ../DisneyID_UI_Chef/environments/did-qa/UI-Dev-Mobile.json;cd ../DisneyID_UI_Chef;git add .;git commit -m "update dev2did machine with new deployment commit";git push;cd /var/www/projects/did/DisneyID_UI'
 
 #Git Tools
 # assumes git-up is installed (gem install git-up)
