@@ -15,6 +15,9 @@ cask install sublime-text 2> /dev/null
 cask install the-unarchiver 2> /dev/null
 cask install torbrowser 2> /dev/null
 cask install transmission 2> /dev/null
-cask install vagrant 2> /dev/null
 cask install virtualbox 2> /dev/null
 cask install vlc 2> /dev/null
+# chef-dk, berkshelf, etc
+cask install chefdk 2> /dev/null
+# vagrant for running dev environments using docker images
+cask install vagrant # 2> /dev/null # | grep Caskroom | sed "s/.*'\(.*\)'.*/open \1\/Vagrant.pkg/g" | sh
