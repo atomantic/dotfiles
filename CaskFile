@@ -4,21 +4,29 @@
 install caskroom/cask/brew-cask
 tap caskroom/versions
 
-# tools
+# cloud storage
+cask install amazon-cloud-drive 2> /dev/null
 cask install box-sync 2> /dev/null
-cask install diffmerge 2> /dev/null
 cask install dropbox 2> /dev/null
+cask install skydrive 2> /dev/null
+
+# tools
+cask install adium 2> /dev/null
+cask install diffmerge 2> /dev/null
 cask install evernote 2> /dev/null
+cask install flash-player 2> /dev/null
+cask install github 2> /dev/null
 cask install gpgtools 2> /dev/null
+cask install lastpass-universal 2> /dev/null
 cask install macvim 2> /dev/null
 cask install sizeup 2> /dev/null
-cask install skydrive 2> /dev/null
 cask install slack 2> /dev/null
 cask install sublime-text 2> /dev/null
 cask install the-unarchiver 2> /dev/null
 cask install total-terminal 2> /dev/null
 cask install transmission 2> /dev/null
 cask install vlc 2> /dev/null
+cask install xquartz 2> /dev/null
 
 # development browsers
 cask install breach 2> /dev/null

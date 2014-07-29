@@ -22,6 +22,9 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 # always boot in verbose mode (not OSX GUI mode)
 sudo nvram boot-args="-v";
 
+# allow 'locate' command
+sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist 
+
 # Set standby delay to 24 hours (default is 1 hour)
 sudo pmset -a standbydelay 86400
 
@@ -663,6 +666,22 @@ defaults write com.irradiatedsoftware.SizeUp ShowPrefsOnNextStart -bool false
 
 # Install Sublime Text settings
 cp -r init/Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text*/Packages/User/Preferences.sublime-settings 2> /dev/null
+
+###############################################################################
+# NPM GLOBALS                                                                 #
+###############################################################################
+npm install -g bower
+npm install -g coffee-script
+npm install -g forever
+npm install -g gulp
+npm install -g js-complexity-viz
+npm install -g jshint
+npm install -g meteorite
+npm install -g prettyjson
+npm install -g repl-client
+npm install -g replify
+npm install -g supervisor
+npm install -g yo
 
 ###############################################################################
 # Kill affected applications                                                  #

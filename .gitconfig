@@ -156,7 +156,7 @@
 	#tool = myaraxis
 	tool = diffmerge
 [init]
-    templatedir = /usr/local/git/share/git-core/templates/hooks/
+    templatedir = ~/.dotfiles/.git_template
 [mergetool]
 	prompt = false
 	keepBackup = false

@@ -42,6 +42,7 @@ install node
 install dos2unix
 install ack
 install nmap
+install gnupg
 
 # Remove outdated versions from the cellar
 cleanup
