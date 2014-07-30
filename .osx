@@ -570,6 +570,11 @@ open "./init/Solarized Dark.itermcolors"
 defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 # hide tab title bars
 defaults write com.googlecode.iterm2 HideTab -bool true
+
+# Make iTerm2 load new tabs in the same directory
+#defaults export com.googlecode.iterm2 /tmp/plist
+/usr/libexec/PlistBuddy -c "set \"New Bookmarks\":0:\"Custom Directory\" Recycle" /tmp/plist
+defaults import com.googlecode.iterm2 /tmp/plist
 ###############################################################################
 # Time Machine                                                                #
 ###############################################################################
