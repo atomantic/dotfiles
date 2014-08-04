@@ -37,11 +37,13 @@ install homebrew/php/php55 --with-gmp
 
 # Install other useful binaries
 install git hub tig git-flow
+install imagesnap
 install redis
 install node
 install dos2unix
 install ack
 install nmap
+install tree
 install gnupg
 
 # Remove outdated versions from the cellar
