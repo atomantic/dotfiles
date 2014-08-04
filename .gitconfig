@@ -49,12 +49,17 @@
 	#editor = subl -w
 
 [alias]
+	# most commonly used
+	co = checkout
+	d = diff --color-words
+	cam = commit -a -m
+	upm = !git fetch upstream && git merge upstream/master
+
+	# least used
 	br = branch -a
 	s = status -s -u
 	cl = log --stat -C -2
 	c = commit
-	co = checkout
-	d = diff --color-words
 	dh = diff HEAD
 	dc = diff --staged
 	dw = diff --word-diff
@@ -79,7 +84,6 @@
 	noticechanges = update-index --no-assume-unchanged
 	gc-ap = gc --aggressive --prune
 	listconf = config --global --list
-	cam = commit -a -m
 	lsm = log -M --stat
 	hse = log --stat -5
 	diffall = diff HEAD
@@ -129,7 +133,7 @@
 	busythisweek = shortlog --since=one.week.ago
 	configpushtracking = config push.default tracking
 	configpushnothing = config push.default nothing
-	configpushtracking = config push.default matching
+	configpushmatching = config push.default matching
 	configpushcurrent = config push.default current
 
 	nr = "!sh -c 'git init $0'"
