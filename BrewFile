@@ -47,5 +47,8 @@ install nmap
 install tree
 install gnupg
 
+# fortune command :)
+install fortune
+
 # Remove outdated versions from the cellar
 cleanup
