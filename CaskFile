@@ -12,12 +12,13 @@ cask install skydrive 2> /dev/null
 
 # tools
 cask install adium 2> /dev/null
-cask install ireadfast 2> /dev/null
+cask install comicbooklover 2> /dev/null
 cask install diffmerge 2> /dev/null
 cask install evernote 2> /dev/null
 cask install flash-player 2> /dev/null
 cask install github 2> /dev/null
 cask install gpgtools 2> /dev/null
+cask install ireadfast 2> /dev/null
 cask install iterm2 2> /dev/null
 cask install lastpass-universal 2> /dev/null
 cask install macvim 2> /dev/null
