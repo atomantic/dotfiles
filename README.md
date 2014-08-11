@@ -11,24 +11,28 @@ Most of these scripts are based on or ported from [Matthew Mccullough's dotfiles
 ## Acquiring This Repo
 This project contains submodules. It is suggested that you clone this into your home directory.
 
+Note: I recommend forking this repo :)
 ```bash
 git clone --recurse-submodules https://github.com/atomantic/dotfiles ~/.dotfiles
 ```
 
+
 ## Setup
+
+Before you setup, edit .gitconfig and change my name to yours:
+```
+[user]
+	name = Adam Eivy
+	email = adam.eivy@disney.com
+```
+
+You will also want to remove `source ~/Dropbox/Private/Boxes/osx/.shellaliases` from .profile
+
 There is a set up script that establishes the symlinks in your home directory. Run this once.
 
 * For ZShell
 ```bash
 ./_setupdotfiles.zsh
-```
-
-### Sensible OS X defaults
-
-When setting up a new Mac, you may want to set some sensible OS X defaults:
-
-```bash
-./.osx
 ```
 
 ## Contributions

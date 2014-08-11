@@ -32,6 +32,10 @@ function symlinkifne {
 echo "This script must be run from the dotfiles directory"
 echo "Setting up..."
 
+echo "formatting the configs for this user"
+
+sed -i '' 's/eivya001/'$(whoami)'/g' .zshrc;
+
 #export DOTFILESDIRRELATIVETOHOME=$PWD
 export DOTFILESDIRRELATIVETOHOME=.dotfiles
 echo "DOTFILESDIRRELATIVETOHOME = $DOTFILESDIRRELATIVETOHOME"
