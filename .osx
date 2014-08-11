@@ -9,6 +9,16 @@ sudo -v
 # Keep-alive: update existing `sudo` time stamp until `.osx` has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
+
+#####
+# install homebrew
+#####
+ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+
+brew bundle Brewfile
+
+brew bundle Caskfile
+
 ###############################################################################
 # General UI/UX                                                               #
 ###############################################################################
@@ -695,16 +705,6 @@ npm install -g repl-client
 npm install -g replify
 npm install -g supervisor
 npm install -g yo
-
-#####
-# install homebrew
-#####
-ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
-
-
-brew bundle Brewfile
-
-brew bundle Caskfile
 
 ###############################################################################
 # Kill affected applications                                                  #
