@@ -23,6 +23,7 @@ cask install iterm2 2> /dev/null
 cask install lastpass-universal 2> /dev/null
 cask install macvim 2> /dev/null
 cask install sizeup 2> /dev/null
+cask install simple-comic 2> /dev/null
 cask install slack 2> /dev/null
 cask install sublime-text 2> /dev/null
 cask install the-unarchiver 2> /dev/null
