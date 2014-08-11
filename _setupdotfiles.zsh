@@ -68,3 +68,7 @@ symlinkifne .zshenv
 symlinkifne .zshrc
 
 popd
+
+echo "running OSX config and Brew installations"
+
+./.osx
