@@ -1,46 +1,54 @@
 #!/bin/zsh
 
+###########################
+# This script installs the dotfiles and runs all other system configuration scripts
+# @author Adam Eivy
+###########################
+
+
+# include my library helpers for colorized echo and require_brew, etc
+source ./lib.sh
+
 export UNLINK=true
 
-function symlinkifne {
-    echo "WORKING ON: $1"
-    
-    # does it exist
-    if [[ -a $1 ]]; then
-      echo "  WARNING: $1 already exists."
-      
-      # If Unlink is requested
-      if [ "$UNLINK" = "true" ]; then
-          unlink $1
-          echo "  Unlinking $1"
-          
-          # create the link
-          echo "  Symlinking $DOTFILESDIRRELATIVETOHOME/$1 to $1"
-          ln -s $DOTFILESDIRRELATIVETOHOME/$1 $1
-      else
-        echo "  SKIPPING $1."  
-      fi
-    # does not exist
-    else
-      # create the link
-      echo "  Symlinking $DOTFILESDIRRELATIVETOHOME/$1 to $1"
-      ln -s $DOTFILESDIRRELATIVETOHOME/$1 $1
-    fi
-}
+read \?"\[._.]/ - Hi. I'm going to make your OSX system better. OK?"
 
-
-echo "This script must be run from the dotfiles directory"
-echo "Setting up..."
-
-echo "formatting the configs for this user"
-
-sed -i '' 's/eivya001/'$(whoami)'/g' .zshrc;
+action "Installing OSX settings, software and dotfiles symlinks..."
 
 #export DOTFILESDIRRELATIVETOHOME=$PWD
 export DOTFILESDIRRELATIVETOHOME=.dotfiles
 echo "DOTFILESDIRRELATIVETOHOME = $DOTFILESDIRRELATIVETOHOME"
-
 pushd ~
+
+action "formatting configs for "$(whoami)
+
+sed -i '' 's/eivya001/'$(whoami)'/g' .zshrc;
+
+function symlinkifne {
+    action "WORKING ON: $1..."
+    
+    # does it exist
+    if [[ -a $1 ]]; then
+      warn "  $1 already exists."
+      
+      # If Unlink is requested
+      if [ "$UNLINK" = "true" ]; then
+          action "  Unlinking $1..."
+          unlink $1
+          
+          # create the link
+          action "  Symlinking $DOTFILESDIRRELATIVETOHOME/$1 to $1"
+          ln -s $DOTFILESDIRRELATIVETOHOME/$1 $1
+      else
+        ok "  SKIPPING $1."  
+      fi
+    # does not exist
+    else
+      # create the link
+      action "  Symlinking $DOTFILESDIRRELATIVETOHOME/$1 to $1"
+      ln -s $DOTFILESDIRRELATIVETOHOME/$1 $1
+    fi
+}
 
 symlinkifne .bowerrc
 symlinkifne .crontab
@@ -73,6 +81,7 @@ symlinkifne .zshrc
 
 popd
 
-echo "running OSX config and Brew installations"
+action "running OSX config and Brew installations"
 
 ./.osx
+ok "\[._.]/ - woot! All done."

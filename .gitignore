@@ -1,3 +1,4 @@
 .vim/backup/*
 .vim/temp/*
 .vim/.netrwhist
+.DS_Store
