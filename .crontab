@@ -1,7 +1,8 @@
-# update gems nightly
-0 1 * * *  gem update heroku
-0 2 * * *  rvm get head;rvm reload
-0 3 * * *  gem update -V
-# update homebrew packages
+# ruby gem nightly updates
+0 1 * * *  rvm get head;rvm reload
+0 2 * * *  gem update -V
+# brew nightly updates
+0 3 * * *  brew update
 0 4 * * *  brew upgrade
+# npm
 0 5 * * *  npm update npm -g

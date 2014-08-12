@@ -1,12 +1,5 @@
 # Adam Eivy's Dotfiles
-These are Adam Eivys's OSX shell configuration dotfiles. The primary goal is to increase CLI productivity on Mac OSX, though many scripts run just fine on any POSIX implementation. 
-
-## Focus
-The focus is on Zshell support, but there are plenty of cross-platform scripts in here. There are a few bash-specific ones.
-
-## Inspirations
-The contents of this repo have been partly invented from scratch, partly inspired by open source projects, and partly refactored from snippets from colleagues and friends. Many are attributed.
-Most of these scripts are based on or ported from [Matthew Mccullough's dotfiles](https://github.com/matthewmccullough/dotfiles) and [mathiasbynens dotfiles](https://github.com/mathiasbynens/dotfiles)
+These are Adam Eivys's OSX shell configuration dotfiles and basic system setup preferences and software. The primary goal is to get a fresh OSX laptop up and running with my whole environment with one script. Most of the configs are best used with zsh.
 
 ## Acquiring This Repo
 This project contains submodules. It is suggested that you clone this into your home directory.
@@ -19,21 +12,25 @@ git clone --recurse-submodules https://github.com/atomantic/dotfiles ~/.dotfiles
 
 ## Setup
 
-Before you setup, edit .gitconfig and change my name to yours:
+- Edit .gitconfig and change my name to yours:
 ```
 [user]
 	name = Adam Eivy
 	email = adam.eivy@disney.com
 ```
+- Remove `source ~/Dropbox/Private/Boxes/osx/.shellaliases` from .profile or change that to a path that points to your own private aliases.
 
-You will also want to remove `source ~/Dropbox/Private/Boxes/osx/.shellaliases` from .profile
-
-There is a set up script that establishes the symlinks in your home directory. Run this once.
-
-* For ZShell
+- Change your user account system shell to zsh
+- Run the install script
 ```bash
 ./_setupdotfiles.zsh
 ```
+
+## Additional
+
+There are a few additional features in this repo:
+
+- .crontab: you can `cron ~/.crontab` if you want to add my nightly cron software updates. Note that this may wake you in the morning to compatibility issues so use only if you like being on the edge :)
 
 ## Contributions
 Contributions are always welcome in the form of pull requests with explanatory comments.
