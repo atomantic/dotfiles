@@ -132,7 +132,7 @@ require_cask xquartz
 # development browsers
 require_cask breach
 require_cask firefox
-require_cask firefox-aurora
+#require_cask firefox-aurora
 require_cask google-chrome
 require_cask google-chrome-canary
 require_cask torbrowser
