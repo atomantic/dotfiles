@@ -95,9 +95,6 @@ require_brew gnupg
 # fortune command :)
 require_brew fortune
 
-# Remove outdated versions from the cellar
-brew cleanup
-
 ###############################################################################
 # Native Apps (via brew cask)                                                 #
 ###############################################################################
@@ -147,6 +144,10 @@ require_cask chefdk
 # vagrant for running dev environments using docker images
 require_cask vagrant # # | grep Caskroom | sed "s/.*'\(.*\)'.*/open \1\/Vagrant.pkg/g" | sh
 
+bot "Alright, cleaning up homebrew cache..."
+# Remove outdated versions from the cellar
+brew cleanup > /dev/null 2>&1
+bot "All clean"
 ###############################################################################
 # General UI/UX                                                               #
 ###############################################################################

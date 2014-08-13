@@ -21,7 +21,7 @@ bot "Hi. I'm going to make your OSX system better."
 
 #export DOTFILESDIRRELATIVETOHOME=$PWD
 export DOTFILESDIRRELATIVETOHOME=.dotfiles
-pushd ~ > /dev/null
+pushd ~ > /dev/null 2>&1 
 
 action "formatting configs for "$(whoami)"..."
 

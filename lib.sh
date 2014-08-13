@@ -40,7 +40,7 @@ function error() {
 }
 
 function require_cask() {
-    running "installing brew cask $1..."
+    running "installing brew cask $1"
     brew cask list $1 > /dev/null 2>&1 | true
     if [[ ${PIPESTATUS[0]} != 0 ]]; then
         brew cask install $1
@@ -54,7 +54,7 @@ function require_cask() {
 }
 
 function require_brew() {
-    running "installing brew $1 $2..."
+    running "installing brew $1 $2"
     brew list $1 > /dev/null 2>&1 | true
     if [[ ${PIPESTATUS[0]} != 0 ]]; then
         brew install $1 $2
