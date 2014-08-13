@@ -31,7 +31,7 @@ if [[ $? = 0 ]]; then
 else
 	require_brew caskroom/cask/brew-cask
     # tap 
-    brew tap caskroom/cask
+    brew tap caskroom/cask > /dev/null 2>&1
     require_brew brew-cask
 fi
 
@@ -99,7 +99,7 @@ require_brew fortune
 # Native Apps (via brew cask)                                                 #
 ###############################################################################
 bot "installing GUI tools via homebrew casks..."
-brew tap caskroom/versions
+brew tap caskroom/versions > /dev/null 2>&1
 
 # cloud storage
 require_cask amazon-cloud-drive
@@ -112,7 +112,7 @@ require_cask adium
 require_cask comicbooklover
 require_cask diffmerge
 require_cask evernote
-require_cask flash-player
+#require_cask flash-player
 require_cask github
 require_cask gpgtools
 require_cask ireadfast

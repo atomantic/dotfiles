@@ -28,6 +28,8 @@ git clone --recurse-submodules https://github.com/atomantic/dotfiles ~/.dotfiles
 ./install.sh
 ```
 
+Note: running install.sh is idempotent. You can run it again and again as you add new features or software to the scripts!
+
 ## Additional
 
 There are a few additional features in this repo:
