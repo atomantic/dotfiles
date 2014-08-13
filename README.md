@@ -25,7 +25,7 @@ git clone --recurse-submodules https://github.com/atomantic/dotfiles ~/.dotfiles
 - Change your user account system shell to zsh
 - Run the install script
 ```bash
-./install.zsh
+./install.sh
 ```
 
 ## Additional

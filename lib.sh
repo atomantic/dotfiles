@@ -19,6 +19,14 @@ function ok() {
     echo -e "$COL_GREEN[ok]$COL_RESET "$1
 }
 
+function bot() {
+    echo -e "$COL_GREEN\[._.]/$COL_RESET - "$1
+}
+
+function running() {
+    echo -en $1"..."
+}
+
 function action() {
     echo -e "$COL_YELLOW[action]$COL_RESET "$1
 }
@@ -32,32 +40,30 @@ function error() {
 }
 
 function require_cask() {
-    echo "checking brew cask $1..."
+    running "installing brew cask $1..."
     brew cask list $1 > /dev/null 2>&1 | true
     if [[ ${PIPESTATUS[0]} != 0 ]]; then
-        action "installing $1..."
         brew cask install $1
         if [[ $? != 0 ]]; then
             error "failed to install $1! aborting..."
             exit -1
         fi
     else
-        ok "$1 is installed"
+        ok
     fi
 }
 
 function require_brew() {
-    echo "checking brew $1..."
+    running "installing brew $1 $2..."
     brew list $1 > /dev/null 2>&1 | true
     if [[ ${PIPESTATUS[0]} != 0 ]]; then
-        action "$1 installing..."
-        brew install $1
+        brew install $1 $2
         if [[ $? != 0 ]]; then
             error "failed to install $1! aborting..."
             exit -1
         fi
     else
-        ok "$1 is installed"
+        ok
     fi
 }
 

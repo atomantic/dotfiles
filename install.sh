@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/usr/bin/env bash
 
 ###########################
 # This script installs the dotfiles and runs all other system configuration scripts
@@ -9,44 +9,44 @@
 # include my library helpers for colorized echo and require_brew, etc
 source ./lib.sh
 
-export UNLINK=true
+export UNLINK=false
+bot "Hi. I'm going to make your OSX system better."
 
-read \?"\[._.]/ - Hi. I'm going to make your OSX system better. OK?"
+# read -r -p "OK? [Y/n] " response
+#  if [[ ! $response =~ ^(yes|y|Y| ) ]];then
+#     exit 1
+#  fi
 
-action "Installing OSX settings, software and dotfiles symlinks..."
+# bot "awesome. let's roll..."
 
 #export DOTFILESDIRRELATIVETOHOME=$PWD
 export DOTFILESDIRRELATIVETOHOME=.dotfiles
-echo "DOTFILESDIRRELATIVETOHOME = $DOTFILESDIRRELATIVETOHOME"
-pushd ~
+pushd ~ > /dev/null
 
-action "formatting configs for "$(whoami)
+action "formatting configs for "$(whoami)"..."
 
 sed -i '' 's/eivya001/'$(whoami)'/g' .zshrc;
 
 function symlinkifne {
-    action "WORKING ON: $1..."
+    echo -ne "linking $1..."
     
     # does it exist
-    if [[ -a $1 ]]; then
-      warn "  $1 already exists."
+    if [[ -a $1 || -L $1 ]]; then
       
       # If Unlink is requested
       if [ "$UNLINK" = "true" ]; then
-          action "  Unlinking $1..."
           unlink $1
-          
           # create the link
-          action "  Symlinking $DOTFILESDIRRELATIVETOHOME/$1 to $1"
           ln -s $DOTFILESDIRRELATIVETOHOME/$1 $1
+          ok
       else
-        ok "  SKIPPING $1."  
+        ok
       fi
     # does not exist
     else
       # create the link
-      action "  Symlinking $DOTFILESDIRRELATIVETOHOME/$1 to $1"
       ln -s $DOTFILESDIRRELATIVETOHOME/$1 $1
+      ok
     fi
 }
 
@@ -81,7 +81,6 @@ symlinkifne .zshrc
 
 popd
 
-action "running OSX config and Brew installations"
+./osx.sh
 
-./.osx
-ok "\[._.]/ - woot! All done."
+bot "Woot! All done."

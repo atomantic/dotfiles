@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-# thanks to mathiasbynens
-# ~/.osx — http://mths.be/osx
-
+# include my library helpers for colorized echo and require_brew, etc
+source ./lib.sh
 # Ask for the administrator password upfront
+bot "I need you to enter your sudo password so I can install some things:"
 sudo -v
 
 # Keep-alive: update existing `sudo` time stamp until `.osx` has finished
@@ -13,16 +13,144 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 #####
 # install homebrew
 #####
-ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 
-brew bundle Brewfile
+brew_bin=$(which brew) 2>&1 > /dev/null
+if [[ $? != 0 ]]; then
+    ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+else
+    ok "$brew_bin installed"
+fi
+if [[ $? != 0 ]]; then
+    error "unable to install homebrew, script $0 failed"
+    exit -1
+fi
 
-brew bundle Caskfile
+output=$(brew tap | grep cask)
+if [[ $? = 0 ]]; then
+    ok "caskroom/cask is installed"
+else
+	require_brew caskroom/cask/brew-cask
+    # tap 
+    brew tap caskroom/cask
+    require_brew brew-cask
+fi
+
+###############################################################################
+#Install command-line tools using Homebrew                                    #
+###############################################################################
+bot "installing command-line tools via homebrew..."
+# Make sure we’re using the latest Homebrew
+action "update brew..."
+brew update
+ok "brew updated..."
+# Upgrade any already-installed formulae
+action "upgrade brew packages..."
+brew upgrade
+ok "brews updated..."
+
+action "installing packages..."
+# Install GNU core utilities (those that come with OS X are outdated)
+# Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
+require_brew coreutils
+# Install some other useful utilities like `sponge`
+require_brew moreutils
+# Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed
+require_brew findutils
+# Install GNU `sed`, overwriting the built-in `sed`
+require_brew gnu-sed --default-names
+# Install Bash 4
+# Note: don’t forget to add `/usr/local/bin/bash` to `/etc/shells` before running `chsh`.
+#install bash
+#install bash-completion
+
+# Install wget with IRI support
+require_brew wget --enable-iri
+
+# Install RingoJS and Narwhal
+# Note that the order in which these are installed is important; see http://git.io/brew-narwhal-ringo.
+#install ringojs
+#install narwhal
+
+# Install more recent versions of some OS X tools
+require_brew vim --override-system-vi
+require_brew homebrew/dupes/grep
+require_brew homebrew/dupes/screen
+#install homebrew/php/php55 --with-gmp
+
+# Install other useful binaries
+require_brew git 
+require_brew hub 
+require_brew tig 
+require_brew git-flow
+require_brew imagesnap
+require_brew jq
+require_brew redis
+require_brew node
+require_brew dos2unix
+require_brew ack
+require_brew nmap
+require_brew tree
+require_brew gnupg
+
+# fortune command :)
+require_brew fortune
+
+# Remove outdated versions from the cellar
+brew cleanup
+
+###############################################################################
+# Native Apps (via brew cask)                                                 #
+###############################################################################
+bot "installing GUI tools via homebrew casks..."
+brew tap caskroom/versions
+
+# cloud storage
+require_cask amazon-cloud-drive
+require_cask box-sync
+require_cask dropbox
+require_cask skydrive
+
+# tools
+require_cask adium
+require_cask comicbooklover
+require_cask diffmerge
+require_cask evernote
+require_cask flash-player
+require_cask github
+require_cask gpgtools
+require_cask ireadfast
+require_cask iterm2
+require_cask lastpass-universal
+require_cask macvim
+require_cask sizeup
+require_cask simple-comic
+require_cask sketchup
+require_cask slack
+require_cask sublime-text
+require_cask the-unarchiver
+require_cask transmission
+require_cask vlc
+require_cask xquartz
+
+# development browsers
+require_cask breach
+require_cask firefox
+require_cask firefox-aurora
+require_cask google-chrome
+require_cask google-chrome-canary
+require_cask torbrowser
+
+# virtal machines
+require_cask virtualbox
+# chef-dk, berkshelf, etc
+require_cask chefdk
+# vagrant for running dev environments using docker images
+require_cask vagrant # # | grep Caskroom | sed "s/.*'\(.*\)'.*/open \1\/Vagrant.pkg/g" | sh
 
 ###############################################################################
 # General UI/UX                                                               #
 ###############################################################################
-
+bot "changing system UI/UX..."
 # Set computer name (as done via System Preferences → Sharing)
 #sudo scutil --set ComputerName "antic"
 #sudo scutil --set HostName "antic"
@@ -693,6 +821,7 @@ cp -r configs/Preferences.sublime-settings ~/Library/Application\ Support/Sublim
 ###############################################################################
 # NPM GLOBALS                                                                 #
 ###############################################################################
+bot "installing npm globals..."
 npm install -g bower
 npm install -g coffee-script
 npm install -g forever
@@ -709,10 +838,10 @@ npm install -g yo
 ###############################################################################
 # Kill affected applications                                                  #
 ###############################################################################
-
+bot "OK. Killing affected applications (so they can reboot)..."
 for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
 	"Dock" "Finder" "Mail" "Messages" "Safari" "SizeUp" "SystemUIServer" \
 	"Terminal" "iCal"; do
 	killall "${app}" > /dev/null 2>&1
 done
-echo "Done. Note that some of these changes require a logout/restart to take effect."
+bot "Done. Note that some of these changes require a logout/restart to take effect."
