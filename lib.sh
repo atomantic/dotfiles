@@ -73,7 +73,7 @@ function require_brew() {
 }
 
 function require_gem() {
-    running "install gem $1..."
+    running "install gem $1"
     if [[ $(gem list --local | grep $1 | head -1 | cut -d' ' -f1) != $1 ]];
         then
             gem install $1
@@ -82,7 +82,7 @@ function require_gem() {
 }
 
 function require_npm() {
-    running "npm install $1..."
+    running "npm install $1"
     npm list -g $1 > /dev/null 2>&1 | true
     if [[ ${PIPESTATUS[0]} != 0 ]]; then
             npm install $1 > /dev/null 2>&1

@@ -19,13 +19,13 @@ bot "Hi. I'm going to make your OSX system better."
 
 # bot "awesome. let's roll..."
 
+running "formatting configs for "$(whoami)
+
+sed -i 's/eivya001/'$(whoami)'/g' .zshrc;ok
+
 #export DOTFILESDIRRELATIVETOHOME=$PWD
 export DOTFILESDIRRELATIVETOHOME=.dotfiles
 pushd ~ > /dev/null 2>&1
-
-action "formatting configs for "$(whoami)"..."
-
-sed -i '' 's/eivya001/'$(whoami)'/g' $DOTFILESDIRRELATIVETOHOME/.zshrc;
 
 function symlinkifne {
     echo -ne "linking $1..."
