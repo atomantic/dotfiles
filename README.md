@@ -44,6 +44,7 @@ git clone --recurse-submodules https://github.com/atomantic/dotfiles ~/.dotfiles
 There are a few additional features in this repo:
 
 - .crontab: you can `cron ~/.crontab` if you want to add my nightly cron software updates.
+
 > \\[0_0]/ - Note that this may wake you in the morning to compatibility issues so use only if you like being on the edge
 
 ## Contributions
