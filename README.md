@@ -21,23 +21,25 @@ git clone --recurse-submodules https://github.com/atomantic/dotfiles ~/.dotfiles
 ## Setup
 
 > \\[._.]/ - Hey, wouldn't it be cool if I walked you through these next steps on the terminal?
-> Maybe you want to fork this repo and pull-request that to Adam! (or he might get to it eventually)
+> Maybe you want to fork this repo and pull-request that to Adam! (he will probably get to it eventually)
 
 - Edit .gitconfig and change Adam's name to yours:
 ```
 [user]
 	name = Adam Eivy
 	email = adam.eivy@disney.com
+...
+[github]
+    # https://github.com/blog/180-local-github-config
+    user = atomantic
 ```
-- Adam also has some private shell aliases in Dropbox so you will want to remove `source ~/Dropbox/Private/Boxes/osx/.shellaliases` from .profile or change that to a path that points to your own private aliases.
-
 - Change your user account system shell to zsh
 - Run the install script
 ```bash
 ./install.sh
 ```
 
-> Note: running install.sh is idempotent. You can run it again and again as you add new features or software to the scripts!
+> Note: running install.sh is idempotent. You can run it again and again as you add new features or software to the scripts! I'll regularly add new configurations so keep an eye on this repo as it grows and optimizes.
 
 ## Additional
 
