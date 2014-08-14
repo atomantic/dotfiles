@@ -821,6 +821,12 @@ require_npm supervisor
 require_npm yo
 
 ###############################################################################
+bot "Ruby Gems..."
+###############################################################################
+require_gem git-up
+
+
+###############################################################################
 # Kill affected applications                                                  #
 ###############################################################################
 bot "OK. Note that some of these changes require a logout/restart to take effect. Killing affected applications (so they can reboot)...."
