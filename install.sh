@@ -25,7 +25,7 @@ pushd ~ > /dev/null 2>&1
 
 action "formatting configs for "$(whoami)"..."
 
-sed -i '' 's/eivya001/'$(whoami)'/g' .zshrc;
+sed -i '' 's/eivya001/'$(whoami)'/g' $DOTFILESDIRRELATIVETOHOME/.zshrc;
 
 function symlinkifne {
     echo -ne "linking $1..."
