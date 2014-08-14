@@ -20,6 +20,7 @@ function ok() {
 }
 
 function bot() {
+    echo
     echo -e "$COL_GREEN\[._.]/$COL_RESET - "$1
 }
 
@@ -47,6 +48,8 @@ function require_cask() {
         if [[ $? != 0 ]]; then
             error "failed to install $1! aborting..."
             exit -1
+        else
+            ok
         fi
     else
         ok
@@ -61,6 +64,8 @@ function require_brew() {
         if [[ $? != 0 ]]; then
             error "failed to install $1! aborting..."
             exit -1
+        else
+            ok
         fi
     else
         ok
@@ -68,14 +73,22 @@ function require_brew() {
 }
 
 function require_gem() {
-    echo "checking gem install of $1..."
-    if [[ $(gem list --local | grep $1 | head -1 | cut -d' ' -f1) == $1 ]];
+    running "install gem $1..."
+    if [[ $(gem list --local | grep $1 | head -1 | cut -d' ' -f1) != $1 ]];
         then
-            ok "$1 is installed"
-        else
-            action "$1 installing..."
             gem install $1
     fi
+    ok
+}
+
+function require_npm() {
+    running "npm install $1..."
+    npm list -g $1 > /dev/null 2>&1 | true
+    if [[ ${PIPESTATUS[0]} != 0 ]]; then
+        then
+            npm install $1 > /dev/null 2>&1
+    fi
+    ok
 }
 
 function require_vagrant_plugin() {

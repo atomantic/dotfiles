@@ -1,7 +1,7 @@
 # Adam Eivy's Dotfiles
 These are Adam Eivys's OSX shell configuration dotfiles and basic system setup preferences and software. The primary goal is to get a fresh OSX laptop up and running with my whole environment with one script. Most of the configs are best used with zsh.
 
-![iTerm Screenshot](https://raw.githubusercontent.com/atomantic/dotfiles/master/dotfiles.png)
+![iTerm Screenshot](https://raw.githubusercontent.com/atomantic/dotfiles/master/img/dotfiles.png)
 
 ## Acquiring This Repo
 This project contains submodules. It is suggested that you clone this into your home directory.
