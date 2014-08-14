@@ -22,7 +22,6 @@
   "font_size": 13,
   "highlight_modified_tabs": true,
   "hot_exit": false,
-  "line_padding_bottom": 5,
   "match_brackets": true,
   "match_brackets_angle": true,
   "remember_open_files": false,
@@ -31,7 +30,7 @@
   ],
   "show_encoding": true,
   "show_line_endings": true,
-  "tab_size": 2,
+  "tab_size": 4,
   "translate_tabs_to_spaces": false,
   "trim_trailing_white_space_on_save": true,
   "word_wrap": true
