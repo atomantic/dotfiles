@@ -85,7 +85,6 @@ function require_npm() {
     running "npm install $1..."
     npm list -g $1 > /dev/null 2>&1 | true
     if [[ ${PIPESTATUS[0]} != 0 ]]; then
-        then
             npm install $1 > /dev/null 2>&1
     fi
     ok

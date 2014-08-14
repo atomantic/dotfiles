@@ -29,10 +29,10 @@ sed -i '' 's/eivya001/'$(whoami)'/g' .zshrc;
 
 function symlinkifne {
     echo -ne "linking $1..."
-    
+
     # does it exist
     if [[ -a $1 || -L $1 ]]; then
-      
+
       # If Unlink is requested
       if [ "$UNLINK" = "true" ]; then
           unlink $1
