@@ -20,20 +20,6 @@ git clone --recurse-submodules https://github.com/atomantic/dotfiles ~/.dotfiles
 ```
 ## Setup
 
-> \\[._.]/ - Hey, wouldn't it be cool if I walked you through these next steps on the terminal?
-> Maybe you want to fork this repo and pull-request that to Adam! (he will probably get to it eventually)
-
-- Edit .gitconfig and change Adam's name to yours:
-```
-[user]
-	name = Adam Eivy
-	email = adam.eivy@disney.com
-...
-[github]
-    # https://github.com/blog/180-local-github-config
-    user = atomantic
-```
-- Change your user account system shell to zsh
 - Run the install script
 ```bash
 ./install.sh

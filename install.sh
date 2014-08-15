@@ -10,7 +10,36 @@
 source ./lib.sh
 
 export UNLINK=false
-bot "Hi. I'm going to make your OSX system better."
+bot "Hi. I'm going to make your OSX system better. But first, I need to configure this project based on your info so you don't check in files to github as Adam Eivy from here on out :)"
+
+#fullname=`osascript -e "long user name of (system info)"`
+#me=`dscl . -read /Users/$(whoami)`
+lastname=`dscl . -read /Users/$(whoami) | grep LastName | sed "s/LastName: //"`
+firstname=`dscl . -read /Users/$(whoami) | grep FirstName | sed "s/FirstName: //"`
+email=`dscl . -read /Users/$(whoami)  | grep EMailAddress | sed "s/EMailAddress: //"`
+
+
+echo -e "I see that your full name is $COL_YELLOW$firstname $lastname$COL_RESET"
+read -r -p "Is this correct? [Y|n] " response
+if [[ $response =~ ^(no|n|N) ]];then
+	read -r -p "What is your first name? " firstname
+	read -r -p "What is your last name? " lastname
+fi
+fullname="$firstname $lastname"
+
+bot "Great $fullname, "
+echo -e "The best I can make out, your email address is $COL_YELLOW$email$COL_RESET"
+read -r -p "Is this correct? [Y|n] " response
+if [[ $response =~ ^(no|n|N) ]];then
+	read -r -p "What is your email? " email
+fi
+
+read -r -p "What is your github.com username? " githubuser
+
+running "replacing items in .gitconfig with your info ($COL_YELLOW$fullname, $email, $githubuser$COL_RESET)"
+sed -i 's/Adam Eivy/'$firstname' '$lastname'/' .gitconfig;
+sed -i 's/adam.eivy@disney.com/'$email'/' .gitconfig;
+sed -i 's/atomantic/'$githubuser'/' .gitconfig;ok
 
 # read -r -p "OK? [Y/n] " response
 #  if [[ ! $response =~ ^(yes|y|Y| ) ]];then
@@ -22,6 +51,14 @@ bot "Hi. I'm going to make your OSX system better."
 running "formatting configs for "$(whoami)
 
 sed -i 's/eivya001/'$(whoami)'/g' .zshrc;ok
+
+echo $0 | grep zsh > /dev/null 2>&1 | true
+if [[ ${PIPESTATUS[0]} != 0 ]]; then
+	running "changing your login shell to zsh"
+	chsh -s $(which zsh);ok
+else
+	bot "looks like you are already using zsh. woot!"
+fi
 
 #export DOTFILESDIRRELATIVETOHOME=$PWD
 export DOTFILESDIRRELATIVETOHOME=.dotfiles
