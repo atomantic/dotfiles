@@ -1,6 +1,12 @@
 [user]
 	name = Adam Eivy
 	email = Adam.Eivy@disney.com
+[github]
+    # https://github.com/blog/180-local-github-config
+    user = atomantic
+    
+    # in a few months, look into the include directive (after bug fixes)
+    token = MOVEALONG
 
 [color]
 # ui = true is a superset of all the more specific color options
@@ -178,14 +184,6 @@
 [branch]
     # Automatically set up pull to be --rebase
     # autosetuprebase = always
-
-[github]
-    # https://github.com/blog/180-local-github-config
-    user = atomantic
-    
-    # in a few months, look into the include directive (after bug fixes)
-    token = MOVEALONG
-    
         
 [credential]
     # cache creds (git help credential-cache)

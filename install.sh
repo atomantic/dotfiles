@@ -14,13 +14,18 @@ bot "Hi. I'm going to make your OSX system better. But first, I need to configur
 
 #fullname=`osascript -e "long user name of (system info)"`
 #me=`dscl . -read /Users/$(whoami)`
+
 lastname=`dscl . -read /Users/$(whoami) | grep LastName | sed "s/LastName: //"`
 firstname=`dscl . -read /Users/$(whoami) | grep FirstName | sed "s/FirstName: //"`
 email=`dscl . -read /Users/$(whoami)  | grep EMailAddress | sed "s/EMailAddress: //"`
 
+if [[ ! "$firstname" ]];then
+  response='n'
+else
+  echo -e "I see that your full name is $COL_YELLOW$firstname $lastname$COL_RESET"
+  read -r -p "Is this correct? [Y|n] " response
+fi
 
-echo -e "I see that your full name is $COL_YELLOW$firstname $lastname$COL_RESET"
-read -r -p "Is this correct? [Y|n] " response
 if [[ $response =~ ^(no|n|N) ]];then
 	read -r -p "What is your first name? " firstname
 	read -r -p "What is your last name? " lastname
@@ -28,8 +33,14 @@ fi
 fullname="$firstname $lastname"
 
 bot "Great $fullname, "
-echo -e "The best I can make out, your email address is $COL_YELLOW$email$COL_RESET"
-read -r -p "Is this correct? [Y|n] " response
+
+if [[ ! $email ]];then
+  response='n'
+else
+  echo -e "The best I can make out, your email address is $COL_YELLOW$email$COL_RESET"
+  read -r -p "Is this correct? [Y|n] " response
+fi
+
 if [[ $response =~ ^(no|n|N) ]];then
 	read -r -p "What is your email? " email
 fi
@@ -37,9 +48,27 @@ fi
 read -r -p "What is your github.com username? " githubuser
 
 running "replacing items in .gitconfig with your info ($COL_YELLOW$fullname, $email, $githubuser$COL_RESET)"
-sed -i 's/Adam Eivy/'$firstname' '$lastname'/' .gitconfig;
-sed -i 's/adam.eivy@disney.com/'$email'/' .gitconfig;
-sed -i 's/atomantic/'$githubuser'/' .gitconfig;ok
+
+# test if gnu-sed or osx sed
+
+sed -i 's/Adam Eivy/'$firstname' '$lastname'/' .gitconfig > /dev/null 2>&1 | true
+if [[ ${PIPESTATUS[0]} != 0 ]]; then
+  echo
+  running "looks like you are using OSX sed rather than gnu-sed, accommodating"
+  sed -i '' 's/Adam Eivy/'$firstname' '$lastname'/' .gitconfig;
+  sed -i '' 's/adam.eivy@disney.com/'$email'/' .gitconfig;
+  sed -i '' 's/atomantic/'$githubuser'/' .gitconfig;
+  sed -i '' 's/antic/'$(whoami)'/g' .zshrc;ok
+else
+  echo
+  bot "looks like you are already using gnu-sed. woot!"
+  sed -i 's/Adam Eivy/'$firstname' '$lastname'/' .gitconfig;
+  sed -i 's/adam.eivy@disney.com/'$email'/i' .gitconfig;
+  sed -i 's/atomantic/'$githubuser'/' .gitconfig;
+  sed -i 's/antic/'$(whoami)'/g' .zshrc;ok
+fi
+
+
 
 # read -r -p "OK? [Y/n] " response
 #  if [[ ! $response =~ ^(yes|y|Y| ) ]];then
@@ -47,10 +76,6 @@ sed -i 's/atomantic/'$githubuser'/' .gitconfig;ok
 #  fi
 
 # bot "awesome. let's roll..."
-
-running "formatting configs for "$(whoami)
-
-sed -i 's/eivya001/'$(whoami)'/g' .zshrc;ok
 
 echo $0 | grep zsh > /dev/null 2>&1 | true
 if [[ ${PIPESTATUS[0]} != 0 ]]; then

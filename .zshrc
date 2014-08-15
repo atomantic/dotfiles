@@ -31,7 +31,7 @@ source ~/.nvm/nvm.sh
 # Customize to your needs...
 unsetopt correct
 
-export PATH="/Users/eivya001/.rbenv/shims:${PATH}"
+export PATH="/Users/antic/.rbenv/shims:${PATH}"
 source "/usr/local/Cellar/rbenv/0.4.0/libexec/../completions/rbenv.zsh"
 rbenv rehash 2>/dev/null
 rbenv() {
