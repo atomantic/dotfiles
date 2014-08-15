@@ -56,7 +56,7 @@ if [[ ${PIPESTATUS[0]} != 0 ]]; then
   echo
   running "looks like you are using OSX sed rather than gnu-sed, accommodating"
   sed -i '' 's/Adam Eivy/'$firstname' '$lastname'/' .gitconfig;
-  sed -i '' 's/adam.eivy@disney.com/'$email'/' .gitconfig;
+  sed -i '' 's/adam.eivy@disney.com/'$email'/i' .gitconfig;
   sed -i '' 's/atomantic/'$githubuser'/' .gitconfig;
   sed -i '' 's/antic/'$(whoami)'/g' .zshrc;ok
 else
