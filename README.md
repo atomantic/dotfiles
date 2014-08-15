@@ -27,6 +27,8 @@ git clone --recurse-submodules https://github.com/atomantic/dotfiles ~/.dotfiles
 
 > Note: running install.sh is idempotent. You can run it again and again as you add new features or software to the scripts! I'll regularly add new configurations so keep an eye on this repo as it grows and optimizes.
 
+> Warning: If you have existing dotfiles for configuring git, zsh, vim, etc, these will be destroyed and replaced. You might want to save any special configs and add them to a fork of this repo before installing :)
+
 ## Additional
 
 There are a few additional features in this repo:
