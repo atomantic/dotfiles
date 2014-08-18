@@ -82,6 +82,7 @@ require_brew git
 require_brew hub
 require_brew tig
 require_brew git-flow
+require_brew imagemagick
 require_brew imagesnap
 require_brew jq
 require_brew redis
@@ -89,6 +90,7 @@ require_brew node
 require_brew dos2unix
 require_brew ack
 require_brew nmap
+require_brew ttyrec
 require_brew tree
 require_brew gnupg
 
