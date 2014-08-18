@@ -81,11 +81,12 @@ function require_gem() {
     ok
 }
 
+npmlist=`npm list -g`
 function require_npm() {
-    running "npm install $1"
-    npm list -g $1 > /dev/null 2>&1 | true
-    if [[ ${PIPESTATUS[0]} != 0 ]]; then
-            npm install $1 > /dev/null 2>&1
+    running "npm install -g $1"
+    echo $npmlist | grep $1@ > /dev/null
+    if [[ $? != 0 ]]; then
+            npm install -g $1
     fi
     ok
 }
