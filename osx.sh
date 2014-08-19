@@ -50,6 +50,8 @@ brew upgrade
 ok "brews updated..."
 
 action "installing packages..."
+
+
 # Install GNU core utilities (those that come with OS X are outdated)
 # Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
 require_brew coreutils
@@ -57,46 +59,53 @@ require_brew coreutils
 require_brew moreutils
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed
 require_brew findutils
-# Install GNU `sed`, overwriting the built-in `sed`
-require_brew gnu-sed --default-names
+
 # Install Bash 4
 # Note: don’t forget to add `/usr/local/bin/bash` to `/etc/shells` before running `chsh`.
 #install bash
 #install bash-completion
-
-# Install wget with IRI support
-require_brew wget --enable-iri
 
 # Install RingoJS and Narwhal
 # Note that the order in which these are installed is important; see http://git.io/brew-narwhal-ringo.
 #install ringojs
 #install narwhal
 
-# Install more recent versions of some OS X tools
-require_brew vim --override-system-vi
-require_brew homebrew/dupes/grep
-require_brew homebrew/dupes/screen
-#install homebrew/php/php55 --with-gmp
-
 # Install other useful binaries
+require_brew ack
+# dos2unix converts windows newlines to unix newlines
+require_brew dos2unix
+# fortune command--I source this as a better motd :)
+require_brew fortune
+# http://www.lcdf.org/gifsicle/ (because I'm a gif junky)
+require_brew gifsicle
+# skip those GUI clients, git command-line all the way
 require_brew git
-require_brew hub
-require_brew tig
+# yes, yes, use git-flow, please :)
 require_brew git-flow
+# why is everyone still not using GPG?
+require_brew gnupg
+# Install GNU `sed`, overwriting the built-in `sed`
+# so we can do "sed -i 's/foo/bar' file" instead of "sed -i '' 's/foo/bar' file"
+require_brew gnu-sed --default-names
+# better, more recent grep
+require_brew homebrew/dupes/grep
+require_brew hub
 require_brew imagemagick
 require_brew imagesnap
+# jq is a JSON grep
 require_brew jq
-require_brew redis
-require_brew node
-require_brew dos2unix
-require_brew ack
 require_brew nmap
-require_brew ttyrec
+require_brew node
+require_brew redis
+# better/more recent version of screen
+require_brew homebrew/dupes/screen
+require_brew tig
 require_brew tree
-require_brew gnupg
-
-# fortune command :)
-require_brew fortune
+require_brew ttyrec
+# better, more recent vim
+require_brew vim --override-system-vi
+# Install wget with IRI support
+require_brew wget --enable-iri
 
 ###############################################################################
 # Native Apps (via brew cask)                                                 #

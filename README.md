@@ -12,7 +12,7 @@ Note that your shell includes the full path + the git branch!
 \\[._.]/ - I'm so excited I just binaried in my pants!
 
 ## Watch me run!
-![Running](http://media.giphy.com/media/ToMjGplenNcvja2RUf6/giphy.gif)
+![Running](http://media.giphy.com/media/5xtDarwenxEoFeIMEM0/giphy.gif)
 
 ## Acquiring This Repo
 This project contains submodules. Clone this into your home directory.
