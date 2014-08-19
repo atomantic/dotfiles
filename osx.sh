@@ -715,6 +715,12 @@ running "Don’t display the annoying prompt when quitting iTerm"
 defaults write com.googlecode.iterm2 PromptOnQuit -bool false;ok
 running "hide tab title bars"
 defaults write com.googlecode.iterm2 HideTab -bool true;ok
+running "set system-wide hotkey to show/hide iterm with ^\`"
+defaults write com.googlecode.iterm2 Hotkey -bool true;
+defaults write com.googlecode.iterm2 HotkeyChar -int 96;
+defaults write com.googlecode.iterm2 HotkeyCode -int 50;
+defaults write com.googlecode.iterm2 HotkeyModifiers -int 262401;
+ok
 
 # running "Make iTerm2 load new tabs in the same directory"
 # defaults export com.googlecode.iterm2 /tmp/plist
