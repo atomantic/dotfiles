@@ -118,7 +118,6 @@ symlinkifne .gemrc
 symlinkifne .gitconfig
 symlinkifne .gitignore
 symlinkifne .hgrc
-symlinkifne .npmrc
 symlinkifne .profile
 symlinkifne .rvmrc
 symlinkifne .screenrc
