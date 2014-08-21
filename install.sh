@@ -117,7 +117,6 @@ symlinkifne .crontab
 symlinkifne .gemrc
 symlinkifne .gitconfig
 symlinkifne .gitignore
-symlinkifne .hgrc
 symlinkifne .profile
 symlinkifne .rvmrc
 symlinkifne .screenrc
