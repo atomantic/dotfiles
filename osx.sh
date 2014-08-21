@@ -15,26 +15,25 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 # install homebrew
 #####
 
+running "checking homebrew"
 brew_bin=$(which brew) 2>&1 > /dev/null
 if [[ $? != 0 ]]; then
+	action "installing homebrew"
     ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
-else
-    ok "$brew_bin installed"
+    if [[ $? != 0 ]]; then
+    	error "unable to install homebrew, script $0 abort!"
+    	exit -1
+	fi
 fi
-if [[ $? != 0 ]]; then
-    error "unable to install homebrew, script $0 failed"
-    exit -1
-fi
+ok
 
+running "checking brew-cask"
 output=$(brew tap | grep cask)
-if [[ $? = 0 ]]; then
-    ok "caskroom/cask is installed"
-else
+if [[ $? != 0 ]]; then
+	action "installing brew-cask"
 	require_brew caskroom/cask/brew-cask
-    # tap
-    brew tap caskroom/cask > /dev/null 2>&1
-    require_brew brew-cask
 fi
+ok
 
 ###############################################################################
 #Install command-line tools using Homebrew                                    #
