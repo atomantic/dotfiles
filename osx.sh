@@ -75,6 +75,7 @@ require_brew ack
 require_brew dos2unix
 # fortune command--I source this as a better motd :)
 require_brew fortune
+require_brew gawk
 # http://www.lcdf.org/gifsicle/ (because I'm a gif junky)
 require_brew gifsicle
 # skip those GUI clients, git command-line all the way

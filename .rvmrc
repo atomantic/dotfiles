@@ -1,1 +1,1 @@
-export rvm_path="/Users/antic/.rvm"
+export rvm_path="$HOME/.rvm"

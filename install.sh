@@ -112,7 +112,6 @@ function symlinkifne {
     fi
 }
 
-symlinkifne .bowerrc
 symlinkifne .crontab
 symlinkifne .gemrc
 symlinkifne .gitconfig
