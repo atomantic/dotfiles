@@ -94,6 +94,8 @@ require_brew imagemagick
 require_brew imagesnap
 # jq is a JSON grep
 require_brew jq
+# http://maven.apache.org/
+require_brew maven
 require_brew nmap
 require_brew node
 require_brew redis
