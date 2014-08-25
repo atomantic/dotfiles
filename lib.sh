@@ -20,8 +20,7 @@ function ok() {
 }
 
 function bot() {
-    echo
-    echo -e "$COL_GREEN\[._.]/$COL_RESET - "$1
+    echo -e "\n$COL_GREEN\[._.]/$COL_RESET - "$1
 }
 
 function running() {
@@ -29,8 +28,7 @@ function running() {
 }
 
 function action() {
-    echo -e "$COL_YELLOW[action]$COL_RESET"
-    running $1"..."
+    echo -e "\n$COL_YELLOW[action]:$COL_RESET\n ⇒ $1..."
 }
 
 function warn() {
