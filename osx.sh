@@ -96,6 +96,7 @@ require_brew imagesnap
 require_brew jq
 # http://maven.apache.org/
 require_brew maven
+require_brew memcached
 require_brew nmap
 require_brew node
 require_brew redis
@@ -108,6 +109,11 @@ require_brew ttyrec
 require_brew vim --override-system-vi
 # Install wget with IRI support
 require_brew wget --enable-iri
+
+bot "if you would like to start memcached at login, run this:"
+echo "ln -sfv /usr/local/opt/memcached/*.plist ~/Library/LaunchAgents"
+bot "if you would like to start memcached now, run this:"
+echo "launchctl load ~/Library/LaunchAgents/homebrew.mxcl.memcached.plist"
 
 ###############################################################################
 # Native Apps (via brew cask)                                                 #
