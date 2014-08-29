@@ -832,8 +832,11 @@ bot "NPM Globals..."
 require_npm antic
 require_npm bower
 require_npm forever
+require_npm grunt
 require_npm gulp
 require_npm jshint
+# http://devo.ps/blog/goodbye-node-forever-hello-pm2/
+require_npm pm2
 require_npm prettyjson
 require_npm repl-client
 require_npm supervisor
