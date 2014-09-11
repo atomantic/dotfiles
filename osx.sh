@@ -71,8 +71,14 @@ require_brew findutils
 
 # Install other useful binaries
 require_brew ack
+# Beanstalk http://kr.github.io/beanstalkd/
+#require_brew beanstalkd
+# ln -sfv /usr/local/opt/beanstalk/*.plist ~/Library/LaunchAgents
+# launchctl load ~/Library/LaunchAgents/homebrew.mxcl.beanstalk.plist
+require_brew boot2docker
 # dos2unix converts windows newlines to unix newlines
 require_brew dos2unix
+require_brew fig
 # fortune command--I source this as a better motd :)
 require_brew fortune
 require_brew gawk
