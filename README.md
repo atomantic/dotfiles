@@ -2,6 +2,8 @@
 
 I will update your OSX machine with better system defaults, preferences, software configuration and even auto-install some handy development tools and apps that my developer friends find helpful.
 
+You don't need to install or configure anything upfront! This works with a brand-new machine from the factory.
+
 \\[^_^]/ - This started as Adam Eivy's OSX shell configuration dotfiles and setup so blame him if you don't like anything I do to your machine.
 
 When I finish with your machine, you will be able to look at your command-line like this:
@@ -14,18 +16,20 @@ Note that your shell includes the full path + the git branch!
 ## Watch me run!
 ![Running](http://media.giphy.com/media/5xtDarwenxEoFeIMEM0/giphy.gif)
 
-## Acquiring This Repo
-This project contains submodules. Clone this into your home directory.
+## Running
 
 Note: I recommend forking this repo in case you don't like anything I do and want to set your own preferences (and pull request them!)
 ```bash
 git clone --recurse-submodules https://github.com/atomantic/dotfiles ~/.dotfiles
+cd ~/.dotfiles;
+./install.sh;
 ```
-## Setup
 
-- Run the install script
+Don't have git installed yet (fresh machine)?
+Just download the zip file for this project, unzip it into ~/.dotfiles then
 ```bash
-./install.sh
+cd ~/.dotfiles;
+./install.sh;
 ```
 
 > Note: running install.sh is idempotent. You can run it again and again as you add new features or software to the scripts! I'll regularly add new configurations so keep an eye on this repo as it grows and optimizes.
