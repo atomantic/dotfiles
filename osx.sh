@@ -843,15 +843,19 @@ bot "NPM Globals..."
 
 require_npm antic
 require_npm bower
-require_npm forever
+# https://github.com/markdalgleish/bespoke.js
+require_npm generator-bespoke
 require_npm grunt
 require_npm gulp
 require_npm jshint
 # http://devo.ps/blog/goodbye-node-forever-hello-pm2/
 require_npm pm2
 require_npm prettyjson
-require_npm repl-client
 require_npm supervisor
+# https://github.com/sindresorhus/trash
+require_npm trash
+# https://github.com/MrRio/vtop
+require_npm vtop
 require_npm yo
 
 ###############################################################################
