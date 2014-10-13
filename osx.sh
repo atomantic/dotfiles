@@ -91,7 +91,7 @@ require_brew git-flow
 # why is everyone still not using GPG?
 require_brew gnupg
 # Install GNU `sed`, overwriting the built-in `sed`
-# so we can do "sed -i 's/foo/bar' file" instead of "sed -i '' 's/foo/bar' file"
+# so we can do "sed -i 's/foo/bar/' file" instead of "sed -i '' 's/foo/bar/' file"
 require_brew gnu-sed --default-names
 # better, more recent grep
 require_brew homebrew/dupes/grep
