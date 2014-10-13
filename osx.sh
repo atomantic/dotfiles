@@ -113,6 +113,7 @@ require_brew tree
 require_brew ttyrec
 # better, more recent vim
 require_brew vim --override-system-vi
+require_brew watch
 # Install wget with IRI support
 require_brew wget --enable-iri
 
