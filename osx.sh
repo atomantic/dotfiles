@@ -202,7 +202,7 @@ sudo pmset -a hibernatemode 0;ok
 
 running "Remove the sleep image file to save disk space"
 sudo rm -rf /Private/var/vm/sleepimage;ok
-running "Create a zero-byte file instead…"
+running "Create a zero-byte file instead"
 sudo touch /Private/var/vm/sleepimage;ok
 running "…and make sure it can’t be rewritten"
 sudo chflags uchg /Private/var/vm/sleepimage;ok
@@ -266,7 +266,7 @@ sudo chflags uchg /Private/var/vm/sleepimage;ok
 #running "Add a spacer to the right side of the Dock (where the Trash is)"
 #defaults write com.apple.dock persistent-others -array-add '{tile-data={}; tile-type="spacer-tile";}';ok
 
-running "Set a custom wallpaper image."
+running "Set a custom wallpaper image"
 # `DefaultDesktop.jpg` is already a symlink, and
 # all wallpapers are in `/Library/Desktop Pictures/`. The default is `Wave.jpg`.
 rm -rf ~/Library/Application Support/Dock/desktoppicture.db
@@ -420,7 +420,7 @@ running "Disable auto-correct"
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false;ok
 
 ###############################################################################
-bot "Configuring the Screen!"
+bot "Configuring the Screen"
 ###############################################################################
 
 running "Require password immediately after sleep or screen saver begins"
@@ -443,7 +443,7 @@ running "Enable HiDPI display modes (requires restart)"
 sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutionEnabled -bool true;ok
 
 ###############################################################################
-bot "Finder Configs!"
+bot "Finder Configs"
 ###############################################################################
 
 running "Allow quitting via ⌘ + Q; doing so will also hide desktop icons"
@@ -524,7 +524,7 @@ defaults write com.apple.finder FXInfoPanesExpanded -dict \
 	Privileges -bool true;ok
 
 ###############################################################################
-bot "Dock & Dashboard!"
+bot "Dock & Dashboard"
 ###############################################################################
 
 running "Enable highlight hover effect for the grid view of a stack (Dock)"
@@ -585,7 +585,7 @@ running "Add iOS Simulator to Launchpad"
 sudo ln -sf "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications/iPhone Simulator.app" "/Applications/iOS Simulator.app";ok
 
 
-bot "Configuring Hot Corners!"
+bot "Configuring Hot Corners"
 # Possible values:
 #  0: no-op
 #  2: Mission Control
@@ -648,7 +648,7 @@ running "Add a context menu item for showing the Web Inspector in web views"
 defaults write NSGlobalDomain WebKitDeveloperExtras -bool true;ok
 
 ###############################################################################
-bot "Configuring Mail!"
+bot "Configuring Mail"
 ###############################################################################
 
 
@@ -674,7 +674,7 @@ running "Disable automatic spell checking"
 defaults write com.apple.mail SpellCheckingBehavior -string "NoSpellCheckingEnabled";ok
 
 ###############################################################################
-bot "Spotlight!"
+bot "Spotlight"
 ###############################################################################
 
 # running "Hide Spotlight tray-icon (and subsequent helper)"
@@ -709,7 +709,7 @@ sudo mdutil -i on / > /dev/null;ok
 #sudo mdutil -E / > /dev/null;ok
 
 ###############################################################################
-bot "Terminal & iTerm2!"
+bot "Terminal & iTerm2"
 ###############################################################################
 
 running "Only use UTF-8 in Terminal.app"
@@ -751,7 +751,7 @@ ok
 
 
 ###############################################################################
-bot "Time Machine!"
+bot "Time Machine"
 ###############################################################################
 
 running "Prevent Time Machine from prompting to use new hard drives as backup volume"
@@ -761,7 +761,7 @@ running "Disable local Time Machine backups"
 hash tmutil &> /dev/null && sudo tmutil disablelocal;ok
 
 ###############################################################################
-bot "Activity Monitor!"
+bot "Activity Monitor"
 ###############################################################################
 
 running "Show the main window when launching Activity Monitor"
@@ -778,7 +778,7 @@ defaults write com.apple.ActivityMonitor SortColumn -string "CPUUsage"
 defaults write com.apple.ActivityMonitor SortDirection -int 0;ok
 
 ###############################################################################
-bot "Address Book, Dashboard, iCal, TextEdit, and Disk Utility!"
+bot "Address Book, Dashboard, iCal, TextEdit, and Disk Utility"
 ###############################################################################
 
 running "Enable the debug menu in Address Book"
@@ -798,7 +798,7 @@ defaults write com.apple.DiskUtility DUDebugMenuEnabled -bool true
 defaults write com.apple.DiskUtility advanced-image-options -bool true;ok
 
 ###############################################################################
-bot "Mac App Store!"
+bot "Mac App Store"
 ###############################################################################
 
 running "Enable the WebKit Developer Tools in the Mac App Store"
@@ -808,7 +808,7 @@ running "Enable Debug Menu in the Mac App Store"
 defaults write com.apple.appstore ShowDebugMenu -bool true;ok
 
 ###############################################################################
-bot "Messages!"
+bot "Messages"
 ###############################################################################
 
 running "Disable automatic emoji substitution (i.e. use plain text smileys)"
@@ -829,7 +829,7 @@ defaults write com.google.Chrome ExtensionInstallSources -array "https://gist.gi
 defaults write com.google.Chrome.canary ExtensionInstallSources -array "https://gist.githubusercontent.com/" "http://userscripts.org/*";ok
 
 ###############################################################################
-bot "SizeUp.app!"
+bot "SizeUp.app"
 ###############################################################################
 
 running "Start SizeUp at login"
@@ -839,7 +839,7 @@ running "Don’t show the preferences window on next start"
 defaults write com.irradiatedsoftware.SizeUp ShowPrefsOnNextStart -bool false;ok
 
 ###############################################################################
-bot "Sublime Text!"
+bot "Sublime Text"
 ###############################################################################
 
 running "Install Sublime Text settings"
