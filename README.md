@@ -2,15 +2,19 @@
 
 I will update your OSX machine with better system defaults, preferences, software configuration and even auto-install some handy development tools and apps that my developer friends find helpful.
 
-You don't need to install or configure anything upfront! This works with a brand-new machine from the factory.
+You don't need to install or configure anything upfront! This works with a brand-new machine from the factory as well as an existing machine that you've been working with for years.
 
-\\[^_^]/ - This started as Adam Eivy's OSX shell configuration dotfiles and setup so blame him if you don't like anything I do to your machine.
+## Forget About Manual Configuration!
 
-When I finish with your machine, you will be able to look at your command-line like this:
+Don't you hate getting a new laptop or joining a new team and then spending a whole day setting up your system preferences and tools? Me too. That's why we automate; we did it once and we don't want to do have to do it again.
+
+\\[^_^]/ - This started as Adam Eivy's OSX shell configuration dotfiles but has grown to a mutil-developer platform for machine configuration.
+
+When I finish with your machine, you will be able to look at your command-line in full-screen mode like this:
 
 ![iTerm Screenshot](https://raw.githubusercontent.com/atomantic/dotfiles/master/img/dotfiles.png)
 
-Note that your shell includes the full path + the git branch!
+Check out how your shell prompt includes the full path & the working git branch!
 \\[._.]/ - I'm so excited I just binaried in my pants!
 
 ## Watch me run!
@@ -56,3 +60,12 @@ Please refer to the [Contributor Covenant](https://github.com/atomantic/dotfiles
 2. Bugs with the setup should be put as GitHub issues.
 3. Mehs should be > /dev/null
 4. Praise should be directed to [@antic](http://twitter.com/antic) or [@matthewmccull](http://twitter.com/matthewmccull) or [@mathiasbynens](https://github.com/mathiasbynens/dotfiles)
+
+# Release History
+
+
+### <sup>v1.1.0</sup>
+ * Added dotfiles backup and restore.sh script
+     * you can now restore your previous dotfiles with ./restore.sh
+ * prompting the user more (e.g. `brew upgrade` is now optional)
+

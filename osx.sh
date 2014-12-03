@@ -10,12 +10,13 @@ sudo -v
 # Keep-alive: update existing `sudo` time stamp until `.osx` has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
+bot "OK, let's roll..."
 
 #####
 # install homebrew
 #####
 
-running "checking homebrew"
+running "checking homebrew install"
 brew_bin=$(which brew) 2>&1 > /dev/null
 if [[ $? != 0 ]]; then
 	action "installing homebrew"
@@ -27,7 +28,7 @@ if [[ $? != 0 ]]; then
 fi
 ok
 
-running "checking brew-cask"
+running "checking brew-cask install"
 output=$(brew tap | grep cask)
 if [[ $? != 0 ]]; then
 	action "installing brew-cask"
@@ -38,17 +39,23 @@ ok
 ###############################################################################
 #Install command-line tools using Homebrew                                    #
 ###############################################################################
-bot "installing command-line tools via homebrew..."
 # Make sure we’re using the latest Homebrew
-action "update brew..."
+running "updating homebrew"
 brew update
-ok "brew updated..."
-# Upgrade any already-installed formulae
-action "upgrade brew packages..."
-brew upgrade
-ok "brews updated..."
+ok
 
-action "installing packages..."
+bot "before installing brew packages, we can upgrade any outdated packages."
+read -r -p "run brew upgrade? [y|N] " response
+if [[ $response =~ ^(y|yes|Y) ]];then
+    # Upgrade any already-installed formulae
+    action "upgrade brew packages..."
+    brew upgrade
+    ok "brews updated..."
+else
+    ok "skipped brew package upgrades.";
+fi
+
+bot "installing homebrew command-line tools"
 
 
 # Install GNU core utilities (those that come with OS X are outdated)
@@ -129,14 +136,14 @@ bot "installing GUI tools via homebrew casks..."
 brew tap caskroom/versions > /dev/null 2>&1
 
 # cloud storage
-require_cask amazon-cloud-drive
+#require_cask amazon-cloud-drive
 require_cask box-sync
-require_cask dropbox
-require_cask evernote
-require_cask skydrive
+#require_cask dropbox
+#require_cask evernote
+#require_cask skydrive
 
 # communication
-require_cask adium
+#require_cask adium
 require_cask slack
 
 # tools

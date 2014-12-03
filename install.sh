@@ -9,11 +9,15 @@
 # include my library helpers for colorized echo and require_brew, etc
 source ./lib.sh
 
-export UNLINK=false
+# make a backup directory for overwritten dotfiles
+if [[ ! -e ~/.dotfiles_backup ]]; then
+    mkdir ~/.dotfiles_backup
+fi
+
 bot "Hi. I'm going to make your OSX system better. But first, I need to configure this project based on your info so you don't check in files to github as Adam Eivy from here on out :)"
 
-#fullname=`osascript -e "long user name of (system info)"`
-#me=`dscl . -read /Users/$(whoami)`
+fullname=`osascript -e "long user name of (system info)"`
+me=`dscl . -read /Users/$(whoami)`
 
 lastname=`dscl . -read /Users/$(whoami) | grep LastName | sed "s/LastName: //"`
 firstname=`dscl . -read /Users/$(whoami) | grep FirstName | sed "s/FirstName: //"`
@@ -67,8 +71,6 @@ else
   sed -i 's/antic/'$(whoami)'/g' .zshrc;ok
 fi
 
-
-
 # read -r -p "OK? [Y/n] " response
 #  if [[ ! $response =~ ^(yes|y|Y| ) ]];then
 #     exit 1
@@ -84,32 +86,30 @@ else
 	bot "looks like you are already using zsh. woot!"
 fi
 
-#export DOTFILESDIRRELATIVETOHOME=$PWD
-export DOTFILESDIRRELATIVETOHOME=.dotfiles
 pushd ~ > /dev/null 2>&1
 
 function symlinkifne {
-    echo -ne "linking $1..."
+    running "$1"
 
-    # does it exist
-    if [[ -a $1 || -L $1 ]]; then
-
-      # If Unlink is requested
-      if [ "$UNLINK" = "true" ]; then
-          unlink $1
-          # create the link
-          ln -s $DOTFILESDIRRELATIVETOHOME/$1 $1
-          ok
-      else
-        ok
-      fi
-    # does not exist
-    else
-      # create the link
-      ln -s $DOTFILESDIRRELATIVETOHOME/$1 $1
-      ok
+    if [[ -e $1 ]]; then
+        # file exists
+        if [[ -L $1 ]]; then
+            # it's already a simlink (could have come from this project)
+            echo -en '\tsimlink exists, skipped\t';ok
+            return
+        fi
+        # backup file does not exist yet
+        if [[ ! -e ~/.dotfiles_backup/$1 ]];then
+            mv $1 ~/.dotfiles_backup/
+            echo -en 'backed up saved...';
+        fi
     fi
+    # create the link
+    ln -s ~/.dotfiles/$1 $1
+    echo -en 'linked';ok
 }
+
+bot "creating symlinks for project dotfiles..."
 
 symlinkifne .crontab
 symlinkifne .gemrc
@@ -123,14 +123,6 @@ symlinkifne .shellfn
 symlinkifne .shellpaths
 symlinkifne .shellvars
 symlinkifne .vim
-# in case there was already a ~/.vim
-# but it doesn't contain these folders
-symlinkifne .vim/autoload
-symlinkifne .vim/backup
-symlinkifne .vim/bundle
-symlinkifne .vim/colors
-symlinkifne .vim/temp
-symlinkifne .vim/.netrwhist
 symlinkifne .vimrc
 symlinkifne .zlogout
 symlinkifne .zprofile
