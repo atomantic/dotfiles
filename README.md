@@ -10,7 +10,7 @@ Don't you hate getting a new laptop or joining a new team and then spending a wh
 
 \\[^_^]/ - This started as Adam Eivy's OSX shell configuration dotfiles but has grown to a mutil-developer platform for machine configuration.
 
-When I finish with your machine, you will be able to look at your command-line in full-screen mode like this:
+When I finish with your machine, you will be able to look at your command-line in full-screen mode like this (running iTerm):
 
 ![iTerm Screenshot](https://raw.githubusercontent.com/atomantic/dotfiles/master/img/dotfiles.png)
 

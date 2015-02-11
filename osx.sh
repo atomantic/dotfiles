@@ -82,10 +82,14 @@ require_brew ack
 #require_brew beanstalkd
 # ln -sfv /usr/local/opt/beanstalk/*.plist ~/Library/LaunchAgents
 # launchctl load ~/Library/LaunchAgents/homebrew.mxcl.beanstalk.plist
-# require_brew boot2docker
+
+# docker setup:
+require_brew fig
+require_brew docker
+require_brew boot2docker
+
 # dos2unix converts windows newlines to unix newlines
 require_brew dos2unix
-# require_brew fig
 # fortune command--I source this as a better motd :)
 require_brew fortune
 require_brew gawk
