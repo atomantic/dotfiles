@@ -158,7 +158,7 @@ require_cask github
 require_cask gpgtools
 require_cask ireadfast
 require_cask iterm2
-require_cask lastpass-universal
+require_cask lastpass
 #require_cask macvim
 require_cask sizeup
 #require_cask simple-comic
