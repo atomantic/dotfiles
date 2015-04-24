@@ -1,6 +1,47 @@
 #########################################
 # Utility Functions
 
+###
+# some echo helpers
+# @author Adam Eivy
+###
+
+# Colors
+ESC_SEQ="\x1b["
+COL_RESET=$ESC_SEQ"39;49;00m"
+COL_RED=$ESC_SEQ"31;01m"
+COL_GREEN=$ESC_SEQ"32;01m"
+COL_YELLOW=$ESC_SEQ"33;01m"
+COL_BLUE=$ESC_SEQ"34;01m"
+COL_MAGENTA=$ESC_SEQ"35;01m"
+COL_CYAN=$ESC_SEQ"36;01m"
+
+function ok() {
+    echo -e "$COL_GREEN[ok]$COL_RESET "$1
+}
+
+function bot() {
+    echo
+    echo -e "$COL_GREEN\[._.]/$COL_RESET - "$1
+}
+
+function running() {
+    echo -en " ⇒ "$1"..."
+}
+
+function action() {
+    echo -e "$COL_YELLOW[action]$COL_RESET"
+    running $1"..."
+}
+
+function warn() {
+    echo -e "$COL_YELLOW[warning]$COL_RESET "$1
+}
+
+function error() {
+    echo -e "$COL_RED[error]$COL_RESET "$1
+}
+
 # Create a new git repo with one README commit and CD into it
 function gitnr() { mkdir $1; cd $1; git init; touch README; git add README; git commit -mFirst-commit;}
 
@@ -42,6 +83,14 @@ function skill()
     sudo kill -9 `ps ax | grep $1 | grep -v grep | awk '{print $1}'`
 }
 
+function setproj()
+{
+    echo "###############"
+    echo "##  \[._.]/  ##"
+    echo "###############"
+    bot "Hi, this workspace is setup for the $1 project"
+}
+
 function schef()
 {
     sudo chef-client
@@ -49,4 +98,8 @@ function schef()
 
 function fixperms(){
     find . \( -name "*.sh" -or -type d \) -exec chmod 755 {} \; && find . -type f ! -name "*.sh" -exec chmod 644 {} \;
+}
+
+function docker-ip() {
+  boot2docker ip 2> /dev/null
 }

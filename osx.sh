@@ -163,7 +163,10 @@ require_cask lastpass
 require_cask sizeup
 #require_cask simple-comic
 #require_cask sketchup
-require_cask sublime-text
+
+require_cask atom
+apm install linter-eslint
+
 require_cask the-unarchiver
 #require_cask transmission
 require_cask vlc
@@ -841,13 +844,6 @@ defaults write com.irradiatedsoftware.SizeUp StartAtLogin -bool true;ok
 
 running "Don’t show the preferences window on next start"
 defaults write com.irradiatedsoftware.SizeUp ShowPrefsOnNextStart -bool false;ok
-
-###############################################################################
-bot "Sublime Text"
-###############################################################################
-
-running "Install Sublime Text settings"
-cp -r configs/Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text*/Packages/User/Preferences.sublime-settings 2> /dev/null;ok
 
 ###############################################################################
 bot "NPM Globals..."

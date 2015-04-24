@@ -232,8 +232,8 @@ Here is the current list:
 - Start SizeUp at login
 - Don’t show the preferences window on next start
 
-## Sublime Text
-- Install Sublime Text settings
+## Atom Editor Text
+- Install [Atom](https://atom.io/)
 
 # Contributions
 Contributions are always welcome in the form of pull requests with explanatory comments.
