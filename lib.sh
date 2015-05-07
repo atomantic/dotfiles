@@ -77,7 +77,7 @@ function require_gem() {
     ok
 }
 
-npmlist=`npm list -g`
+npmlist=`npm list -g --depth 0`
 function require_npm() {
     running "npm $1"
     echo $npmlist | grep $1@ > /dev/null

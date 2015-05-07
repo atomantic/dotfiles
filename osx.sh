@@ -163,10 +163,8 @@ require_cask lastpass
 require_cask sizeup
 #require_cask simple-comic
 #require_cask sketchup
-
 require_cask atom
 apm install linter-eslint
-
 require_cask the-unarchiver
 #require_cask transmission
 require_cask vlc
