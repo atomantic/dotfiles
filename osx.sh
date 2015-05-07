@@ -158,13 +158,16 @@ require_cask github
 require_cask gpgtools
 require_cask ireadfast
 require_cask iterm2
-require_cask lastpass
 #require_cask macvim
 require_cask sizeup
 #require_cask simple-comic
 #require_cask sketchup
+
 require_cask atom
+apm install linter
 apm install linter-eslint
+apm install atom-beautify
+
 require_cask the-unarchiver
 #require_cask transmission
 require_cask vlc
@@ -181,9 +184,9 @@ require_cask torbrowser
 # virtal machines
 require_cask virtualbox
 # chef-dk, berkshelf, etc
-require_cask chefdk
+#require_cask chefdk
 # vagrant for running dev environments using docker images
-require_cask vagrant # # | grep Caskroom | sed "s/.*'\(.*\)'.*/open \1\/Vagrant.pkg/g" | sh
+#require_cask vagrant # # | grep Caskroom | sed "s/.*'\(.*\)'.*/open \1\/Vagrant.pkg/g" | sh
 
 bot "Alright, cleaning up homebrew cache..."
 # Remove outdated versions from the cellar
