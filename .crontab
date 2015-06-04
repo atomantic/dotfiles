@@ -6,3 +6,4 @@
 0 4 * * *  brew upgrade
 # npm
 0 5 * * *  npm update npm -g
+0 6 * * *  npm update -g
