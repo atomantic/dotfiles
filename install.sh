@@ -17,10 +17,20 @@ fi
 bot "Hi. I'm going to make your OSX system better. But first, I need to configure this project based on your info so you don't check in files to github as Adam Eivy from here on out :)"
 
 fullname=`osascript -e "long user name of (system info)"`
-me=`dscl . -read /Users/$(whoami)`
 
-lastname=`dscl . -read /Users/$(whoami) | grep LastName | sed "s/LastName: //"`
-firstname=`dscl . -read /Users/$(whoami) | grep FirstName | sed "s/FirstName: //"`
+if [[ -n "$fullname" ]];then
+  lastname=$(echo $fullname | awk '{print $2}');
+  firstname=$(echo $fullname | awk '{print $1}');
+fi
+
+# me=`dscl . -read /Users/$(whoami)`
+
+if [[ -z $lastname ]]; then
+  lastname=`dscl . -read /Users/$(whoami) | grep LastName | sed "s/LastName: //"`
+fi
+if [[ -z $firstname ]]; then
+  firstname=`dscl . -read /Users/$(whoami) | grep FirstName | sed "s/FirstName: //"`
+fi
 email=`dscl . -read /Users/$(whoami)  | grep EMailAddress | sed "s/EMailAddress: //"`
 
 if [[ ! "$firstname" ]];then
@@ -31,8 +41,8 @@ else
 fi
 
 if [[ $response =~ ^(no|n|N) ]];then
-	read -r -p "What is your first name? " firstname
-	read -r -p "What is your last name? " lastname
+  read -r -p "What is your first name? " firstname
+  read -r -p "What is your last name? " lastname
 fi
 fullname="$firstname $lastname"
 
@@ -46,7 +56,7 @@ else
 fi
 
 if [[ $response =~ ^(no|n|N) ]];then
-	read -r -p "What is your email? " email
+  read -r -p "What is your email? " email
 fi
 
 read -r -p "What is your github.com username? " githubuser
@@ -80,10 +90,10 @@ fi
 
 echo $0 | grep zsh > /dev/null 2>&1 | true
 if [[ ${PIPESTATUS[0]} != 0 ]]; then
-	running "changing your login shell to zsh"
-	chsh -s $(which zsh);ok
+  running "changing your login shell to zsh"
+  chsh -s $(which zsh);ok
 else
-	bot "looks like you are already using zsh. woot!"
+  bot "looks like you are already using zsh. woot!"
 fi
 
 pushd ~ > /dev/null 2>&1
