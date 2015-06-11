@@ -6,14 +6,6 @@ export PATH=$PATH:.
 export PATH=/usr/local/sbin:$PATH
 export PATH=/usr/local/bin:$PATH
 
-#MacPorts
-## NOTE: switched to HomeBrew :)
-## Having MacPorts first instead of after $PATH causes a GitK error
-## http://stackoverflow.com/questions/2629292/starting-gitk-error
-#export PATH=$PATH:/opt/local/bin
-#export PATH=$PATH:/opt/local/sbin
-#export MANPATH=$MANPATH:/opt/local/share/man
-
 #Dev frameworks
 #export PATH=$PATH:$ANT_HOME/bin
 export PATH=$PATH:$M2_HOME/bin
@@ -29,3 +21,6 @@ export PATH=$PATH:/usr/local/zend/mysql/bin
 export PATH=$PATH:/usr/local/share/npm/bin
 
 export PATH=$PATH:~/.nvm/v0.10.22/bin
+
+# GO
+export PATH=$PATH:/usr/local/opt/go/libexec/bin

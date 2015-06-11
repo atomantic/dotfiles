@@ -144,6 +144,9 @@ echo "ln -sfv /usr/local/opt/memcached/*.plist ~/Library/LaunchAgents"
 bot "if you would like to start memcached now, run this:"
 echo "launchctl load ~/Library/LaunchAgents/homebrew.mxcl.memcached.plist"
 
+# nvm
+require_nvm "latest"
+
 ###############################################################################
 # Native Apps (via brew cask)                                                 #
 ###############################################################################
@@ -200,6 +203,8 @@ require_cask virtualbox
 #require_cask chefdk
 # vagrant for running dev environments using docker images
 #require_cask vagrant # # | grep Caskroom | sed "s/.*'\(.*\)'.*/open \1\/Vagrant.pkg/g" | sh
+
+
 
 bot "Alright, cleaning up homebrew cache..."
 # Remove outdated versions from the cellar

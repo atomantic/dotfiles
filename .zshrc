@@ -26,7 +26,8 @@ plugins=(git brew github osx rvm compleat dirpersist gem git-flow ssh-agent clou
 
 source $ZSH/oh-my-zsh.sh
 
-source ~/.nvm/nvm.sh
+export NVM_DIR=~/.nvm
+source /usr/local/opt/nvm/nvm.sh
 
 # Customize to your needs...
 unsetopt correct

@@ -116,3 +116,28 @@ function require_vagrant_plugin() {
     fi
     ok
 }
+
+
+function require_nvm() {
+    require_brew nvm
+    mkdir -p ~/.nvm
+    cp $(brew --prefix nvm)/nvm-exec ~/.nvm/
+
+    export NVM_DIR=~/.nvm
+    source $(brew --prefix nvm)/nvm.sh
+
+    VERSION=$1
+    running "setting node version to $VERSION"
+    if [[ $VERSION == "latest" ]]; then
+        VERSION=$(nvm ls-remote | tail -1)
+    fi
+    nvm install $VERSION
+    if [[ $? != 0 ]]; then
+        action "installing nvm"
+        curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.25.4/install.sh | bash
+        . ~/.bashrc
+        nvm install $VERSION
+    fi
+    nvm use $VERSION
+    ok
+}
