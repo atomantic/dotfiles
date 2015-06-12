@@ -4,23 +4,28 @@
 source ./lib.sh
 
 # Ask for the administrator password upfront
-bot "I need you to enter your sudo password so I can install some things:"
-sudo -v
 
-# Keep-alive: update existing `sudo` time stamp until `.osx` has finished
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+bot "checking sudo state..."
+if sudo grep -q "# %wheel\tALL=(ALL) NOPASSWD: ALL" "/etc/sudoers"; then
 
-bot "OK, let's roll..."
+  promptSudo
 
-bot "Do you want me to setup this machine to allow you to run sudo without a password?\n Please read here to see what I am doing: http://wiki.summercode.com/sudo_without_a_password_in_mac_os_x \n"
+  bot "Do you want me to setup this machine to allow you to run sudo without a password?\nPlease read here to see what I am doing:\nhttp://wiki.summercode.com/sudo_without_a_password_in_mac_os_x \n"
 
-read -r -p "Make sudo passwordless? [y|N] " response
+  read -r -p "Make sudo passwordless? [y|N] " response
 
-if [[ $response =~ ^(yes|y|Y) ]];then
-    sudo sed -i 's/^#\s*\(%wheel\s\+ALL=(ALL)\s\+NOPASSWD:\s\+ALL\)/\1/' /etc/sudoers
-    sudo dscl . append /Groups/wheel GroupMembership $(whoami)
-    bot "You can now run sudo commands without password!"
+  if [[ $response =~ (yes|y|Y) ]];then
+      sed --version
+      if [[ $? == 0 ]];then
+          sudo sed -i 's/^#\s*\(%wheel\s\+ALL=(ALL)\s\+NOPASSWD:\s\+ALL\)/\1/' /etc/sudoers
+      else
+          sudo sed -i '' 's/^#\s*\(%wheel\s\+ALL=(ALL)\s\+NOPASSWD:\s\+ALL\)/\1/' /etc/sudoers
+      fi
+      sudo dscl . append /Groups/wheel GroupMembership $(whoami)
+      bot "You can now run sudo commands without password!"
+  fi
 fi
+ok
 
 #####
 # install homebrew
@@ -94,8 +99,6 @@ require_brew ack
 # launchctl load ~/Library/LaunchAgents/homebrew.mxcl.beanstalk.plist
 
 # docker setup:
-require_brew fig
-require_brew docker
 require_brew boot2docker
 
 # dos2unix converts windows newlines to unix newlines
