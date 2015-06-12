@@ -77,10 +77,11 @@ function require_gem() {
     ok
 }
 
-npmlist=`npm list -g --depth 0`
 function require_npm() {
+    sourceNVM
+    nvm use stable
     running "npm $1"
-    echo $npmlist | grep $1@ > /dev/null
+    npm list -g --depth 0 | grep $1@ > /dev/null
     if [[ $? != 0 ]]; then
         action "npm install -g $1"
         npm install -g $1
@@ -88,57 +89,34 @@ function require_npm() {
     ok
 }
 
-
-function require_vagrant_plugin() {
-    running "vagrant plugin $1"
-    local vagrant_plugin=$1
-    local vagrant_plugin_version=$2
-    local grepExpect=$vagrant_plugin
-    local grepStatus=$(vagrant plugin list | grep $vagrant_plugin)
-
-    if [[ ! -z $vagrant_plugin_version ]]; then
-        grepExpect=$grepExpect' ('$vagrant_plugin_version')'
-    else
-        # we are only looking for the name
-        grepStatus=${grepStatus%% *}
-    fi
-
-    #echo 'checking if '$grepExpect' is installed via grepStatus: '$grepStatus
-
-    if [[ $grepStatus != $grepExpect ]];
-        then
-            action "installing vagrant plugin $1 $2"
-            if [[ ! -z $vagrant_plugin_version ]]; then
-                vagrant plugin install $vagrant_plugin --plugin-version $vagrant_plugin_version
-            else
-                vagrant plugin install $vagrant_plugin
-            fi
+function require_apm() {
+    running "checking atom plugin: $1"
+    apm list --installed --bare | grep $1@ > /dev/null
+    if [[ $? != 0 ]]; then
+        action "apm install $1"
+        apm install $1
     fi
     ok
 }
 
-
-function require_nvm() {
-    require_brew nvm
-    mkdir -p ~/.nvm
-    cp $(brew --prefix nvm)/nvm-exec ~/.nvm/
-
+function sourceNVM(){
     export NVM_DIR=~/.nvm
     source $(brew --prefix nvm)/nvm.sh
+}
 
-    VERSION=$1
-    running "setting node version to $VERSION"
-    if [[ $VERSION == "latest" ]]; then
-        VERSION=$(nvm ls-remote | tail -1)
-    fi
-    nvm install $VERSION
+
+function require_nvm() {
+    mkdir -p ~/.nvm
+    cp $(brew --prefix nvm)/nvm-exec ~/.nvm/
+    sourceNVM
+    nvm install $1
     if [[ $? != 0 ]]; then
         action "installing nvm"
         curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.25.4/install.sh | bash
         . ~/.bashrc
-        nvm install $VERSION
+        nvm install $1
     fi
-    nvm use $VERSION
+    nvm use $1
     ok
 }
 

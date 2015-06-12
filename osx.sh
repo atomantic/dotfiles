@@ -129,7 +129,8 @@ require_brew jq
 require_brew maven
 require_brew memcached
 require_brew nmap
-require_brew node
+# require_brew node
+require_brew nvm
 require_brew redis
 # better/more recent version of screen
 require_brew homebrew/dupes/screen
@@ -148,7 +149,36 @@ bot "if you would like to start memcached now, run this:"
 echo "launchctl load ~/Library/LaunchAgents/homebrew.mxcl.memcached.plist"
 
 # nvm
-require_nvm "latest"
+require_nvm stable
+
+###############################################################################
+bot "NPM Globals..."
+###############################################################################
+
+require_npm antic
+require_npm bower
+# http://ionicframework.com/
+# require_npm cordova
+# require_npm ionic
+# https://github.com/markdalgleish/bespoke.js
+require_npm generator-bespoke
+require_npm grunt
+require_npm gulp
+require_npm jshint
+# http://devo.ps/blog/goodbye-node-forever-hello-pm2/
+require_npm pm2
+require_npm prettyjson
+# require_npm supervisor
+# https://github.com/sindresorhus/trash
+require_npm trash
+# https://github.com/MrRio/vtop
+require_npm vtop
+require_npm yo
+
+###############################################################################
+bot "Ruby Gems..."
+###############################################################################
+require_gem git-up
 
 ###############################################################################
 # Native Apps (via brew cask)                                                 #
@@ -183,9 +213,9 @@ require_cask sizeup
 #require_cask sketchup
 
 require_cask atom
-apm install linter
-apm install linter-eslint
-apm install atom-beautify
+require_apm linter
+require_apm linter-eslint
+require_apm atom-beautify
 
 require_cask the-unarchiver
 #require_cask transmission
@@ -866,35 +896,6 @@ defaults write com.irradiatedsoftware.SizeUp StartAtLogin -bool true;ok
 
 running "Don’t show the preferences window on next start"
 defaults write com.irradiatedsoftware.SizeUp ShowPrefsOnNextStart -bool false;ok
-
-###############################################################################
-bot "NPM Globals..."
-###############################################################################
-
-require_npm antic
-require_npm bower
-# http://ionicframework.com/
-require_npm cordova
-require_npm ionic
-# https://github.com/markdalgleish/bespoke.js
-require_npm generator-bespoke
-require_npm grunt
-require_npm gulp
-require_npm jshint
-# http://devo.ps/blog/goodbye-node-forever-hello-pm2/
-require_npm pm2
-require_npm prettyjson
-require_npm supervisor
-# https://github.com/sindresorhus/trash
-require_npm trash
-# https://github.com/MrRio/vtop
-require_npm vtop
-require_npm yo
-
-###############################################################################
-bot "Ruby Gems..."
-###############################################################################
-require_gem git-up
 
 
 ###############################################################################
