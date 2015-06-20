@@ -5,6 +5,9 @@
 # @author Adam Eivy
 ###########################
 
+DEFAULT_EMAIL="atomantic@gmail.com"
+DEFAULT_GITHUBUSER="atomantic"
+
 
 # include my library helpers for colorized echo and require_brew, etc
 source ./lib.sh
@@ -56,10 +59,16 @@ else
 fi
 
 if [[ $response =~ ^(no|n|N) ]];then
-  read -r -p "What is your email? " email
+  read -r -p "What is your email? [$DEFAULT_EMAIL] " email
+  if [[ ! $email ]];then
+    email=$DEFAULT_EMAIL
+  fi
 fi
 
-read -r -p "What is your github.com username? " githubuser
+read -r -p "What is your github.com username? [$DEFAULT_GITHUBUSER]" githubuser
+if [[ ! $githubuser ]];then
+  githubuser=$DEFAULT_GITHUBUSER
+fi
 
 running "replacing items in .gitconfig with your info ($COL_YELLOW$fullname, $email, $githubuser$COL_RESET)"
 
@@ -97,27 +106,6 @@ else
 fi
 
 pushd ~ > /dev/null 2>&1
-
-function symlinkifne {
-    running "$1"
-
-    if [[ -e $1 ]]; then
-        # file exists
-        if [[ -L $1 ]]; then
-            # it's already a simlink (could have come from this project)
-            echo -en '\tsimlink exists, skipped\t';ok
-            return
-        fi
-        # backup file does not exist yet
-        if [[ ! -e ~/.dotfiles_backup/$1 ]];then
-            mv $1 ~/.dotfiles_backup/
-            echo -en 'backed up saved...';
-        fi
-    fi
-    # create the link
-    ln -s ~/.dotfiles/$1 $1
-    echo -en 'linked';ok
-}
 
 bot "creating symlinks for project dotfiles..."
 

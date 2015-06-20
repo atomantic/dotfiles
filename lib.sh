@@ -128,3 +128,25 @@ function promptSudo(){
     # Keep-alive: update existing sudo time stamp until the script has finished
     while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 }
+
+
+function symlinkifne {
+    running "$1"
+
+    if [[ -e $1 ]]; then
+        # file exists
+        if [[ -L $1 ]]; then
+            # it's already a simlink (could have come from this project)
+            echo -en '\t\tsimlink exists, skipped\t';ok
+            return
+        fi
+        # backup file does not exist yet
+        if [[ ! -e ~/.dotfiles_backup/$1 ]];then
+            mv $1 ~/.dotfiles_backup/
+            echo -en 'backed up saved...';
+        fi
+    fi
+    # create the link
+    ln -s ~/.dotfiles/$1 $1
+    echo -en 'linked';ok
+}
