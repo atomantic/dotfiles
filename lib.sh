@@ -137,7 +137,7 @@ function symlinkifne {
         # file exists
         if [[ -L $1 ]]; then
             # it's already a simlink (could have come from this project)
-            echo -en '\t\tsimlink exists, skipped\t';ok
+            echo -en '\tsimlink exists, skipped\t';ok
             return
         fi
         # backup file does not exist yet
@@ -148,5 +148,5 @@ function symlinkifne {
     fi
     # create the link
     ln -s ~/.dotfiles/$1 $1
-    echo -en 'linked';ok
+    echo -en '\tlinked';ok
 }
