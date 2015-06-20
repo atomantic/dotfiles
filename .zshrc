@@ -38,3 +38,4 @@ rbenv rehash 2>/dev/null
 
 # run fortune on new terminal :)
 fortune
+nvm use 0.12.4

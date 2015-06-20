@@ -1,2 +1,0 @@
-export rvm_path="$HOME/.rvm"
-rvm_autoupdate_flag=2
