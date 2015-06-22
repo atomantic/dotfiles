@@ -178,6 +178,9 @@ require_npm yo
 ###############################################################################
 bot "Ruby Gems..."
 ###############################################################################
+require_brew rbenv
+require_brew ruby-build
+eval "$(rbenv init -)"
 require_gem git-up
 
 ###############################################################################
@@ -213,9 +216,9 @@ require_cask sizeup
 #require_cask sketchup
 
 require_cask atom
-require_apm linter
-require_apm linter-eslint
-require_apm atom-beautify
+# require_apm linter
+# require_apm linter-eslint
+# require_apm atom-beautify
 
 require_cask the-unarchiver
 #require_cask transmission
@@ -239,10 +242,10 @@ require_cask virtualbox
 
 
 
-bot "Alright, cleaning up homebrew cache..."
+# bot "Alright, cleaning up homebrew cache..."
 # Remove outdated versions from the cellar
-brew cleanup > /dev/null 2>&1
-bot "All clean"
+# brew cleanup > /dev/null 2>&1
+# bot "All clean"
 
 ###############################################################################
 bot "Configuring General System UI/UX..."
