@@ -223,12 +223,12 @@ require_cask vlc
 require_cask xquartz
 
 # development browsers
-require_cask breach
-require_cask firefox
+# require_cask breach
+# require_cask firefox
 #require_cask firefox-aurora
 require_cask google-chrome
-require_cask google-chrome-canary
-require_cask torbrowser
+# require_cask google-chrome-canary
+# require_cask torbrowser
 
 # virtal machines
 require_cask virtualbox
