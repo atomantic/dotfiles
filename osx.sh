@@ -160,9 +160,10 @@ require_npm bower
 # http://ionicframework.com/
 # require_npm cordova
 # require_npm ionic
+require_npm yo
 # https://github.com/markdalgleish/bespoke.js
 require_npm generator-bespoke
-require_npm grunt
+# require_npm grunt
 require_npm gulp
 require_npm jshint
 # http://devo.ps/blog/goodbye-node-forever-hello-pm2/
@@ -173,7 +174,6 @@ require_npm prettyjson
 require_npm trash
 # https://github.com/MrRio/vtop
 require_npm vtop
-require_npm yo
 
 ###############################################################################
 bot "Ruby Gems..."
@@ -200,7 +200,7 @@ require_cask box-sync
 #require_cask adium
 require_cask slack
 
-require_cask caffeine
+# require_cask caffeine
 
 # tools
 #require_cask comicbooklover
@@ -208,7 +208,7 @@ require_cask diffmerge
 #require_cask flash-player
 require_cask github
 require_cask gpgtools
-require_cask ireadfast
+# require_cask ireadfast
 require_cask iterm2
 #require_cask macvim
 require_cask sizeup
