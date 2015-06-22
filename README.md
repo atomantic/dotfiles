@@ -191,9 +191,7 @@ Here is the current list:
 - Load new settings before rebuilding the index
 - Make sure indexing is enabled for the main volume
 
-## Terminal & iTerm2
-- Only use UTF-8 in Terminal.app
-- Use a modified version of the Solarized Dark theme by default in Terminal.app
+## iTerm2
 - Installing the Solarized Dark theme for iTerm
 - Don’t display the annoying prompt when quitting iTerm
 - hide tab title bars
@@ -253,4 +251,3 @@ Please refer to the [Contributor Covenant](https://github.com/atomantic/dotfiles
  * Added dotfiles backup and restore.sh script
      * you can now restore your previous dotfiles with ./restore.sh
  * prompting the user more (e.g. `brew upgrade` is now optional)
-
