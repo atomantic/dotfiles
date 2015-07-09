@@ -67,6 +67,16 @@ function require_brew() {
     ok
 }
 
+function require_node(){
+    running "node -v"
+    node -v
+    if [[ $? != 0 ]]; then
+        action "node not found, installing via homebrew"
+        brew install node
+    fi
+    ok
+}
+
 function require_gem() {
     running "gem $1"
     if [[ $(gem list --local | grep $1 | head -1 | cut -d' ' -f1) != $1 ]];
