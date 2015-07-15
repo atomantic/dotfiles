@@ -29,13 +29,6 @@ cd ~/.dotfiles;
 ./install.sh;
 ```
 
-Don't have git installed yet (fresh machine)?
-Just download the zip file for this project, unzip it into ~/.dotfiles then
-```bash
-cd ~/.dotfiles;
-./install.sh;
-```
-
 > Note: running install.sh is idempotent. You can run it again and again as you add new features or software to the scripts! I'll regularly add new configurations so keep an eye on this repo as it grows and optimizes.
 
 # Restoring Dotfiles
