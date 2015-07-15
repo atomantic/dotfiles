@@ -33,11 +33,11 @@ source /usr/local/opt/nvm/nvm.sh
 unsetopt correct
 
 if which rbevenv > /dev/null; then eval "$(rbenv init -)"; fi
-    
+
 export PATH="/Users/"$(whoami)"/.rbenv/shims:${PATH}"
 source "/usr/local/Cellar/rbenv/0.4.0/libexec/../completions/rbenv.zsh"
 rbenv rehash 2>/dev/null
 
 # run fortune on new terminal :)
 fortune
-nvm use 0.12.4
+nvm use stable
