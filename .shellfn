@@ -118,3 +118,10 @@ rbenv() {
     command rbenv "$command" "$@";;
   esac
 }
+
+## curlheader will return the header value specified for a given URL
+## usage: curlheader ${url} ${header}
+function curlheader() {
+  echo "curl -s -D - $1 -o /dev/null | grep $2:"
+  curl -s -D - $1 -o /dev/null | grep $2:
+}
