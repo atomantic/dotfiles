@@ -120,8 +120,15 @@ rbenv() {
 }
 
 ## curlheader will return the header value specified for a given URL
-## usage: curlheader ${url} ${header}
+## usage: curlheader ${header} ${url}
+## or get all headers
+## curlheader ${url}
 function curlheader() {
-  echo "curl -s -D - $1 -o /dev/null | grep $2:"
-  curl -s -D - $1 -o /dev/null | grep $2:
+  if [[ -z "$2" ]]; then
+    echo "curl -s -D - $1 -o /dev/null"
+    curl -s -D - $1 -o /dev/null:
+  else
+    echo "curl -s -D - $2 -o /dev/null | grep $1:"
+    curl -s -D - $2 -o /dev/null | grep $1:
+  fi
 }
