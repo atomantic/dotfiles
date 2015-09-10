@@ -157,15 +157,18 @@ bot "NPM Globals..."
 
 require_npm antic
 require_npm bower
+require_npm bower-check-updates
+require_npm npm-check
 # http://ionicframework.com/
 # require_npm cordova
 # require_npm ionic
 require_npm yo
 # https://github.com/markdalgleish/bespoke.js
 require_npm generator-bespoke
+require_npm generator-dockerize
 # require_npm grunt
 require_npm gulp
-require_npm jshint
+require_npm eslint
 # http://devo.ps/blog/goodbye-node-forever-hello-pm2/
 require_npm pm2
 require_npm prettyjson
