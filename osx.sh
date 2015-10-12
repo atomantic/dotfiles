@@ -186,6 +186,7 @@ require_npm vtop
 ###############################################################################
 bot "Ruby Gems..."
 ###############################################################################
+sudo chown -R $(whoami) /Library/Ruby/Gems/2.0.0
 require_brew rbenv
 require_brew ruby-build
 eval "$(rbenv init -)"
