@@ -130,15 +130,6 @@ function require_nvm() {
     ok
 }
 
-function promptSudo(){
-    # Ask for the administrator password upfront
-    bot "I need you to enter your sudo password so I can install some things:"
-    sudo -v
-
-    # Keep-alive: update existing sudo time stamp until the script has finished
-    while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
-}
-
 
 function symlinkifne {
     running "$1"
