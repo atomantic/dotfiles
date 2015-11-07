@@ -125,21 +125,17 @@ require_brew gnu-sed --default-names
 require_brew go
 # better, more recent grep
 require_brew homebrew/dupes/grep
-require_brew hub
 require_brew imagemagick
 require_brew imagesnap
 # jq is a JSON grep
 require_brew jq
 # http://maven.apache.org/
 require_brew maven
-require_brew memcached
 require_brew nmap
 # require_brew node
 require_brew nvm
-require_brew redis
 # better/more recent version of screen
 require_brew homebrew/dupes/screen
-require_brew tig
 require_brew tree
 require_brew ttyrec
 # better, more recent vim
@@ -147,11 +143,6 @@ require_brew vim --override-system-vi
 require_brew watch
 # Install wget with IRI support
 require_brew wget --enable-iri
-
-bot "if you would like to start memcached at login, run this:"
-echo "ln -sfv /usr/local/opt/memcached/*.plist ~/Library/LaunchAgents"
-bot "if you would like to start memcached now, run this:"
-echo "launchctl load ~/Library/LaunchAgents/homebrew.mxcl.memcached.plist"
 
 # nvm
 require_nvm stable
@@ -161,6 +152,7 @@ bot "NPM Globals..."
 ###############################################################################
 
 require_npm antic
+require_npm buzzphrase
 require_npm bower
 require_npm bower-check-updates
 require_npm npm-check
