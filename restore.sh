@@ -40,7 +40,6 @@ updatedotfile .gemrc
 updatedotfile .gitconfig
 updatedotfile .gitignore
 updatedotfile .profile
-updatedotfile .rvmrc
 updatedotfile .screenrc
 updatedotfile .shellaliases
 updatedotfile .shellfn

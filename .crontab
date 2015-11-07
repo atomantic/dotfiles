@@ -1,5 +1,4 @@
 # ruby gem nightly updates
-0 1 * * *  rvm get head;rvm reload
 0 2 * * *  gem update -V
 # brew nightly updates
 0 3 * * *  brew update

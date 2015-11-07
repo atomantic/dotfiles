@@ -22,7 +22,7 @@ export CASE_SENSITIVE="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.dotfiles/oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(brew cloudapp colorize compleat dirpersist gem git git-flow github osx mvn node npm nvm rvm ssh-agent)
+plugins=(brew cloudapp colorize compleat dirpersist gem git git-flow github osx mvn node npm nvm ssh-agent)
 
 source $ZSH/oh-my-zsh.sh
 

@@ -117,7 +117,6 @@ symlinkifne .gemrc
 symlinkifne .gitconfig
 symlinkifne .gitignore
 symlinkifne .profile
-symlinkifne .ruby-version
 symlinkifne .screenrc
 symlinkifne .shellaliases
 symlinkifne .shellfn
