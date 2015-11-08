@@ -6,21 +6,5 @@ export PATH=$PATH:.
 export PATH=/usr/local/sbin:$PATH
 export PATH=/usr/local/bin:$PATH
 
-#Dev frameworks
-#export PATH=$PATH:$ANT_HOME/bin
-export PATH=$PATH:$M2_HOME/bin
-
-#Chef
-export PATH=$PATH:/opt/chef/bin:/opt/chef/embedded/bin
-
-#Zend
-export PATH=$PATH:/usr/local/zend/bin
-export PATH=$PATH:/usr/local/zend/mysql/bin
-
-# NPM
-export PATH=$PATH:/usr/local/share/npm/bin
-
-export PATH=$PATH:~/.nvm/v0.10.22/bin
-
 # GO
 export PATH=$PATH:/usr/local/opt/go/libexec/bin

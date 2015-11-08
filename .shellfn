@@ -77,12 +77,6 @@ function hidehiddenfiles() {
   osascript -e 'tell application "Finder" to activate'
 }
 
-# kill all instances of a process by name
-function skill()
-{
-    sudo kill -9 `ps ax | grep $1 | grep -v grep | awk '{print $1}'`
-}
-
 function setproj()
 {
     echo "###############"
@@ -98,25 +92,6 @@ function schef()
 
 function fixperms(){
     find . \( -name "*.sh" -or -type d \) -exec chmod 755 {} \; && find . -type f ! -name "*.sh" -exec chmod 644 {} \;
-}
-
-function docker-ip() {
-  boot2docker ip 2> /dev/null
-}
-
-rbenv() {
-  typeset command
-  command="$1"
-  if [ "$#" -gt 0 ]; then
-    shift
-  fi
-
-  case "$command" in
-  rehash|shell)
-    eval `rbenv "sh-$command" "$@"`;;
-  *)
-    command rbenv "$command" "$@";;
-  esac
 }
 
 ## curlheader will return the header value specified for a given URL
