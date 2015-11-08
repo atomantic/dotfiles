@@ -179,9 +179,9 @@ require_npm vtop
 bot "Ruby Gems..."
 ###############################################################################
 sudo chown -R $(whoami) /Library/Ruby/Gems/2.0.0
-require_brew rbenv
-require_brew ruby-build
-eval "$(rbenv init -)"
+# require_brew rbenv
+# require_brew ruby-build
+# eval "$(rbenv init -)"
 require_gem git-up
 
 ###############################################################################
@@ -195,19 +195,15 @@ brew tap caskroom/versions > /dev/null 2>&1
 require_cask box-sync
 #require_cask dropbox
 #require_cask evernote
-#require_cask skydrive
 
 # communication
 #require_cask adium
 require_cask slack
 
-# require_cask caffeine
-
 # tools
 #require_cask comicbooklover
 require_cask diffmerge
 #require_cask flash-player
-require_cask github
 require_cask gpgtools
 # require_cask ireadfast
 require_cask iterm2
