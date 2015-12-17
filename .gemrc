@@ -8,3 +8,4 @@
 update: "--env-shebang"
 benchmark: false
 install: "--env-shebang"
+gem: -n/usr/local/bin

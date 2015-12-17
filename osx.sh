@@ -135,6 +135,7 @@ require_brew jq
 require_brew nmap
 # require_brew node
 require_brew nvm
+require_brew ruby
 # better/more recent version of screen
 require_brew homebrew/dupes/screen
 require_brew tree
