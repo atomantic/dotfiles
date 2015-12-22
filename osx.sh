@@ -220,9 +220,9 @@ require_cask atom
 # require_apm linter-eslint
 # require_apm atom-beautify
 
-require_cask the-unarchiver
+# require_cask the-unarchiver
 #require_cask transmission
-require_cask vlc
+# require_cask vlc
 require_cask xquartz
 
 # development browsers
