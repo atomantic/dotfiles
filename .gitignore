@@ -54,7 +54,6 @@ release.properties
 # Node #
 ########
 # Logs
-logs
 *.log
 
 # Runtime data
