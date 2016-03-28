@@ -107,6 +107,9 @@ require_brew ack
 # note, instead, use https://github.com/atomantic/generator-dockerize for dev tooling
 # require_brew boot2docker
 
+require_brew consul
+require_brew consul-template
+
 # dos2unix converts windows newlines to unix newlines
 require_brew dos2unix
 # fortune command--I source this as a better motd :)
