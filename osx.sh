@@ -21,10 +21,9 @@ if sudo grep -q "# %wheel\tALL=(ALL) NOPASSWD: ALL" "/etc/sudoers"; then
 
   if [[ $response =~ (yes|y|Y) ]];then
       sed --version 2>&1 > /dev/null
+      sudo sed -i '' 's/^#\s*\(%wheel\s\+ALL=(ALL)\s\+NOPASSWD:\s\+ALL\)/\1/' /etc/sudoers
       if [[ $? == 0 ]];then
           sudo sed -i 's/^#\s*\(%wheel\s\+ALL=(ALL)\s\+NOPASSWD:\s\+ALL\)/\1/' /etc/sudoers
-      else
-          sudo sed -i '' 's/^#\s*\(%wheel\s\+ALL=(ALL)\s\+NOPASSWD:\s\+ALL\)/\1/' /etc/sudoers
       fi
       sudo dscl . append /Groups/wheel GroupMembership $(whoami)
       bot "You can now run sudo commands without password!"
@@ -138,6 +137,7 @@ require_brew jq
 require_brew nmap
 # require_brew node
 require_brew nvm
+require_brew openconnect
 require_brew ruby
 # better/more recent version of screen
 require_brew homebrew/dupes/screen

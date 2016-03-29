@@ -79,11 +79,11 @@ running "replacing items in .gitconfig with your info ($COL_YELLOW$fullname, $em
 
 # test if gnu-sed or osx sed
 
-sed -i 's/'$DEFAULT_NAME'/'$firstname' '$lastname'/' .gitconfig > /dev/null 2>&1 | true
+sed -i "s/$DEFAULT_NAME/$firstname $lastname/" .gitconfig > /dev/null 2>&1 | true
 if [[ ${PIPESTATUS[0]} != 0 ]]; then
   echo
   running "looks like you are using OSX sed rather than gnu-sed, accommodating"
-  sed -i '' 's/'$DEFAULT_NAME'/'$firstname' '$lastname'/' .gitconfig;
+  sed -i '' "s/$DEFAULT_NAME/$firstname $lastname/" .gitconfig;
   sed -i '' 's/'$DEFAULT_EMAIL'/'$email'/' .gitconfig;
   sed -i '' 's/'$DEFAULT_GITHUBUSER'/'$githubuser'/' .gitconfig;
   sed -i '' 's/'$DEFAULT_USERNAME'/'$(whoami)'/g' .zshrc;ok
