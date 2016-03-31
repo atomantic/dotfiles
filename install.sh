@@ -5,7 +5,7 @@
 # @author Adam Eivy
 ###########################
 
-DEFAULT_EMAIL="atomantic@gmail.com"
+DEFAULT_EMAIL="adam.eivy@disney.com"
 DEFAULT_GITHUBUSER="atomantic"
 DEFAULT_NAME="Adam Eivy"
 DEFAULT_USERNAME="antic"
