@@ -106,9 +106,6 @@ require_brew ack
 # note, instead, use https://github.com/atomantic/generator-dockerize for dev tooling
 # require_brew boot2docker
 
-require_brew consul
-require_brew consul-template
-
 # dos2unix converts windows newlines to unix newlines
 require_brew dos2unix
 # fortune command--I source this as a better motd :)
@@ -141,6 +138,7 @@ require_brew openconnect
 require_brew ruby
 # better/more recent version of screen
 require_brew homebrew/dupes/screen
+require_brew tmux
 require_brew tree
 require_brew ttyrec
 # better, more recent vim
@@ -148,6 +146,9 @@ require_brew vim --override-system-vi
 require_brew watch
 # Install wget with IRI support
 require_brew wget --enable-iri
+
+require_brew zsh
+chsh -s /usr/local/bin/zsh
 
 # nvm
 require_nvm stable

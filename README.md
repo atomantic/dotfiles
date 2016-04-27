@@ -31,7 +31,7 @@ cd ~/.dotfiles;
 
 > Note: running install.sh is idempotent. You can run it again and again as you add new features or software to the scripts! I'll regularly add new configurations so keep an eye on this repo as it grows and optimizes.
 
-# Restoring Dotfiles
+## Restoring Dotfiles
 
 If you have existing dotfiles for configuring git, zsh, vim, etc, these will be backed-up into ~/.dotfiles_backup and replaced with the files from this project. You can restore your original dotfiles by using `./restore.sh`
 
@@ -41,11 +41,15 @@ The creator of this repo is not responsible if your machine ends up in a state y
 
 # Additional
 
-There are a few additional features in this repo:
+# Additional Changes
 
+There are a few additional features in this repo:
 - .crontab: you can `cron ~/.crontab` if you want to add my nightly cron software updates.
 
 > \\[0_0]/ - Note that this may wake you in the morning to compatibility issues so use only if you like being on the edge
+
+- I highly recommend remapping your Caps Lock key to Control per [Dr. Bunsen](http://www.drbunsen.org/remapping-caps-lock/):
+![Remap Caps Lock](https://raw.githubusercontent.com/atomantic/dotfiles/master/img/remap_capslock.png)
 
 # Settings
 This project changes a number of settings and configures software on OSX.
