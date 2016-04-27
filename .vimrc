@@ -9,7 +9,6 @@ else
 endif
 colorscheme solarized
 syntax on " syntax highlighting on
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -132,9 +131,9 @@ let b:match_ignorecase = 1
 let perl_extended_vars=1 " highlight advanced perl vars inside strings
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Pathogen 
+" Pathogen
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-call pathogen#runtime_append_all_bundles() 
+call pathogen#runtime_append_all_bundles()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Custom Functions
@@ -157,7 +156,7 @@ endfunction
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Useful abbrevs
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-iab xdate <c-r>=strftime("%d/%m/%y %H:%M:%S")<cr> 
+iab xdate <c-r>=strftime("%d/%m/%y %H:%M:%S")<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Autocommands
