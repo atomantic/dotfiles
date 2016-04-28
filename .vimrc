@@ -238,3 +238,9 @@ noremap <leader>yy "*Y
 
 " Preserve indentation while pasting text from the OS X clipboard
 noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" NERDTree
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let NERDTreeShowHidden=1
+let NERDTreeIgnore=['\.DS_Store$']
