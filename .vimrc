@@ -222,6 +222,7 @@ au BufRead,BufNewFile *.rb,*.rhtml set tabstop=2
 au BufRead,BufNewFile *.rb,*.rhtml set shiftwidth=2
 au BufRead,BufNewFile *.rb,*.rhtml set softtabstop=2
 au BufRead,BufNewFile *.otl set syntax=blockhl
+au BufRead,BufNewFile *.json set syntax=javascript
 au FileType python set omnifunc=pythoncomplete#Complete
 au FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 au FileType html set omnifunc=htmlcomplete#CompleteTags
