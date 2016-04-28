@@ -34,6 +34,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'scrooloose/syntastic'
 
 " plugin from http://vim-scripts.org/vim/scripts.html
 Plugin 'node.js'
@@ -244,3 +245,17 @@ noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let NERDTreeShowHidden=1
 let NERDTreeIgnore=['\.DS_Store$']
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Syntastic 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+let g:syntastic_enable_eslint_checker = 1
+let g:syntastic_javascript_checkers = ['eslint']
