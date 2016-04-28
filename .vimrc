@@ -32,6 +32,8 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-sensible'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'scrooloose/nerdtree'
+Plugin 'jistr/vim-nerdtree-tabs'
 
 " plugin from http://vim-scripts.org/vim/scripts.html
 Plugin 'node.js'
@@ -199,6 +201,7 @@ endfunction
 " map <left> <ESC>:NERDTreeToggle<RETURN>  " moves left fa split
 " map <F2> <ESC>ggVG:call SuperRetab()<left>
 " map <F12> ggVGg? " apply rot13 for people snooping over shoulder, good fun
+map ,n <plug>NERDTreeTabsToggle<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Useful abbrevs
@@ -219,6 +222,7 @@ au FileType html set omnifunc=htmlcomplete#CompleteTags
 au FileType css set omnifunc=csscomplete#CompleteCSS
 au FileType xml set omnifunc=xmlcomplete#CompleteTags
 au FileType c set omnifunc=ccomplete#Complete
+autocmd vimenter * NERDTree
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Change paging overlap amount from 2 to 5 (+3)
