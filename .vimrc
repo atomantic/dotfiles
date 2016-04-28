@@ -36,6 +36,10 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'scrooloose/syntastic'
 Plugin 'millermedeiros/vim-esformatter'
+" https://github.com/plasticboy/vim-markdown
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'suan/vim-instant-markdown'
 
 " plugin from http://vim-scripts.org/vim/scripts.html
 Plugin 'node.js'

@@ -162,6 +162,7 @@ require_npm antic
 require_npm buzzphrase
 require_npm bower
 require_npm bower-check-updates
+require_npm instant-markdown-d
 require_npm npm-check
 # http://ionicframework.com/
 # require_npm cordova
@@ -236,7 +237,6 @@ require_cask xquartz
 # require_cask firefox
 #require_cask firefox-aurora
 require_cask google-chrome
-# require_cask google-chrome-canary
 # require_cask torbrowser
 
 # virtal machines
@@ -892,12 +892,11 @@ running "Disable continuous spell checking"
 defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "continuousSpellCheckingEnabled" -bool false;ok
 
 ###############################################################################
-bot "Google Chrome & Google Chrome Canary"
+bot "Google Chrome"
 ###############################################################################
 
 running "Allow installing user scripts via GitHub Gist or Userscripts.org"
 defaults write com.google.Chrome ExtensionInstallSources -array "https://gist.githubusercontent.com/" "http://userscripts.org/*"
-defaults write com.google.Chrome.canary ExtensionInstallSources -array "https://gist.githubusercontent.com/" "http://userscripts.org/*";ok
 
 ###############################################################################
 bot "SizeUp.app"
