@@ -48,9 +48,13 @@ Don't you hate getting a new laptop or joining a new team and then spending a wh
 
 When I finish with your machine, you will be able to look at your command-line in full-screen mode like this (running iTerm):
 
-![iTerm Screenshot](https://raw.githubusercontent.com/atomantic/dotfiles/master/img/dotfiles.png)
+![iTerm Screenshot](https://raw.githubusercontent.com/atomantic/dotfiles/master/img/term.png)
 
 Check out how your shell prompt includes the full path & the working git branch!
+The top terminal is using vim + NerdTree as a full Atom replacement IDE.
+The bottom left is a git terminal.
+The bottom right is running `vtop`
+
 
 \\[._.]/ - I'm so excited I just binaried in my pants!
 

@@ -104,7 +104,6 @@ require_brew ack
 
 # docker setup:
 # note, instead, use https://github.com/atomantic/generator-dockerize for dev tooling
-# require_brew boot2docker
 
 # dos2unix converts windows newlines to unix newlines
 require_brew dos2unix
@@ -115,14 +114,14 @@ require_brew gawk
 require_brew gifsicle
 # skip those GUI clients, git command-line all the way
 require_brew git
-# yes, yes, use git-flow, please :)
-require_brew git-flow
+# no longer recommending git-flow:
+# require_brew git-flow
 # why is everyone still not using GPG?
 require_brew gnupg
 # Install GNU `sed`, overwriting the built-in `sed`
 # so we can do "sed -i 's/foo/bar/' file" instead of "sed -i '' 's/foo/bar/' file"
 require_brew gnu-sed --default-names
-require_brew go
+#require_brew go
 # better, more recent grep
 require_brew homebrew/dupes/grep
 require_brew imagemagick
@@ -147,8 +146,10 @@ require_brew vim --override-system-vi
 require_brew watch
 # Install wget with IRI support
 require_brew wget --enable-iri
-
+# update zsh to latest
 require_brew zsh
+# set zsh as the user login shell
+bot "setting newer homebrew zsh (/usr/local/bin/zsh) as your shell (password required)"
 chsh -s /usr/local/bin/zsh
 
 # nvm
@@ -169,7 +170,7 @@ require_npm npm-check
 # require_npm ionic
 require_npm yo
 # https://github.com/markdalgleish/bespoke.js
-require_npm generator-bespoke
+# require_npm generator-bespoke
 require_npm generator-dockerize
 # require_npm grunt
 require_npm gulp
@@ -222,7 +223,7 @@ require_cask sizeup
 #require_cask simple-comic
 #require_cask sketchup
 
-require_cask atom
+# require_cask atom
 # require_apm linter
 # require_apm linter-eslint
 # require_apm atom-beautify
@@ -250,8 +251,8 @@ require_cask google-chrome
 
 # bot "Alright, cleaning up homebrew cache..."
 # Remove outdated versions from the cellar
-# brew cleanup > /dev/null 2>&1
-# bot "All clean"
+brew cleanup > /dev/null 2>&1
+bot "All clean"
 
 ###############################################################################
 bot "Configuring General System UI/UX..."
