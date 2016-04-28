@@ -172,6 +172,7 @@ require_npm generator-bespoke
 require_npm generator-dockerize
 # require_npm grunt
 require_npm gulp
+require_npm esformatter
 require_npm eslint
 # NOTE: now using PM2 and forever in docker containers (not in host)
 # http://devo.ps/blog/goodbye-node-forever-hello-pm2/

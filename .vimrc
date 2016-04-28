@@ -35,6 +35,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'scrooloose/syntastic'
+Plugin 'millermedeiros/vim-esformatter'
 
 " plugin from http://vim-scripts.org/vim/scripts.html
 Plugin 'node.js'
@@ -239,6 +240,11 @@ noremap <leader>yy "*Y
 
 " Preserve indentation while pasting text from the OS X clipboard
 noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
+
+" esformatter
+" type \es to format
+nnoremap <silent> <leader>es :Esformatter<CR>
+vnoremap <silent> <leader>es :EsformatterVisual<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NERDTree
