@@ -45,6 +45,7 @@ updatedotfile .shellaliases
 updatedotfile .shellfn
 updatedotfile .shellpaths
 updatedotfile .shellvars
+updatedotfile .tmux.conf
 updatedotfile .vim
 updatedotfile .vim/autoload
 updatedotfile .vim/backup

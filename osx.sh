@@ -139,6 +139,7 @@ require_brew ruby
 # better/more recent version of screen
 require_brew homebrew/dupes/screen
 require_brew tmux
+require_brew reattach-to-user-namespace
 require_brew tree
 require_brew ttyrec
 # better, more recent vim

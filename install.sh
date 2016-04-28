@@ -124,6 +124,7 @@ symlinkifne .shellaliases
 symlinkifne .shellfn
 symlinkifne .shellpaths
 symlinkifne .shellvars
+symlinkifne .tmux.conf
 symlinkifne .vim
 symlinkifne .vimrc
 symlinkifne .zlogout

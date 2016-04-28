@@ -8,7 +8,10 @@ else
     set background=dark
 endif
 colorscheme solarized
-syntax on " syntax highlighting on
+" syntax on " syntax highlighting on
+syntax enable
+let g:solarized_termtrans = 1
+call togglebg#map("<F5>")
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -128,13 +131,12 @@ let b:match_ignorecase = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Perl
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let perl_extended_vars=1 " highlight advanced perl vars inside strings
+" let perl_extended_vars=1 " highlight advanced perl vars inside strings
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Pathogen
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-call pathogen#runtime_append_all_bundles()
-
+execute pathogen#infect()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Custom Functions
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -180,3 +182,10 @@ au FileType c set omnifunc=ccomplete#Complete
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <C-f> <C-f>3<C-y> "  Make overlap 3 extra on control-f
 nnoremap <C-b> <C-b>3<C-e> "  Make overlap 3 extra on control-b
+
+" Yank text to the OS X clipboard
+noremap <leader>y "*y
+noremap <leader>yy "*Y
+
+" Preserve indentation while pasting text from the OS X clipboard
+noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
