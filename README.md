@@ -41,13 +41,16 @@ The creator of this repo is not responsible if your machine ends up in a state y
 
 # Additional
 
-# Additional Changes
+## VIM as IDE
+I am moving away from using Atom and instead using vim as my IDE. I use Vundle to manage vim plugins (instead of pathogen). Vundle is better in many ways and is compatible with pathogen plugins. Additionally, vundle will manage and install it's own plugins so we don't have to use git submodules for all of them.
+To install plugins with vundle, pop open vim and run `:PluginInstall`
 
-There are a few additional features in this repo:
-- .crontab: you can `cron ~/.crontab` if you want to add my nightly cron software updates.
+## Crontab
+You can `cron ~/.crontab` if you want to add my nightly cron software updates.
 
 > \\[0_0]/ - Note that this may wake you in the morning to compatibility issues so use only if you like being on the edge
 
+## Remap Caps-Lock
 - I highly recommend remapping your Caps Lock key to Control per [Dr. Bunsen](http://www.drbunsen.org/remapping-caps-lock/):
 ![Remap Caps Lock](https://raw.githubusercontent.com/atomantic/dotfiles/master/img/remap_capslock.png)
 
