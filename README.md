@@ -9,7 +9,7 @@ You don't need to install or configure anything upfront! This works with a brand
 
 - [Forget About Manual Configuration!](#forget-about-manual-configuration)
 - [Watch me run!](#watch-me-run)
-- [Running](#running)
+- [Installation](#installation)
   - [Restoring Dotfiles](#restoring-dotfiles)
 - [Additional](#additional)
   - [VIM as IDE](#vim-as-ide)
@@ -61,14 +61,17 @@ The bottom right is running `vtop`
 # Watch me run!
 ![Running](http://media.giphy.com/media/5xtDarwenxEoFeIMEM0/giphy.gif)
 
-# Running
+# Installation
 
 Note: I recommend forking this repo in case you don't like anything I do and want to set your own preferences (and pull request them!)
-```bash
+
+1. ```bash
 git clone --recurse-submodules https://github.com/atomantic/dotfiles ~/.dotfiles
 cd ~/.dotfiles;
 ./install.sh;
 ```
+2. When it finishes, open Iterm and press `Command + ,` to open preferences. Under Profiles > Colors, select "Load Presets" and choose the `Solarized Dark` scheme. If it isn't there for some reason, import it from ``~/.dotfiles/configs`
+3. run `vim` and then do `:PluginInstall` (you'll see errors loading plugins when vim opens until you do)
 
 > Note: running install.sh is idempotent. You can run it again and again as you add new features or software to the scripts! I'll regularly add new configurations so keep an eye on this repo as it grows and optimizes.
 
@@ -260,7 +263,7 @@ Here is the current list:
 - Disable smart quotes as it’s annoying for messages that contain code
 - Disable continuous spell checking
 
-## Google Chrome 
+## Google Chrome
 - Allow installing user scripts via GitHub Gist or Userscripts.org
 
 ## SizeUp.app
@@ -282,4 +285,3 @@ Please refer to the [Contributor Covenant](https://github.com/atomantic/dotfiles
 # ¯\\_(ツ)_/¯ Warning / Liability
 > Warning:
 The creator of this repo is not responsible if your machine ends up in a state you are not happy with. If you are concerned, look at install.sh and osx.sh to review everything this script will do to your machine :)
-
