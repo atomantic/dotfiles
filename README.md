@@ -55,6 +55,8 @@ The top terminal is using vim + NerdTree as a full Atom replacement IDE.
 The bottom left is a git terminal.
 The bottom right is running `vtop`
 
+To launch fullscreen, hit `Command + Enter` in iTerm, then use `Command + d` and `Command + D` to create split panes.
+
 
 \\[._.]/ - I'm so excited I just binaried in my pants!
 

@@ -32,6 +32,5 @@ source /usr/local/opt/nvm/nvm.sh
 # Customize to your needs...
 unsetopt correct
 
-nvm use stable
 # run fortune on new terminal :)
 fortune

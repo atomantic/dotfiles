@@ -153,7 +153,7 @@ bot "setting newer homebrew zsh (/usr/local/bin/zsh) as your shell (password req
 chsh -s /usr/local/bin/zsh
 
 # nvm
-require_nvm stable
+require_nvm 4.4.3
 
 ###############################################################################
 bot "NPM Globals..."
