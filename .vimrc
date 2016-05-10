@@ -34,12 +34,13 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'suan/vim-instant-markdown'
+Plugin 'godlygeek/tabular'
+" language tools
 Plugin 'scrooloose/syntastic'
 Plugin 'millermedeiros/vim-esformatter'
-" https://github.com/plasticboy/vim-markdown
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'suan/vim-instant-markdown'
+Plugin 'digitaltoad/vim-pug'
+"Plugin 'sheerun/vim-polyglot'
 
 " plugin from http://vim-scripts.org/vim/scripts.html
 Plugin 'node.js'
@@ -267,6 +268,7 @@ set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
+let g:syntastic_check_on_wq = 0
 let g:syntastic_enable_eslint_checker = 1
 let g:syntastic_javascript_checkers = ['eslint']
+"let g:syntastic_pug_checkers = ['jade']
