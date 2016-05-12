@@ -153,7 +153,7 @@ bot "setting newer homebrew zsh (/usr/local/bin/zsh) as your shell (password req
 chsh -s /usr/local/bin/zsh
 
 # nvm
-require_nvm 4.4.3
+require_nvm 4.4.4
 
 ###############################################################################
 bot "NPM Globals..."
@@ -163,6 +163,8 @@ require_npm antic
 require_npm buzzphrase
 require_npm bower
 require_npm bower-check-updates
+require_npm esformatter
+require_npm eslint
 require_npm instant-markdown-d
 require_npm npm-check
 # http://ionicframework.com/
@@ -174,8 +176,6 @@ require_npm yo
 require_npm generator-dockerize
 # require_npm grunt
 require_npm gulp
-require_npm esformatter
-require_npm eslint
 # NOTE: now using PM2 and forever in docker containers (not in host)
 # http://devo.ps/blog/goodbye-node-forever-hello-pm2/
 # require_npm pm2

@@ -152,34 +152,31 @@
 	cob = checkout -b
 	sno = show --name-only
 	logsimple = log --graph --abbrev-commit --pretty=oneline --all --decorate
-
 [apply]
 	whitespace = nowarn
 
-#Enable the recording of resolved conflicts, so that identical hunks can be resolved automatically later on
 [rerere]
+	#Enable the recording of resolved conflicts, so that identical hunks can be resolved automatically later on
 	enabled = 1
 
 [difftool]
 	prompt = false
+
 [diff]
-	#tool = myaraxis
-	tool = diffmerge
+	tool = vimdiff
+
 [init]
     templatedir = ~/.dotfiles/.git_template
+
 [mergetool]
 	prompt = false
 	keepBackup = false
-[difftool "diffmerge"]
-	cmd = diffmerge \"$LOCAL\" \"$REMOTE\"
-[mergetool "diffmerge"]
-	cmd = "diffmerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$(if test -f \"$BASE\"; then echo \"$BASE\"; else echo \"$LOCAL\"; fi)\" \"$REMOTE\""
-	trustExitCode = true
 
 [merge]
-	tool = diffmerge
+	tool = vimdiff
 	# Always show a diffstat at the end of a merge
 	stat = true
+	conflictstyle = diff3
 
 [branch]
     # Automatically set up pull to be --rebase
@@ -191,12 +188,15 @@
 
 [filter "tabspace"]
 	clean = expand -t 4
+
 [push]
 	default = matching
+
 [filter "media"]
 	required = true
 	clean = git media clean %f
 	smudge = git media smudge %f
+	
 [filter "lfs"]
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f

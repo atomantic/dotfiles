@@ -7,6 +7,7 @@ You don't need to install or configure anything upfront! This works with a brand
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
+
 - [Forget About Manual Configuration!](#forget-about-manual-configuration)
 - [Watch me run!](#watch-me-run)
 - [Installation](#installation)
@@ -15,6 +16,7 @@ You don't need to install or configure anything upfront! This works with a brand
   - [VIM as IDE](#vim-as-ide)
   - [Crontab](#crontab)
   - [Remap Caps-Lock](#remap-caps-lock)
+- [License](#license)
 - [Settings](#settings)
   - [Configuring General System UI/UX](#configuring-general-system-uiux)
   - [Standard System Changes](#standard-system-changes)
@@ -34,6 +36,11 @@ You don't need to install or configure anything upfront! This works with a brand
   - [Messages](#messages)
   - [Google Chrome](#google-chrome)
   - [SizeUp.app](#sizeupapp)
+- [Software Installation](#software-installation)
+  - [Utilities](#utilities)
+  - [Apps](#apps)
+  - [NPM Global Modules](#npm-global-modules)
+  - [Ruby Gems](#ruby-gems)
 - [Contributions](#contributions)
 - [Loathing, Mehs and Praise](#loathing-mehs-and-praise)
 - [¯\\_(ツ)_/¯ Warning / Liability](#%C2%AF%5C%5C_%E3%83%84_%C2%AF-warning--liability)
@@ -67,13 +74,13 @@ To launch fullscreen, hit `Command + Enter` in iTerm, then use `Command + d` and
 
 Note: I recommend forking this repo in case you don't like anything I do and want to set your own preferences (and pull request them!)
 
-1. ```bash
+```bash
 git clone --recurse-submodules https://github.com/atomantic/dotfiles ~/.dotfiles
 cd ~/.dotfiles;
-./install.sh;
+./install.sh
 ```
-2. When it finishes, open Iterm and press `Command + ,` to open preferences. Under Profiles > Colors, select "Load Presets" and choose the `Solarized Dark` scheme. If it isn't there for some reason, import it from ``~/.dotfiles/configs`
-3. run `vim` and then do `:PluginInstall` (you'll see errors loading plugins when vim opens until you do)
+* When it finishes, open Iterm and press `Command + ,` to open preferences. Under Profiles > Colors, select "Load Presets" and choose the `Solarized Dark` scheme. If it isn't there for some reason, import it from `~/.dotfiles/configs`
+* run `vim` and then do `:PluginInstall` (you'll see errors loading plugins when vim opens until you do)
 
 > Note: running install.sh is idempotent. You can run it again and again as you add new features or software to the scripts! I'll regularly add new configurations so keep an eye on this repo as it grows and optimizes.
 
@@ -95,6 +102,9 @@ You can `cron ~/.crontab` if you want to add my nightly cron software updates.
 ## Remap Caps-Lock
 - I highly recommend remapping your Caps Lock key to Control per [Dr. Bunsen](http://www.drbunsen.org/remapping-caps-lock/):
 ![Remap Caps Lock](https://raw.githubusercontent.com/atomantic/dotfiles/master/img/remap_capslock.png)
+
+# License
+This project is licensed under ISC. Please fork, contribute and share.
 
 # Settings
 This project changes a number of settings and configures software on OSX.
@@ -271,6 +281,66 @@ Here is the current list:
 ## SizeUp.app
 - Start SizeUp at login
 - Don’t show the preferences window on next start
+
+# Software Installation
+## Utilities
+
+* coreutils
+* moreutils
+* findutils
+* ack
+* dos2unix
+* fortune
+* gawk
+* gifsicle
+* git
+* gnupg
+* gnu-sed
+* homebrew/dupes/grep
+* imagemagick
+* imagesnap
+* jq
+* nmap
+* nvm
+* openconnect
+* reattach-to-user-namespace
+* ruby
+* homebrew/dupes/screen
+* tmux
+* tree
+* ttyrec
+* vim --override-system-vi
+* watch
+* wget --enable-iri
+* zsh #upgrade
+
+## Apps
+* box-sync
+* slack
+* gpgtools
+* iterm2
+* sizeup
+* xquartz
+* google-chrome
+
+## NPM Global Modules
+
+* antic
+* buzzphrase
+* bower
+* bower-check-updates
+* esformatter
+* eslint
+* generator-dockerize
+* gulp
+* instant-markdown-d
+* npm-check
+* trash
+* vtop
+* yo
+
+## Ruby Gems
+* git-up
 
 # Contributions
 Contributions are always welcome in the form of pull requests with explanatory comments.
