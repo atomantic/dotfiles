@@ -15,9 +15,9 @@ DEFAULT_USERNAME="antic"
 source ./lib.sh
 
 # make a backup directory for overwritten dotfiles
-if [[ ! -e ~/.dotfiles_backup ]]; then
-    mkdir ~/.dotfiles_backup
-fi
+mkdir -p ~/.dotfiles_backup
+# ensure ~/.gitshots exists
+mkdir -p ~/.gitshots
 
 bot "Hi. I'm going to make your OSX system better. But first, I need to configure this project based on your info so you don't check in files to github as Adam Eivy from here on out :)"
 
