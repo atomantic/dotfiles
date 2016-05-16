@@ -1,3 +1,4 @@
+[![Beerpay](https://beerpay.io/atomantic/dotfiles/badge.svg?style=flat-square)](https://beerpay.io/atomantic/dotfiles)
 # \\[._.]/ - Hi, I'm the OSX bot
 
 I will update your OSX machine with Better™ system defaults, preferences, software configuration and even auto-install some handy development tools and apps that my developer friends find helpful.
