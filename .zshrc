@@ -6,7 +6,12 @@ export ZSH=$HOME/.dotfiles/oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 export ZSH_THEME="powerlevel9k/powerlevel9k"
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status history time battery)
+# https://github.com/bhilburn/powerlevel9k#customizing-prompt-segments
+# https://github.com/bhilburn/powerlevel9k/wiki/Stylizing-Your-Prompt
 #export POWERLEVEL9K_MODE='compatible'
+# export POWERLEVEL9K_MODE='awesome-fontconfig'
 #export ZSH_THEME="random"
 
 # Set to this to use case-sensitive completion
