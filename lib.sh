@@ -122,7 +122,7 @@ function require_nvm() {
     nvm install $1
     if [[ $? != 0 ]]; then
         action "installing nvm"
-        curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.25.4/install.sh | bash
+        curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
         . ~/.bashrc
         nvm install $1
     fi

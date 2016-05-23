@@ -36,6 +36,7 @@ function updatedotfile {
 }
 
 updatedotfile .crontab
+updatedotfile .fonts
 updatedotfile .gemrc
 updatedotfile .gitconfig
 updatedotfile .gitignore

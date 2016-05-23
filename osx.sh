@@ -84,6 +84,10 @@ require_brew coreutils
 require_brew moreutils
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed
 require_brew findutils
+require_brew fontconfig
+./fonts/install.sh
+# https://github.com/gabrielelana/awesome-terminal-fonts
+fc-cache -fv ~/.fonts
 
 # Install Bash 4
 # Note: don’t forget to add `/usr/local/bin/bash` to `/etc/shells` before running `chsh`.
@@ -213,7 +217,7 @@ require_cask slack
 
 # tools
 #require_cask comicbooklover
-require_cask diffmerge
+#require_cask diffmerge
 #require_cask flash-player
 require_cask gpgtools
 # require_cask ireadfast
@@ -814,6 +818,8 @@ defaults write com.googlecode.iterm2 Hotkey -bool true;
 defaults write com.googlecode.iterm2 HotkeyChar -int 96;
 defaults write com.googlecode.iterm2 HotkeyCode -int 50;
 defaults write com.googlecode.iterm2 HotkeyModifiers -int 262401;
+defaults write com.googlecode.iterm2 "Normal Font" -string "Hack-Regular 12";
+defaults write com.googlecode.iterm2 "Non Ascii Font" -string "RobotoMonoForPowerline-Regular 12";
 ok
 
 # running "Make iTerm2 load new tabs in the same directory"
