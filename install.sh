@@ -5,12 +5,6 @@
 # @author Adam Eivy
 ###########################
 
-DEFAULT_EMAIL="adam.eivy@disney.com"
-DEFAULT_GITHUBUSER="atomantic"
-DEFAULT_NAME="Adam Eivy"
-DEFAULT_USERNAME="antic"
-
-
 # include my library helpers for colorized echo and require_brew, etc
 source ./lib.sh
 
@@ -70,7 +64,7 @@ fi
 
 grep 'user = atomantic' .gitconfig
 if [[ $? = 0 ]]; then
-    read -r -p "What is your github.com username? [$DEFAULT_GITHUBUSER]" githubuser
+    read -r -p "What is your github.com username?" githubuser
 fi
 
 running "replacing items in .gitconfig with your info ($COL_YELLOW$fullname, $email, $githubuser$COL_RESET)"
