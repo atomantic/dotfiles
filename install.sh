@@ -112,13 +112,9 @@ else
   bot "looks like you are already using zsh. woot!"
 fi
 
-read -r -p "Do you want to use powerlevel9k theme? [Y|n] " response
-if [[ $response =~ ^(no|n|N) ]];then
-  echo "using default theme (miloshadzic)"
-else
-  git clone https://github.com/bhilburn/powerlevel9k.git oh-my-zsh/custom/themes/powerlevel9k
-  sed -i 's/miloshadzic/powerlevel9k\/powerlevel9k/g' .zshrc;ok
-fi
+
+git clone https://github.com/bhilburn/powerlevel9k.git oh-my-zsh/custom/themes/powerlevel9k
+
 read -r -p "Do you want to use the project desktop background? [Y|n] " response
 if [[ $response =~ ^(no|n|N) ]];then
   echo "skipping...";
