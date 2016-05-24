@@ -11,6 +11,7 @@ export ZSH_THEME="powerlevel9k/powerlevel9k"
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir nvm vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status history time)
 POWERLEVEL9K_NVM_FOREGROUND='008'
+POWERLEVEL9K_SHOW_CHANGESET=true
 # POWERLEVEL9K_NVM_BACKGROUND='blue'
 # colorcode test
 # for code ({000..255}) print -P -- "$code: %F{$code}This is how your text would look like%f"
