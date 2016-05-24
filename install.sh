@@ -14,6 +14,8 @@ DEFAULT_USERNAME="antic"
 # include my library helpers for colorized echo and require_brew, etc
 source ./lib.sh
 
+exit 1;
+
 # make a backup directory for overwritten dotfiles
 mkdir -p ~/.dotfiles_backup
 # ensure ~/.gitshots exists

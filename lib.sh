@@ -90,11 +90,11 @@ function require_gem() {
 function require_npm() {
     sourceNVM
     nvm use 4.4.4
-    running "npm $@"
+    running "npm $*"
     #npm list -g --depth 0 | grep $1@ > /dev/null
     #if [[ $? != 0 ]]; then
-        action "npm install -g $@"
-        npm install -g $1
+        action "npm install -g $*"
+        npm install -g $@
     #fi
     ok
 }
@@ -125,8 +125,9 @@ function require_nvm() {
         curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
         . ~/.bashrc
         nvm install $1
+    else
+      nvm use $1
     fi
-    nvm use $1
     ok
 }
 

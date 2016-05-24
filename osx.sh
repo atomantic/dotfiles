@@ -166,7 +166,7 @@ bot "NPM Globals..."
 require_npm \
 antic \
 buzzphrase \
-rbower \
+bower \
 bower-check-updates \
 esformatter \
 eslint \
