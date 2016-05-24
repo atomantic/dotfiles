@@ -84,9 +84,10 @@ require_brew coreutils
 require_brew moreutils
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed
 require_brew findutils
-require_brew fontconfig
+require_brew fontconfig --universal
 ./fonts/install.sh
 # https://github.com/gabrielelana/awesome-terminal-fonts
+export FONTCONFIG_PATH=/opt/X11/lib/X11/fontconfig
 fc-cache -fv ~/.fonts
 
 # Install Bash 4
@@ -782,7 +783,7 @@ bot "Terminal & iTerm2"
 
 #running "Enable “focus follows mouse” for Terminal.app and all X11 apps"
 # i.e. hover over a window and start `typing in it without clicking first
-#defaults write com.apple.terminal FocusFollowsMouse -bool true
+defaults write com.apple.terminal FocusFollowsMouse -bool true
 #defaults write org.x.X11 wm_ffm -bool true;ok
 running "Installing the Solarized Light theme for iTerm (opening file)"
 open "./configs/Solarized Light.itermcolors";ok
@@ -795,12 +796,15 @@ running "hide tab title bars"
 defaults write com.googlecode.iterm2 HideTab -bool true;ok
 running "set system-wide hotkey to show/hide iterm with ^\`"
 defaults write com.googlecode.iterm2 Hotkey -bool true;
+defaults write com.googlecode.iterm2 AnimateDimming -bool true;
 defaults write com.googlecode.iterm2 HotkeyChar -int 96;
 defaults write com.googlecode.iterm2 HotkeyCode -int 50;
 defaults write com.googlecode.iterm2 FocusFollowsMouse -int 1;
 defaults write com.googlecode.iterm2 HotkeyModifiers -int 262401;
 defaults write com.googlecode.iterm2 "Normal Font" -string "Hack-Regular 12";
 defaults write com.googlecode.iterm2 "Non Ascii Font" -string "RobotoMonoForPowerline-Regular 12";
+defaults read com.googlecode.iterm2;
+#defaults write com.googlecode.iterm2 "PrefsCustomFolder" -string "/Users/$(whoami)/.dotfiles/iterm"
 ok
 
 # running "Make iTerm2 load new tabs in the same directory"

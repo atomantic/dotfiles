@@ -25,3 +25,4 @@ export GROOVY_HOME=/usr/local/opt/groovy/libexec
 #########################################################################
 # Tool settings
 #########################################################################
+export FONTCONFIG_PATH=/opt/X11/lib/X11/fontconfig
