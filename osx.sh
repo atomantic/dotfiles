@@ -795,23 +795,25 @@ defaults write com.googlecode.iterm2 PromptOnQuit -bool false;ok
 running "hide tab title bars"
 defaults write com.googlecode.iterm2 HideTab -bool true;ok
 running "set system-wide hotkey to show/hide iterm with ^\`"
-defaults write com.googlecode.iterm2 Hotkey -bool true;
-defaults write com.googlecode.iterm2 AnimateDimming -bool true;
+defaults write com.googlecode.iterm2 Hotkey -bool true;ok
+running "hide pane titles in split panes"
+defaults write com.googlecode.iterm2 ShowPaneTitles -bool false;ok
+running "animate split-terminal dimming"
+defaults write com.googlecode.iterm2 AnimateDimming -bool true;ok
 defaults write com.googlecode.iterm2 HotkeyChar -int 96;
 defaults write com.googlecode.iterm2 HotkeyCode -int 50;
 defaults write com.googlecode.iterm2 FocusFollowsMouse -int 1;
 defaults write com.googlecode.iterm2 HotkeyModifiers -int 262401;
+running "Make iTerm2 load new tabs in the same directory"
+/usr/libexec/PlistBuddy -c "set \"New Bookmarks\":0:\"Custom Directory\" Recycle" /tmp/plist;ok
+running "setting fonts"
 defaults write com.googlecode.iterm2 "Normal Font" -string "Hack-Regular 12";
-defaults write com.googlecode.iterm2 "Non Ascii Font" -string "RobotoMonoForPowerline-Regular 12";
-defaults read com.googlecode.iterm2;
+defaults write com.googlecode.iterm2 "Non Ascii Font" -string "DroidSansMonoAwesome 12";
+ok
+running "reading iterm settings"
+defaults read -app iTerm;
 #defaults write com.googlecode.iterm2 "PrefsCustomFolder" -string "/Users/$(whoami)/.dotfiles/iterm"
 ok
-
-# running "Make iTerm2 load new tabs in the same directory"
-# defaults export com.googlecode.iterm2 /tmp/plist
-# /usr/libexec/PlistBuddy -c "set \"New Bookmarks\":0:\"Custom Directory\" Recycle" /tmp/plist
-# defaults import com.googlecode.iterm2 /tmp/plist;ok
-
 
 ###############################################################################
 bot "Time Machine"
@@ -900,6 +902,7 @@ defaults write com.irradiatedsoftware.SizeUp StartAtLogin -bool true;ok
 running "Don’t show the preferences window on next start"
 defaults write com.irradiatedsoftware.SizeUp ShowPrefsOnNextStart -bool false;ok
 
+killall cfprefsd
 
 ###############################################################################
 # Kill affected applications                                                  #
