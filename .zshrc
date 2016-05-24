@@ -42,7 +42,7 @@ unsetopt correct
 fortune
 
 # The next line updates PATH for the Google Cloud SDK.
-source '/Users/eivya001/Downloads/google-cloud-sdk/path.zsh.inc'
+source "/Users/$(whoami)/Downloads/google-cloud-sdk/path.zsh.inc"
 
 # The next line enables shell command completion for gcloud.
-source '/Users/eivya001/Downloads/google-cloud-sdk/completion.zsh.inc'
+source "/Users/$(whoami)/Downloads/google-cloud-sdk/completion.zsh.inc"

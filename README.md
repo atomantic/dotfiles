@@ -247,8 +247,10 @@ Here is the current list:
 ## iTerm2
 - Installing the Solarized Dark theme for iTerm
 - Don’t display the annoying prompt when quitting iTerm
-- hide tab title bars
-- set system-wide hotkey to show/hide iterm with ^`
+- Hide tab title bars
+- Set system-wide hotkey to show/hide iterm with ^`
+- Set normal font to Hack 12pt
+- Set non-ascii font to Roboto Mono for Powerline 12pt
 
 ## Time Machine
 - Prevent Time Machine from prompting to use new hard drives as backup volume

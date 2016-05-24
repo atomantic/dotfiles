@@ -117,6 +117,20 @@ else
   git clone https://github.com/bhilburn/powerlevel9k.git oh-my-zsh/custom/themes/powerlevel9k
   sed -i 's/miloshadzic/powerlevel9k\/powerlevel9k/g' .zshrc;ok
 fi
+read -r -p "Do you want to use the project desktop background? [Y|n] " response
+if [[ $response =~ ^(no|n|N) ]];then
+  echo "skipping...";
+  ok
+else
+  running "Set a custom wallpaper image"
+  # `DefaultDesktop.jpg` is already a symlink, and
+  # all wallpapers are in `/Library/Desktop Pictures/`. The default is `Wave.jpg`.
+  rm -rf ~/Library/Application Support/Dock/desktoppicture.db
+  sudo rm -f /System/Library/CoreServices/DefaultDesktop.jpg
+  sudo rm -f /Library/Desktop\ Pictures/El\ Capitan.jpg
+  sudo cp ./img/wallpaper.jpg /System/Library/CoreServices/DefaultDesktop.jpg;
+  sudo cp ./img/wallpaper.jpg /Library/Desktop\ Pictures/El\ Capitan.jpg;ok
+fi
 
 pushd ~ > /dev/null 2>&1
 

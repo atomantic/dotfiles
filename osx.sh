@@ -163,32 +163,21 @@ require_nvm 4.4.4
 bot "NPM Globals..."
 ###############################################################################
 
-require_npm antic
-require_npm buzzphrase
-require_npm bower
-require_npm bower-check-updates
-require_npm esformatter
-require_npm eslint
-require_npm instant-markdown-d
-require_npm npm-check
-# http://ionicframework.com/
-# require_npm cordova
-# require_npm ionic
-require_npm yo
-# https://github.com/markdalgleish/bespoke.js
-# require_npm generator-bespoke
-require_npm generator-dockerize
-# require_npm grunt
-require_npm gulp
-# NOTE: now using PM2 and forever in docker containers (not in host)
-# http://devo.ps/blog/goodbye-node-forever-hello-pm2/
-# require_npm pm2
-require_npm prettyjson
-# require_npm supervisor
-# https://github.com/sindresorhus/trash
-require_npm trash
-# https://github.com/MrRio/vtop
-require_npm vtop
+require_npm \
+antic \
+buzzphrase \
+rbower \
+bower-check-updates \
+esformatter \
+eslint \
+instant-markdown-d \
+npm-check \
+yo \
+generator-dockerize \
+gulp \
+prettyjson \
+trash \
+vtop \
 
 ###############################################################################
 bot "Ruby Gems..."
@@ -339,15 +328,6 @@ sudo chflags uchg /Private/var/vm/sleepimage;ok
 #running "Add a spacer to the right side of the Dock (where the Trash is)"
 #defaults write com.apple.dock persistent-others -array-add '{tile-data={}; tile-type="spacer-tile";}';ok
 
-running "Set a custom wallpaper image"
-# `DefaultDesktop.jpg` is already a symlink, and
-# all wallpapers are in `/Library/Desktop Pictures/`. The default is `Wave.jpg`.
-rm -rf ~/Library/Application Support/Dock/desktoppicture.db
-sudo rm -f /System/Library/CoreServices/DefaultDesktop.jpg
-sudo rm -f /Library/Desktop\ Pictures/El\ Capitan.jpg
-sudo cp ./img/wallpaper.jpg /System/Library/CoreServices/DefaultDesktop.jpg;
-sudo cp ./img/wallpaper.jpg /Library/Desktop\ Pictures/El\ Capitan.jpg;ok
-
 
 ################################################
 bot "Standard System Changes"
@@ -464,7 +444,7 @@ defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightC
 defaults -currentHost write NSGlobalDomain com.apple.trackpad.trackpadCornerClickBehavior -int 1
 defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true;ok
 
-running "Disable “natural” (Lion-style) scrolling"
+running "Disable 'natural' (Lion-style) scrolling"
 defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false;ok
 
 running "Increase sound quality for Bluetooth headphones/headsets"
@@ -528,7 +508,7 @@ running "Disable window animations and Get Info animations"
 defaults write com.apple.finder DisableAllAnimations -bool true;ok
 
 running "Set Desktop as the default location for new Finder windows"
-# For other paths, use `PfLo` and `file:///full/path/here/`
+# For other paths, use 'PfLo' and 'file:///full/path/here/'
 defaults write com.apple.finder NewWindowTarget -string "PfDe"
 defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/Desktop/";ok
 
