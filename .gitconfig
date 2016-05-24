@@ -1,6 +1,6 @@
 [user]
-	name = Eivy, Adam
-	email = Adam.Eivy@disney.com
+	name = Adam Eivy
+	email = adam.eivy@disney.com
 [github]
     # https://github.com/blog/180-local-github-config
     user = atomantic
@@ -196,7 +196,7 @@
 	required = true
 	clean = git media clean %f
 	smudge = git media smudge %f
-	
+
 [filter "lfs"]
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
