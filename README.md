@@ -78,6 +78,7 @@ Note: I recommend forking this repo in case you don't like anything I do and wan
 ```bash
 git clone --recurse-submodules https://github.com/atomantic/dotfiles ~/.dotfiles
 cd ~/.dotfiles;
+# run this using terminal (not iTerm, lest iterm settings will be discarded on exit)
 ./install.sh
 ```
 * When it finishes, open Iterm and press `Command + ,` to open preferences. Under Profiles > Colors, select "Load Presets" and choose the `Solarized Dark` scheme. If it isn't there for some reason, import it from `~/.dotfiles/configs`
