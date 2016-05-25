@@ -17,7 +17,6 @@ bot "Hi! I'm going to install tooling and tweak your system settings. Here I go.
 mkdir -p ~/.gitshots
 
 # Ask for the administrator password upfront
-bot "checking sudo state (we'll need this for a lot of things)..."
 if sudo grep -q "# %wheel\tALL=(ALL) NOPASSWD: ALL" "/etc/sudoers"; then
 
   # Ask for the administrator password upfront
@@ -41,7 +40,6 @@ if sudo grep -q "# %wheel\tALL=(ALL) NOPASSWD: ALL" "/etc/sudoers"; then
       bot "You can now run sudo commands without password!"
   fi
 fi
-ok
 
 grep 'user = GITHUBUSER' ./homedir/.gitconfig > /dev/null 2>&1
 if [[ $? = 0 ]]; then
@@ -112,19 +110,23 @@ if [[ $? = 0 ]]; then
   fi
 fi
 
-read -r -p "Do you want to use the project's custom desktop wallpaper? [Y|n] " response
-if [[ $response =~ ^(no|n|N) ]];then
-  echo "skipping...";
-  ok
-else
-  running "Set a custom wallpaper image"
-  # `DefaultDesktop.jpg` is already a symlink, and
-  # all wallpapers are in `/Library/Desktop Pictures/`. The default is `Wave.jpg`.
-  rm -rf ~/Library/Application Support/Dock/desktoppicture.db
-  sudo rm -f /System/Library/CoreServices/DefaultDesktop.jpg > /dev/null 2>&1
-  sudo rm -f /Library/Desktop\ Pictures/El\ Capitan.jpg
-  sudo cp ./img/wallpaper.jpg /System/Library/CoreServices/DefaultDesktop.jpg;
-  sudo cp ./img/wallpaper.jpg /Library/Desktop\ Pictures/El\ Capitan.jpg;ok
+MD5_NEWWP=$(md5 img/wallpaper.jpg | awk '{print $4}')
+MD5_OLDWP=$(md5 /System/Library/CoreServices/DefaultDesktop.jpg | awk '{print $4}')
+if [[ "$MD5_NEWWP" != "$MD5_OLDWP" ]]; then
+  read -r -p "Do you want to use the project's custom desktop wallpaper? [Y|n] " response
+  if [[ $response =~ ^(no|n|N) ]];then
+    echo "skipping...";
+    ok
+  else
+    running "Set a custom wallpaper image"
+    # `DefaultDesktop.jpg` is already a symlink, and
+    # all wallpapers are in `/Library/Desktop Pictures/`. The default is `Wave.jpg`.
+    rm -rf ~/Library/Application Support/Dock/desktoppicture.db
+    sudo rm -f /System/Library/CoreServices/DefaultDesktop.jpg > /dev/null 2>&1
+    sudo rm -f /Library/Desktop\ Pictures/El\ Capitan.jpg
+    sudo cp ./img/wallpaper.jpg /System/Library/CoreServices/DefaultDesktop.jpg;
+    sudo cp ./img/wallpaper.jpg /Library/Desktop\ Pictures/El\ Capitan.jpg;ok
+  fi
 fi
 
 #####
@@ -204,7 +206,6 @@ for file in .*; do
   # if the file exists:
   if [[ -e ~/$file ]]; then
       mkdir -p ~/.dotfiles_backup/$now
-      echo -en "file exists..."
       mv ~/$file ~/.dotfiles_backup/$now/$file
       echo "backup saved as ~/.dotfiles_backup/$now/$file"
   fi
