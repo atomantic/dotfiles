@@ -29,7 +29,6 @@
   "homepage": "https://github.com/atomantic/dotfiles#readme",
   "dependencies": {
     "inquirer": "^1.0.2",
-    "node-emoji": "^1.3.0",
-    "npmlog": "^2.0.4"
+    "node-emoji": "^1.3.0"
   }
 }

@@ -11,6 +11,11 @@ source ./lib_sh/requirers.sh
 
 bot "Hi! I'm going to install tooling and tweak your system settings. Here I go..."
 
+# ensure ~/.gitshots exists to prevent "Error." in terminal after git commits
+# TODO: use node/yoeman to templatize elements of this project and use inquerer to ask if the
+# user wants to use gitshots
+mkdir -p ~/.gitshots
+
 # Ask for the administrator password upfront
 bot "checking sudo state (we'll need this for a lot of things)..."
 if sudo grep -q "# %wheel\tALL=(ALL) NOPASSWD: ALL" "/etc/sudoers"; then
@@ -802,7 +807,7 @@ defaults write com.googlecode.iterm2 "Normal Font" -string "Hack-Regular 12";
 defaults write com.googlecode.iterm2 "Non Ascii Font" -string "RobotoMonoForPowerline-Regular 12";
 ok
 running "reading iterm settings"
-defaults read -app iTerm;
+defaults read -app iTerm > /dev/null 2>&1;
 ok
 
 ###############################################################################
