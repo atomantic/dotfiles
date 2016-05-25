@@ -86,3 +86,5 @@ alias useio='brew unlink node && brew link --force iojs && echo Using io.js'
 alias port-forward-enable="echo 'rdr pass inet proto tcp from any to any port 2376 -> 127.0.0.1 port 2376' | sudo pfctl -ef -"
 alias port-forward-disable="sudo pfctl -F all -f /etc/pf.conf"
 alias port-forward-list="sudo pfctl -s nat"
+
+alias vtop="vtop --theme wizard"
