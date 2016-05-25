@@ -62,7 +62,7 @@ if [[ $response =~ ^(no|n|N) ]];then
   fi
 fi
 
-grep 'user = atomantic' .gitconfig
+grep 'user = GITHUBUSER' .gitconfig
 if [[ $? = 0 ]]; then
     read -r -p "What is your github.com username?" githubuser
 fi
