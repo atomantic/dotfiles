@@ -83,7 +83,7 @@ if [[ $? = 0 ]]; then
     read -r -p "What is your email? " email
     if [[ ! $email ]];then
       error "you must provide an email to configure .gitconfig"
-      exit 1;
+      exit 1
     fi
   fi
 
@@ -92,19 +92,19 @@ if [[ $? = 0 ]]; then
 
   # test if gnu-sed or osx sed
 
-  # sed -i "s/GITHUBFULLNAME/$firstname $lastname/" ./homedir/.gitconfig > /dev/null 2>&1 | true
-  # if [[ ${PIPESTATUS[0]} != 0 ]]; then
-  #   echo
-  #   running "looks like you are using OSX sed rather than gnu-sed, accommodating"
-  #   sed -i '' "s/GITHUBFULLNAME/$firstname $lastname/" ./homedir/.gitconfig;
-  #   sed -i '' 's/GITHUBEMAIL/'$email'/' ./homedir/.gitconfig;
-  #   sed -i '' 's/GITHUBUSER/'$githubuser'/' ./homedir/.gitconfig;
-  # else
-  #   echo
-  #   bot "looks like you are already using gnu-sed. woot!"
-  #   sed -i 's/GITHUBEMAIL/'$email'/' ./homedir/.gitconfig;
-  #   sed -i 's/GITHUBUSER/'$githubuser'/' ./homedir/.gitconfig;
-  # fi
+  sed -i "s/GITHUBFULLNAME/$firstname $lastname/" ./homedir/.gitconfig > /dev/null 2>&1 | true
+  if [[ ${PIPESTATUS[0]} != 0 ]]; then
+    echo
+    running "looks like you are using OSX sed rather than gnu-sed, accommodating"
+    sed -i '' "s/GITHUBFULLNAME/$firstname $lastname/" ./homedir/.gitconfig;
+    sed -i '' 's/GITHUBEMAIL/'$email'/' ./homedir/.gitconfig;
+    sed -i '' 's/GITHUBUSER/'$githubuser'/' ./homedir/.gitconfig;
+  else
+    echo
+    bot "looks like you are already using gnu-sed. woot!"
+    sed -i 's/GITHUBEMAIL/'$email'/' ./homedir/.gitconfig;
+    sed -i 's/GITHUBUSER/'$githubuser'/' ./homedir/.gitconfig;
+  fi
 fi
 
 read -r -p "Do you want to use the project's custom desktop wallpaper? [Y|n] " response
@@ -133,7 +133,7 @@ if [[ $? != 0 ]]; then
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     if [[ $? != 0 ]]; then
       error "unable to install homebrew, script $0 abort!"
-      exit -1
+      exit 2
   fi
 else
   ok
@@ -185,62 +185,28 @@ if [[ ! -d "./oh-my-zsh/custom/themes/powerlevel9k" ]]; then
   git clone https://github.com/bhilburn/powerlevel9k.git oh-my-zsh/custom/themes/powerlevel9k
 fi
 
-# make a backup directory for overwritten dotfiles
-mkdir -p ~/.dotfiles_backup
-pushd ~ > /dev/null 2>&1
-
 bot "creating symlinks for project dotfiles..."
+pushd homedir > /dev/null 2>&1
+now=$(date +"%Y.%m.%d.%H.%M.%S")
 
-
-for f in .dotfiles/homedir
-do
-  running "linking $f..."
-  ok
+for file in .*; do
+  if [[ $file == "." || $file == ".." ]]; then
+    continue
+  fi
+  running "~/$file"
+  # if the file exists:
+  if [[ -e ~/$file ]]; then
+      mkdir -p ~/.dotfiles_backup/$now
+      echo -en "file exists..."
+      mv ~/$file ~/.dotfiles_backup/$now/$file
+      echo "backup saved as ~/.dotfiles_backup/$now/$file"
+  fi
+  # symlink might still exist
+  unlink ~/$file > /dev/null 2>&1
+  # create the link
+  ln -s ~/.dotfiles/homedir/$file ~/$file
+  echo -en '\tlinked';ok
 done
-
-exit 0;
-#
-# function symlinkifne {
-#     running "$1"
-#
-#     # if the file exists:
-#     if [[ -e $1 ]]; then
-#         # backup file does not exist yet
-#         if [[ ! -e ~/.dotfiles_backup/$1 ]]; then
-#             mv $1 ~/.dotfiles_backup/
-#             echo -en 'backed up saved...'
-#         fi
-#         if [[ -L $1 ]]; then
-#             # it's already a simlink (kill it so we can relink)
-#             echo -en '\tsimlink exists, overwriting\t'
-#             rm $1
-#             ok
-#         fi
-#     fi
-#     # create the link
-#     ln -s ~/.dotfiles/homedir/$1 $1
-#     echo -en '\tlinked';ok
-# }
-#
-#
-# symlinkifne .crontab
-# symlinkifne .config/fontconfig
-# symlinkifne .gemrc
-# symlinkifne .gitconfig
-# symlinkifne .gitignore
-# symlinkifne .profile
-# symlinkifne .screenrc
-# symlinkifne .shellaliases
-# symlinkifne .shellfn
-# symlinkifne .shellpaths
-# symlinkifne .shellvars
-# symlinkifne .tmux.conf
-# symlinkifne .vim
-# symlinkifne .vimrc
-# symlinkifne .zlogout
-# symlinkifne .zprofile
-# symlinkifne .zshenv
-# symlinkifne .zshrc
 
 popd > /dev/null 2>&1
 

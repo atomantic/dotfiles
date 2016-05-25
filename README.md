@@ -1,4 +1,19 @@
 [![Beerpay](https://beerpay.io/atomantic/dotfiles/badge.svg?style=flat-square)](https://beerpay.io/atomantic/dotfiles)
+
+# 3.0.0 Upgrade Instructions!
+
+`3.0.0` brings huge changes. If you have made any modifications (and didn't make your own fork), you will want to backup your dotfiles prior to running `git-up` or `git pull` on `~/.dotfiles`.
+
+Do the following to upgrade your ~/.dotfiles safely:
+
+1. backup your dotfiles: `cp -R ~/.dotfiles ~/.dotfiles_old`
+2. `cd ~/.dotfiles`
+3. update dotfiles: `git-up` or `git pull`
+4. remove old submodule location: `rm -rf .vim` (now lives in `homedir/.vim`)
+5. inspect `install.sh` and `config.js` to make sure all the software you want is installed
+6. inspect `homedir/*` for any changes you want to port from `./dotfiles_old`
+7. run `install.sh` again
+
 # \\[._.]/ - Hi, I'm the OSX bot
 
 I will update your OSX machine with Better™ system defaults, preferences, software configuration and even auto-install some handy development tools and apps that my developer friends find helpful.
@@ -77,7 +92,7 @@ Note: I recommend forking this repo in case you don't like anything I do and wan
 ```bash
 git clone --recurse-submodules https://github.com/atomantic/dotfiles ~/.dotfiles
 cd ~/.dotfiles;
-# run this using terminal (not iTerm, lest iterm settings will be discarded on exit)
+# run this using terminal (not iTerm, lest iterm settings get discarded on exit)
 ./install.sh
 ```
 * When it finishes, open Iterm and press `Command + ,` to open preferences. Under Profiles > Colors, select "Load Presets" and choose the `Solarized Dark` scheme. If it isn't there for some reason, import it from `~/.dotfiles/configs`
@@ -87,7 +102,7 @@ cd ~/.dotfiles;
 
 ## Restoring Dotfiles
 
-If you have existing dotfiles for configuring git, zsh, vim, etc, these will be backed-up into ~/.dotfiles_backup and replaced with the files from this project. You can restore your original dotfiles by using `./restore.sh`
+If you have existing dotfiles for configuring git, zsh, vim, etc, these will be backed-up into `~/.dotfiles_backup/$(date +"%Y.%m.%d.%H.%M.%S")` and replaced with the files from this project. You can restore your original dotfiles by using `./restore.sh $RESTOREDATE` where `$RESTOREDATE` is the date folder name you want to restore.
 
 # Additional
 
