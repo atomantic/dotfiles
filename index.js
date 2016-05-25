@@ -17,9 +17,9 @@ const command = require('./lib_node/command')
 //   }
 
 const installPackages = function(type){
-  console.info('installing '+type, emoji.get('coffee'))
+  console.info(emoji.get('coffee'), 'installing '+type+'s')
   config[type].map(function(item){
-    console.info(type+'install', item);
+    console.info(type+':', item);
     command('. lib_sh/echos.sh && . lib_sh/requirers.sh && require_'+type+' ' + item, __dirname, function(err, out) {
       if(err) console.error(emoji.get('fire'), err)
     });
@@ -30,9 +30,5 @@ installPackages('brew');
 installPackages('cask');
 installPackages('npm');
 installPackages('gem');
-
-console.info('Alright, cleaning up homebrew cache...')
-command('brew cleanup > /dev/null 2>&1', __dirname, function(){})
-console.info('all clean')
 
 // });

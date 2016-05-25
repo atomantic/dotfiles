@@ -249,6 +249,9 @@ bot "installing packages from config.js..."
 node index.js
 ok
 
+running "cleanup homebrew"
+brew cleanup > /dev/null 2>&1
+ok
 
 ###############################################################################
 bot "Configuring General System UI/UX..."
