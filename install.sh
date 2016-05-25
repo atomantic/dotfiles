@@ -218,7 +218,7 @@ ok
 ###############################################################################
 bot "Fixing Ruby Gems Directory Permissions"
 ###############################################################################
-if[[ -d "/Library/Ruby/Gems/2.0.0" ]]; then
+if [[ -d "/Library/Ruby/Gems/2.0.0" ]]; then
   sudo chown -R $(whoami) /Library/Ruby/Gems/2.0.0
 fi
 
