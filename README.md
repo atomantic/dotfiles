@@ -298,7 +298,7 @@ Here is the current list:
 
 # Software Installation
 
-homebrew, git, ruby, nvm (node + npm), and zsh (latest) are all installed inside the `install.sh` as foundational software for running this project.
+homebrew, fontconfig, git, ruby, nvm (node + npm), and zsh (latest) are all installed inside the `install.sh` as foundational software for running this project.
 Additional software is configured in `config.js` and can be customized in your own fork/branch.
 The following is the software that I have set as default:
 

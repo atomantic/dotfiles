@@ -172,6 +172,8 @@ ok
 
 # skip those GUI clients, git command-line all the way
 require_brew git
+# need fontconfig to install/build fonts
+require_brew fontconfig
 # update zsh to latest
 require_brew zsh
 # update ruby to latest
@@ -220,11 +222,10 @@ bot "installing fonts"
 ./fonts/install.sh
 ok
 
-###############################################################################
-bot "Fixing Ruby Gems Directory Permissions"
-###############################################################################
 if [[ -d "/Library/Ruby/Gems/2.0.0" ]]; then
+  running "Fixing Ruby Gems Directory Permissions"
   sudo chown -R $(whoami) /Library/Ruby/Gems/2.0.0
+  ok
 fi
 
 # node version manager
