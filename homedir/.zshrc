@@ -34,6 +34,15 @@ source $ZSH/oh-my-zsh.sh
 
 source /usr/local/opt/nvm/nvm.sh
 
+# load .nvmrc
+function chpwd() {
+  emulate -L zsh
+  if [[ -f .nvmrc ]] then
+    nvm use `cat .nvmrc`
+  fi
+}
+[[ -f .nvmrc ]] && nvm use `cat .nvmrc`
+
 # Customize to your needs...
 unsetopt correct
 

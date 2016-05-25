@@ -35,7 +35,6 @@ You don't need to install or configure anything upfront! This works with a brand
   - [Address Book, Dashboard, iCal, TextEdit, and Disk Utility](#address-book-dashboard-ical-textedit-and-disk-utility)
   - [Mac App Store](#mac-app-store)
   - [Messages](#messages)
-  - [Google Chrome](#google-chrome)
   - [SizeUp.app](#sizeupapp)
 - [Software Installation](#software-installation)
   - [Utilities](#utilities)
@@ -211,7 +210,6 @@ Here is the current list:
 - Make Dock icons of hidden applications translucent
 - Make Dock more transparent
 - Reset Launchpad, but keep the desktop wallpaper intact
-- Add iOS Simulator to Launchpad
 
 ## Configuring Hot Corners
 - Top left screen corner → Mission Control
@@ -279,14 +277,16 @@ Here is the current list:
 - Disable smart quotes as it’s annoying for messages that contain code
 - Disable continuous spell checking
 
-## Google Chrome
-- Allow installing user scripts via GitHub Gist or Userscripts.org
-
 ## SizeUp.app
 - Start SizeUp at login
 - Don’t show the preferences window on next start
 
 # Software Installation
+
+homebrew, git, ruby, nvm (node + npm), and zsh (latest) are all installed inside the `install.sh` as foundational software for running this project.
+Additional software is configured in `config.js` and can be customized in your own fork/branch.
+The following is the software that I have set as default:
+
 ## Utilities
 
 * coreutils
@@ -297,7 +297,6 @@ Here is the current list:
 * fortune
 * gawk
 * gifsicle
-* git
 * gnupg
 * gnu-sed
 * homebrew/dupes/grep
@@ -305,10 +304,8 @@ Here is the current list:
 * imagesnap
 * jq
 * nmap
-* nvm
 * openconnect
 * reattach-to-user-namespace
-* ruby
 * homebrew/dupes/screen
 * tmux
 * tree
@@ -316,7 +313,6 @@ Here is the current list:
 * vim --override-system-vi
 * watch
 * wget --enable-iri
-* zsh #upgrade
 
 ## Apps
 * box-sync

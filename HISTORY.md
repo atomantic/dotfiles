@@ -11,6 +11,13 @@
 
 # Release History
 
+### <sup>v3.0.0</sup>
+ * BREAKING CHANGES!!!
+ * now using node.js to run install list from `config.js`
+ * moved dotfile sources into `homedir/*`
+ * removed `osx.sh` script (all software/config exists now in `install.sh` and `config.js`)
+ * remove Google Chrome install and configuration (chrome no longer likes to be installed via homebrew)
+ * remove IOS simulator in launchpad config
 ### <sup>v2.1.0</sup>
  * Now using powerlevel9k theme with awesome-patched fonts
 ### <sup>v2.0.0</sup>
