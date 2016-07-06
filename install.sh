@@ -219,8 +219,21 @@ done
 popd > /dev/null 2>&1
 
 
++bot "Installing vim plugins"
+ +vim +PluginInstall +qall > /dev/null 2>&1
+
 bot "installing fonts"
 ./fonts/install.sh
+brew tap caskroom/fonts
+require_cask font-awesome
+require_cask font-awesome-terminal-fonts
+require_cask font-hack
+require_cask font-inconsolata-dz-for-powerline
+require_cask font-inconsolata-g-for-powerline
+require_cask font-inconsolata-for-powerline
+require_cask font-roboto-mono
+require_cask font-roboto-mono-for-powerline
+require_cask font-source-code-pro
 ok
 
 if [[ -d "/Library/Ruby/Gems/2.0.0" ]]; then
@@ -233,7 +246,10 @@ fi
 require_brew nvm
 
 # nvm
-require_nvm 4.4.4
+require_nvm 4.4.7
+
+# always pin versions (no surprises, consistent dev/build machines)
+npm config set save-exact true
 
 #####################################
 # Now we can switch to node.js mode

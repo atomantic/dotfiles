@@ -1,6 +1,8 @@
 module.exports = {
   brew: [
+    // http://conqueringthecommandline.com/book/ack_ag
     'ack',
+    'ag',
     // Install GNU core utilities (those that come with OS X are outdated)
     // Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
     'coreutils',
@@ -32,7 +34,7 @@ module.exports = {
     'tree',
     'ttyrec',
     // better, more recent vim
-    'require_brew vim --override-system-vi',
+    'vim --override-system-vi',
     'watch',
     // Install wget with IRI support
     'wget --enable-iri'
@@ -65,9 +67,6 @@ module.exports = {
   npm: [
     'antic',
     'buzzphrase',
-    'bower',
-    'bower-check-updates',
-    'esformatter',
     'eslint',
     'instant-markdown-d',
     'npm-check',
