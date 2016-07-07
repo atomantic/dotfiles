@@ -3,6 +3,7 @@
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
 - [Release History](#release-history)
+  - [v3.2.0](#v320)
   - [v3.1.0](#v310)
   - [v3.0.0](#v300)
   - [v2.1.0](#v210)
@@ -12,6 +13,11 @@
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # Release History
+
+## v3.2.0
+ * adjust solarized theme to fix issue with rendering `mocha` test output
+  * https://github.com/mochajs/mocha/issues/802
+  * now `008` color is light grey instead of matching the solarized background color
 
 ## v3.1.0
  * new vim plugins
