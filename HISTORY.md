@@ -3,17 +3,17 @@
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
 - [Release History](#release-history)
-    - [<sup>v3.1.0</sup>](#supv310sup)
-    - [<sup>v3.0.0</sup>](#supv300sup)
-    - [<sup>v2.1.0</sup>](#supv210sup)
-    - [<sup>v2.0.0</sup>](#supv200sup)
-    - [<sup>v1.1.0</sup>](#supv110sup)
+  - [v3.1.0](#v310)
+  - [v3.0.0](#v300)
+  - [v2.1.0](#v210)
+  - [v2.0.0](#v200)
+  - [v1.1.0](#v110)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # Release History
 
-### <sup>v3.1.0</sup>
+## v3.1.0
  * new vim plugins
   * https://github.com/justinmk/vim-sneak
   * https://github.com/airblade/vim-gitgutter
@@ -36,17 +36,18 @@
  * killed `CTags` (not using them)
  * upgrade node to `4.4.7`
  * compile YouCompleteMe for code completion in vim:
-```cd ~/.vim/bundle/YouCompleteMe
+ ```
+cd ~/.vim/bundle/YouCompleteMe
 ./install.py --all
  ```
- * now more `bower` (just use npm)
+ * no more `bower` (just use npm)
  * fixed OSX clipboard copy (yank in vim now copies to OSX clipboard)
  * adding `npm config set save-exact true` at install time
   * ensures we always pin node modules
   * keeps consistent dev/build environments
   * saves from security and feature problems when people abuse SemVer
 
-### <sup>v3.0.0</sup>
+## v3.0.0
  * BREAKING CHANGES!!!
  * now using node.js to run install list from `config.js`
  * moved dotfile sources into `homedir/*`
@@ -55,14 +56,14 @@
  * remove IOS simulator in launchpad config
  * backups are now created every time you run `./install.sh` and stored in datetime subfolders (in `./dotfiles_backup`)
 
-### <sup>v2.1.0</sup>
+## v2.1.0
  * Now using powerlevel9k theme with awesome-patched fonts
 
-### <sup>v2.0.0</sup>
+## v2.0.0
  * switched to using vim as primary editor/IDE
  * vim plugings now use vundle instead of pathogen
 
-### <sup>v1.1.0</sup>
+## v1.1.0
  * Added dotfiles backup and restore.sh script
      * you can now restore your previous dotfiles with ./restore.sh
  * prompting the user more (e.g. `brew upgrade` is now optional)
