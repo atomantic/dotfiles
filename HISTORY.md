@@ -3,7 +3,7 @@
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
 - [Release History](#release-history)
-    - [<sup>v3.1.0</sup>](#supv301sup)
+    - [<sup>v3.1.0</sup>](#supv310sup)
     - [<sup>v3.0.0</sup>](#supv300sup)
     - [<sup>v2.1.0</sup>](#supv210sup)
     - [<sup>v2.0.0</sup>](#supv200sup)
