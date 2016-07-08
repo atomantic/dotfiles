@@ -3,6 +3,7 @@
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
 - [Release History](#release-history)
+  - [v3.2.1](#v321)
   - [v3.2.0](#v320)
   - [v3.1.0](#v310)
   - [v3.0.0](#v300)
@@ -13,6 +14,9 @@
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # Release History
+
+## v3.2.1
+ * improved handling of `.nvmrc` files on dir change
 
 ## v3.2.0
  * adjust solarized theme to fix issue with rendering `mocha` test output
