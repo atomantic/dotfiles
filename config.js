@@ -19,6 +19,8 @@ module.exports = {
     'gnu-sed --default-names',
     // better, more recent grep
     'homebrew/dupes/grep',
+    // https://github.com/jkbrzt/httpie
+    'httpie',
     'imagemagick',
     'imagesnap',
     // jq is a sort of JSON grep

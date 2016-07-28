@@ -15,6 +15,9 @@
 
 # Release History
 
+## v3.3.0
+ * include [httpie](https://github.com/jkbrzt/httpie)
+
 ## v3.2.1
  * improved handling of `.nvmrc` files on dir change
 
