@@ -3,6 +3,8 @@
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
 - [Release History](#release-history)
+  - [v3.3.1](#v331)
+  - [v3.3.0](#v330)
   - [v3.2.1](#v321)
   - [v3.2.0](#v320)
   - [v3.1.0](#v310)
@@ -14,6 +16,9 @@
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # Release History
+
+## v3.3.1
+ * fix restore
 
 ## v3.3.0
  * include [httpie](https://github.com/jkbrzt/httpie)

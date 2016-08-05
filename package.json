@@ -1,6 +1,6 @@
 {
   "name": "dotfiles",
-  "version": "3.3.0",
+  "version": "3.3.1",
   "description": "atomantic dotfiles for osx",
   "main": "index.js",
   "scripts": {
