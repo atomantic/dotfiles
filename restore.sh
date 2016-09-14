@@ -9,6 +9,12 @@
 source ./lib_sh/echos.sh
 source ./lib_sh/requirers.sh
 
+if [[ -z $1 ]]; then
+  error "you need to specify a backup folder date. Take a look in ~/.dotfiles_backup/ to see which backup date you wish to restore."
+  exit 1
+fi
+
+
 bot "Do you wish to change your shell back to bash?"
 read -r -p "[Y|n] " response
 
