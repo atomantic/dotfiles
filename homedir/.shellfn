@@ -85,19 +85,13 @@ function setproj()
     bot "Hi, this workspace is setup for the $1 project"
 }
 
-function schef()
-{
-    sudo chef-client
-}
-
 function fixperms(){
     find . \( -name "*.sh" -or -type d \) -exec chmod 755 {} \; && find . -type f ! -name "*.sh" -exec chmod 644 {} \;
 }
 
-## curlheader will return the header value specified for a given URL
-## usage: curlheader ${header} ${url}
-## or get all headers
-## curlheader ${url}
+## curlheader will return only a specific response header or all response headers for a given URL
+## usage: curlheader $header $url
+## usage: curlheader $url
 function curlheader() {
   if [[ -z "$2" ]]; then
     echo "curl -k -s -D - $1 -o /dev/null"
@@ -109,6 +103,7 @@ function curlheader() {
 }
 
 ## hammer a service with curl for a given number of times
+## usage: curlhammer $url
 function curlhammer () {
   bot "about to hammer $1 with $2 curls ⇒";
   echo "curl -k -s -D - $1 -o /dev/null | grep 'HTTP/1.1' | sed 's/HTTP\/1.1 //'"
@@ -119,6 +114,15 @@ function curlhammer () {
   bot "done"
 }
 
-function dockershell () {
-  bash --login '/Applications/Docker/Docker Quickstart Terminal.app/Contents/Resources/Scripts/start.sh'
+## get the timings for a curl to a URL
+## usage: curltime $url
+function curltime(){
+  curl -w "   time_namelookup:  %{time_namelookup}\n\
+      time_connect:  %{time_connect}\n\
+   time_appconnect:  %{time_appconnect}\n\
+  time_pretransfer:  %{time_pretransfer}\n\
+     time_redirect:  %{time_redirect}\n\
+time_starttransfer:  %{time_starttransfer}\n\
+--------------------------\n\
+        time_total:  %{time_total}\n" -o /dev/null -s "$1"
 }

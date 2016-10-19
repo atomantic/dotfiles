@@ -2,7 +2,8 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-- [Release History](#release-history)
+- [Release History](#release-history)  
+  - [v3.3.2](#v332)
   - [v3.3.1](#v331)
   - [v3.3.0](#v330)
   - [v3.2.1](#v321)
@@ -16,6 +17,11 @@
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # Release History
+
+## v3.3.2
+ * `curltime` shell function
+ * OSX Sierra fixes for key repeat
+ * OSX Sierra wallpaper
 
 ## v3.3.1
  * fix restore
