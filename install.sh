@@ -93,12 +93,12 @@ if [[ $? = 0 ]]; then
 
   running "replacing items in .gitconfig with your info ($COL_YELLOW$fullname, $email, $githubuser$COL_RESET)"
 
-  # test if gnu-sed or osx sed
+  # test if gnu-sed or MacOS sed
 
   sed -i "s/GITHUBFULLNAME/$firstname $lastname/" ./homedir/.gitconfig > /dev/null 2>&1 | true
   if [[ ${PIPESTATUS[0]} != 0 ]]; then
     echo
-    running "looks like you are using OSX sed rather than gnu-sed, accommodating"
+    running "looks like you are using MacOS sed rather than gnu-sed, accommodating"
     sed -i '' "s/GITHUBFULLNAME/$firstname $lastname/" ./homedir/.gitconfig;
     sed -i '' 's/GITHUBEMAIL/'$email'/' ./homedir/.gitconfig;
     sed -i '' 's/GITHUBUSER/'$githubuser'/' ./homedir/.gitconfig;
@@ -275,7 +275,11 @@ ok
 ###############################################################################
 bot "Configuring General System UI/UX..."
 ###############################################################################
-
+# Close any open System Preferences panes, to prevent them from overriding
+# settings we’re about to change
+running "closing any system preferences to prevent issues with automated changes"
+osascript -e 'tell application "System Preferences" to quit'
+ok
 ###############################################################################
 # SSD-specific tweaks                                                         #
 ###############################################################################
@@ -356,7 +360,7 @@ sudo chflags uchg /Private/var/vm/sleepimage;ok
 ################################################
 bot "Standard System Changes"
 ################################################
-running "always boot in verbose mode (not OSX GUI mode)"
+running "always boot in verbose mode (not MacOS GUI mode)"
 sudo nvram boot-args="-v";ok
 
 running "allow 'locate' command"
@@ -525,6 +529,8 @@ sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutio
 ###############################################################################
 bot "Finder Configs"
 ###############################################################################
+running "Keep folders on top when sorting by name (Sierra only)"
+defaults write com.apple.finder _FXSortFoldersFirst -bool true
 
 running "Allow quitting via ⌘ + Q; doing so will also hide desktop icons"
 defaults write com.apple.finder QuitMenuItem -bool true;ok

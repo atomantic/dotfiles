@@ -3,6 +3,7 @@
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
 - [Release History](#release-history)  
+  - [v4.0.0](#v400)
   - [v3.3.2](#v332)
   - [v3.3.1](#v331)
   - [v3.3.0](#v330)
@@ -18,10 +19,21 @@
 
 # Release History
 
+## v4.0.0
+ * OSX references to MacOS (includes Sierra)
+ * remove aliases to things that are no longer useful (`usenode`, `useio`)
+ * adding `bpc` alias for a `buzzphrase` git commit + push (don't use this on shared code)
+ * `update` alias for updating all software
+ * comment out GO path in `.shellpaths` (was causing slowness on machines with no go path)
+ * comment out all tool shellpaths (enable them at will)
+ * adding iTerm2 shell integration source
+ * `weather $city` shellfn
+ * cask install `little-snitch` and `micro-snitch`
+
 ## v3.3.2
  * `curltime` shell function
- * OSX Sierra fixes for key repeat
- * OSX Sierra wallpaper
+ * Mac Sierra fixes for key repeat
+ * Mac Sierra wallpaper
 
 ## v3.3.1
  * fix restore

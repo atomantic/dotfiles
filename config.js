@@ -3,6 +3,8 @@ module.exports = {
     // http://conqueringthecommandline.com/book/ack_ag
     'ack',
     'ag',
+    // cmake is required to compile vim bundle YouCompleteMe
+    'cmake',
     // Install GNU core utilities (those that come with OS X are outdated)
     // Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
     'coreutils',
@@ -53,6 +55,8 @@ module.exports = {
     'gpgtools',
     //'ireadfast',
     'iterm2',
+    'little-snitch',
+    'micro-snitch',
     //'macvim',
     'sizeup',
     //'sketchup',

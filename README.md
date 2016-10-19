@@ -1,8 +1,8 @@
 [![Beerpay](https://beerpay.io/atomantic/dotfiles/badge.svg?style=flat-square)](https://beerpay.io/atomantic/dotfiles)
 
-# \\[._.]/ - Hi, I'm the OSX bot
+# \\[._.]/ - Hi, I'm the MacOS bot
 
-I will update your OSX machine with Better™ system defaults, preferences, software configuration and even auto-install some handy development tools and apps that my developer friends find helpful.
+I will update your MacOS machine with Better™ system defaults, preferences, software configuration and even auto-install some handy development tools and apps that my developer friends find helpful.
 
 You don't need to install or configure anything upfront! This works with a brand-new machine from the factory as well as an existing machine that you've been working with for years.
 
@@ -53,7 +53,7 @@ You don't need to install or configure anything upfront! This works with a brand
 
 Don't you hate getting a new laptop or joining a new team and then spending a whole day setting up your system preferences and tools? Me too. That's why we automate; we did it once and we don't want to do have to do it again.
 
-\\[^_^]/ - This started as [Adam Eivy](http://adameivy.com)'s OSX shell configuration dotfiles but has grown to a mutil-developer platform for machine configuration.
+\\[^_^]/ - This started as [Adam Eivy](http://adameivy.com)'s MacOS shell configuration dotfiles but has grown to a mutil-developer platform for machine configuration.
 
 When I finish with your machine, you will be able to look at your command-line in full-screen mode like this (running iTerm):
 
@@ -91,7 +91,7 @@ cd ~/.dotfiles;
 
 If you have existing dotfiles for configuring git, zsh, vim, etc, these will be backed-up into `~/.dotfiles_backup/$(date +"%Y.%m.%d.%H.%M.%S")` and replaced with the files from this project. You can restore your original dotfiles by using `./restore.sh $RESTOREDATE` where `$RESTOREDATE` is the date folder name you want to restore.
 
-# 3.0.0 Upgrade Instructions!
+# 3.x.x+ Upgrade Instructions!
 
 `3.0.0` brings huge changes. If you have made any modifications (and didn't make your own fork), you will want to backup your dotfiles prior to running `git-up` or `git pull` on `~/.dotfiles`.
 
@@ -120,7 +120,7 @@ You can `cron ~/.crontab` if you want to add my nightly cron software updates.
 ![Remap Caps Lock](https://raw.githubusercontent.com/atomantic/dotfiles/master/img/remap_capslock.png)
 
 # Settings
-This project changes a number of settings and configures software on OSX.
+This project changes a number of settings and configures software on MacOS.
 Here is the current list:
 
 ## Configuring General System UI/UX
@@ -130,7 +130,7 @@ Here is the current list:
 - Set a custom wallpaper image
 
 ## Standard System Changes
-- always boot in verbose mode (not OSX GUI mode)
+- always boot in verbose mode (not MacOS GUI mode)
 - allow 'locate' command
 - Set standby delay to 24 hours (default is 1 hour)
 - Disable the sound effects on boot
@@ -180,6 +180,7 @@ Here is the current list:
 - Enable HiDPI display modes (requires restart)
 
 ## Finder Configs
+- Keep folders on top when sorting by name (Sierra only)
 - Allow quitting via ⌘ + Q; doing so will also hide desktop icons
 - Disable window animations and Get Info animations
 - Set Desktop as the default location for new Finder windows

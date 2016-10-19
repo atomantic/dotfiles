@@ -78,13 +78,16 @@ alias game.seek='txt="";for i in {1..20};do txt=$txt"$i. ";done;txt=$txt" Ready 
 # switches to 'develop' branch, updates all local branches (nicely using git-up), removes all local branches already merged into 'develop'
 alias gitdev='git checkout develop; git-up; git branch --merged develop | grep -v "\* develop" | xargs -n 1 git branch -d; git branch;'
 
-# node.js + io.js
-alias usenode='brew unlink iojs && brew link node && echo Using Node.js'
-alias useio='brew unlink node && brew link --force iojs && echo Using io.js'
-
 # firewall management
 alias port-forward-enable="echo 'rdr pass inet proto tcp from any to any port 2376 -> 127.0.0.1 port 2376' | sudo pfctl -ef -"
 alias port-forward-disable="sudo pfctl -F all -f /etc/pf.conf"
 alias port-forward-list="sudo pfctl -s nat"
 
 alias vtop="vtop --theme wizard"
+
+# buzzphrase commit
+# used for my presentation decks when I have nothing to say about the commit
+alias bpc='git add -A . && git cam "$(buzzphrase 2)" && git push'
+
+# Get macOS Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
+alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update; sudo gem cleanup'
