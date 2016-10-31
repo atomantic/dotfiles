@@ -3,6 +3,7 @@
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
 - [Release History](#release-history)  
+  - [v4.1.0](#v410)
   - [v4.0.0](#v400)
   - [v3.3.2](#v332)
   - [v3.3.1](#v331)
@@ -18,6 +19,10 @@
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # Release History
+
+## v4.1.0
+ * remove `to.dir` commands (never use them)
+ * add aliases: `emptytrash`, `ips`, `iplocal`, `ip`, `ifactive`, `spoton`, `spotoff`, `afk`, `reload`, `path`
 
 ## v4.0.0
  * OSX references to MacOS (includes Sierra)
