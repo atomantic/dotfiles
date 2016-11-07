@@ -3,6 +3,7 @@
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
 - [Release History](#release-history)  
+  - [v4.2.0](#v420)
   - [v4.1.1](#v411)
   - [v4.1.0](#v410)
   - [v4.0.0](#v400)
@@ -20,6 +21,9 @@
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # Release History
+
+## v4.2.0
+ * adding Mac App Store brew (`mas`) and `mas upgrade` to `update` alias
 
 ## v4.1.1
  * fix `solarized dark` again for mocha test output coloring
