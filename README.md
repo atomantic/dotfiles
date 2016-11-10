@@ -83,7 +83,7 @@ cd ~/.dotfiles;
 # run this using terminal (not iTerm, lest iterm settings get discarded on exit)
 ./install.sh
 ```
-* When it finishes, open Iterm and press `Command + ,` to open preferences. Under Profiles > Colors, select "Load Presets" and choose the `Solarized Dark` scheme. If it isn't there for some reason, import it from `~/.dotfiles/configs`
+* When it finishes, open Iterm and press `Command + ,` to open preferences. Under Profiles > Colors, select "Load Presets" and choose the `Solarized Dark Patch` scheme. If it isn't there for some reason, import it from `~/.dotfiles/configs`
 
 > Note: running install.sh is idempotent. You can run it again and again as you add new features or software to the scripts! I'll regularly add new configurations so keep an eye on this repo as it grows and optimizes.
 

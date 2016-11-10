@@ -22,6 +22,9 @@
 
 # Release History
 
+## v4.2.1
+ * fixing `Solarized Dark` theme by renaming it to `Solarized Dark Patch`, which removes conflict with bad native install of `Solarized Dark`
+
 ## v4.2.0
  * adding Mac App Store brew (`mas`) and `mas upgrade` to `update` alias
 
