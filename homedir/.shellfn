@@ -1,45 +1,10 @@
 #########################################
 # Utility Functions
 
-###
-# some echo helpers
-# @author Adam Eivy
-###
-
-# Colors
-ESC_SEQ="\x1b["
-COL_RESET=$ESC_SEQ"39;49;00m"
-COL_RED=$ESC_SEQ"31;01m"
-COL_GREEN=$ESC_SEQ"32;01m"
-COL_YELLOW=$ESC_SEQ"33;01m"
-COL_BLUE=$ESC_SEQ"34;01m"
-COL_MAGENTA=$ESC_SEQ"35;01m"
-COL_CYAN=$ESC_SEQ"36;01m"
-
-function ok() {
-    echo -e "$COL_GREEN[ok]$COL_RESET "$1
-}
-
 function bot() {
-    echo
-    echo -e "$COL_GREEN\[._.]/$COL_RESET - "$1
-}
-
-function running() {
-    echo -en " ⇒ "$1"..."
-}
-
-function action() {
-    echo -e "$COL_YELLOW[action]$COL_RESET"
-    running $1"..."
-}
-
-function warn() {
-    echo -e "$COL_YELLOW[warning]$COL_RESET "$1
-}
-
-function error() {
-    echo -e "$COL_RED[error]$COL_RESET "$1
+  ESC_SEQ="\x1b["
+  echo
+  echo -e "$ESC_SEQ"32;01m\[._.]/$ESC_SEQ"39;49;00m - "$1
 }
 
 # Create a new git repo with one README commit and CD into it
@@ -77,16 +42,16 @@ function hidehiddenfiles() {
   osascript -e 'tell application "Finder" to activate'
 }
 
-function setproj()
-{
-    echo "###############"
-    echo "##  \[._.]/  ##"
-    echo "###############"
-    bot "Hi, this workspace is setup for the $1 project"
-}
-
-function fixperms(){
-    find . \( -name "*.sh" -or -type d \) -exec chmod 755 {} \; && find . -type f ! -name "*.sh" -exec chmod 644 {} \;
+## hammer a service with curl for a given number of times
+## usage: curlhammer $url
+function curlhammer () {
+  bot "about to hammer $1 with $2 curls ⇒";
+  echo "curl -k -s -D - $1 -o /dev/null | grep 'HTTP/1.1' | sed 's/HTTP\/1.1 //'"
+  for i in {1..$2}
+  do
+    curl -k -s -D - $1 -o /dev/null | grep 'HTTP/1.1' | sed 's/HTTP\/1.1 //'
+  done
+  bot "done"
 }
 
 ## curlheader will return only a specific response header or all response headers for a given URL
@@ -102,18 +67,6 @@ function curlheader() {
   fi
 }
 
-## hammer a service with curl for a given number of times
-## usage: curlhammer $url
-function curlhammer () {
-  bot "about to hammer $1 with $2 curls ⇒";
-  echo "curl -k -s -D - $1 -o /dev/null | grep 'HTTP/1.1' | sed 's/HTTP\/1.1 //'"
-  for i in {1..$2}
-  do
-    curl -k -s -D - $1 -o /dev/null | grep 'HTTP/1.1' | sed 's/HTTP\/1.1 //'
-  done
-  bot "done"
-}
-
 ## get the timings for a curl to a URL
 ## usage: curltime $url
 function curltime(){
@@ -127,6 +80,42 @@ time_starttransfer:  %{time_starttransfer}\n\
         time_total:  %{time_total}\n" -o /dev/null -s "$1"
 }
 
+function fixperms(){
+    find . \( -name "*.sh" -or -type d \) -exec chmod 755 {} \; && find . -type f ! -name "*.sh" -exec chmod 644 {} \;
+}
+
+# Create a new directory and enter it
+function mkd() {
+  mkdir -p "$@" && cd "$_";
+}
+
+# Generate Subresource Integrity hashes.
+# 1st argument is the filename.
+# 2nd argument, optional, is the hash algorithm
+# (currently the allowed prefixes are sha256, sha384, and sha512)
+# See http://www.w3.org/TR/SRI/ and
+# https://developer.mozilla.org/docs/Web/Security/Subresource_Integrity
+function sri() {
+  if [ -z "${1}" ]; then
+    echo "ERROR: No file specified.";
+    return 1;
+  fi;
+  local algorithm="${2:-sha512}"
+  if ! echo "${algorithm}" | egrep -q "^sha(256|384|512)$"; then
+    echo "ERROR: hash algorithm must be sha256, sha384 or sha512.";
+    return 1;
+  fi;
+  local filehash=$(openssl dgst "-${algorithm}" -binary "$1" | openssl base64 -A)
+  if [ -z "${filehash}" ]; then
+    return 1;
+  fi;
+  echo "${algorithm}-${filehash}";
+}
+
+## output directory/file tree, excluding ignorables
+function tre(){
+  tree -aC -I '.git|node_modules|bower_components|.DS_Store' --dirsfirst "$@"
+}
 
 ## weather seattle
 function weather() {
