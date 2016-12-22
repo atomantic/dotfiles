@@ -40,7 +40,7 @@ module.exports = {
     'tree',
     'ttyrec',
     // better, more recent vim
-    'vim --override-system-vi',
+    'vim --with-override-system-vi',
     'watch',
     // Install wget with IRI support
     'wget --enable-iri'

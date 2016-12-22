@@ -74,6 +74,8 @@ alias port-forward-enable="echo 'rdr pass inet proto tcp from any to any port 23
 alias port-forward-disable="sudo pfctl -F all -f /etc/pf.conf"
 alias port-forward-list="sudo pfctl -s nat"
 
+# push git repo, but first, use git-up to make sure you are in sync and rebased with the remote
+alias pushup="git-up && git push"
 # Set the extended MacOS attributes on a file such that Quicklook will open it as text
 alias qltext='xattr -wx com.apple.FinderInfo "54 45 58 54 21 52 63 68 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00" $1'
 #alias qltext2='osascript -e tell application "Finder" to set file type of ((POSIX file "$1") as alias) to "TEXT"'

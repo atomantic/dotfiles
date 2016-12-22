@@ -3,6 +3,7 @@
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
 - [Release History](#release-history)  
+  - [v4.3.0](#v430)
   - [v4.2.0](#v420)
   - [v4.1.1](#v411)
   - [v4.1.0](#v410)
@@ -21,6 +22,17 @@
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # Release History
+
+## v4.3.0
+ * vim installation fix
+ * Enable firewall
+ * Enable firewall stealth mode (no response to ICMP / ping requests)
+ * Disable remote apple events
+ * Disable wake-on modem
+ * Disable wake-on LAN
+ * Disable file-sharing via AFP or SMB
+ * Disable guest account login
+ * `pushup` alias (`git-up`, followed by `git push`)
 
 ## v4.2.0
  * new shell functions: `tre` and `sri`

@@ -158,6 +158,15 @@ Here is the current list:
 - Disable smart quotes as they’re annoying when typing code
 - Disable smart dashes as they’re annoying when typing code
 
+## Security
+- Enable firewall
+- Enable firewall stealth mode (no response to ICMP / ping requests)
+- Disable remote apple events
+- Disable wake-on modem
+- Disable wake-on LAN
+- Disable file-sharing via AFP or SMB
+- Disable guest account login
+
 ## Trackpad, mouse, keyboard, Bluetooth accessories, and input
 - Trackpad: enable tap to click for this user and for the login screen
 - Trackpad: map bottom right corner to right-click
