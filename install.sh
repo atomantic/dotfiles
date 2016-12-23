@@ -303,12 +303,12 @@ ok
 #   0 = off
 #   1 = on for specific sevices
 #   2 = on for essential services
-sudo defaults write /Library/Preferences/com.apple.alf globalstate -int 1
+# sudo defaults write /Library/Preferences/com.apple.alf globalstate -int 1
 
 # Enable firewall stealth mode (no response to ICMP / ping requests)
 # Source: https://support.apple.com/kb/PH18642
 #sudo defaults write /Library/Preferences/com.apple.alf stealthenabled -int 1
-sudo defaults write /Library/Preferences/com.apple.alf stealthenabled -int 1
+# sudo defaults write /Library/Preferences/com.apple.alf stealthenabled -int 1
 
 # Enable firewall logging
 #sudo defaults write /Library/Preferences/com.apple.alf loggingenabled -int 1
@@ -339,16 +339,16 @@ sudo defaults write /Library/Preferences/com.apple.alf stealthenabled -int 1
 #sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.captive.control Active -bool false
 
 # Disable remote apple events
-sudo systemsetup -setremoteappleevents off
+# sudo systemsetup -setremoteappleevents off
 
 # Disable remote login
 sudo systemsetup -setremotelogin off
 
 # Disable wake-on modem
-sudo systemsetup -setwakeonmodem off
+# sudo systemsetup -setwakeonmodem off
 
 # Disable wake-on LAN
-sudo systemsetup -setwakeonnetworkaccess off
+# sudo systemsetup -setwakeonnetworkaccess off
 
 # Disable file-sharing via AFP or SMB
 # sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.AppleFileServer.plist
@@ -361,7 +361,7 @@ sudo systemsetup -setwakeonnetworkaccess off
 #sudo defaults write /Library/Preferences/com.apple.loginwindow RetriesUntilHint -int 0
 
 # Disable guest account login
-sudo defaults write /Library/Preferences/com.apple.loginwindow GuestEnabled -bool false
+# sudo defaults write /Library/Preferences/com.apple.loginwindow GuestEnabled -bool false
 
 # Automatically lock the login keychain for inactivity after 6 hours
 #security set-keychain-settings -t 21600 -l ~/Library/Keychains/login.keychain
@@ -400,18 +400,18 @@ defaults write com.apple.LaunchServices LSQuarantine -bool false
 # SSD-specific tweaks                                                         #
 ###############################################################################
 
-running "Disable local Time Machine snapshots"
-sudo tmutil disablelocal;ok
+# running "Disable local Time Machine snapshots"
+# sudo tmutil disablelocal;ok
 
 # running "Disable hibernation (speeds up entering sleep mode)"
 # sudo pmset -a hibernatemode 0;ok
 
-running "Remove the sleep image file to save disk space"
-sudo rm -rf /Private/var/vm/sleepimage;ok
-running "Create a zero-byte file instead"
-sudo touch /Private/var/vm/sleepimage;ok
-running "…and make sure it can’t be rewritten"
-sudo chflags uchg /Private/var/vm/sleepimage;ok
+# running "Remove the sleep image file to save disk space"
+# sudo rm -rf /Private/var/vm/sleepimage;ok
+# running "Create a zero-byte file instead"
+# sudo touch /Private/var/vm/sleepimage;ok
+# running "…and make sure it can’t be rewritten"
+# sudo chflags uchg /Private/var/vm/sleepimage;ok
 
 #running "Disable the sudden motion sensor as it’s not useful for SSDs"
 # sudo pmset -a sms 0;ok
@@ -476,8 +476,8 @@ sudo chflags uchg /Private/var/vm/sleepimage;ok
 ################################################
 bot "Standard System Changes"
 ################################################
-running "always boot in verbose mode (not MacOS GUI mode)"
-sudo nvram boot-args="-v";ok
+# running "always boot in verbose mode (not MacOS GUI mode)"
+# sudo nvram boot-args="-v";ok
 
 running "allow 'locate' command"
 sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist > /dev/null 2>&1;ok
@@ -505,7 +505,7 @@ defaults write com.apple.systemuiserver menuExtras -array \
   "/System/Library/CoreServices/Menu Extras/Clock.menu"
 ok
 
-running "Set highlight color to green"
+# running "Set highlight color to green"
 defaults write NSGlobalDomain AppleHighlightColor -string "0.764700 0.976500 0.568600";ok
 
 running "Set sidebar icon size to medium"
@@ -582,14 +582,14 @@ defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool
 defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1;ok
 
-running "Trackpad: map bottom right corner to right-click"
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadCornerSecondaryClick -int 2
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true
-defaults -currentHost write NSGlobalDomain com.apple.trackpad.trackpadCornerClickBehavior -int 1
-defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true;ok
+# running "Trackpad: map bottom right corner to right-click"
+# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadCornerSecondaryClick -int 2
+# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true
+# defaults -currentHost write NSGlobalDomain com.apple.trackpad.trackpadCornerClickBehavior -int 1
+# defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true;ok
 
-running "Disable 'natural' (Lion-style) scrolling"
-defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false;ok
+# running "Disable 'natural' (Lion-style) scrolling"
+# defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false;ok
 
 running "Increase sound quality for Bluetooth headphones/headsets"
 defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40;ok
@@ -613,8 +613,8 @@ defaults write NSGlobalDomain InitialKeyRepeat -int 10;ok
 running "Set language and text formats (english/US)"
 defaults write NSGlobalDomain AppleLanguages -array "en"
 defaults write NSGlobalDomain AppleLocale -string "en_US@currency=USD"
-defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters"
-defaults write NSGlobalDomain AppleMetricUnits -bool true;ok
+defaults write NSGlobalDomain AppleMeasurementUnits -string "Inches"
+defaults write NSGlobalDomain AppleMetricUnits -bool false;ok
 
 running "Disable auto-correct"
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false;ok
@@ -623,9 +623,9 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false;o
 bot "Configuring the Screen"
 ###############################################################################
 
-running "Require password immediately after sleep or screen saver begins"
-defaults write com.apple.screensaver askForPassword -int 1
-defaults write com.apple.screensaver askForPasswordDelay -int 0;ok
+# running "Require password immediately after sleep or screen saver begins"
+# defaults write com.apple.screensaver askForPassword -int 1
+# defaults write com.apple.screensaver askForPasswordDelay -int 0;ok
 
 running "Save screenshots to the desktop"
 defaults write com.apple.screencapture location -string "${HOME}/Desktop";ok
@@ -692,10 +692,10 @@ defaults write NSGlobalDomain com.apple.springing.delay -float 0;ok
 running "Avoid creating .DS_Store files on network volumes"
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true;ok
 
-running "Disable disk image verification"
-defaults write com.apple.frameworks.diskimages skip-verify -bool true
-defaults write com.apple.frameworks.diskimages skip-verify-locked -bool true
-defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true;ok
+# running "Disable disk image verification"
+# defaults write com.apple.frameworks.diskimages skip-verify -bool true
+# defaults write com.apple.frameworks.diskimages skip-verify-locked -bool true
+# defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true;ok
 
 running "Automatically open a new Finder window when a volume is mounted"
 defaults write com.apple.frameworks.diskimages auto-open-ro-root -bool true
@@ -768,8 +768,8 @@ defaults write com.apple.dock mru-spaces -bool false;ok
 
 running "Remove the auto-hiding Dock delay"
 defaults write com.apple.dock autohide-delay -float 0;ok
-running "Remove the animation when hiding/showing the Dock"
-defaults write com.apple.dock autohide-time-modifier -float 0;ok
+running "Add the animation when hiding/showing the Dock"
+defaults write com.apple.dock autohide-time-modifier -float 5;ok
 
 running "Automatically hide and show the Dock"
 defaults write com.apple.dock autohide -bool true;ok
@@ -783,28 +783,28 @@ defaults write com.apple.dock hide-mirror -bool true;ok
 running "Reset Launchpad, but keep the desktop wallpaper intact"
 find "${HOME}/Library/Application Support/Dock" -name "*-*.db" -maxdepth 1 -delete;ok
 
-bot "Configuring Hot Corners"
-# Possible values:
-#  0: no-op
-#  2: Mission Control
-#  3: Show application windows
-#  4: Desktop
-#  5: Start screen saver
-#  6: Disable screen saver
-#  7: Dashboard
-# 10: Put display to sleep
-# 11: Launchpad
-# 12: Notification Center
+# bot "Configuring Hot Corners"
+# # Possible values:
+# #  0: no-op
+# #  2: Mission Control
+# #  3: Show application windows
+# #  4: Desktop
+# #  5: Start screen saver
+# #  6: Disable screen saver
+# #  7: Dashboard
+# # 10: Put display to sleep
+# # 11: Launchpad
+# # 12: Notification Center
 
-running "Top left screen corner → Mission Control"
-defaults write com.apple.dock wvous-tl-corner -int 2
-defaults write com.apple.dock wvous-tl-modifier -int 0;ok
-running "Top right screen corner → Desktop"
-defaults write com.apple.dock wvous-tr-corner -int 4
-defaults write com.apple.dock wvous-tr-modifier -int 0;ok
-running "Bottom right screen corner → Start screen saver"
-defaults write com.apple.dock wvous-br-corner -int 5
-defaults write com.apple.dock wvous-br-modifier -int 0;ok
+# running "Top left screen corner → Mission Control"
+# defaults write com.apple.dock wvous-tl-corner -int 2
+# defaults write com.apple.dock wvous-tl-modifier -int 0;ok
+# running "Top right screen corner → Desktop"
+# defaults write com.apple.dock wvous-tr-corner -int 4
+# defaults write com.apple.dock wvous-tr-modifier -int 0;ok
+# running "Bottom right screen corner → Start screen saver"
+# defaults write com.apple.dock wvous-br-corner -int 5
+# defaults write com.apple.dock wvous-br-modifier -int 0;ok
 
 ###############################################################################
 bot "Configuring Safari & WebKit"
@@ -819,8 +819,8 @@ defaults write com.apple.Safari AutoOpenSafeDownloads -bool false;ok
 running "Allow hitting the Backspace key to go to the previous page in history"
 defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2BackspaceKeyNavigationEnabled -bool true;ok
 
-running "Hide Safari’s bookmarks bar by default"
-defaults write com.apple.Safari ShowFavoritesBar -bool false;ok
+running "Show Safari’s bookmarks bar by default"
+defaults write com.apple.Safari ShowFavoritesBar -bool true;ok
 
 running "Hide Safari’s sidebar in Top Sites"
 defaults write com.apple.Safari ShowSidebarInTopSites -bool false;ok
@@ -956,15 +956,15 @@ running "reading iterm settings"
 defaults read -app iTerm > /dev/null 2>&1;
 ok
 
-###############################################################################
-bot "Time Machine"
-###############################################################################
+# ###############################################################################
+# bot "Time Machine"
+# ###############################################################################
 
-running "Prevent Time Machine from prompting to use new hard drives as backup volume"
-defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true;ok
+# running "Prevent Time Machine from prompting to use new hard drives as backup volume"
+# defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true;ok
 
-running "Disable local Time Machine backups"
-hash tmutil &> /dev/null && sudo tmutil disablelocal;ok
+# running "Disable local Time Machine backups"
+# hash tmutil &> /dev/null && sudo tmutil disablelocal;ok
 
 ###############################################################################
 bot "Activity Monitor"
@@ -1027,14 +1027,14 @@ running "Disable continuous spell checking"
 defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "continuousSpellCheckingEnabled" -bool false;ok
 
 ###############################################################################
-bot "SizeUp.app"
-###############################################################################
+# bot "SizeUp.app"
+# ###############################################################################
 
-running "Start SizeUp at login"
-defaults write com.irradiatedsoftware.SizeUp StartAtLogin -bool true;ok
+# running "Start SizeUp at login"
+# defaults write com.irradiatedsoftware.SizeUp StartAtLogin -bool true;ok
 
-running "Don’t show the preferences window on next start"
-defaults write com.irradiatedsoftware.SizeUp ShowPrefsOnNextStart -bool false;ok
+# running "Don’t show the preferences window on next start"
+# defaults write com.irradiatedsoftware.SizeUp ShowPrefsOnNextStart -bool false;ok
 
 killall cfprefsd
 
