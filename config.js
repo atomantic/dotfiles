@@ -7,7 +7,6 @@ module.exports = {
     'pwgen',
     'ssh-copy-id',
     'terminal-notifier',
-
     // http://conqueringthecommandline.com/book/ack_ag
     'ack',
     'ag',
@@ -55,9 +54,13 @@ module.exports = {
   cask: [
     //'adium',
     //'amazon-cloud-drive',
+    'alfred',
+    'amethyst',
     'atom',
-    'box-sync',
+    //'box-sync',
     //'comicbooklover',
+    'cyberduck',
+    'firefox'
     //'diffmerge',
     //'dropbox',
     //'evernote',
@@ -68,10 +71,9 @@ module.exports = {
     //'little-snitch',
     //'micro-snitch',
     //'macvim',
-    'sizeup',
+    //'sizeup',
     'slack',
     //'sketchup',
-    'slack',
     'the-unarchiver',
     'torbrowser',
     'transmission',
