@@ -223,7 +223,7 @@ popd > /dev/null 2>&1
 bot "installing fonts"
 ./fonts/install.sh
 brew tap caskroom/fonts
-require_cask font-awesome
+require_cask font-fontawesome
 require_cask font-awesome-terminal-fonts
 require_cask font-hack
 require_cask font-inconsolata-dz-for-powerline
