@@ -217,8 +217,8 @@ done
 popd > /dev/null 2>&1
 
 
-+bot "Installing vim plugins"
- +vim +PluginInstall +qall > /dev/null 2>&1
+bot "Installing vim plugins"
+vim +PluginInstall +qall > /dev/null 2>&1
 
 bot "installing fonts"
 ./fonts/install.sh
@@ -244,7 +244,7 @@ fi
 require_brew nvm
 
 # nvm
-require_nvm 4.4.7
+require_nvm stable
 
 # always pin versions (no surprises, consistent dev/build machines)
 npm config set save-exact true
