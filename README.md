@@ -142,9 +142,7 @@ Here is the current list:
 
 ## SSD-specific tweaks   
 - Disable local Time Machine snapshots
-- Disable hibernation (speeds up entering sleep mode)
 - Remove the sleep image file to save disk space
-- Disable the sudden motion sensor as it’s not useful for SSDs
 
 ## General System Changes
 - allow 'locate' command

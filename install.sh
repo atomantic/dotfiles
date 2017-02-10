@@ -12,7 +12,7 @@ source ./lib_sh/requirers.sh
 bot "Hi! I'm going to install tooling and tweak your system settings. Here I go..."
 
 # Ask for the administrator password upfront
-if sudo grep -q "wheel\tALL=(ALL) NOPASSWD: ALL" "/etc/sudoers"; then
+if ! sudo grep -q "%wheel\t ALL=(ALL) NOPASSWD: ALL" "/etc/sudoers"; then
 
   # Ask for the administrator password upfront
   bot "I need you to enter your sudo password so I can install some things:"
@@ -324,16 +324,15 @@ defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true;ok
 
 running "Disable local Time Machine snapshots"
 sudo tmutil disablelocal;ok
-running "Disable hibernation (speeds up entering sleep mode)"
-sudo pmset -a hibernatemode 0;ok
+# https://github.com/mathiasbynens/dotfiles/commit/a3f91f67e07b6b31760b52320e0e890f93ff4e97#commitcomment-20715991
+# running "Disable hibernation (speeds up entering sleep mode)"
+# sudo pmset -a hibernatemode 0;ok
 running "Remove the sleep image file to save disk space"
 sudo rm -rf /Private/var/vm/sleepimage;ok
 running "Create a zero-byte file instead"
 sudo touch /Private/var/vm/sleepimage;ok
 running "…and make sure it can’t be rewritten"
 sudo chflags uchg /Private/var/vm/sleepimage;ok
-running "Disable the sudden motion sensor as it’s not useful for SSDs"
-sudo pmset -a sms 0;ok
 
 ################################################
 # Optional / Experimental                      #

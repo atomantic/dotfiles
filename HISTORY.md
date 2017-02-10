@@ -28,6 +28,8 @@
  * made gitshots optional (you will be asked if you want to use it)
  * imagemagick and imagesnap will only install if you select gitshots
  * fixed passwordless sudo for Sierra
+ * remove sudden motion disable (already disabled: https://github.com/mathiasbynens/dotfiles/pull/755/files)
+ * no longer setting hibernation mode to 0 (leaving default 3): https://github.com/mathiasbynens/dotfiles/commit/a3f91f67e07b6b31760b52320e0e890f93ff4e97#commitcomment-20715991
 
 ## v4.3.0
  * vim installation fix
