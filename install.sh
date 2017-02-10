@@ -273,23 +273,65 @@ bot "Configuring General System UI/UX..."
 running "closing any system preferences to prevent issues with automated changes"
 osascript -e 'tell application "System Preferences" to quit'
 ok
+
+running "always boot in verbose mode (not MacOS GUI mode)"
+sudo nvram boot-args="-v";ok
+
+running "Disable the sound effects on boot"
+sudo nvram SystemAudioVolume=" ";ok
+
+running "Menu bar: disable transparency"
+defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false;ok
+
+running "Menu bar: hide the Time Machine, Volume, User, and Bluetooth icons"
+for domain in ~/Library/Preferences/ByHost/com.apple.systemuiserver.*; do
+  defaults write "${domain}" dontAutoLoad -array \
+    "/System/Library/CoreServices/Menu Extras/TimeMachine.menu" \
+    "/System/Library/CoreServices/Menu Extras/Volume.menu" \
+    "/System/Library/CoreServices/Menu Extras/User.menu"
+done;
+defaults write com.apple.systemuiserver menuExtras -array \
+  "/System/Library/CoreServices/Menu Extras/Bluetooth.menu" \
+  "/System/Library/CoreServices/Menu Extras/AirPort.menu" \
+  "/System/Library/CoreServices/Menu Extras/Battery.menu" \
+  "/System/Library/CoreServices/Menu Extras/Clock.menu"
+ok
+
+running "Set highlight color to green"
+defaults write NSGlobalDomain AppleHighlightColor -string "0.764700 0.976500 0.568600";ok
+
+running "Set sidebar icon size to medium"
+defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 2;ok
+
+running "Always show scrollbars"
+defaults write NSGlobalDomain AppleShowScrollBars -string "Always";ok
+# Possible values: `WhenScrolling`, `Automatic` and `Always`
+
+running "Increase window resize speed for Cocoa applications"
+defaults write NSGlobalDomain NSWindowResizeTime -float 0.001;ok
+
+running "Expand save panel by default"
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true;ok
+
+running "Expand print panel by default"
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true;ok
+
 ###############################################################################
 # SSD-specific tweaks                                                         #
 ###############################################################################
 
 running "Disable local Time Machine snapshots"
 sudo tmutil disablelocal;ok
-
-#running "Disable hibernation (speeds up entering sleep mode)"
-#sudo pmset -a hibernatemode 0;ok
-
-# running "Remove the sleep image file to save disk space"
-# sudo rm -rf /Private/var/vm/sleepimage;ok
-# running "Create a zero-byte file instead"
-# sudo touch /Private/var/vm/sleepimage;ok
-# running "…and make sure it can’t be rewritten"
-# sudo chflags uchg /Private/var/vm/sleepimage;ok
-
+running "Disable hibernation (speeds up entering sleep mode)"
+sudo pmset -a hibernatemode 0;ok
+running "Remove the sleep image file to save disk space"
+sudo rm -rf /Private/var/vm/sleepimage;ok
+running "Create a zero-byte file instead"
+sudo touch /Private/var/vm/sleepimage;ok
+running "…and make sure it can’t be rewritten"
+sudo chflags uchg /Private/var/vm/sleepimage;ok
 running "Disable the sudden motion sensor as it’s not useful for SSDs"
 sudo pmset -a sms 0;ok
 
@@ -351,57 +393,14 @@ sudo pmset -a sms 0;ok
 
 
 ################################################
-bot "Standard System Changes"
+bot "General System Changes"
 ################################################
-running "always boot in verbose mode (not MacOS GUI mode)"
-sudo nvram boot-args="-v";ok
 
 running "allow 'locate' command"
 sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist > /dev/null 2>&1;ok
 
 running "Set standby delay to 24 hours (default is 1 hour)"
 sudo pmset -a standbydelay 86400;ok
-
-running "Disable the sound effects on boot"
-sudo nvram SystemAudioVolume=" ";ok
-
-running "Menu bar: disable transparency"
-defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false;ok
-
-running "Menu bar: hide the Time Machine, Volume, User, and Bluetooth icons"
-for domain in ~/Library/Preferences/ByHost/com.apple.systemuiserver.*; do
-  defaults write "${domain}" dontAutoLoad -array \
-    "/System/Library/CoreServices/Menu Extras/TimeMachine.menu" \
-    "/System/Library/CoreServices/Menu Extras/Volume.menu" \
-    "/System/Library/CoreServices/Menu Extras/User.menu"
-done;
-defaults write com.apple.systemuiserver menuExtras -array \
-  "/System/Library/CoreServices/Menu Extras/Bluetooth.menu" \
-  "/System/Library/CoreServices/Menu Extras/AirPort.menu" \
-  "/System/Library/CoreServices/Menu Extras/Battery.menu" \
-  "/System/Library/CoreServices/Menu Extras/Clock.menu"
-ok
-
-running "Set highlight color to green"
-defaults write NSGlobalDomain AppleHighlightColor -string "0.764700 0.976500 0.568600";ok
-
-running "Set sidebar icon size to medium"
-defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 2;ok
-
-running "Always show scrollbars"
-defaults write NSGlobalDomain AppleShowScrollBars -string "Always";ok
-# Possible values: `WhenScrolling`, `Automatic` and `Always`
-
-running "Increase window resize speed for Cocoa applications"
-defaults write NSGlobalDomain NSWindowResizeTime -float 0.001;ok
-
-running "Expand save panel by default"
-defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
-defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true;ok
-
-running "Expand print panel by default"
-defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
-defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true;ok
 
 running "Save to disk (not to iCloud) by default"
 defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false;ok

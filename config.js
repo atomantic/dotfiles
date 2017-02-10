@@ -47,7 +47,7 @@ module.exports = {
     //'adium',
     //'amazon-cloud-drive',
     //'atom',
-    'box-sync',
+    // 'box-sync',
     //'comicbooklover',
     //'diffmerge',
     //'dropbox',
@@ -76,11 +76,11 @@ module.exports = {
     'eslint',
     'instant-markdown-d',
     'npm-check',
-    'yo',
-    'generator-dockerize',
+    // 'generator-dockerize',
     'gulp',
     'prettyjson',
     'trash',
     'vtop'
+    // 'yo'
   ]
 };
