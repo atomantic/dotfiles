@@ -315,7 +315,6 @@ The following is the software that I have set as default:
 
 * ack
 * ag
-* cmake
 * coreutils
 * dos2unix
 * findutils
