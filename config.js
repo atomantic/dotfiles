@@ -21,8 +21,6 @@ module.exports = {
     'homebrew/dupes/grep',
     // https://github.com/jkbrzt/httpie
     'httpie',
-    'imagemagick',
-    'imagesnap',
     // jq is a sort of JSON grep
     'jq',
     // Mac App Store CLI: https://github.com/mas-cli/mas

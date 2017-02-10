@@ -331,8 +331,8 @@ The following is the software that I have set as default:
 * gnu-sed
 * homebrew/dupes/grep
 * httpie
-* imagemagick
-* imagesnap
+* imagemagick (only if gitshots enabled)
+* imagesnap (only if gitshots enabled)
 * jq
 * mas
 * moreutils
@@ -361,14 +361,12 @@ The following is the software that I have set as default:
 * antic
 * buzzphrase
 * eslint
-* generator-dockerize
 * gulp
 * instant-markdown-d
 * npm-check
 * prettyjson
 * trash
 * vtop
-* yo
 
 ## Ruby Gems
 * git-up

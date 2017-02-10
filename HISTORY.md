@@ -29,7 +29,8 @@
  * disable vim YouCompleteMe Bundle (wasn't using it anyway and was causing installation problems on some machines)
  * remove yo, generator-dockerize, box-sync from software installs
  * install node stable (rather than old 4.x.x version)
- 
+ * make gitshots optional (and only install `imagesnap` and `imagemagick` if this is on)
+
 ## v4.3.0
  * vim installation fix
  * Enable firewall
