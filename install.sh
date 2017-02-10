@@ -328,20 +328,20 @@ sudo defaults write /Library/Preferences/com.apple.alf stealthenabled -int 1
 #sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.captive.control Active -bool false
 
 # Disable remote apple events
-sudo systemsetup -setremoteappleevents off
+#sudo systemsetup -setremoteappleevents off
 
 # Disable remote login
 #sudo systemsetup -setremotelogin off
 
 # Disable wake-on modem
-sudo systemsetup -setwakeonmodem off
+#sudo systemsetup -setwakeonmodem off
 
 # Disable wake-on LAN
 sudo systemsetup -setwakeonnetworkaccess off
 
 # Disable file-sharing via AFP or SMB
-sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.AppleFileServer.plist
-sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.smbd.plist
+# sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.AppleFileServer.plist
+# sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.smbd.plist
 
 # Display login window as name and password
 #sudo defaults write /Library/Preferences/com.apple.loginwindow SHOWFULLNAME -bool true
