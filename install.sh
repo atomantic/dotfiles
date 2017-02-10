@@ -11,11 +11,6 @@ source ./lib_sh/requirers.sh
 
 bot "Hi! I'm going to install tooling and tweak your system settings. Here I go..."
 
-# ensure ~/.gitshots exists to prevent "Error." in terminal after git commits
-# TODO: use node/yoeman to templatize elements of this project and use inquerer to ask if the
-# user wants to use gitshots
-mkdir -p ~/.gitshots
-
 # Ask for the administrator password upfront
 if sudo grep -q "# %wheel\tALL=(ALL) NOPASSWD: ALL" "/etc/sudoers"; then
 
