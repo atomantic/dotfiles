@@ -12,7 +12,7 @@ source ./lib_sh/requirers.sh
 bot "Hi! I'm going to install tooling and tweak your system settings. Here I go..."
 
 # Ask for the administrator password upfront
-if ! sudo grep -q "%wheel\t ALL=(ALL) NOPASSWD: ALL" "/etc/sudoers"; then
+if ! sudo grep -q "%wheel		ALL=(ALL) NOPASSWD: ALL #atomantic/dotfiles" "/etc/sudoers"; then
 
   # Ask for the administrator password upfront
   bot "I need you to enter your sudo password so I can install some things:"
@@ -27,11 +27,12 @@ if ! sudo grep -q "%wheel\t ALL=(ALL) NOPASSWD: ALL" "/etc/sudoers"; then
 
   if [[ $response =~ (yes|y|Y) ]];then
       sudo cp /etc/sudoers /etc/sudoers.back
-      echo '%wheel\t ALL=(ALL) NOPASSWD: ALL' | sudo tee -a /etc/sudoers > /dev/null
+      echo '%wheel		ALL=(ALL) NOPASSWD: ALL #atomantic/dotfiles' | sudo tee -a /etc/sudoers > /dev/null
       sudo dscl . append /Groups/wheel GroupMembership $(whoami)
       bot "You can now run sudo commands without password!"
   fi
 fi
+exit
 
 grep 'user = GITHUBUSER' ./homedir/.gitconfig > /dev/null 2>&1
 if [[ $? = 0 ]]; then
