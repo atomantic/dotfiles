@@ -3,6 +3,7 @@
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
 - [Release History](#release-history)  
+  - [v4.4.0](#v440)
   - [v4.3.0](#v430)
   - [v4.2.0](#v420)
   - [v4.1.1](#v411)
