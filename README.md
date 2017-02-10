@@ -168,7 +168,6 @@ The following will only happen if you agree on the prompt
 - Restart automatically if the computer freezes
 - Never go into computer sleep mode
 - Check for software updates daily, not just once per week
-- Disable Notification Center and remove the menu bar icon
 - Disable smart quotes as they’re annoying when typing code
 - Disable smart dashes as they’re annoying when typing code
 
