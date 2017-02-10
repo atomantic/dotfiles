@@ -75,21 +75,29 @@ To launch fullscreen, hit `Command + Enter` in iTerm, then use `Command + d` and
 
 # Installation
 
-Note: I recommend forking this repo in case you don't like anything I do and want to set your own preferences (and pull request them!)
+> Note: I recommend forking this repo in case you don't like anything I do and want to set your own preferences (and pull request them!)
+
+> REVIEW WHAT THIS SCRIPT DOES PRIOR TO RUNNING: https://github.com/atomantic/dotfiles/blob/master/install.sh#L275-L1038
+> It's always a good idea to review arbitrary code from the internet before running it on your machine with sudo power!
+> You are responsible for everything this script does to your machine (see LICENSE)
 
 ```bash
 git clone --recurse-submodules https://github.com/atomantic/dotfiles ~/.dotfiles
 cd ~/.dotfiles;
-# run this using terminal (not iTerm, lest iterm settings get discarded on exit)
+# run this using terminal (not iTerm, lest iTerm settings get discarded on exit)
 ./install.sh
 ```
-* When it finishes, open Iterm and press `Command + ,` to open preferences. Under Profiles > Colors, select "Load Presets" and choose the `Solarized Dark Patch` scheme. If it isn't there for some reason, import it from `~/.dotfiles/configs`
+* When it finishes, open Iterm and press `Command + ,` to open preferences. Under Profiles > Colors, select "Load Presets" and choose the `Solarized Dark Patch` scheme. If it isn't there for some reason, import it from `~/.dotfiles/configs` -- you may also need to select the `Hack` font and check the box for non-ascii font and set to `Roboto Mono For Powerline` (I've had mixed results for automating these settings--love a pull request that improves this)
+* I've also found that you need to reboot before fast key repeat will be enabled
 
 > Note: running install.sh is idempotent. You can run it again and again as you add new features or software to the scripts! I'll regularly add new configurations so keep an eye on this repo as it grows and optimizes.
 
 ## Restoring Dotfiles
 
 If you have existing dotfiles for configuring git, zsh, vim, etc, these will be backed-up into `~/.dotfiles_backup/$(date +"%Y.%m.%d.%H.%M.%S")` and replaced with the files from this project. You can restore your original dotfiles by using `./restore.sh $RESTOREDATE` where `$RESTOREDATE` is the date folder name you want to restore.
+
+> The restore script does not currently restore system settings--only your original dotfiles. To restore system settings, you'll need to manually undo what you don't like (so don't forget to fork, review, tweak)
+
 
 # 3.x.x+ Upgrade Instructions!
 
@@ -108,7 +116,7 @@ Do the following to upgrade your ~/.dotfiles safely:
 # Additional
 
 ## VIM as IDE
-I am moving away from using `Atom` and instead using `vim` as my IDE. I use Vundle to manage vim plugins (instead of pathogen). Vundle is better in many ways and is compatible with pathogen plugins. Additionally, vundle will manage and install it's own plugins so we don't have to use git submodules for all of them.
+I am moving away from using `Atom` and instead using `vim` as my IDE. I use Vundle to manage vim plugins (instead of pathogen). Vundle is better in many ways and is compatible with pathogen plugins. Additionally, vundle will manage and install its own plugins so we don't have to use git submodules for all of them.
 
 ## Crontab
 You can `cron ~/.crontab` if you want to add my nightly cron software updates.
@@ -123,16 +131,14 @@ You can `cron ~/.crontab` if you want to add my nightly cron software updates.
 This project changes a number of settings and configures software on MacOS.
 Here is the current list:
 
-## Configuring General System UI/UX
+## SSD-specific tweaks  
 - Disable local Time Machine snapshots
 - Disable hibernation (speeds up entering sleep mode)
 - Remove the sleep image file to save disk space
-- Set a custom wallpaper image
 
-## Standard System Changes
+## General System Changes
+- Set a custom wallpaper image (if answered yes to prompt)
 - always boot in verbose mode (not MacOS GUI mode)
-- allow 'locate' command
-- Set standby delay to 24 hours (default is 1 hour)
 - Disable the sound effects on boot
 - Menu bar: disable transparency
 - Menu bar: hide the Time Machine, Volume, User, and Bluetooth icons
@@ -142,6 +148,8 @@ Here is the current list:
 - Increase window resize speed for Cocoa applications
 - Expand save panel by default
 - Expand print panel by default
+- allow 'locate' command
+- Set standby delay to 24 hours (default is 1 hour)
 - Save to disk (not to iCloud) by default
 - Automatically quit printer app once the print jobs complete
 - Disable the “Are you sure you want to open this application?” dialog
@@ -164,7 +172,6 @@ Here is the current list:
 - Disable remote apple events
 - Disable wake-on modem
 - Disable wake-on LAN
-- Disable file-sharing via AFP or SMB
 - Disable guest account login
 
 ## Trackpad, mouse, keyboard, Bluetooth accessories, and input
@@ -305,27 +312,30 @@ Here is the current list:
 
 # Software Installation
 
-homebrew, fontconfig, git, ruby, nvm (node + npm), and zsh (latest) are all installed inside the `install.sh` as foundational software for running this project.
-Additional software is configured in `config.js` and can be customized in your own fork/branch.
+homebrew, fontconfig, git, ruby (latest), nvm (node + npm), and zsh (latest) are all installed inside the `install.sh` as foundational software for running this project.
+Additional software is configured in `config.js` and can be customized in your own fork/branch (you can change everything in your own fork/brance).
 The following is the software that I have set as default:
 
 ## Utilities
 
-* coreutils
-* moreutils
-* findutils
 * ack
 * ag
+* cmake
+* coreutils
 * dos2unix
+* findutils
 * fortune
 * gawk
 * gifsicle
 * gnupg
 * gnu-sed
 * homebrew/dupes/grep
+* httpie
 * imagemagick
 * imagesnap
 * jq
+* mas
+* moreutils
 * nmap
 * openconnect
 * reattach-to-user-namespace
@@ -339,22 +349,23 @@ The following is the software that I have set as default:
 
 ## Apps
 * box-sync
-* slack
 * gpgtools
 * iterm2
 * sizeup
+* slack
+* the-unarchiver
 * xquartz
 
 ## NPM Global Modules
 
 * antic
 * buzzphrase
-* esformatter
 * eslint
 * generator-dockerize
 * gulp
 * instant-markdown-d
 * npm-check
+* prettyjson
 * trash
 * vtop
 * yo
