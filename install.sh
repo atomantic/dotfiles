@@ -32,7 +32,6 @@ if ! sudo grep -q "%wheel		ALL=(ALL) NOPASSWD: ALL #atomantic/dotfiles" "/etc/su
       bot "You can now run sudo commands without password!"
   fi
 fi
-exit
 
 grep 'user = GITHUBUSER' ./homedir/.gitconfig > /dev/null 2>&1
 if [[ $? = 0 ]]; then
