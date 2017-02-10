@@ -330,13 +330,13 @@ sudo defaults write /Library/Preferences/com.apple.alf stealthenabled -int 1
 #sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.captive.control Active -bool false
 
 # Disable remote apple events
-#sudo systemsetup -setremoteappleevents off
+sudo systemsetup -setremoteappleevents off
 
 # Disable remote login
-#sudo systemsetup -setremotelogin off
+sudo systemsetup -setremotelogin off
 
 # Disable wake-on modem
-#sudo systemsetup -setwakeonmodem off
+sudo systemsetup -setwakeonmodem off
 
 # Disable wake-on LAN
 sudo systemsetup -setwakeonnetworkaccess off
