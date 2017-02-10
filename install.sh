@@ -106,6 +106,7 @@ if [[ $? = 0 ]]; then
     sed -i '' "s/GITHUBFULLNAME/$firstname $lastname/" ./homedir/.gitconfig;
     sed -i '' 's/GITHUBEMAIL/'$email'/' ./homedir/.gitconfig;
     sed -i '' 's/GITHUBUSER/'$githubuser'/' ./homedir/.gitconfig;
+    ok
   else
     echo
     bot "looks like you are already using gnu-sed. woot!"
@@ -129,8 +130,10 @@ if [[ "$MD5_NEWWP" != "$MD5_OLDWP" ]]; then
     sudo rm -f /System/Library/CoreServices/DefaultDesktop.jpg > /dev/null 2>&1
     sudo rm -f /Library/Desktop\ Pictures/El\ Capitan.jpg > /dev/null 2>&1
     sudo rm -f /Library/Desktop\ Pictures/Sierra.jpg > /dev/null 2>&1
+    sudo rm -f /Library/Desktop\ Pictures/Sierra\ 2.jpg > /dev/null 2>&1
     sudo cp ./img/wallpaper.jpg /System/Library/CoreServices/DefaultDesktop.jpg;
     sudo cp ./img/wallpaper.jpg /Library/Desktop\ Pictures/Sierra.jpg;
+    sudo cp ./img/wallpaper.jpg /Library/Desktop\ Pictures/Sierra\ 2.jpg;
     sudo cp ./img/wallpaper.jpg /Library/Desktop\ Pictures/El\ Capitan.jpg;ok
   fi
 fi
