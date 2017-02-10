@@ -27,6 +27,7 @@
 
 ## v4.4.1
  * re-enable notification center
+ * fix gitshots optional ability by renaming post-commit -> gitshot-pc
 
 ## v4.4.0
  * cleanup readme and alphabetize software installation for better fork management and listing
