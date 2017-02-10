@@ -24,13 +24,14 @@
 # Release History
 
 ## v4.4.0
- * going all in with emphasis on Sierra and SSD
+ * Upgrades for Sierra and SSD
  * made gitshots optional (you will be asked if you want to use it)
- * imagemagick and imagesnap will only install if you select gitshots
+ * removed default install of imagemagick and imagesnap will only install if you select gitshots
  * fixed passwordless sudo for Sierra
  * remove sudden motion disable (already disabled: https://github.com/mathiasbynens/dotfiles/pull/755/files)
  * no longer setting hibernation mode to 0 (leaving default 3): https://github.com/mathiasbynens/dotfiles/commit/a3f91f67e07b6b31760b52320e0e890f93ff4e97#commitcomment-20715991
  * disable YouCompleteMe Vim bundle (doesn't install on some machines and causes the script to get stuck--wasn't using it anyway)
+ * prompt to overwrite /etc/hosts with someonewhocares.org hosts file (saved in ./configs/hosts in this project)
 
 ## v4.3.0
  * vim installation fix
