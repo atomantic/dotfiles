@@ -27,7 +27,9 @@
 ## v4.4.0
  * cleanup readme and alphabetize software installation for better fork management and listing
  * disable vim YouCompleteMe Bundle (wasn't using it anyway and was causing installation problems on some machines)
-
+ * remove yo, generator-dockerize, box-sync from software installs
+ * install node stable (rather than old 4.x.x version)
+ 
 ## v4.3.0
  * vim installation fix
  * Enable firewall
