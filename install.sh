@@ -221,8 +221,10 @@ done
 popd > /dev/null 2>&1
 
 
-+bot "Installing vim plugins"
- +vim +PluginInstall +qall > /dev/null 2>&1
+bot "Installing vim plugins"
+# cmake is required to compile vim bundle YouCompleteMe
+# require_brew cmake
+vim +PluginInstall +qall > /dev/null 2>&1
 
 bot "installing fonts"
 ./fonts/install.sh

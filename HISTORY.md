@@ -26,6 +26,7 @@
 
 ## v4.4.0
  * cleanup readme and alphabetize software installation for better fork management and listing
+ * disable vim YouCompleteMe Bundle (wasn't using it anyway and was causing installation problems on some machines)
 
 ## v4.3.0
  * vim installation fix

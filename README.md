@@ -14,20 +14,21 @@ You don't need to install or configure anything upfront! This works with a brand
 - [Watch me run!](#watch-me-run)
 - [Installation](#installation)
   - [Restoring Dotfiles](#restoring-dotfiles)
-- [3.0.0 Upgrade Instructions!](#300-upgrade-instructions)
+- [3.x.x+ Upgrade Instructions!](#3xx-upgrade-instructions)
 - [Additional](#additional)
   - [VIM as IDE](#vim-as-ide)
   - [Crontab](#crontab)
   - [Remap Caps-Lock](#remap-caps-lock)
 - [Settings](#settings)
-  - [Configuring General System UI/UX](#configuring-general-system-uiux)
-  - [Standard System Changes](#standard-system-changes)
+  - [SSD-specific tweaks](#ssd-specific-tweaks)
+  - [General System Changes](#general-system-changes)
+  - [Security](#security)
   - [Trackpad, mouse, keyboard, Bluetooth accessories, and input](#trackpad-mouse-keyboard-bluetooth-accessories-and-input)
   - [Configuring the Screen](#configuring-the-screen)
   - [Finder Configs](#finder-configs)
-  - [Dock & Dashboard](#dock-&-dashboard)
+  - [Dock & Dashboard](#dock--dashboard)
   - [Configuring Hot Corners](#configuring-hot-corners)
-  - [Configuring Safari & WebKit](#configuring-safari-&-webkit)
+  - [Configuring Safari & WebKit](#configuring-safari--webkit)
   - [Configuring Mail](#configuring-mail)
   - [Spotlight](#spotlight)
   - [iTerm2](#iterm2)
@@ -320,7 +321,6 @@ The following is the software that I have set as default:
 
 * ack
 * ag
-* cmake
 * coreutils
 * dos2unix
 * findutils
