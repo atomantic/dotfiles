@@ -23,6 +23,10 @@
 
 # Release History
 
+## v5.0.0
+ * going all in with emphasis on Sierra and SSD
+ * made gitshots optional (you will be asked if you want to use it)
+
 ## v4.3.0
  * vim installation fix
  * Enable firewall
