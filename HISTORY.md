@@ -3,6 +3,7 @@
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
 - [Release History](#release-history)  
+  - [v4.4.1](#v441)
   - [v4.4.0](#v440)
   - [v4.3.0](#v430)
   - [v4.2.0](#v420)
@@ -23,6 +24,9 @@
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # Release History
+
+## v4.4.1
+ * re-enable notification center
 
 ## v4.4.0
  * cleanup readme and alphabetize software installation for better fork management and listing
