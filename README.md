@@ -112,7 +112,7 @@ Do the following to upgrade your ~/.dotfiles safely:
 # Additional
 
 ## VIM as IDE
-I am moving away from using `Atom` and instead using `vim` as my IDE. I use Vundle to manage vim plugins (instead of pathogen). Vundle is better in many ways and is compatible with pathogen plugins. Additionally, vundle will manage and install it's own plugins so we don't have to use git submodules for all of them.
+I am moving away from using `Atom` and instead using `vim` as my IDE. I use Vundle to manage vim plugins (instead of pathogen). Vundle is better in many ways and is compatible with pathogen plugins. Additionally, vundle will manage and install its own plugins so we don't have to use git submodules for all of them.
 
 ## Crontab
 You can `cron ~/.crontab` if you want to add my nightly cron software updates.
