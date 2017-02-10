@@ -30,6 +30,7 @@
  * remove yo, generator-dockerize, box-sync from software installs
  * install node stable (rather than old 4.x.x version)
  * make gitshots optional (and only install `imagesnap` and `imagemagick` if this is on)
+ * fix passwordless sudo for Sierra (optional)
 
 ## v4.3.0
  * vim installation fix
