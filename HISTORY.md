@@ -31,6 +31,7 @@
  * install node stable (rather than old 4.x.x version)
  * make gitshots optional (and only install `imagesnap` and `imagemagick` if this is on)
  * fix passwordless sudo for Sierra (optional)
+ * prompt to overwrite /etc/hosts with someonewhocares.org hosts file (saved in ./configs/hosts in this project)
 
 ## v4.3.0
  * vim installation fix
