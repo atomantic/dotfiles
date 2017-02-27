@@ -11,13 +11,8 @@ source ./lib_sh/requirers.sh
 
 bot "Hi! I'm going to install tooling and tweak your system settings. Here I go..."
 
-# ensure ~/.gitshots exists to prevent "Error." in terminal after git commits
-# TODO: use node/yoeman to templatize elements of this project and use inquerer to ask if the
-# user wants to use gitshots
-mkdir -p ~/.gitshots
-
 # Ask for the administrator password upfront
-if sudo grep -q "# %wheel\tALL=(ALL) NOPASSWD: ALL" "/etc/sudoers"; then
+if ! sudo grep -q "%wheel		ALL=(ALL) NOPASSWD: ALL #atomantic/dotfiles" "/etc/sudoers"; then
 
   # Ask for the administrator password upfront
   bot "I need you to enter your sudo password so I can install some things:"
@@ -31,14 +26,23 @@ if sudo grep -q "# %wheel\tALL=(ALL) NOPASSWD: ALL" "/etc/sudoers"; then
   read -r -p "Make sudo passwordless? [y|N] " response
 
   if [[ $response =~ (yes|y|Y) ]];then
-      sed --version 2>&1 > /dev/null
-      sudo sed -i '' 's/^#\s*\(%wheel\s\+ALL=(ALL)\s\+NOPASSWD:\s\+ALL\)/\1/' /etc/sudoers
-      if [[ $? == 0 ]];then
-          sudo sed -i 's/^#\s*\(%wheel\s\+ALL=(ALL)\s\+NOPASSWD:\s\+ALL\)/\1/' /etc/sudoers
-      fi
+      sudo cp /etc/sudoers /etc/sudoers.back
+      echo '%wheel		ALL=(ALL) NOPASSWD: ALL #atomantic/dotfiles' | sudo tee -a /etc/sudoers > /dev/null
       sudo dscl . append /Groups/wheel GroupMembership $(whoami)
       bot "You can now run sudo commands without password!"
   fi
+fi
+
+# /etc/hosts
+read -r -p "Overwrite /etc/hosts with the ad-blocking hosts file from someonewhocares.org? (from ./configs/hosts file) [y|N] " response
+if [[ $response =~ (yes|y|Y) ]];then
+    action "cp /etc/hosts /etc/hosts.backup"
+    sudo cp /etc/hosts /etc/hosts.backup
+    ok
+    action "cp ./configs/hosts /etc/hosts"
+    sudo cp ./configs/hosts /etc/hosts
+    ok
+    bot "Your /etc/hosts file has been updated. Last version is saved in /etc/hosts.backup"
 fi
 
 grep 'user = GITHUBUSER' ./homedir/.gitconfig > /dev/null 2>&1
@@ -102,6 +106,7 @@ if [[ $? = 0 ]]; then
     sed -i '' "s/GITHUBFULLNAME/$firstname $lastname/" ./homedir/.gitconfig;
     sed -i '' 's/GITHUBEMAIL/'$email'/' ./homedir/.gitconfig;
     sed -i '' 's/GITHUBUSER/'$githubuser'/' ./homedir/.gitconfig;
+    ok
   else
     echo
     bot "looks like you are already using gnu-sed. woot!"
@@ -125,8 +130,10 @@ if [[ "$MD5_NEWWP" != "$MD5_OLDWP" ]]; then
     sudo rm -f /System/Library/CoreServices/DefaultDesktop.jpg > /dev/null 2>&1
     sudo rm -f /Library/Desktop\ Pictures/El\ Capitan.jpg > /dev/null 2>&1
     sudo rm -f /Library/Desktop\ Pictures/Sierra.jpg > /dev/null 2>&1
+    sudo rm -f /Library/Desktop\ Pictures/Sierra\ 2.jpg > /dev/null 2>&1
     sudo cp ./img/wallpaper.jpg /System/Library/CoreServices/DefaultDesktop.jpg;
     sudo cp ./img/wallpaper.jpg /Library/Desktop\ Pictures/Sierra.jpg;
+    sudo cp ./img/wallpaper.jpg /Library/Desktop\ Pictures/Sierra\ 2.jpg;
     sudo cp ./img/wallpaper.jpg /Library/Desktop\ Pictures/El\ Capitan.jpg;ok
   fi
 fi
@@ -221,8 +228,10 @@ done
 popd > /dev/null 2>&1
 
 
-+bot "Installing vim plugins"
- +vim +PluginInstall +qall > /dev/null 2>&1
+bot "Installing vim plugins"
+# cmake is required to compile vim bundle YouCompleteMe
+# require_brew cmake
+vim +PluginInstall +qall > /dev/null 2>&1
 
 bot "installing fonts"
 ./fonts/install.sh
@@ -248,7 +257,7 @@ fi
 require_brew nvm
 
 # nvm
-require_nvm 4.4.7
+require_nvm stable
 
 # always pin versions (no surprises, consistent dev/build machines)
 npm config set save-exact true
@@ -331,7 +340,7 @@ sudo defaults write /Library/Preferences/com.apple.driver.AppleIRController Devi
 sudo systemsetup -setremoteappleevents off
 
 # Disable remote login
-#sudo systemsetup -setremotelogin off
+sudo systemsetup -setremotelogin off
 
 # Disable wake-on modem
 # sudo systemsetup -setwakeonmodem off
@@ -340,8 +349,8 @@ sudo systemsetup -setremoteappleevents off
 # sudo systemsetup -setwakeonnetworkaccess off
 
 # Disable file-sharing via AFP or SMB
-sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.AppleFileServer.plist
-sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.smbd.plist
+# sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.AppleFileServer.plist
+# sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.smbd.plist
 
 # Display login window as name and password
 #sudo defaults write /Library/Preferences/com.apple.loginwindow SHOWFULLNAME -bool true
@@ -392,8 +401,8 @@ defaults write com.apple.LaunchServices LSQuarantine -bool false
 running "Disable local Time Machine snapshots"
 sudo tmutil disablelocal;ok
 
-running "Disable hibernation (speeds up entering sleep mode)"
-sudo pmset -a hibernatemode 0;ok
+# running "Disable hibernation (speeds up entering sleep mode)"
+# sudo pmset -a hibernatemode 0;ok
 
 running "Remove the sleep image file to save disk space"
 sudo rm -rf /Private/var/vm/sleepimage;ok
