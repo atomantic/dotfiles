@@ -1,5 +1,12 @@
 module.exports = {
   brew: [
+    'ansible',
+    'awscli',
+    'aws-elasticbeanstalk',
+    'lame',
+    'pwgen',
+    'ssh-copy-id',
+    'terminal-notifier',
     // http://conqueringthecommandline.com/book/ack_ag
     'ack',
     'ag',
@@ -32,7 +39,6 @@ module.exports = {
     'reattach-to-user-namespace',
     // better/more recent version of screen
     'homebrew/dupes/screen',
-    'tmux',
     'tree',
     'ttyrec',
     // better, more recent vim
@@ -44,26 +50,38 @@ module.exports = {
   cask: [
     //'adium',
     //'amazon-cloud-drive',
-    //'atom',
-    // 'box-sync',
+    'alfred',
+    'amethyst',
+    'atom',
+    //'box-sync',
     //'comicbooklover',
+    'cyberduck',
+    'firefox'
     //'diffmerge',
     //'dropbox',
     //'evernote',
     'gpgtools',
+    'google-chrome',
+    'handbrake',
     //'ireadfast',
     'iterm2',
-    'little-snitch',
-    'micro-snitch',
+    //'little-snitch',
+    //'micro-snitch',
     //'macvim',
-    'sizeup',
-    //'sketchup',
+    'osxfuse',
+    'qlstephen',
+    //'sizeup',
+    'sequel-pro',
     'slack',
+    'skyfonts',
+    //'sketchup',
     'the-unarchiver',
-    //'torbrowser',
-    //'transmission',
-    //'vlc',
-    'xquartz'
+    'torbrowser',
+    'transmission',
+    'vlc',
+    'virtualbox',
+    'vagrant'
+    //'xquartz'
   ],
   gem: [
     'git-up'
@@ -71,11 +89,16 @@ module.exports = {
   npm: [
     'antic',
     'buzzphrase',
+    'bower',
+    'cordova',
     'eslint',
     'instant-markdown-d',
-    // 'generator-dockerize',
-    'gulp',
     'npm-check',
+    'yo',
+    'foundation-cli',
+    'generator-dockerize',
+    'gulp',
+    'grunt',
     'prettyjson',
     'trash',
     'vtop'
