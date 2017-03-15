@@ -37,21 +37,24 @@ source $ZSH/oh-my-zsh.sh
 . ~/zsh/prompt
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-source /usr/local/opt/nvm/nvm.sh
+# source /usr/local/opt/nvm/nvm.sh
 
 autoload -U add-zsh-hook
-load-nvmrc() {
-  if [[ -f .nvmrc && -r .nvmrc ]]; then
-    nvm use &> /dev/null
-  elif [[ $(nvm version) != $(nvm version default)  ]]; then
-    nvm use default &> /dev/null
-  fi
-}
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc
+# load-nvmrc() {
+#   if [[ -f .nvmrc && -r .nvmrc ]]; then
+#     nvm use &> /dev/null
+#   elif [[ $(nvm version) != $(nvm version default)  ]]; then
+#     nvm use default &> /dev/null
+#   fi
+# }
+# add-zsh-hook chpwd load-nvmrc
+# load-nvmrc
 
 # Customize to your needs...
 unsetopt correct
 
 # run fortune on new terminal :)
 fortune
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
