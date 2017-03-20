@@ -99,9 +99,11 @@ set isk+=_,$,@,%,# " none of these should be word dividers, so make them not be
 set nosol " leave my cursor where it was
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Files/Backups
+" Files/Backups/Sessions
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set backup " make backup file
+set nobackup
+set nowb
+set noswapfile
 set directory=~/.vim/temp " directory for temp files
 set makeef=error.err " When using make, where should it dump the file
 set sessionoptions+=globals " What should be saved during sessions being saved
