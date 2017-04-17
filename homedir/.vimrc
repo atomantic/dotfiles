@@ -1,8 +1,8 @@
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Must Have
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 colorscheme solarized
-syntax on
+" syntax on " syntax highlighting on
 syntax enable
 let g:solarized_termtrans = 1
 call togglebg#map("<F5>")
@@ -23,7 +23,6 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
 " let Vundle manage Vundle
 Plugin 'VundleVim/Vundle.vim'
 " Plugin 'Valloric/YouCompleteMe'
@@ -38,6 +37,7 @@ Plugin 'justinmk/vim-sneak'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-surround'
 Plugin 'dkprice/vim-easygrep'
+Plugin 'editorconfig/editorconfig-vim'
 " visual undo list
 Plugin 'sjl/gundo.vim'
 " Plugin 'majutsushi/tagbar'
@@ -51,7 +51,7 @@ Plugin 'digitaltoad/vim-pug'
 " Plugin 'elzr/vim-json'
 " Plugin 'SirVer/ultisnips'
 "Plugin 'sheerun/vim-polyglot'
-" plugin from http://vim-scripts.org/vim/scripts.html
+" plugins from http://vim-scripts.org/vim/scripts.html
 Plugin 'node.js'
 Plugin 'SuperTab'
 " Git plugin not hosted on GitHub
@@ -64,6 +64,10 @@ Plugin 'SuperTab'
 " Install L9 and avoid a Naming conflict if you've already installed a
 " different version somewhere else.
 " Plugin 'ascenator/L9', {'name': 'newL9'}
+" TypeScript
+Plugin 'leafgarland/typescript-vim'
+" Vue.js
+Plugin 'posva/vim-vue'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -95,10 +99,11 @@ set isk+=_,$,@,%,# " none of these should be word dividers, so make them not be
 set nosol " leave my cursor where it was
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Files/Backups
+" Files/Backups/Sessions
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set backup " make backup file
-set backupdir=~/.vim/backup " where to put backup files
+set nobackup
+set nowb
+set noswapfile
 set directory=~/.vim/temp " directory for temp files
 set makeef=error.err " When using make, where should it dump the file
 set sessionoptions+=globals " What should be saved during sessions being saved
@@ -167,7 +172,8 @@ set smartcase " if there are caps, go case-sensitive
 set completeopt=menu,longest,preview " improve the way autocomplete works
 set cursorcolumn " show the current column
 set cursorline
-hi CursorLine term=underline ctermbg=008 guibg=#493a35
+" hi CursorLine term=underline ctermbg=008 guibg=#493a35
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Folding
 "    Enable folding, but by default make it act like folding is
@@ -220,7 +226,6 @@ endfunction
 " map <left> <ESC>:NERDTreeToggle<RETURN>  " moves left fa split
 " map <F2> <ESC>ggVG:call SuperRetab()<left>
 " map <F12> ggVGg? " apply rot13 for people snooping over shoulder, good fun
-map ,n <plug>NERDTreeTabsToggle<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Useful abbrevs
@@ -249,13 +254,9 @@ au FileType c set omnifunc=ccomplete#Complete
 " if you swapped C-y and C-e, and set them to 2, it would
 " remove any overlap between pages
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <C-f> <C-f>3<C-y> "  Make overlap 3 extra on control-f
 nnoremap <C-b> <C-b>3<C-e> "  Make overlap 3 extra on control-b
 
 " Yank text to the OS X clipboard
-" Which register to use for yanked text.
-" unnamed - use the operating system clipboard.
-set clipboard=unnamed
 noremap <leader>y "*y
 noremap <leader>yy "*Y
 
@@ -272,6 +273,13 @@ vnoremap <silent> <leader>es :EsformatterVisual<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let NERDTreeShowHidden=1
 let NERDTreeIgnore=['\.DS_Store$']
+" auto open if no file sent as arg
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" Toggle NERDtree with C-n
+map ,n <plug>NERDTreeTabsToggle<CR>
+" Autoclose if only NERDtree is left
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Syntastic
@@ -280,13 +288,19 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
+let g:syntastic_html_tidy_quiet_messages = { "level": "warnings" }
+let g:syntastic_html_tidy_ignore_errors = [ '<template> is not recognized!' ]
+
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+"let g:syntastic_check_on_wq = 0
 let g:syntastic_enable_eslint_checker = 1
 let g:syntastic_javascript_checkers = ['eslint']
-"let g:syntastic_pug_checkers = ['jade']
+let g:syntastic_enable_tslint_checker = 1
+let g:syntastic_typescript_checkers = ['tslint', 'tsc']
+let g:syntastic_enable_pug_checker = 1
+let g:syntastic_pug_checkers = ['jade','pug']
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Other
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
