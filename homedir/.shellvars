@@ -1,12 +1,12 @@
 # Set vim as default editor (vi is the default otherwise)
-export EDITOR="vim"
+export EDITOR="code"
 bindkey -v
 
 #########################################################################
 # Temporary aliases useful for demos, other current projects
 #########################################################################
 export MYTEMP=~/tmp
-export MYCODE=~/Documents/Work
+export MYCODE=~/Work
 export MYSCRATCH=~/Documents/Temp/Scratch
 export MYDOWNLOADS=~/Downloads
 export MYDOCUMENTS=~/Documents

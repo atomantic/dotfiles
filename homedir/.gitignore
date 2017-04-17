@@ -28,7 +28,7 @@ id_rsa
 # Tooling #
 ###########
 .vagrant/
-
+.vscode/
 #######
 # VIM #
 #######
