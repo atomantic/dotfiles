@@ -1,0 +1,7 @@
+# Override emacs as default editor (vi is the default otherwise)
+export EDITOR="emacs"
+
+#########################################################################
+# Temporary aliases useful for demos, other current projects
+#########################################################################
+export MYREPOS=$HOME/PERSONAL/LEARNING/REPOS

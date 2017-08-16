@@ -1,0 +1,50 @@
+#########################################
+# Shamindra's Additional Utility Functions
+# Include this is .shellfn with the line source ./.ss_shellfun 
+
+#-------------------------------------------------------------
+# File & strings related functions:
+# Source: http://tldp.org/LDP/abs/html/sample-bashrc.html
+#-------------------------------------------------------------
+
+# Find a file with a pattern in name:
+function ff() { find . -type f -iname '*'"$*"'*' -ls ; }
+
+# Find a file with pattern $1 in name and Execute $2 on it:
+function fe() { find . -type f -iname '*'"${1:-}"'*' \
+-exec ${2:-file} {} \;  ; }
+
+# Swap 2 filenames around, if they exist (from Uzi's bashrc).
+function swap() { 
+    local TMPFILE=tmp.$$
+
+    [ $# -ne 2 ] && echo "swap: 2 arguments needed" && return 1
+    [ ! -e $1 ] && echo "swap: $1 does not exist" && return 1
+    [ ! -e $2 ] && echo "swap: $2 does not exist" && return 1
+
+    mv "$1" $TMPFILE
+    mv "$2" "$1"
+    mv $TMPFILE "$2"
+}
+
+# Creates an archive (*.tar.gz) from given directory.
+function maketar() { tar cvzf "${1%%/}.tar.gz"  "${1%%/}/"; }
+
+# Create a ZIP archive of a file or folder.
+function makezip() { zip -r "${1%%/}.zip" "$1" ; }
+
+# Source: https://gist.githubusercontent.com/zph/4965016/raw/7c395fd4eceab03561bf2c3c0c5d38496a60a21a/aliases.zsh
+# Set sz as a function for sourcing base shell dotfile
+sz(){
+case $(echo $SHELL) in
+  "/bin/zsh")
+    source ~/.zshrc
+    ;;
+  "/bin/bash")
+    source ~/.bashrc
+    ;;
+  *)
+    echo "Unknown Shell"
+    ;;
+esac
+}

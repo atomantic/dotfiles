@@ -1,0 +1,114 @@
+# Custom zsh settings
+
+# -------------------------------------------------------------------
+# Source: https://gist.github.com/zanshin/1142739
+# -------------------------------------------------------------------
+
+# -------------------------------------------------------------------
+# some alias settings, just for fun
+# -------------------------------------------------------------------
+alias 'dus=du -sckx * | sort -nr'
+alias 'ttop=top -ocpu -R -F -s 2 -n30'
+alias lh='ls -a | egrep "^\."'
+
+# -------------------------------------------------------------------
+# make some commands (potentially) less destructive
+# -------------------------------------------------------------------
+alias 'rmf=rm -rf'
+alias 'rm=rm -i'
+
+# leverage an alias from the ~/.gitconfig
+alias gh='git hist'
+
+# -------------------------------------------------------------------
+# Oddball stuff
+# -------------------------------------------------------------------
+# necessary to make rake work inside of zsh
+alias rake="noglob rake"
+
+# sort files in current directory by the number of words they contain
+alias 'wordy=wc -w * | sort | tail -n10'
+alias 'filecount=ls -aRF | wc -l'
+
+# -------------------------------------------------------------------
+# Source: https://gist.githubusercontent.com/zph/4965016/raw/7c395fd4eceab03561bf2c3c0c5d38496a60a21a/aliases.zsh
+# -------------------------------------------------------------------
+
+alias dstamp='date +%Y-%m-%d'
+alias less="less -R"
+alias q='exit'
+alias md='mkdir -pv' # Make mkdir recursive
+alias cdd='cd - '                     # goto last dir cd'ed from
+alias df='df -kH'
+
+#cd by .. or ... or ... or mv file ..../.
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ......="cd ../../../../.."
+
+# Because swapping to fg, bg, etc should be seamless
+alias j="jobs"
+alias f="fg"
+alias b='bg'
+alias cp='cp -iv'
+alias mv='mv -iv'
+alias cls="clear"
+alias grep='grep -i --color=auto'
+alias egrep='egrep --color=auto'
+
+# Mac Specific
+alias h='history'
+alias l='less'
+
+alias wget="wget -c"
+alias histg="history | grep"
+alias top="htop"
+alias myip="curl http://ipecho.net/plain; echo"
+
+
+# -------------------------------------------------------------------
+# Git
+# Source: https://gist.github.com/simonsmith/8a89d3159ba22e298efb
+# -------------------------------------------------------------------
+
+g=git
+gamend='git commit --amend'
+ga='git add'
+gaa='git add --all'
+gb='git branch'
+gba='git branch -a'
+gbr='git branch --remote'
+gc='git commit -v'
+gca='git commit -v -a'
+gcb='git checkout -b'
+gcf='git config --list'
+gcl='git clone --recursive'
+gclean='git reset --hard && git clean -dfx'
+gcm='git checkout master'
+gcmsg='git commit -m'
+gco='git checkout'
+gcount='git shortlog -sn'
+gcp='git cherry-pick'
+gd='git diff'
+gdca='git diff --cached'
+gdw='git diff --word-diff'
+gf='git fetch'
+gfa='git fetch --all --prune'
+gfo='git fetch origin'
+gfu='git fetch upstream'
+gpum='git pull upstream master'
+gpom='git push -f origin master'
+gsyncuo='git pull upstream master && git push -f origin master'
+ggpush='git push origin $(current_branch)'
+gl='git pull'
+glog='git log --oneline --decorate --color --graph'
+gm='git merge'
+gr='git remote'
+gra='git remote add'
+grb='git rebase'
+grhh='git reset HEAD --hard'
+grv='git remote -v'
+gst='git status'
+gsta='git stash'
