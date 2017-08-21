@@ -53,3 +53,65 @@ unsetopt correct
 
 # run fortune on new terminal :)
 fortune
+
+# zplug configuration
+# Source: https://github.com/zplug/zplug
+# This following settings are taken from:
+# https://github.com/mrkgnao/dotfiles/blob/master/dist/zsh/.zshrc
+# We have already ensured that zplug is added to the 
+
+# Begin groups
+
+# Eye candy ----------------------------------------
+
+# chrissicool
+zplug "chrissicool/zsh-256color"
+
+# Syntax highlighting
+# Must be loaded before history_search!
+zplug "zsh-users/zsh-syntax-highlighting"
+
+# Search in history
+zplug "zsh-users/zsh-history-substring-search"
+
+zplug "unixorn/warhol.plugin.zsh"
+
+# frmendes/geometry
+zplug "frmendes/geometry"
+
+# Completions --------------------------------------
+
+# NixOS completions
+zplug "spwhitt/nix-zsh-completions"
+
+# Extra completions for zsh
+zplug "zsh-users/zsh-completions"
+
+# zaw
+zplug "zsh-users/zaw"
+
+# Utilities ----------------------------------------
+
+# Notify when commands fail or terminate after a long time
+zplug "marzocchi/zsh-notify"
+
+# joepvd/zsh-hints
+zplug "joepvd/zsh-hints"
+
+# psprint/ztrace
+zplug "psprint/ztrace"
+
+# zsh-users/zsh-autosuggestions
+zplug "zsh-users/zsh-autosuggestions"
+
+# End groups
+
+# Make zplug manage itself!
+
+zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+
+# End zplug config
+
+zstyle ':notify:*' command-complete-timeout 2
+
+zplug load

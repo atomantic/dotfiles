@@ -1,0 +1,145 @@
+[user]
+  name = GITHUBFULLNAME
+  email = GITHUBEMAIL
+[github]
+  # https://github.com/blog/180-local-github-config
+  user = GITHUBUSER
+[color]
+# ui = true is a superset of all the more specific color options
+#  as documented at http://book.git-scm.com/5_customizing_git.html
+# When set to always, always use colors in all git commands which are capable of colored output.
+# When false, never. When set to true or auto, use colors only when the output is to the terminal.
+# When more specific variables of color.* are set, they always take precedence over this setting.
+# Defaults to false.
+  ui = auto
+  # diff = auto
+  # status = auto
+  # branch = auto
+
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
+
+[advice]
+  statusHints = false
+
+[gui]
+  fontdiff = -family Monaco -size 10 -weight normal -slant roman -underline 0 -overstrike 0
+
+[core]
+  excludesfile = ~/.gitignore
+  quotepath = false
+  # line endings
+  # force LF during add
+  autocrlf = input
+  # autocrlf = true # for windows to convert to CRLF on checkout and LF on add
+  # warn but allow line ending conversion to proceed
+  safecrlf = warn
+  # prevent crlf (then you will have to deal with the problem -- dos2unix, etc)
+  #safecrlf = true
+  editor = emacs
+  #editor = subl -w
+
+[alias]
+  
+  # -------------------------------------------------------------------
+  # Git
+  # Source: https://gist.github.com/simonsmith/8a89d3159ba22e298efb
+  # -------------------------------------------------------------------
+
+  gamend='git commit --amend'
+  ga='git add'
+  gaa='git add --all'
+  gb='git branch'
+  gba='git branch -a'
+  gbr='git branch --remote'
+  gc='git commit -v'
+  gca='git commit -v -a'
+  gcb='git checkout -b'
+  gcf='git config --list'
+  gcl='git clone --recursive'
+  gclean='git reset --hard && git clean -dfx'
+  gcm='git checkout master'
+  gcmsg='git commit -m'
+  gco='git checkout'
+  gcount='git shortlog -sn'
+  gcp='git cherry-pick'
+  gd='git diff'
+  gdca='git diff --cached'
+  gdw='git diff --word-diff'
+  gf='git fetch'
+  gfa='git fetch --all --prune'
+  gfo='git fetch origin'
+  gfu='git fetch upstream'
+  gpum='git pull upstream master'
+  gpom='git push -f origin master'
+  gsyncuo='git pull upstream master && git push -f origin master'
+  ggpush='git push origin $(current_branch)'
+  gl='git pull'
+  glog='git log --oneline --decorate --color --graph'
+  gm='git merge'
+  gr='git remote'
+  gra='git remote add'
+  grb='git rebase'
+  grhh='git reset HEAD --hard'
+  grv='git remote -v'
+  gst='git status'
+  gsta='git stash'
+  
+[apply]
+  whitespace = nowarn
+
+[rerere]
+  #Enable the recording of resolved conflicts, so that identical hunks can be resolved automatically later on
+  enabled = 1
+
+[difftool]
+  prompt = false
+
+[init]
+  templatedir = ~/.dotfiles/.git_template
+
+[mergetool]
+  prompt = false
+  keepBackup = false
+
+[merge]
+  tool = vimdiff
+  # Always show a diffstat at the end of a merge
+  stat = true
+  conflictstyle = diff3
+
+[branch]
+    # Automatically set up pull to be --rebase
+    # autosetuprebase = always
+
+[credential]
+    # cache creds (git help credential-cache)
+  helper = cache
+
+[filter "tabspace"]
+  clean = expand -t 4
+
+[push]
+  default = matching
+	followTags = true
+
+[filter "media"]
+  required = true
+  clean = git media clean %f
+  smudge = git media smudge %f
+
+[filter "lfs"]
+  clean = git-lfs clean %f
+  smudge = git-lfs smudge %f
+  required = true
