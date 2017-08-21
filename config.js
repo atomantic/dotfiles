@@ -4,6 +4,7 @@ module.exports = {
     'ack',
     'ag',
     // Install GNU core utilities (those that come with macOS are outdated)
+    'cowsay',
     // Update and install github
     'git',
     // cmake is required to compile vim bundle YouCompleteMe
@@ -16,6 +17,7 @@ module.exports = {
     'findutils',
     'fortune',
     'readline', // ensure gawk gets good readline
+    'freetype',
     'gawk',
     // http://www.lcdf.org/gifsicle/ (because I'm a gif junky)
     'gifsicle',
@@ -23,6 +25,8 @@ module.exports = {
     // Install GNU `sed`, overwriting the built-in `sed`
     // so we can do "sed -i 's/foo/bar/' file" instead of "sed -i '' 's/foo/bar/' file"
     'gnu-sed --with-default-names',
+    // hub - https://hub.github.com/
+    'hub',
     // better, more recent grep
     'homebrew/dupes/grep',
     // https://github.com/jkbrzt/httpie
@@ -33,16 +37,22 @@ module.exports = {
     'jq',
     // Mac App Store CLI: https://github.com/mas-cli/mas
     'mas',
+    // Markdown mode
+    'markdown',
     // Install some other useful utilities like `sponge`
     'moreutils',
     'nmap',
+    'openssl',
     'openconnect',
+    'pandoc',
     'reattach-to-user-namespace',
     // better/more recent version of screen
     'homebrew/dupes/screen',
     'tmux',
     'tree',
     'ttyrec',
+    // create gif of terminal sessions
+    'ttygif',
     // better, more recent vim
     'vim --with-override-system-vi',
     'watch',
@@ -53,15 +63,20 @@ module.exports = {
     // Command line file manager
     'midnight-commander',
     // R statistical software
-    'r'
+    'r',
+    // zsh package manager
+    'zplug'      
   ],
   cask: [
     //'adium',
     //'amazon-cloud-drive',
+    'anaconda',
     'atom',
-    //'box-sync',
+    'box-sync',
     //'comicbooklover',
     //'diffmerge',
+    'docker',
+    'djview',
     'dropbox',
     //'evernote',
     'gpgtools',
@@ -71,15 +86,17 @@ module.exports = {
     //'micro-snitch',
     'BetterTouchTool',
     'jdownloader',
+    'firefox',
     'flux',
     'mactex',
     'google-chrome',
-    //'google-drive',
+    'google-drive',
     'spotify',
     'bettertouchtool',
     'rstudio',
     //'macvim',
     'sizeup',
+    'skype',
     //'sketchup',
     'slack',
     'the-unarchiver',

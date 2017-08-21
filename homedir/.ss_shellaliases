@@ -1,6 +1,20 @@
 # Custom zsh settings
 
 # -------------------------------------------------------------------
+# Editors
+# -------------------------------------------------------------------
+
+# Emacs - scimax mode
+# The 'emacsh' starts emacs here i.e. active directory
+export emacs="emacs -q -l $MYREPOS/scimax/init.el"
+export emacsh="emacs ."
+
+# Rstudio
+# The 'rstudioh' starts rstudio here i.e. active directory
+export rstudio="open -a /Applications/RStudio.app"
+export rstudioh="open -a /Applications/RStudio.app ."
+
+# -------------------------------------------------------------------
 # Source: https://gist.github.com/zanshin/1142739
 # -------------------------------------------------------------------
 
@@ -67,48 +81,5 @@ alias histg="history | grep"
 alias top="htop"
 alias myip="curl http://ipecho.net/plain; echo"
 
-
-# -------------------------------------------------------------------
-# Git
-# Source: https://gist.github.com/simonsmith/8a89d3159ba22e298efb
-# -------------------------------------------------------------------
-
-g=git
-gamend='git commit --amend'
-ga='git add'
-gaa='git add --all'
-gb='git branch'
-gba='git branch -a'
-gbr='git branch --remote'
-gc='git commit -v'
-gca='git commit -v -a'
-gcb='git checkout -b'
-gcf='git config --list'
-gcl='git clone --recursive'
-gclean='git reset --hard && git clean -dfx'
-gcm='git checkout master'
-gcmsg='git commit -m'
-gco='git checkout'
-gcount='git shortlog -sn'
-gcp='git cherry-pick'
-gd='git diff'
-gdca='git diff --cached'
-gdw='git diff --word-diff'
-gf='git fetch'
-gfa='git fetch --all --prune'
-gfo='git fetch origin'
-gfu='git fetch upstream'
-gpum='git pull upstream master'
-gpom='git push -f origin master'
-gsyncuo='git pull upstream master && git push -f origin master'
-ggpush='git push origin $(current_branch)'
-gl='git pull'
-glog='git log --oneline --decorate --color --graph'
-gm='git merge'
-gr='git remote'
-gra='git remote add'
-grb='git rebase'
-grhh='git reset HEAD --hard'
-grv='git remote -v'
-gst='git status'
-gsta='git stash'
+# Install hub and alias it to git
+alias hub=git
