@@ -29,13 +29,29 @@ export DISABLE_AUTO_TITLE="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.dotfiles/oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(colorize compleat dirpersist zsh-navigation-tools autojump battery npm brew common-aliases git-extras grunt zsh_reload git gulp history cp)
+plugins=(colorize compleat dirpersist zsh-navigation-tools autojump battery npm brew common-aliases git-extras grunt zsh_reload git gulp history cp branch)
 
 source $ZSH/oh-my-zsh.sh
 . ~/zsh/env
 . ~/zsh/aliases
 . ~/zsh/prompt
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+
+# Color completion for some things.
+# http://linuxshellaccount.blogspot.com/2008/12/color-completion-using-zsh-modules-on.html
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+
+# formatting and messages
+# http://www.masterzen.fr/2009/04/19/in-love-with-zsh-part-one/
+zstyle ':completion:*' verbose yes
+zstyle ':completion:*:descriptions' format "$fg[yellow]%B--- %d%b"
+zstyle ':completion:*:messages' format '%d'
+zstyle ':completion:*:warnings' format 'Too bad there is nothing'
+zstyle ':completion:*:corrections' format '%B%d (errors: %e)%b'
+zstyle ':completion:*' group-name ''
+
+
 
 # source /usr/local/opt/nvm/nvm.sh
 
@@ -58,3 +74,4 @@ fortune
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+export COMPLETION_WAITING_DOTS = true

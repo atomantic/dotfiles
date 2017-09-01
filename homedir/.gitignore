@@ -29,6 +29,8 @@ id_rsa
 ###########
 .vagrant/
 .vscode/
+.settings/
+.project
 #######
 # VIM #
 #######
@@ -48,8 +50,8 @@ pom.xml.releaseBackup
 pom.xml.versionsBackup
 pom.xml.next
 release.properties
-
-
+org.eclipse.core.resources.prefs
+org.eclipse.m2e.core.prefs
 ########
 # Node #
 ########
