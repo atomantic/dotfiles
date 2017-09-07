@@ -57,7 +57,7 @@ function require_gem() {
 
 function require_npm() {
     sourceNVM
-    nvm use 4.4.4
+    nvm use stable
     running "npm $*"
     npm list -g --depth 0 | grep $1@ > /dev/null
     if [[ $? != 0 ]]; then
