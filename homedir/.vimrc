@@ -256,11 +256,11 @@ au FileType c set omnifunc=ccomplete#Complete
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <C-b> <C-b>3<C-e> "  Make overlap 3 extra on control-b
 
-" Yank text to the OS X clipboard
+" Yank text to the macOS clipboard
 noremap <leader>y "*y
 noremap <leader>yy "*Y
 
-" Preserve indentation while pasting text from the OS X clipboard
+" Preserve indentation while pasting text from the macOS clipboard
 noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
 
 " esformatter
