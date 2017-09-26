@@ -38,7 +38,7 @@
 # 		see: http://support.microsoft.com/kb/2764944
 # You may have to use Notepad and "Run as Administrator"
 #
-# For Linux, Unix, or OS X place this file at "/etc/hosts" or on some
+# For Linux, Unix, or macOS place this file at "/etc/hosts" or on some
 #    systems at "/private/etc/hosts". You will require root access to do
 #    this. Saving this file to "~/hosts" will allow you to run something
 #    like "sudo cp ~/hosts /etc/hosts".
