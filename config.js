@@ -67,7 +67,7 @@ module.exports = {
     'xquartz'
   ],
   gem: [
-    'git-up'
+    // 'git-up'
   ],
   npm: [
     'antic',
@@ -76,6 +76,7 @@ module.exports = {
     'instant-markdown-d',
     // 'generator-dockerize',
     'gulp',
+    'grunt',
     'npm-check',
     'prettyjson',
     'trash',

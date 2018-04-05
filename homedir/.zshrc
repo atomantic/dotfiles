@@ -29,7 +29,7 @@ export DISABLE_AUTO_TITLE="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.dotfiles/oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(colorize yarn compleat dirpersist zsh-navigation-tools autojump battery npm brew common-aliases git-extras grunt zsh_reload git gulp history cp branch)
+plugins=(colorize compleat dirpersist zsh-navigation-tools autojump battery npm brew common-aliases git-extras grunt zsh_reload git gulp history cp branch yarn)
 
 source $ZSH/oh-my-zsh.sh
 . ~/zsh/env
@@ -37,7 +37,7 @@ source $ZSH/oh-my-zsh.sh
 . ~/zsh/prompt
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-export PATH=~/.npm-global/bin:$PATH
+
 # Color completion for some things.
 # http://linuxshellaccount.blogspot.com/2008/12/color-completion-using-zsh-modules-on.html
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
