@@ -47,7 +47,7 @@
   safecrlf = warn
   # prevent crlf (then you will have to deal with the problem -- dos2unix, etc)
   #safecrlf = true
-  editor = vim
+  editor = code
   #editor = subl -w
 
 [alias]
@@ -137,7 +137,7 @@
   configpushnothing = config push.default nothing
   configpushmatching = config push.default matching
   configpushcurrent = config push.default current
-
+  discard = "!f() { git add . && git stash && git stash drop stash@{0}; }; f"
   nr = "!sh -c 'git init $0'"
   echoparam1 = "!sh -c 'echo $0'"
   #testshfunction = "!function gitme() { git init $1; cd $1; }; gitme"
