@@ -951,6 +951,8 @@ running "Make iTerm2 load new tabs in the same directory"
 running "setting fonts"
 defaults write com.googlecode.iterm2 "Normal Font" -string "Hack-Regular 12";
 defaults write com.googlecode.iterm2 "Non Ascii Font" -string "RobotoMonoForPowerline-Regular 12";
+defaults write com.googlecode.iterm2 "Non Ascii Font" -string "RobotoMonoForPowerline-Regular 12";
+defaults write com.googlecode.iterm2 "Non Ascii Font" -string "Powerline-patched Meslo 14pt-Regular 12";
 ok
 running "reading iterm settings"
 defaults read -app iTerm > /dev/null 2>&1;
