@@ -1,5 +1,5 @@
 
-###### This fork is am individual personalization from the great ![atomantic](https://github.com/atomantic/dotfiles). Go there for more information!
+> This fork is an individual personalization from the great [atomantic](https://github.com/atomantic/dotfiles). Go there for more information!
 
 # \\[._.]/ - Hi, I'm the MacOS bot
 
