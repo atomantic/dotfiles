@@ -96,7 +96,7 @@ module.exports = {
     'sizeup',
     'skype',
     //'sketchup',
-    //'slack',
+    'slack',
     'the-unarchiver',
     //'torbrowser',
     //'transmission',
