@@ -181,12 +181,21 @@ fi
 brew tap caskroom/versions > /dev/null 2>&1
 ok
 
+#Tmux
+require_brew tmux
+
+require_brew fzf
+
 # skip those GUI clients, git command-line all the way
 require_brew git
 # need fontconfig to install/build fonts
 require_brew fontconfig
 # update zsh to latest
 require_brew zsh
+
+# To install useful key bindings and fuzzy completion:
+$(brew --prefix)/opt/fzf/install
+
 # update ruby to latest
 # use versions of packages installed with homebrew
 RUBY_CONFIGURE_OPTS="--with-openssl-dir=`brew --prefix openssl` --with-readline-dir=`brew --prefix readline` --with-libyaml-dir=`brew --prefix libyaml`"
@@ -235,6 +244,14 @@ bot "Installing vim plugins"
 # require_brew cmake
 vim +PluginInstall +qall > /dev/null 2>&1
 
+
+bot "Installing NVIM"
+require_brew nvim
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+nvim +PlugInstall +PlugUpdate +PlugClean! +qall
+
+
 bot "installing fonts"
 ./fonts/install.sh
 brew tap caskroom/fonts
@@ -247,6 +264,14 @@ require_cask font-inconsolata-for-powerline
 require_cask font-roboto-mono
 require_cask font-roboto-mono-for-powerline
 require_cask font-source-code-pro
+ok
+
+# cask
+require_cask 1password
+require_cask flux
+require_cask caffeine
+require_cask google-chrome
+require_cask iterm2
 ok
 
 if [[ -d "/Library/Ruby/Gems/2.0.0" ]]; then
@@ -608,7 +633,7 @@ defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false;ok
 
 running "Set a blazingly fast keyboard repeat rate"
 defaults write NSGlobalDomain KeyRepeat -int 2
-defaults write NSGlobalDomain InitialKeyRepeat -int 10;ok
+defaults write NSGlobalDomain InitialKeyRepeat -int 25;ok
 
 running "Set language and text formats (english/US)"
 defaults write NSGlobalDomain AppleLanguages -array "en"
@@ -797,13 +822,13 @@ bot "Configuring Hot Corners"
 # 12: Notification Center
 
 running "Top left screen corner → Mission Control"
-defaults write com.apple.dock wvous-tl-corner -int 2
+defaults write com.apple.dock wvous-tl-corner -int 0
 defaults write com.apple.dock wvous-tl-modifier -int 0;ok
 running "Top right screen corner → Desktop"
-defaults write com.apple.dock wvous-tr-corner -int 4
+defaults write com.apple.dock wvous-tr-corner -int 0
 defaults write com.apple.dock wvous-tr-modifier -int 0;ok
 running "Bottom right screen corner → Start screen saver"
-defaults write com.apple.dock wvous-br-corner -int 5
+defaults write com.apple.dock wvous-br-corner -int 0
 defaults write com.apple.dock wvous-br-modifier -int 0;ok
 
 ###############################################################################
