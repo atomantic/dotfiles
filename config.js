@@ -51,7 +51,7 @@ module.exports = {
     //'diffmerge',
     //'dropbox',
     //'evernote',
-    'gpgtools',
+    'gpg-suite',
     //'ireadfast',
     'iterm2',
     'little-snitch',
