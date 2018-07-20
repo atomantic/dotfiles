@@ -49,6 +49,7 @@ module.exports = {
     // 'box-sync',
     //'comicbooklover',
     //'diffmerge',
+    'docker', // docker for mac
     //'dropbox',
     //'evernote',
     'flux',
