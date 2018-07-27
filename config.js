@@ -34,6 +34,7 @@ module.exports = {
     // better/more recent version of screen
     'homebrew/dupes/screen',
     'tmux',
+    'todo-txt',
     'tree',
     'ttyrec',
     // better, more recent vim
