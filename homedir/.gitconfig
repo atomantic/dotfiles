@@ -37,7 +37,7 @@
   fontdiff = -family Monaco -size 10 -weight normal -slant roman -underline 0 -overstrike 0
 
 [core]
-  excludesfile = ~/.gitignore
+	excludesfile = /Users/trosta/.gitignore_global
   quotepath = false
   # line endings
   # force LF during add
