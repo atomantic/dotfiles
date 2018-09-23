@@ -44,36 +44,18 @@ module.exports = {
     'wget --enable-iri'
   ],
   cask: [
-    //'adium',
-    //'amazon-cloud-drive',
-    //'atom',
-    // 'box-sync',
-    //'comicbooklover',
-    //'diffmerge',
-    'docker', // docker for mac
-    //'dropbox',
-    //'evernote',
     'flux',
     'gpg-suite',
-    //'ireadfast',
     'iterm2',
-    'little-snitch',
-    'macbreakz',
     'micro-snitch',
-    'signal',
-    //'macvim',
-    'sizeup',
-    //'sketchup',
     'slack',
     'the-unarchiver',
-    //'torbrowser',
-    //'transmission',
+    'torbrowser',
+    'transmission',
     'visual-studio-code',
-    //'vlc',
-    'xquartz'
+    'vlc'
   ],
-  gem: [
-  ],
+  gem: [],
   npm: [
     'antic',
     'buzzphrase',
