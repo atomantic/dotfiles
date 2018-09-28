@@ -1,0 +1,1307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>bundleid</key>
+    <string>com.yannickglt.alfred2.devdocs</string>
+    <key>category</key>
+    <string>Productivity</string>
+    <key>connections</key>
+    <dict>
+      <key>addalltask</key>
+      <array>
+        <dict>
+          <key>destinationuid</key>
+          <string>shownotificationwhencomplete</string>
+          <key>modifiers</key>
+          <integer>0</integer>
+          <key>modifiersubtext</key>
+          <string></string>
+        </dict>
+      </array>
+      <key>addalltaskkeyword</key>
+      <array>
+        <dict>
+          <key>destinationuid</key>
+          <string>addalltask</string>
+          <key>modifiers</key>
+          <integer>0</integer>
+          <key>modifiersubtext</key>
+          <string></string>
+        </dict>
+      </array>
+      <key>addtask</key>
+      <array>
+        <dict>
+          <key>destinationuid</key>
+          <string>dotaskbasedoncommand</string>
+          <key>modifiers</key>
+          <integer>0</integer>
+          <key>modifiersubtext</key>
+          <string></string>
+        </dict>
+      </array>
+      <key>aliastask</key>
+      <array>
+        <dict>
+          <key>destinationuid</key>
+          <string>dotaskbasedoncommand</string>
+          <key>modifiers</key>
+          <integer>0</integer>
+          <key>modifiersubtext</key>
+          <string></string>
+        </dict>
+      </array>
+      <key>unaliastask</key>
+      <array>
+        <dict>
+          <key>destinationuid</key>
+          <string>dotaskbasedoncommand</string>
+          <key>modifiers</key>
+          <integer>0</integer>
+          <key>modifiersubtext</key>
+          <string></string>
+        </dict>
+      </array>
+      <key>doc</key>
+      <array>
+        <dict>
+          <key>destinationuid</key>
+          <string>output</string>
+          <key>modifiers</key>
+          <integer>0</integer>
+          <key>modifiersubtext</key>
+          <string></string>
+          <key>vitoclose</key>
+          <false />
+        </dict>
+      </array>
+      <key>dotaskbasedoncommand</key>
+      <array>
+        <dict>
+          <key>destinationuid</key>
+          <string>shownotificationwhencomplete</string>
+          <key>modifiers</key>
+          <integer>0</integer>
+          <key>modifiersubtext</key>
+          <string></string>
+        </dict>
+      </array>
+      <key>nuketask</key>
+      <array>
+        <dict>
+          <key>destinationuid</key>
+          <string>shownotificationwhencomplete</string>
+          <key>modifiers</key>
+          <integer>0</integer>
+          <key>modifiersubtext</key>
+          <string></string>
+        </dict>
+      </array>
+      <key>nuketaskkeyword</key>
+      <array>
+        <dict>
+          <key>destinationuid</key>
+          <string>nuketask</string>
+          <key>modifiers</key>
+          <integer>0</integer>
+          <key>modifiersubtext</key>
+          <string></string>
+        </dict>
+      </array>
+      <key>refreshtask</key>
+      <array>
+        <dict>
+          <key>destinationuid</key>
+          <string>dotaskbasedoncommand</string>
+          <key>modifiers</key>
+          <integer>0</integer>
+          <key>modifiersubtext</key>
+          <string></string>
+        </dict>
+      </array>
+      <key>removetask</key>
+      <array>
+        <dict>
+          <key>destinationuid</key>
+          <string>dotaskbasedoncommand</string>
+          <key>modifiers</key>
+          <integer>0</integer>
+          <key>modifiersubtext</key>
+          <string></string>
+        </dict>
+      </array>
+              <key>angular</key>
+        <array>
+          <dict>
+            <key>destinationuid</key>
+            <string>output</string>
+            <key>modifiers</key>
+            <integer>0</integer>
+            <key>modifiersubtext</key>
+            <string></string>
+          </dict>
+        </array>
+              <key>vue~2</key>
+        <array>
+          <dict>
+            <key>destinationuid</key>
+            <string>output</string>
+            <key>modifiers</key>
+            <integer>0</integer>
+            <key>modifiersubtext</key>
+            <string></string>
+          </dict>
+        </array>
+              <key>javascript</key>
+        <array>
+          <dict>
+            <key>destinationuid</key>
+            <string>output</string>
+            <key>modifiers</key>
+            <integer>0</integer>
+            <key>modifiersubtext</key>
+            <string></string>
+          </dict>
+        </array>
+              <key>css</key>
+        <array>
+          <dict>
+            <key>destinationuid</key>
+            <string>output</string>
+            <key>modifiers</key>
+            <integer>0</integer>
+            <key>modifiersubtext</key>
+            <string></string>
+          </dict>
+        </array>
+              <key>webpack</key>
+        <array>
+          <dict>
+            <key>destinationuid</key>
+            <string>output</string>
+            <key>modifiers</key>
+            <integer>0</integer>
+            <key>modifiersubtext</key>
+            <string></string>
+          </dict>
+        </array>
+              <key>html</key>
+        <array>
+          <dict>
+            <key>destinationuid</key>
+            <string>output</string>
+            <key>modifiers</key>
+            <integer>0</integer>
+            <key>modifiersubtext</key>
+            <string></string>
+          </dict>
+        </array>
+              <key>node~6_lts</key>
+        <array>
+          <dict>
+            <key>destinationuid</key>
+            <string>output</string>
+            <key>modifiers</key>
+            <integer>0</integer>
+            <key>modifiersubtext</key>
+            <string></string>
+          </dict>
+        </array>
+              <key>sass</key>
+        <array>
+          <dict>
+            <key>destinationuid</key>
+            <string>output</string>
+            <key>modifiers</key>
+            <integer>0</integer>
+            <key>modifiersubtext</key>
+            <string></string>
+          </dict>
+        </array>
+              <key>dom</key>
+        <array>
+          <dict>
+            <key>destinationuid</key>
+            <string>output</string>
+            <key>modifiers</key>
+            <integer>0</integer>
+            <key>modifiersubtext</key>
+            <string></string>
+          </dict>
+        </array>
+              <key>dom_events</key>
+        <array>
+          <dict>
+            <key>destinationuid</key>
+            <string>output</string>
+            <key>modifiers</key>
+            <integer>0</integer>
+            <key>modifiersubtext</key>
+            <string></string>
+          </dict>
+        </array>
+              <key>markdown</key>
+        <array>
+          <dict>
+            <key>destinationuid</key>
+            <string>output</string>
+            <key>modifiers</key>
+            <integer>0</integer>
+            <key>modifiersubtext</key>
+            <string></string>
+          </dict>
+        </array>
+              <key>npm</key>
+        <array>
+          <dict>
+            <key>destinationuid</key>
+            <string>output</string>
+            <key>modifiers</key>
+            <integer>0</integer>
+            <key>modifiersubtext</key>
+            <string></string>
+          </dict>
+        </array>
+              <key>laravel~5.5</key>
+        <array>
+          <dict>
+            <key>destinationuid</key>
+            <string>output</string>
+            <key>modifiers</key>
+            <integer>0</integer>
+            <key>modifiersubtext</key>
+            <string></string>
+          </dict>
+        </array>
+                </dict>
+    <key>createdby</key>
+    <string>Yannick Galatol</string>
+    <key>description</key>
+    <string>Alfred workflow for devdocs.io documentations</string>
+    <key>disabled</key>
+    <false />
+    <key>name</key>
+    <string>devdocs</string>
+    <key>objects</key>
+    <array>
+      <dict>
+        <key>config</key>
+        <dict>
+          <key>lastpathcomponent</key>
+          <false />
+          <key>onlyshowifquerypopulated</key>
+          <true />
+          <key>output</key>
+          <integer>0</integer>
+          <key>removeextension</key>
+          <false />
+          <key>sticky</key>
+          <false />
+          <key>title</key>
+          <string>{query}</string>
+        </dict>
+        <key>type</key>
+        <string>alfred.workflow.output.notification</string>
+        <key>uid</key>
+        <string>shownotificationwhencomplete</string>
+        <key>version</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>config</key>
+        <dict>
+          <key>argumenttype</key>
+          <integer>0</integer>
+          <key>escaping</key>
+          <integer>118</integer>
+          <key>keyword</key>
+          <string>doc</string>
+          <key>queuedelaycustom</key>
+          <integer>1</integer>
+          <key>queuedelayimmediatelyinitially</key>
+          <false />
+          <key>queuedelaymode</key>
+          <integer>0</integer>
+          <key>queuemode</key>
+          <integer>1</integer>
+          <key>runningsubtext</key>
+          <string>Searching for "{query}"</string>
+          <key>script</key>
+          <string>$query = "{query}"; require_once("scripts/devdocs.php");</string>
+          <key>subtext</key>
+          <string>Search for "{query}"</string>
+          <key>title</key>
+          <string>DevDocs</string>
+          <key>type</key>
+          <integer>1</integer>
+          <key>withspace</key>
+          <true />
+        </dict>
+        <key>type</key>
+        <string>alfred.workflow.input.scriptfilter</string>
+        <key>uid</key>
+        <string>doc</string>
+        <key>version</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>config</key>
+        <dict>
+          <key>concurrently</key>
+          <false />
+          <key>escaping</key>
+          <integer>126</integer>
+          <key>script</key>
+          <string>$query = "{query}"; require_once("scripts/conf.php");</string>
+          <key>type</key>
+          <integer>1</integer>
+        </dict>
+        <key>type</key>
+        <string>alfred.workflow.action.script</string>
+        <key>uid</key>
+        <string>dotaskbasedoncommand</string>
+        <key>version</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>config</key>
+        <dict>
+          <key>argumenttype</key>
+          <integer>1</integer>
+          <key>escaping</key>
+          <integer>118</integer>
+          <key>keyword</key>
+          <string>cdoc:add</string>
+          <key>queuedelaycustom</key>
+          <integer>1</integer>
+          <key>queuedelayimmediatelyinitially</key>
+          <false />
+          <key>queuedelaymode</key>
+          <integer>0</integer>
+          <key>queuemode</key>
+          <integer>1</integer>
+          <key>script</key>
+          <string>$query = "selectAdd {query}"; require_once("scripts/conf.php");</string>
+          <key>title</key>
+          <string>Add a doc on DevDocs workflow</string>
+          <key>type</key>
+          <integer>1</integer>
+          <key>withspace</key>
+          <true />
+        </dict>
+        <key>type</key>
+        <string>alfred.workflow.input.scriptfilter</string>
+        <key>uid</key>
+        <string>addtask</string>
+        <key>version</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>config</key>
+        <dict>
+          <key>argumenttype</key>
+          <integer>0</integer>
+          <key>escaping</key>
+          <integer>118</integer>
+          <key>keyword</key>
+          <string>cdoc:alias</string>
+          <key>queuedelaycustom</key>
+          <integer>1</integer>
+          <key>queuedelayimmediatelyinitially</key>
+          <false />
+          <key>queuedelaymode</key>
+          <integer>0</integer>
+          <key>queuemode</key>
+          <integer>1</integer>
+          <key>script</key>
+          <string>$query = "selectAlias {query}"; require_once("scripts/conf.php");</string>
+          <key>title</key>
+          <string>Create an alias for a documentation</string>
+          <key>type</key>
+          <integer>1</integer>
+          <key>withspace</key>
+          <true />
+        </dict>
+        <key>type</key>
+        <string>alfred.workflow.input.scriptfilter</string>
+        <key>uid</key>
+        <string>aliastask</string>
+        <key>version</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>config</key>
+        <dict>
+          <key>argumenttype</key>
+          <integer>1</integer>
+          <key>escaping</key>
+          <integer>118</integer>
+          <key>keyword</key>
+          <string>cdoc:unalias</string>
+          <key>queuedelaycustom</key>
+          <integer>1</integer>
+          <key>queuedelayimmediatelyinitially</key>
+          <false />
+          <key>queuedelaymode</key>
+          <integer>0</integer>
+          <key>queuemode</key>
+          <integer>1</integer>
+          <key>script</key>
+          <string>$query = "selectUnalias {query}"; require_once("scripts/conf.php");</string>
+          <key>title</key>
+          <string>Remove an existing alias of a documentation</string>
+          <key>type</key>
+          <integer>1</integer>
+          <key>withspace</key>
+          <true />
+        </dict>
+        <key>type</key>
+        <string>alfred.workflow.input.scriptfilter</string>
+        <key>uid</key>
+        <string>unaliastask</string>
+        <key>version</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>config</key>
+        <dict>
+          <key>argumenttype</key>
+          <integer>1</integer>
+          <key>escaping</key>
+          <integer>118</integer>
+          <key>keyword</key>
+          <string>cdoc:remove</string>
+          <key>queuedelaycustom</key>
+          <integer>1</integer>
+          <key>queuedelayimmediatelyinitially</key>
+          <false />
+          <key>queuedelaymode</key>
+          <integer>0</integer>
+          <key>queuemode</key>
+          <integer>1</integer>
+          <key>script</key>
+          <string>$query = "selectRemove {query}"; require_once("scripts/conf.php");</string>
+          <key>title</key>
+          <string>Remove a doc on DevDocs workflow</string>
+          <key>type</key>
+          <integer>1</integer>
+          <key>withspace</key>
+          <true />
+        </dict>
+        <key>type</key>
+        <string>alfred.workflow.input.scriptfilter</string>
+        <key>uid</key>
+        <string>removetask</string>
+        <key>version</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>config</key>
+        <dict>
+          <key>argumenttype</key>
+          <integer>1</integer>
+          <key>escaping</key>
+          <integer>118</integer>
+          <key>keyword</key>
+          <string>cdoc:refresh</string>
+          <key>queuedelaycustom</key>
+          <integer>1</integer>
+          <key>queuedelayimmediatelyinitially</key>
+          <false />
+          <key>queuedelaymode</key>
+          <integer>0</integer>
+          <key>queuemode</key>
+          <integer>1</integer>
+          <key>script</key>
+          <string>$query = "selectRefresh {query}"; require_once("scripts/conf.php");</string>
+          <key>title</key>
+          <string>Refresh docs on DevDocs workflow</string>
+          <key>type</key>
+          <integer>1</integer>
+          <key>withspace</key>
+          <true />
+        </dict>
+        <key>type</key>
+        <string>alfred.workflow.input.scriptfilter</string>
+        <key>uid</key>
+        <string>refreshtask</string>
+        <key>version</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>config</key>
+        <dict>
+          <key>argumenttype</key>
+          <integer>1</integer>
+          <key>escaping</key>
+          <integer>118</integer>
+          <key>keyword</key>
+          <string>cdoc:list</string>
+          <key>queuedelaycustom</key>
+          <integer>1</integer>
+          <key>queuedelayimmediatelyinitially</key>
+          <false />
+          <key>queuedelaymode</key>
+          <integer>0</integer>
+          <key>queuemode</key>
+          <integer>1</integer>
+          <key>script</key>
+          <string>$query = "list {query}"; require_once("scripts/conf.php");</string>
+          <key>title</key>
+          <string>List available docs on DevDocs workflow</string>
+          <key>type</key>
+          <integer>1</integer>
+          <key>withspace</key>
+          <true />
+        </dict>
+        <key>type</key>
+        <string>alfred.workflow.input.scriptfilter</string>
+        <key>uid</key>
+        <string>listtask</string>
+        <key>version</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>config</key>
+        <dict>
+          <key>argumenttype</key>
+          <integer>2</integer>
+          <key>keyword</key>
+          <string>cdoc:all</string>
+          <key>text</key>
+          <string>Add all available docs on DevDocs workflow</string>
+          <key>withspace</key>
+          <false />
+        </dict>
+        <key>type</key>
+        <string>alfred.workflow.input.keyword</string>
+        <key>uid</key>
+        <string>addalltaskkeyword</string>
+        <key>version</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>config</key>
+        <dict>
+          <key>concurrently</key>
+          <false />
+          <key>escaping</key>
+          <integer>118</integer>
+          <key>script</key>
+          <string>$query = "addAll"; require_once("scripts/conf.php");</string>
+          <key>type</key>
+          <integer>1</integer>
+        </dict>
+        <key>type</key>
+        <string>alfred.workflow.action.script</string>
+        <key>uid</key>
+        <string>addalltask</string>
+        <key>version</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>config</key>
+        <dict>
+          <key>argumenttype</key>
+          <integer>2</integer>
+          <key>keyword</key>
+          <string>cdoc:nuke</string>
+          <key>text</key>
+          <string>Remove all docs on your DevDocs workflow</string>
+          <key>withspace</key>
+          <false />
+        </dict>
+        <key>type</key>
+        <string>alfred.workflow.input.keyword</string>
+        <key>uid</key>
+        <string>nuketaskkeyword</string>
+        <key>version</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>config</key>
+        <dict>
+          <key>concurrently</key>
+          <false />
+          <key>escaping</key>
+          <integer>118</integer>
+          <key>script</key>
+          <string>$query = "nuke"; require_once("scripts/conf.php");</string>
+          <key>type</key>
+          <integer>1</integer>
+        </dict>
+        <key>type</key>
+        <string>alfred.workflow.action.script</string>
+        <key>uid</key>
+        <string>nuketask</string>
+        <key>version</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>config</key>
+        <dict>
+          <key>argumenttype</key>
+          <integer>1</integer>
+          <key>escaping</key>
+          <integer>118</integer>
+          <key>keyword</key>
+          <string>angular</string>
+          <key>queuedelaycustom</key>
+          <integer>1</integer>
+          <key>queuedelayimmediatelyinitially</key>
+          <false />
+          <key>queuedelaymode</key>
+          <integer>0</integer>
+          <key>queuemode</key>
+          <integer>1</integer>
+          <key>runningsubtext</key>
+          <string>Searching for "{query}"</string>
+          <key>script</key>
+          <string>$query = "{query}"; $documentation = 'angular';
+            require_once("scripts/devdocs.php");
+          </string>
+          <key>subtext</key>
+          <string>Search for Angular "{query}"</string>
+          <key>title</key>
+          <string>DevDocs - Angular</string>
+          <key>type</key>
+          <integer>1</integer>
+          <key>withspace</key>
+          <true />
+        </dict>
+        <key>type</key>
+        <string>alfred.workflow.input.scriptfilter</string>
+        <key>uid</key>
+        <string>angular</string>
+        <key>version</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>config</key>
+        <dict>
+          <key>argumenttype</key>
+          <integer>1</integer>
+          <key>escaping</key>
+          <integer>118</integer>
+          <key>keyword</key>
+          <string>vue~2</string>
+          <key>queuedelaycustom</key>
+          <integer>1</integer>
+          <key>queuedelayimmediatelyinitially</key>
+          <false />
+          <key>queuedelaymode</key>
+          <integer>0</integer>
+          <key>queuemode</key>
+          <integer>1</integer>
+          <key>runningsubtext</key>
+          <string>Searching for "{query}"</string>
+          <key>script</key>
+          <string>$query = "{query}"; $documentation = 'vue~2';
+            require_once("scripts/devdocs.php");
+          </string>
+          <key>subtext</key>
+          <string>Search for Vue.js 2 "{query}"</string>
+          <key>title</key>
+          <string>DevDocs - Vue.js 2</string>
+          <key>type</key>
+          <integer>1</integer>
+          <key>withspace</key>
+          <true />
+        </dict>
+        <key>type</key>
+        <string>alfred.workflow.input.scriptfilter</string>
+        <key>uid</key>
+        <string>vue~2</string>
+        <key>version</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>config</key>
+        <dict>
+          <key>argumenttype</key>
+          <integer>1</integer>
+          <key>escaping</key>
+          <integer>118</integer>
+          <key>keyword</key>
+          <string>javascript</string>
+          <key>queuedelaycustom</key>
+          <integer>1</integer>
+          <key>queuedelayimmediatelyinitially</key>
+          <false />
+          <key>queuedelaymode</key>
+          <integer>0</integer>
+          <key>queuemode</key>
+          <integer>1</integer>
+          <key>runningsubtext</key>
+          <string>Searching for "{query}"</string>
+          <key>script</key>
+          <string>$query = "{query}"; $documentation = 'javascript';
+            require_once("scripts/devdocs.php");
+          </string>
+          <key>subtext</key>
+          <string>Search for JavaScript "{query}"</string>
+          <key>title</key>
+          <string>DevDocs - JavaScript</string>
+          <key>type</key>
+          <integer>1</integer>
+          <key>withspace</key>
+          <true />
+        </dict>
+        <key>type</key>
+        <string>alfred.workflow.input.scriptfilter</string>
+        <key>uid</key>
+        <string>javascript</string>
+        <key>version</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>config</key>
+        <dict>
+          <key>argumenttype</key>
+          <integer>1</integer>
+          <key>escaping</key>
+          <integer>118</integer>
+          <key>keyword</key>
+          <string>css</string>
+          <key>queuedelaycustom</key>
+          <integer>1</integer>
+          <key>queuedelayimmediatelyinitially</key>
+          <false />
+          <key>queuedelaymode</key>
+          <integer>0</integer>
+          <key>queuemode</key>
+          <integer>1</integer>
+          <key>runningsubtext</key>
+          <string>Searching for "{query}"</string>
+          <key>script</key>
+          <string>$query = "{query}"; $documentation = 'css';
+            require_once("scripts/devdocs.php");
+          </string>
+          <key>subtext</key>
+          <string>Search for CSS "{query}"</string>
+          <key>title</key>
+          <string>DevDocs - CSS</string>
+          <key>type</key>
+          <integer>1</integer>
+          <key>withspace</key>
+          <true />
+        </dict>
+        <key>type</key>
+        <string>alfred.workflow.input.scriptfilter</string>
+        <key>uid</key>
+        <string>css</string>
+        <key>version</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>config</key>
+        <dict>
+          <key>argumenttype</key>
+          <integer>1</integer>
+          <key>escaping</key>
+          <integer>118</integer>
+          <key>keyword</key>
+          <string>webpack</string>
+          <key>queuedelaycustom</key>
+          <integer>1</integer>
+          <key>queuedelayimmediatelyinitially</key>
+          <false />
+          <key>queuedelaymode</key>
+          <integer>0</integer>
+          <key>queuemode</key>
+          <integer>1</integer>
+          <key>runningsubtext</key>
+          <string>Searching for "{query}"</string>
+          <key>script</key>
+          <string>$query = "{query}"; $documentation = 'webpack';
+            require_once("scripts/devdocs.php");
+          </string>
+          <key>subtext</key>
+          <string>Search for webpack "{query}"</string>
+          <key>title</key>
+          <string>DevDocs - webpack</string>
+          <key>type</key>
+          <integer>1</integer>
+          <key>withspace</key>
+          <true />
+        </dict>
+        <key>type</key>
+        <string>alfred.workflow.input.scriptfilter</string>
+        <key>uid</key>
+        <string>webpack</string>
+        <key>version</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>config</key>
+        <dict>
+          <key>argumenttype</key>
+          <integer>1</integer>
+          <key>escaping</key>
+          <integer>118</integer>
+          <key>keyword</key>
+          <string>html</string>
+          <key>queuedelaycustom</key>
+          <integer>1</integer>
+          <key>queuedelayimmediatelyinitially</key>
+          <false />
+          <key>queuedelaymode</key>
+          <integer>0</integer>
+          <key>queuemode</key>
+          <integer>1</integer>
+          <key>runningsubtext</key>
+          <string>Searching for "{query}"</string>
+          <key>script</key>
+          <string>$query = "{query}"; $documentation = 'html';
+            require_once("scripts/devdocs.php");
+          </string>
+          <key>subtext</key>
+          <string>Search for HTML "{query}"</string>
+          <key>title</key>
+          <string>DevDocs - HTML</string>
+          <key>type</key>
+          <integer>1</integer>
+          <key>withspace</key>
+          <true />
+        </dict>
+        <key>type</key>
+        <string>alfred.workflow.input.scriptfilter</string>
+        <key>uid</key>
+        <string>html</string>
+        <key>version</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>config</key>
+        <dict>
+          <key>argumenttype</key>
+          <integer>1</integer>
+          <key>escaping</key>
+          <integer>118</integer>
+          <key>keyword</key>
+          <string>node~6_lts</string>
+          <key>queuedelaycustom</key>
+          <integer>1</integer>
+          <key>queuedelayimmediatelyinitially</key>
+          <false />
+          <key>queuedelaymode</key>
+          <integer>0</integer>
+          <key>queuemode</key>
+          <integer>1</integer>
+          <key>runningsubtext</key>
+          <string>Searching for "{query}"</string>
+          <key>script</key>
+          <string>$query = "{query}"; $documentation = 'node~6_lts';
+            require_once("scripts/devdocs.php");
+          </string>
+          <key>subtext</key>
+          <string>Search for Node.js 6 LTS "{query}"</string>
+          <key>title</key>
+          <string>DevDocs - Node.js 6 LTS</string>
+          <key>type</key>
+          <integer>1</integer>
+          <key>withspace</key>
+          <true />
+        </dict>
+        <key>type</key>
+        <string>alfred.workflow.input.scriptfilter</string>
+        <key>uid</key>
+        <string>node~6_lts</string>
+        <key>version</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>config</key>
+        <dict>
+          <key>argumenttype</key>
+          <integer>1</integer>
+          <key>escaping</key>
+          <integer>118</integer>
+          <key>keyword</key>
+          <string>sass</string>
+          <key>queuedelaycustom</key>
+          <integer>1</integer>
+          <key>queuedelayimmediatelyinitially</key>
+          <false />
+          <key>queuedelaymode</key>
+          <integer>0</integer>
+          <key>queuemode</key>
+          <integer>1</integer>
+          <key>runningsubtext</key>
+          <string>Searching for "{query}"</string>
+          <key>script</key>
+          <string>$query = "{query}"; $documentation = 'sass';
+            require_once("scripts/devdocs.php");
+          </string>
+          <key>subtext</key>
+          <string>Search for Sass "{query}"</string>
+          <key>title</key>
+          <string>DevDocs - Sass</string>
+          <key>type</key>
+          <integer>1</integer>
+          <key>withspace</key>
+          <true />
+        </dict>
+        <key>type</key>
+        <string>alfred.workflow.input.scriptfilter</string>
+        <key>uid</key>
+        <string>sass</string>
+        <key>version</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>config</key>
+        <dict>
+          <key>argumenttype</key>
+          <integer>1</integer>
+          <key>escaping</key>
+          <integer>118</integer>
+          <key>keyword</key>
+          <string>dom</string>
+          <key>queuedelaycustom</key>
+          <integer>1</integer>
+          <key>queuedelayimmediatelyinitially</key>
+          <false />
+          <key>queuedelaymode</key>
+          <integer>0</integer>
+          <key>queuemode</key>
+          <integer>1</integer>
+          <key>runningsubtext</key>
+          <string>Searching for "{query}"</string>
+          <key>script</key>
+          <string>$query = "{query}"; $documentation = 'dom';
+            require_once("scripts/devdocs.php");
+          </string>
+          <key>subtext</key>
+          <string>Search for DOM "{query}"</string>
+          <key>title</key>
+          <string>DevDocs - DOM</string>
+          <key>type</key>
+          <integer>1</integer>
+          <key>withspace</key>
+          <true />
+        </dict>
+        <key>type</key>
+        <string>alfred.workflow.input.scriptfilter</string>
+        <key>uid</key>
+        <string>dom</string>
+        <key>version</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>config</key>
+        <dict>
+          <key>argumenttype</key>
+          <integer>1</integer>
+          <key>escaping</key>
+          <integer>118</integer>
+          <key>keyword</key>
+          <string>dom_events</string>
+          <key>queuedelaycustom</key>
+          <integer>1</integer>
+          <key>queuedelayimmediatelyinitially</key>
+          <false />
+          <key>queuedelaymode</key>
+          <integer>0</integer>
+          <key>queuemode</key>
+          <integer>1</integer>
+          <key>runningsubtext</key>
+          <string>Searching for "{query}"</string>
+          <key>script</key>
+          <string>$query = "{query}"; $documentation = 'dom_events';
+            require_once("scripts/devdocs.php");
+          </string>
+          <key>subtext</key>
+          <string>Search for DOM Events "{query}"</string>
+          <key>title</key>
+          <string>DevDocs - DOM Events</string>
+          <key>type</key>
+          <integer>1</integer>
+          <key>withspace</key>
+          <true />
+        </dict>
+        <key>type</key>
+        <string>alfred.workflow.input.scriptfilter</string>
+        <key>uid</key>
+        <string>dom_events</string>
+        <key>version</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>config</key>
+        <dict>
+          <key>argumenttype</key>
+          <integer>1</integer>
+          <key>escaping</key>
+          <integer>118</integer>
+          <key>keyword</key>
+          <string>markdown</string>
+          <key>queuedelaycustom</key>
+          <integer>1</integer>
+          <key>queuedelayimmediatelyinitially</key>
+          <false />
+          <key>queuedelaymode</key>
+          <integer>0</integer>
+          <key>queuemode</key>
+          <integer>1</integer>
+          <key>runningsubtext</key>
+          <string>Searching for "{query}"</string>
+          <key>script</key>
+          <string>$query = "{query}"; $documentation = 'markdown';
+            require_once("scripts/devdocs.php");
+          </string>
+          <key>subtext</key>
+          <string>Search for Markdown "{query}"</string>
+          <key>title</key>
+          <string>DevDocs - Markdown</string>
+          <key>type</key>
+          <integer>1</integer>
+          <key>withspace</key>
+          <true />
+        </dict>
+        <key>type</key>
+        <string>alfred.workflow.input.scriptfilter</string>
+        <key>uid</key>
+        <string>markdown</string>
+        <key>version</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>config</key>
+        <dict>
+          <key>argumenttype</key>
+          <integer>1</integer>
+          <key>escaping</key>
+          <integer>118</integer>
+          <key>keyword</key>
+          <string>npm</string>
+          <key>queuedelaycustom</key>
+          <integer>1</integer>
+          <key>queuedelayimmediatelyinitially</key>
+          <false />
+          <key>queuedelaymode</key>
+          <integer>0</integer>
+          <key>queuemode</key>
+          <integer>1</integer>
+          <key>runningsubtext</key>
+          <string>Searching for "{query}"</string>
+          <key>script</key>
+          <string>$query = "{query}"; $documentation = 'npm';
+            require_once("scripts/devdocs.php");
+          </string>
+          <key>subtext</key>
+          <string>Search for npm "{query}"</string>
+          <key>title</key>
+          <string>DevDocs - npm</string>
+          <key>type</key>
+          <integer>1</integer>
+          <key>withspace</key>
+          <true />
+        </dict>
+        <key>type</key>
+        <string>alfred.workflow.input.scriptfilter</string>
+        <key>uid</key>
+        <string>npm</string>
+        <key>version</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>config</key>
+        <dict>
+          <key>argumenttype</key>
+          <integer>1</integer>
+          <key>escaping</key>
+          <integer>118</integer>
+          <key>keyword</key>
+          <string>laravel~5.5</string>
+          <key>queuedelaycustom</key>
+          <integer>1</integer>
+          <key>queuedelayimmediatelyinitially</key>
+          <false />
+          <key>queuedelaymode</key>
+          <integer>0</integer>
+          <key>queuemode</key>
+          <integer>1</integer>
+          <key>runningsubtext</key>
+          <string>Searching for "{query}"</string>
+          <key>script</key>
+          <string>$query = "{query}"; $documentation = 'laravel~5.5';
+            require_once("scripts/devdocs.php");
+          </string>
+          <key>subtext</key>
+          <string>Search for Laravel 5.5 "{query}"</string>
+          <key>title</key>
+          <string>DevDocs - Laravel 5.5</string>
+          <key>type</key>
+          <integer>1</integer>
+          <key>withspace</key>
+          <true />
+        </dict>
+        <key>type</key>
+        <string>alfred.workflow.input.scriptfilter</string>
+        <key>uid</key>
+        <string>laravel~5.5</string>
+        <key>version</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>config</key>
+        <dict>
+          <key>plusspaces</key>
+          <false />
+          <key>url</key>
+          <string>{query}</string>
+          <key>utf8</key>
+          <true />
+        </dict>
+        <key>type</key>
+        <string>alfred.workflow.action.openurl</string>
+        <key>uid</key>
+        <string>output</string>
+        <key>version</key>
+        <integer>0</integer>
+      </dict>
+    </array>
+    <key>uidata</key>
+    <dict>
+      <key>addalltask</key>
+      <dict>
+        <key>ypos</key>
+        <real>510</real>
+      </dict>
+      <key>addalltaskkeyword</key>
+      <dict>
+        <key>ypos</key>
+        <real>510</real>
+      </dict>
+      <key>addtask</key>
+      <dict>
+        <key>ypos</key>
+        <real>110</real>
+      </dict>
+      <key>aliastask</key>
+      <dict>
+        <key>ypos</key>
+        <real>710</real>
+      </dict>
+      <key>unaliastask</key>
+      <dict>
+        <key>ypos</key>
+        <real>810</real>
+      </dict>
+      <key>doc</key>
+      <dict>
+        <key>ypos</key>
+        <real>10</real>
+      </dict>
+      <key>dotaskbasedoncommand</key>
+      <dict>
+        <key>ypos</key>
+        <real>110</real>
+      </dict>
+      <key>listtask</key>
+      <dict>
+        <key>ypos</key>
+        <real>410</real>
+      </dict>
+      <key>nuketask</key>
+      <dict>
+        <key>ypos</key>
+        <real>610</real>
+      </dict>
+      <key>nuketaskkeyword</key>
+      <dict>
+        <key>ypos</key>
+        <real>610</real>
+      </dict>
+      <key>output</key>
+      <dict>
+        <key>ypos</key>
+        <real>10</real>
+      </dict>
+      <key>refreshtask</key>
+      <dict>
+        <key>ypos</key>
+        <real>310</real>
+      </dict>
+      <key>removetask</key>
+      <dict>
+        <key>ypos</key>
+        <real>210</real>
+      </dict>
+      <key>shownotificationwhencomplete</key>
+      <dict>
+        <key>ypos</key>
+        <real>10</real>
+      </dict>
+      <key>angular</key>
+      <dict>
+        <key>ypos</key>
+        <real>930</real>
+      </dict>
+      <key>vue~2</key>
+      <dict>
+        <key>ypos</key>
+        <real>1040</real>
+      </dict>
+      <key>javascript</key>
+      <dict>
+        <key>ypos</key>
+        <real>1150</real>
+      </dict>
+      <key>css</key>
+      <dict>
+        <key>ypos</key>
+        <real>1260</real>
+      </dict>
+      <key>webpack</key>
+      <dict>
+        <key>ypos</key>
+        <real>1370</real>
+      </dict>
+      <key>html</key>
+      <dict>
+        <key>ypos</key>
+        <real>1480</real>
+      </dict>
+      <key>node~6_lts</key>
+      <dict>
+        <key>ypos</key>
+        <real>1590</real>
+      </dict>
+      <key>sass</key>
+      <dict>
+        <key>ypos</key>
+        <real>1700</real>
+      </dict>
+      <key>dom</key>
+      <dict>
+        <key>ypos</key>
+        <real>1810</real>
+      </dict>
+      <key>dom_events</key>
+      <dict>
+        <key>ypos</key>
+        <real>1920</real>
+      </dict>
+      <key>markdown</key>
+      <dict>
+        <key>ypos</key>
+        <real>2030</real>
+      </dict>
+      <key>npm</key>
+      <dict>
+        <key>ypos</key>
+        <real>2140</real>
+      </dict>
+      <key>laravel~5.5</key>
+      <dict>
+        <key>ypos</key>
+        <real>2250</real>
+      </dict>
+    </dict>
+    <key>webaddress</key>
+    <string>https://github.com/yannickglt/alfred-devdocs</string>
+  </dict>
+</plist>

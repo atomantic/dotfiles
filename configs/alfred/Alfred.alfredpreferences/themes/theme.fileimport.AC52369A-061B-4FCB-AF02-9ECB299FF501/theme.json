@@ -1,0 +1,61 @@
+{
+  "alfredtheme" : {
+    "result" : {
+      "textSpacing" : 6,
+      "subtext" : {
+        "size" : 12,
+        "colorSelected" : "#393E48FF",
+        "font" : "System Light",
+        "color" : "#636D83FF"
+      },
+      "shortcut" : {
+        "size" : 16,
+        "colorSelected" : "#393E48FF",
+        "font" : "System",
+        "color" : "#979EABFF"
+      },
+      "backgroundSelected" : "#56B6C2FF",
+      "text" : {
+        "size" : 18,
+        "colorSelected" : "#2F333DFF",
+        "font" : "System Light",
+        "color" : "#ABB2BFFF"
+      },
+      "iconPaddingHorizontal" : 6,
+      "paddingVertical" : 6,
+      "iconSize" : 36
+    },
+    "search" : {
+      "paddingVertical" : 8,
+      "background" : "#4B515C7F",
+      "spacing" : 10,
+      "text" : {
+        "size" : 22,
+        "colorSelected" : "#61AFEFFF",
+        "font" : "System",
+        "color" : "#ABB2BFFF"
+      },
+      "backgroundSelected" : "#BE5046FF"
+    },
+    "window" : {
+      "color" : "#2F333DCC",
+      "paddingHorizontal" : 10,
+      "width" : 560,
+      "borderPadding" : 0,
+      "borderColor" : "#2F333D00",
+      "blur" : 15,
+      "roundness" : 2,
+      "paddingVertical" : 10
+    },
+    "credit" : "Themer",
+    "separator" : {
+      "color" : "#2F333D00",
+      "thickness" : 0
+    },
+    "scrollbar" : {
+      "color" : "#E5C07BFF",
+      "thickness" : 2
+    },
+    "name" : "Themer Dark"
+  }
+}

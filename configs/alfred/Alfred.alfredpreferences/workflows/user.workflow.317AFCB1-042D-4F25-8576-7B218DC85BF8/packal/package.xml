@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<workflow>
+  <name>Colors</name>
+  <version>2.0.0</version>
+  <bundle>tylereich.colors</bundle>
+  <updated>1426454535</updated>
+  <file>colors_v2.0.1.alfredworkflow</file>
+</workflow>

@@ -1,0 +1,75 @@
+#
+# Powerline Themer Block - Tmux Theme
+# Originally created by Jim Myhrberg <contact@jimeh.me>.
+# Modified for use by Themer by Tom Selvi <tomselvi@gmail.com>.
+#
+# Inspired by vim-powerline: https://github.com/Lokaltog/powerline
+#
+# Requires terminal to be using a powerline compatible font, find one here:
+# https://github.com/Lokaltog/powerline-fonts
+#
+
+# Status update interval
+set -g status-interval 1
+
+# Basic status bar colors
+set -g status-fg "#5c6370"
+set -g status-bg "#393e48"
+
+# Left side of status bar
+set -g status-left-bg "#393e48"
+set -g status-left-fg "#828997"
+set -g status-left-length 40
+set -g status-left "#[fg=#282c34,bg=#e06c75,bold] #S #[fg=#e06c75,bg=#636d83,nobold]#[fg=#393e48,bg=#636d83] #(whoami) #[fg=#636d83,bg=#4b515c]#[fg=#636d83,bg=#4b515c] #I:#P #[fg=#4b515c,bg=#393e48,nobold]"
+
+# Right side of status bar
+set -g status-right-bg "#393e48"
+set -g status-right-fg "#828997"
+set -g status-right-length 150
+set -g status-right "#[fg=#4b515c,bg=#393e48]#[fg=#636d83,bg=#4b515c] %H:%M:%S #[fg=#636d83,bg=#4b515c]#[fg=#393e48,bg=#636d83] %d-%b-%y #[fg=#979eab,bg=#636d83]#[fg=#282c34,bg=#979eab,bold] #H "
+
+# Window status
+set -g window-status-format "#[fg=#abb2bf]#[bg=#393e48] #I:#W#F "
+set -g window-status-current-format "#[fg=#d19a66,bg=black] #I:#W#F "
+
+# Current window status
+set -g window-status-current-bg "#e06c75"
+set -g window-status-current-fg "#282c34"
+
+# Window with activity status
+set -g window-status-activity-bg "#d19a66"  # fg and bg are flipped here due to
+set -g window-status-activity-fg "#393e48" # a bug in tmux
+
+# Window separator
+set -g window-status-separator ""
+
+# Window status alignment
+set -g status-justify centre
+
+# Pane border
+set -g pane-border-bg default
+set -g pane-border-fg "#5c6370"
+
+# Active pane border
+set -g pane-active-border-bg default
+set -g pane-active-border-fg "#e06c75"
+
+# Pane number indicator
+set -g display-panes-colour "#393e48"
+set -g display-panes-active-colour "#979eab"
+
+# Clock mode
+set -g clock-mode-colour "#e06c75"
+set -g clock-mode-style 24
+
+# Message
+set -g message-bg "#e06c75"
+set -g message-fg black
+
+# Command message
+set -g message-command-bg "#393e48"
+set -g message-command-fg black
+
+# Mode
+set -g mode-bg "#e06c75"
+set -g mode-fg "#abb2bf"

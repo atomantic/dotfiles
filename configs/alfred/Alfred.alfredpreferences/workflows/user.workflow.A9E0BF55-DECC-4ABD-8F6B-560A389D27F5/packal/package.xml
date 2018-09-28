@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<workflow>
+  <name>DevDocs</name>
+  <version>1.3.1</version>
+  <bundle>com.yannickglt.alfred2.devdocs</bundle>
+  <updated>1502127017</updated>
+  <file>devdocs.alfredworkflow</file>
+</workflow>

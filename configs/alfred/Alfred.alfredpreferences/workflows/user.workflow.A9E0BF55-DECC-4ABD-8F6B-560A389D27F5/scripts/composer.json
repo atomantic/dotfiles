@@ -1,0 +1,13 @@
+{
+    "name": "yannickglt/alfred-devdocs",
+    "description": "Alfred workflow for devdocs.io",
+    "authors": [
+        {
+            "name": "Julien Vidal",
+            "email": "julien.vidal.jv@gmail.com"
+        }
+    ],
+    "require": {
+        "rodneyrehm/plist": "2"
+    }
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>fastAppendBackToClipboard</key>
+	<true/>
+	<key>fastAppendSeparator</key>
+	<integer>1</integer>
+	<key>hotkey</key>
+	<dict>
+		<key>key</key>
+		<integer>9</integer>
+		<key>mod</key>
+		<integer>1179648</integer>
+		<key>string</key>
+		<string>V</string>
+	</dict>
+	<key>limit</key>
+	<integer>2</integer>
+	<key>persistFor</key>
+	<integer>3</integer>
+	<key>persistForFiles</key>
+	<integer>1</integer>
+</dict>
+</plist>

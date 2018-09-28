@@ -1,0 +1,2807 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.farrell.pkgman.alfredworkflow</string>
+	<key>connections</key>
+	<dict>
+		<key>0376C25E-AF4F-4F76-B9BC-AD9E998CE4A3</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>1A806429-BBAB-4227-B0C9-46E96CD3E492</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>135ECB8C-557A-41D9-BF9A-6439A5EA949E</string>
+				<key>modifiers</key>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string>Copy package name to front most app.</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>135ECB8C-557A-41D9-BF9A-6439A5EA949E</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>E928110A-9651-4404-BCF3-CCF77B35BB0B</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>18B0C07D-A101-4267-B306-7925DE8A30C9</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>0A704625-29E6-450E-8F2C-8E4EC7179899</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>1A806429-BBAB-4227-B0C9-46E96CD3E492</key>
+		<array/>
+		<key>265DF548-7D96-4F94-AB0E-6AD26F31B4A1</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>1A806429-BBAB-4227-B0C9-46E96CD3E492</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>135ECB8C-557A-41D9-BF9A-6439A5EA949E</string>
+				<key>modifiers</key>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string>Copy package name to front most app.</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>2BECD5EE-3FDE-434C-8ADA-2FEAE34FBF34</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>52E889A1-1A44-49FD-AEE9-5CBD1DC38AC4</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>2F314483-5E76-477B-BB7E-574CA71131B4</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>1A806429-BBAB-4227-B0C9-46E96CD3E492</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>135ECB8C-557A-41D9-BF9A-6439A5EA949E</string>
+				<key>modifiers</key>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string>Copy package name to front most app.</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>436DF03B-19A8-47CA-A8C6-27C31A52BB22</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>1A806429-BBAB-4227-B0C9-46E96CD3E492</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>135ECB8C-557A-41D9-BF9A-6439A5EA949E</string>
+				<key>modifiers</key>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string>Copy package name to front most app.</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>4F9B49BB-0F1E-4D72-A339-08C76E2D2C2A</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>18B0C07D-A101-4267-B306-7925DE8A30C9</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>52E889A1-1A44-49FD-AEE9-5CBD1DC38AC4</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>348251C4-2B72-432F-A923-B082C6740DEA</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>5D46DE45-AD0E-4A12-8AE6-BFC129AA4C0F</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>1A806429-BBAB-4227-B0C9-46E96CD3E492</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>135ECB8C-557A-41D9-BF9A-6439A5EA949E</string>
+				<key>modifiers</key>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string>Copy package name to front most app.</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>D16CFAE9-21B6-44DD-965D-73EC1BE630C2</string>
+				<key>modifiers</key>
+				<integer>131072</integer>
+				<key>modifiersubtext</key>
+				<string>Inject package into Terminal (paste to front most app).</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>5F73C46B-877B-4BC6-A231-E72525BBCEB2</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>1A806429-BBAB-4227-B0C9-46E96CD3E492</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>135ECB8C-557A-41D9-BF9A-6439A5EA949E</string>
+				<key>modifiers</key>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string>Copy package name to front most app.</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>D16CFAE9-21B6-44DD-965D-73EC1BE630C2</string>
+				<key>modifiers</key>
+				<integer>131072</integer>
+				<key>modifiersubtext</key>
+				<string>Inject package into package.json dependencies (paste to front most app).</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>641E4359-7656-456E-93F2-11FE0F755254</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>1A806429-BBAB-4227-B0C9-46E96CD3E492</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>135ECB8C-557A-41D9-BF9A-6439A5EA949E</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>67851157-5987-4B55-BDD9-90A9347C46A5</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>1A806429-BBAB-4227-B0C9-46E96CD3E492</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>135ECB8C-557A-41D9-BF9A-6439A5EA949E</string>
+				<key>modifiers</key>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string>Copy package name to front most app.</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>D16CFAE9-21B6-44DD-965D-73EC1BE630C2</string>
+				<key>modifiers</key>
+				<integer>131072</integer>
+				<key>modifiersubtext</key>
+				<string>Inject package into composer.json require (paste to front most app).</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>689DD809-6CBA-476F-9299-4D22CAF07D9F</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>1A806429-BBAB-4227-B0C9-46E96CD3E492</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>135ECB8C-557A-41D9-BF9A-6439A5EA949E</string>
+				<key>modifiers</key>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string>Copy package name to front most app.</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>D16CFAE9-21B6-44DD-965D-73EC1BE630C2</string>
+				<key>modifiers</key>
+				<integer>131072</integer>
+				<key>modifiersubtext</key>
+				<string>Inject package into Brewfile (paste to front most app).</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>6DA4E86D-6897-4E36-811B-EA9340364E48</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>1A806429-BBAB-4227-B0C9-46E96CD3E492</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>135ECB8C-557A-41D9-BF9A-6439A5EA949E</string>
+				<key>modifiers</key>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string>Copy package name to front most app.</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>D16CFAE9-21B6-44DD-965D-73EC1BE630C2</string>
+				<key>modifiers</key>
+				<integer>131072</integer>
+				<key>modifiersubtext</key>
+				<string>Inject package into package.json dependencies (paste to front most app).</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>72C0A2C4-3F23-46F5-831F-F0A7C4FD04C2</key>
+		<array/>
+		<key>78A70680-7C8A-4CC4-AE71-A070E3E8CCD9</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>1A806429-BBAB-4227-B0C9-46E96CD3E492</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>135ECB8C-557A-41D9-BF9A-6439A5EA949E</string>
+				<key>modifiers</key>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string>Copy package name to front most app.</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>D16CFAE9-21B6-44DD-965D-73EC1BE630C2</string>
+				<key>modifiers</key>
+				<integer>131072</integer>
+				<key>modifiersubtext</key>
+				<string>Inject package into Brewfile (paste to front most app).</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>8CEC2062-2484-4200-AE7A-BED7DA65E298</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>1A806429-BBAB-4227-B0C9-46E96CD3E492</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>135ECB8C-557A-41D9-BF9A-6439A5EA949E</string>
+				<key>modifiers</key>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string>Copy package name to front most app.</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>96A609DD-13FB-44C7-9ADB-F3BC94017A65</key>
+		<array/>
+		<key>98FB2C27-091A-41A9-B3E1-109EA8523BBF</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>1A806429-BBAB-4227-B0C9-46E96CD3E492</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>135ECB8C-557A-41D9-BF9A-6439A5EA949E</string>
+				<key>modifiers</key>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string>Copy package name to front most app.</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>A43C7C1D-6687-4F87-8C0E-45EAB012AB05</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>1A806429-BBAB-4227-B0C9-46E96CD3E492</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>135ECB8C-557A-41D9-BF9A-6439A5EA949E</string>
+				<key>modifiers</key>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string>Copy package name to front most app.</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>D16CFAE9-21B6-44DD-965D-73EC1BE630C2</string>
+				<key>modifiers</key>
+				<integer>131072</integer>
+				<key>modifiersubtext</key>
+				<string>Inject package into Cargo.toml (paste to front most app).</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>A83F18D3-B34F-4AA7-A164-F19D8CE1C790</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>1A806429-BBAB-4227-B0C9-46E96CD3E492</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>135ECB8C-557A-41D9-BF9A-6439A5EA949E</string>
+				<key>modifiers</key>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string>Copy package name to front most app.</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>B9D9D59E-5B75-418E-8D5D-75EADD6D162A</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>1A806429-BBAB-4227-B0C9-46E96CD3E492</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>135ECB8C-557A-41D9-BF9A-6439A5EA949E</string>
+				<key>modifiers</key>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string>Copy package name to front most app.</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>C0190356-1EDC-4E5C-8187-9E3C4C69FBD1</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>1A806429-BBAB-4227-B0C9-46E96CD3E492</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>135ECB8C-557A-41D9-BF9A-6439A5EA949E</string>
+				<key>modifiers</key>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string>Copy package name to front most app.</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>D16CFAE9-21B6-44DD-965D-73EC1BE630C2</string>
+				<key>modifiers</key>
+				<integer>131072</integer>
+				<key>modifiersubtext</key>
+				<string>Inject package into package.json dependencies (paste to front most app).</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>CDC59D6D-6D7A-48F9-BFC3-72DAF712EF19</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>1A806429-BBAB-4227-B0C9-46E96CD3E492</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>135ECB8C-557A-41D9-BF9A-6439A5EA949E</string>
+				<key>modifiers</key>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string>Copy package name to front most app.</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>D16CFAE9-21B6-44DD-965D-73EC1BE630C2</string>
+				<key>modifiers</key>
+				<integer>131072</integer>
+				<key>modifiersubtext</key>
+				<string>Inject package into build.gradle (paste to front most app).</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>CF42FBD1-70E7-4EC3-89A3-84B1E7B131AD</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>1A806429-BBAB-4227-B0C9-46E96CD3E492</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>135ECB8C-557A-41D9-BF9A-6439A5EA949E</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>D16CFAE9-21B6-44DD-965D-73EC1BE630C2</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>D16CFAE9-21B6-44DD-965D-73EC1BE630C2</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>A6F75F15-2128-4002-A841-2872651A1640</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>D22F4CD1-A38D-4D9A-B910-E82A467AB0CC</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>1A806429-BBAB-4227-B0C9-46E96CD3E492</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>135ECB8C-557A-41D9-BF9A-6439A5EA949E</string>
+				<key>modifiers</key>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string>Copy package name to front most app.</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>D882F2C5-CA0E-4D23-B1CC-28AC8AD1DB0E</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>1A806429-BBAB-4227-B0C9-46E96CD3E492</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>135ECB8C-557A-41D9-BF9A-6439A5EA949E</string>
+				<key>modifiers</key>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string>Copy package name to front most app.</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>D8F2FDC0-B462-4C50-8A42-9E6A511395A8</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>1A806429-BBAB-4227-B0C9-46E96CD3E492</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>135ECB8C-557A-41D9-BF9A-6439A5EA949E</string>
+				<key>modifiers</key>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string>Copy package name to front most app.</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>E106723F-9932-431B-8250-64F2983338FC</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>1A806429-BBAB-4227-B0C9-46E96CD3E492</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>135ECB8C-557A-41D9-BF9A-6439A5EA949E</string>
+				<key>modifiers</key>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string>Copy package name to front most app.</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>D16CFAE9-21B6-44DD-965D-73EC1BE630C2</string>
+				<key>modifiers</key>
+				<integer>131072</integer>
+				<key>modifiersubtext</key>
+				<string>Inject package into package.json dependencies (paste to front most app).</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>E894CAC8-3680-4863-B8A5-EFCFD78B56F3</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>1A806429-BBAB-4227-B0C9-46E96CD3E492</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>135ECB8C-557A-41D9-BF9A-6439A5EA949E</string>
+				<key>modifiers</key>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string>Copy package name to front most app.</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>D16CFAE9-21B6-44DD-965D-73EC1BE630C2</string>
+				<key>modifiers</key>
+				<integer>131072</integer>
+				<key>modifiersubtext</key>
+				<string>Inject package into bower.json dependencies (paste to front most app).</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>F1559F42-7F85-4A26-A604-6E31BD686380</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>1A806429-BBAB-4227-B0C9-46E96CD3E492</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>135ECB8C-557A-41D9-BF9A-6439A5EA949E</string>
+				<key>modifiers</key>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string>Copy package name to front most app.</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>F79627F4-5450-4A78-A93A-73EDCFB50A2B</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>1A806429-BBAB-4227-B0C9-46E96CD3E492</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>135ECB8C-557A-41D9-BF9A-6439A5EA949E</string>
+				<key>modifiers</key>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string>Copy package name to front most app.</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>will Farrell (@willfarrell)</string>
+	<key>description</key>
+	<string>Package Repo Search</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Package Managers v3.16.0</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>pkgman cachedb</string>
+				<key>subtext</key>
+				<string>Rebuild Package Manager Cached Databases</string>
+				<key>text</key>
+				<string>Force Repo DB Update</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>2BECD5EE-3FDE-434C-8ADA-2FEAE34FBF34</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>63</integer>
+				<key>script</key>
+				<string>error_reporting(0);
+require_once('code/Cache.php');
+
+$cache = new Cache();
+
+foreach($cache-&gt;dbs as $key =&gt; $url) {
+	//$cache-&gt;get_db($key);
+	$cache-&gt;update_db($key);
+}</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>1</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>52E889A1-1A44-49FD-AEE9-5CBD1DC38AC4</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>Package Manager Databases Cached</string>
+				<key>title</key>
+				<string>Cache Complete</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>348251C4-2B72-432F-A923-B082C6740DEA</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>Package Manager Databases Cleared</string>
+				<key>title</key>
+				<string>Cache Deleted</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>0A704625-29E6-450E-8F2C-8E4EC7179899</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>63</integer>
+				<key>script</key>
+				<string>error_reporting(0);
+require_once('code/Cache.php');
+
+$cache = new Cache();
+
+$cache-&gt;clear();</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>1</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>18B0C07D-A101-4267-B306-7925DE8A30C9</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>pkgman cleardb</string>
+				<key>subtext</key>
+				<string>Remove all database caches</string>
+				<key>text</key>
+				<string>Clear Cache</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>4F9B49BB-0F1E-4D72-A339-08C76E2D2C2A</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>0</integer>
+				<key>focusedappvariable</key>
+				<false/>
+				<key>focusedappvariablename</key>
+				<string></string>
+				<key>hotkey</key>
+				<integer>0</integer>
+				<key>hotmod</key>
+				<integer>0</integer>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>96A609DD-13FB-44C7-9ADB-F3BC94017A65</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>63</integer>
+				<key>keyword</key>
+				<string>bower</string>
+				<key>queuedelaycustom</key>
+				<integer>1</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Searching for "{query}"</string>
+				<key>script</key>
+				<string>$query = &lt;&lt;&lt;EOD
+{query}
+EOD;
+
+require_once('code/Bower.php');
+
+$repo = new WillFarrell\AlfredPkgMan\Bower();
+echo $repo-&gt;search($query);</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Search bower for "{query}"</string>
+				<key>title</key>
+				<string>Search bower</string>
+				<key>type</key>
+				<integer>1</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>E894CAC8-3680-4863-B8A5-EFCFD78B56F3</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>63</integer>
+				<key>keyword</key>
+				<string>yo</string>
+				<key>queuedelaycustom</key>
+				<integer>1</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Searching for "{query}"</string>
+				<key>script</key>
+				<string>$query = &lt;&lt;&lt;EOD
+{query}
+EOD;
+
+require_once('code/Yo.php');
+
+$repo = new WillFarrell\AlfredPkgMan\Yo();
+echo $repo-&gt;search($query);</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Search Yeoman for "{query}"</string>
+				<key>title</key>
+				<string>Search Yeoman</string>
+				<key>type</key>
+				<integer>1</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>6DA4E86D-6897-4E36-811B-EA9340364E48</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>action</key>
+				<integer>1</integer>
+				<key>argument</key>
+				<integer>1</integer>
+				<key>focusedappvariable</key>
+				<false/>
+				<key>focusedappvariablename</key>
+				<string></string>
+				<key>hotkey</key>
+				<integer>0</integer>
+				<key>hotmod</key>
+				<integer>0</integer>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>72C0A2C4-3F23-46F5-831F-F0A7C4FD04C2</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>63</integer>
+				<key>keyword</key>
+				<string>grunt</string>
+				<key>queuedelaycustom</key>
+				<integer>1</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Searching for "{query}"</string>
+				<key>script</key>
+				<string>$query = &lt;&lt;&lt;EOD
+{query}
+EOD;
+
+require_once('code/Grunt.php');
+
+$repo = new WillFarrell\AlfredPkgMan\Grunt();
+echo $repo-&gt;search($query);</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Search Grunt for "{query}"</string>
+				<key>title</key>
+				<string>Search Grunt</string>
+				<key>type</key>
+				<integer>1</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>C0190356-1EDC-4E5C-8187-9E3C4C69FBD1</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>63</integer>
+				<key>keyword</key>
+				<string>gulp</string>
+				<key>queuedelaycustom</key>
+				<integer>1</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Searching for "{query}"</string>
+				<key>script</key>
+				<string>$query = &lt;&lt;&lt;EOD
+{query}
+EOD;
+
+require_once('code/Gulp.php');
+
+$repo = new WillFarrell\AlfredPkgMan\Gulp();
+echo $repo-&gt;search($query);</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Search gulp for "{query}"</string>
+				<key>title</key>
+				<string>Search gulp</string>
+				<key>type</key>
+				<integer>1</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>5F73C46B-877B-4BC6-A231-E72525BBCEB2</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>63</integer>
+				<key>keyword</key>
+				<string>npm</string>
+				<key>queuedelaycustom</key>
+				<integer>1</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Searching for "{query}"</string>
+				<key>script</key>
+				<string>$query = &lt;&lt;&lt;EOD
+{query}
+EOD;
+
+require_once('code/Npm.php');
+
+$repo = new WillFarrell\AlfredPkgMan\Npm();
+echo $repo-&gt;search($query);</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Search npm for "{query}"</string>
+				<key>title</key>
+				<string>Search npm</string>
+				<key>type</key>
+				<integer>1</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>E106723F-9932-431B-8250-64F2983338FC</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>63</integer>
+				<key>keyword</key>
+				<string>composer</string>
+				<key>queuedelaycustom</key>
+				<integer>1</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Searching for "{query}"</string>
+				<key>script</key>
+				<string>$query = &lt;&lt;&lt;EOD
+{query}
+EOD;
+
+require_once('code/Composer.php');
+
+$repo = new WillFarrell\AlfredPkgMan\Composer();
+echo $repo-&gt;search($query);</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Search Composer for "{query}"</string>
+				<key>title</key>
+				<string>Composer</string>
+				<key>type</key>
+				<integer>1</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>67851157-5987-4B55-BDD9-90A9347C46A5</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>63</integer>
+				<key>keyword</key>
+				<string>pear</string>
+				<key>queuedelaycustom</key>
+				<integer>1</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Searching for "{query}"</string>
+				<key>script</key>
+				<string>$query = &lt;&lt;&lt;EOD
+{query}
+EOD;
+
+require_once('code/Pear.php');
+
+$repo = new WillFarrell\AlfredPkgMan\Pear();
+echo $repo-&gt;search($query);</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Search PEAR for "{query}"</string>
+				<key>title</key>
+				<string>Search PEAR</string>
+				<key>type</key>
+				<integer>1</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>A83F18D3-B34F-4AA7-A164-F19D8CE1C790</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>63</integer>
+				<key>keyword</key>
+				<string>gems</string>
+				<key>queuedelaycustom</key>
+				<integer>1</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Searching for "{query}"</string>
+				<key>script</key>
+				<string>$query = &lt;&lt;&lt;EOD
+{query}
+EOD;
+
+require_once('code/Gems.php');
+
+$repo = new WillFarrell\AlfredPkgMan\Gems();
+echo $repo-&gt;search($query);</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Search Ruby Gems for "{query}"</string>
+				<key>title</key>
+				<string>Search Ruby Gems</string>
+				<key>type</key>
+				<integer>1</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>B9D9D59E-5B75-418E-8D5D-75EADD6D162A</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>63</integer>
+				<key>keyword</key>
+				<string>pypi</string>
+				<key>queuedelaycustom</key>
+				<integer>1</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Searching for "{query}"</string>
+				<key>script</key>
+				<string>$query = &lt;&lt;&lt;EOD
+{query}
+EOD;
+
+require_once('code/Pypi.php');
+
+$repo = new WillFarrell\AlfredPkgMan\Pypi();
+echo $repo-&gt;search($query);</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Search Python for "{query}"</string>
+				<key>title</key>
+				<string>Search Python Packages</string>
+				<key>type</key>
+				<integer>1</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>D22F4CD1-A38D-4D9A-B910-E82A467AB0CC</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>63</integer>
+				<key>keyword</key>
+				<string>alcatraz</string>
+				<key>queuedelaycustom</key>
+				<integer>1</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Searching for "{query}"</string>
+				<key>script</key>
+				<string>$query = &lt;&lt;&lt;EOD
+{query}
+EOD;
+
+require_once('code/Alcatraz.php');
+
+$repo = new WillFarrell\AlfredPkgMan\Alcatraz();
+echo $repo-&gt;search($query);</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Search Alcatraz for "{query}"</string>
+				<key>title</key>
+				<string>Search Alcatraz</string>
+				<key>type</key>
+				<integer>1</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>98FB2C27-091A-41A9-B3E1-109EA8523BBF</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>63</integer>
+				<key>keyword</key>
+				<string>cocoa</string>
+				<key>queuedelaycustom</key>
+				<integer>1</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Searching for "{query}"</string>
+				<key>script</key>
+				<string>$query = &lt;&lt;&lt;EOD
+{query}
+EOD;
+
+require_once('code/Cocoa.php');
+
+$repo = new WillFarrell\AlfredPkgMan\Cocoa();
+echo $repo-&gt;search($query);</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Search CocoaPods for "{query}"</string>
+				<key>title</key>
+				<string>Search CocoaPods</string>
+				<key>type</key>
+				<integer>1</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>265DF548-7D96-4F94-AB0E-6AD26F31B4A1</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>63</integer>
+				<key>keyword</key>
+				<string>brew</string>
+				<key>queuedelaycustom</key>
+				<integer>1</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Searcing for "{query}"</string>
+				<key>script</key>
+				<string>$query = &lt;&lt;&lt;EOD
+{query}
+EOD;
+
+require_once('code/Brew.php');
+
+$repo = new WillFarrell\AlfredPkgMan\Brew();
+echo $repo-&gt;search($query);</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Search homebrew for "{query}"</string>
+				<key>title</key>
+				<string>Search homebrew</string>
+				<key>type</key>
+				<integer>1</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>78A70680-7C8A-4CC4-AE71-A070E3E8CCD9</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>63</integer>
+				<key>keyword</key>
+				<string>hex</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Searching hex for "{query}"</string>
+				<key>script</key>
+				<string>$query = &lt;&lt;&lt;EOD
+{query}
+EOD;
+
+require_once('code/Hex.php');
+
+$repo = new WillFarrell\AlfredPkgMan\Hex();
+echo $repo-&gt;search($query);</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Search hex for "{query}"</string>
+				<key>title</key>
+				<string>Search hex</string>
+				<key>type</key>
+				<integer>1</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>641E4359-7656-456E-93F2-11FE0F755254</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>63</integer>
+				<key>keyword</key>
+				<string>apt-get</string>
+				<key>queuedelaycustom</key>
+				<integer>1</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Searching for "{query}"</string>
+				<key>script</key>
+				<string>$query = &lt;&lt;&lt;EOD
+{query}
+EOD;
+
+require_once('code/AptGet.php');
+
+$repo = new WillFarrell\AlfredPkgMan\AptGet();
+echo $repo-&gt;search($query);</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Search apt-get for "{query}"</string>
+				<key>title</key>
+				<string>Search apt-get</string>
+				<key>type</key>
+				<integer>1</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>D882F2C5-CA0E-4D23-B1CC-28AC8AD1DB0E</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>63</integer>
+				<key>keyword</key>
+				<string>puppet</string>
+				<key>queuedelaycustom</key>
+				<integer>1</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Searching for "{query}"</string>
+				<key>script</key>
+				<string>$query = &lt;&lt;&lt;EOD
+{query}
+EOD;
+
+require_once('code/Puppet.php');
+
+$repo = new WillFarrell\AlfredPkgMan\Puppet();
+echo $repo-&gt;search($query);</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Search puppet for "{query}"</string>
+				<key>title</key>
+				<string>Search puppet</string>
+				<key>type</key>
+				<integer>1</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>F1559F42-7F85-4A26-A604-6E31BD686380</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>63</integer>
+				<key>keyword</key>
+				<string>rpm</string>
+				<key>queuedelaycustom</key>
+				<integer>1</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Searching for "{query}"</string>
+				<key>script</key>
+				<string>$query = &lt;&lt;&lt;EOD
+{query}
+EOD;
+
+require_once('code/Rpm.php');
+
+$repo = new WillFarrell\AlfredPkgMan\Rpm();
+echo $repo-&gt;search($query);</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Search rpm for "{query}"</string>
+				<key>title</key>
+				<string>Search rpm</string>
+				<key>type</key>
+				<integer>1</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>D8F2FDC0-B462-4C50-8A42-9E6A511395A8</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>127</integer>
+				<key>script</key>
+				<string>query="{query}";
+
+id=$(echo $query | cut -d "|" -f1)
+url=$(echo $query | cut -d "|" -f2)
+pkgstr=$(echo $query | cut -d "|" -f3)
+
+open $url</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>1A806429-BBAB-4227-B0C9-46E96CD3E492</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>55</integer>
+				<key>keyword</key>
+				<string>maven</string>
+				<key>queuedelaycustom</key>
+				<integer>1</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Searching for "{query}"</string>
+				<key>script</key>
+				<string>$query = &lt;&lt;&lt;EOD
+{query}
+EOD;
+
+require_once('code/Maven.php');
+
+$repo = new WillFarrell\AlfredPkgMan\Maven();
+echo $repo-&gt;search($query);</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Search Maven for "{query}"</string>
+				<key>title</key>
+				<string>Search Maven</string>
+				<key>type</key>
+				<integer>1</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>2F314483-5E76-477B-BB7E-574CA71131B4</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<true/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+				<key>transient</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>E928110A-9651-4404-BCF3-CCF77B35BB0B</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>127</integer>
+				<key>script</key>
+				<string>query="{query}";
+
+id=$(echo $query | cut -d "|" -f1)
+url=$(echo $query | cut -d "|" -f2)
+pkgstr=$(echo $query | cut -d "|" -f3)
+
+echo $id</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>135ECB8C-557A-41D9-BF9A-6439A5EA949E</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>63</integer>
+				<key>keyword</key>
+				<string>gradle</string>
+				<key>queuedelaycustom</key>
+				<integer>1</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Searching for "{query}"</string>
+				<key>script</key>
+				<string>$query = &lt;&lt;&lt;EOD
+{query}
+EOD;
+
+require_once('code/Gradle.php');
+
+$repo = new WillFarrell\AlfredPkgMan\Gradle();
+echo $repo-&gt;search($query);</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Search Gradle for "{query}"</string>
+				<key>title</key>
+				<string>Search Gradle</string>
+				<key>type</key>
+				<integer>1</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>CDC59D6D-6D7A-48F9-BFC3-72DAF712EF19</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>63</integer>
+				<key>keyword</key>
+				<string>chef</string>
+				<key>queuedelaycustom</key>
+				<integer>1</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Searching for "{query}"</string>
+				<key>script</key>
+				<string>$query = &lt;&lt;&lt;EOD
+{query}
+EOD;
+
+require_once('code/Chef.php');
+
+$repo = new WillFarrell\AlfredPkgMan\Chef();
+echo $repo-&gt;search($query);</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Search chef for "{query}"</string>
+				<key>title</key>
+				<string>Search Chef’s Supermarket</string>
+				<key>type</key>
+				<integer>1</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>436DF03B-19A8-47CA-A8C6-27C31A52BB22</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>127</integer>
+				<key>script</key>
+				<string>query="{query}";
+
+id=$(echo $query | cut -d "|" -f1)
+url=$(echo $query | cut -d "|" -f2)
+pkgstr=$(echo $query | cut -d "|" -f3)
+
+echo $pkgstr</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>D16CFAE9-21B6-44DD-965D-73EC1BE630C2</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<true/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+				<key>transient</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>A6F75F15-2128-4002-A841-2872651A1640</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>63</integer>
+				<key>keyword</key>
+				<string>docker</string>
+				<key>queuedelaycustom</key>
+				<integer>1</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Searching for "{query}"</string>
+				<key>script</key>
+				<string>$query = &lt;&lt;&lt;EOD
+{query}
+EOD;
+
+require_once('code/Docker.php');
+
+$repo = new WillFarrell\AlfredPkgMan\Docker();
+echo $repo-&gt;search($query);</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Search docker for "{query}"</string>
+				<key>title</key>
+				<string>Search docker</string>
+				<key>type</key>
+				<integer>1</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>8CEC2062-2484-4200-AE7A-BED7DA65E298</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>63</integer>
+				<key>keyword</key>
+				<string>raspbian</string>
+				<key>queuedelaycustom</key>
+				<integer>1</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Searching for "{query}"</string>
+				<key>script</key>
+				<string>$query = &lt;&lt;&lt;EOD
+{query}
+EOD;
+
+require_once('code/Raspbian.php');
+
+$repo = new WillFarrell\AlfredPkgMan\Raspbian();
+echo $repo-&gt;search($query);</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Search Raspbian for "{query}"</string>
+				<key>title</key>
+				<string>Search Raspbian</string>
+				<key>type</key>
+				<integer>1</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>0376C25E-AF4F-4F76-B9BC-AD9E998CE4A3</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>63</integer>
+				<key>keyword</key>
+				<string>cordova</string>
+				<key>queuedelaycustom</key>
+				<integer>1</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Searching for "{query}"</string>
+				<key>script</key>
+				<string>$query = &lt;&lt;&lt;EOD
+{query}
+EOD;
+
+require_once('code/Cordova.php');
+
+$repo = new WillFarrell\AlfredPkgMan\Cordova();
+echo $repo-&gt;search($query);</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Search Cordova for "{query}"</string>
+				<key>title</key>
+				<string>Search Cordova</string>
+				<key>type</key>
+				<integer>1</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>5D46DE45-AD0E-4A12-8AE6-BFC129AA4C0F</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>63</integer>
+				<key>keyword</key>
+				<string>apm</string>
+				<key>queuedelaycustom</key>
+				<integer>1</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Searching for "{query}"</string>
+				<key>script</key>
+				<string>$query = &lt;&lt;&lt;EOD
+{query}
+EOD;
+
+require_once('code/Apm.php');
+
+$repo = new WillFarrell\AlfredPkgMan\Apm();
+echo $repo-&gt;search($query);</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Search apm for "{query}"</string>
+				<key>title</key>
+				<string>Search apm</string>
+				<key>type</key>
+				<integer>1</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>689DD809-6CBA-476F-9299-4D22CAF07D9F</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>63</integer>
+				<key>keyword</key>
+				<string>crates</string>
+				<key>queuedelaycustom</key>
+				<integer>1</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Searching for "{query}"</string>
+				<key>script</key>
+				<string>$query = &lt;&lt;&lt;EOD
+{query}
+EOD;
+
+require_once('code/Crates.php');
+
+$repo = new WillFarrell\AlfredPkgMan\Crates();
+echo $repo-&gt;search($query);</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Search crates for "{query}"</string>
+				<key>title</key>
+				<string>Search crates</string>
+				<key>type</key>
+				<integer>1</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>A43C7C1D-6687-4F87-8C0E-45EAB012AB05</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>63</integer>
+				<key>keyword</key>
+				<string>st</string>
+				<key>queuedelaycustom</key>
+				<integer>1</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Searching for "{query}"</string>
+				<key>script</key>
+				<string>$query = &lt;&lt;&lt;EOD
+{query}
+EOD;
+
+require_once('code/Stpm.php');
+
+$repo = new WillFarrell\AlfredPkgMan\Stpm();
+echo $repo-&gt;search($query);</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Search Sublime Text packages for "{query}"</string>
+				<key>title</key>
+				<string>Search Sublime Text packages</string>
+				<key>type</key>
+				<integer>1</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>F79627F4-5450-4A78-A93A-73EDCFB50A2B</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>63</integer>
+				<key>keyword</key>
+				<string>dt</string>
+				<key>queuedelaycustom</key>
+				<integer>1</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Searching for "{query}"</string>
+				<key>script</key>
+				<string>$query = &lt;&lt;&lt;EOD
+{query}
+EOD;
+
+require_once('code/DefinitelyTyped.php');
+
+$repo = new WillFarrell\AlfredPkgMan\DefinitelyTyped();
+echo $repo-&gt;search($query);</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Search DefinitelyTyped for "{query}"</string>
+				<key>title</key>
+				<string>Search DefinitelyTyped</string>
+				<key>type</key>
+				<integer>1</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>CF42FBD1-70E7-4EC3-89A3-84B1E7B131AD</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string>Quick package/plugin/component (repo) lookup for your favourite package managers. Currently supports *Alcatraz* to *Yeoman Generators*.
+
+## Commands
+
+* `pkgman cleardb`: Clear local database cache files
+* `pkgman cachedb`: Update local database cache files
+
+* `alcatraz {query}`: [Cocoa Packages](http://alcatraz.io/)
+* `apt-get {query}`: [Linux Packages](https://apps.ubuntu.com)
+* `atom {query}`: [Atom Packages](https://atom.io)
+* `bower {query}`: [Bower Components](http://bower.io) for JavaScript
+* `brew {query}`: [Homebrew Plugins](http://braumeister.org)
+* `chef {query}`: [Chef Cookbooks](https://supermarket.chef.io)
+* `cocoa {query}`: CocoaPods can be upgraded to CocoaDocs by changing `$apple_docs` to true in the script.
+* `composer {query}`: PHP [Composer Packages](https://packagist.org)
+* `docker {query}`: [Docker Images](http://registry.hub.docker.io)
+* `dt {query}`: DefinitelyTyped [TypeScript Definitions](http://definitelytyped.org)
+* `gems {query}`: [Ruby Gems](http://rubygems.org)
+* `gradle {query}`: Java [Gradle Packages](http://www.gradle.org)
+* `grunt {query}`: nodeJS task-runner [Grunt Plugins](http://gruntjs.com)
+* `gulp {query}`: nodeJS task-runner [Gulp plugins](http://gulpjs.com)
+* `hex {query}`: Elixir [Hex Packages](http://hex.pm)
+* `maven {query}`: Java [Maven Libraries](http://mvnrepository.com)
+* `npm {query}`: nodeJS [NPM Packages](https://www.npmjs.org)
+* `pear {query}`: PHP [Pear Packages](http://pear.php.net)
+* `puppet {query}`: [Puppet Modules](https://forge.puppetlabs.com)
+* `pypi {query}`: [Python Packages](https://pypi.python.org)
+* `raspbian {query}`: [Rasberry Pi Packages](http://www.raspbian.org)
+* `rpm {query}`: [Linux Packages](http://rpmfind.net)
+* `yo {query}`: [Yeoman Generators](http://yeoman.io)
+
+## Action Modifiers
+
+* `default`: open README page url
+* `cmd`: copy name/id to frontmost app
+* `shift`: copy config file name/id and version to frontmost app
+
+## Additional Notes
+
+All workflows require constant internet connection.
+
+Workflows can break from time to time due to changes by the provider of the repo. If you notice a workflow stops working, post it at https://github.com/willfarrell/alfred-pkgman-workflow/issues.
+
+All repos have caching enabled to speed up common queries. These caches are refreshed after 14 days and may take longer than expected to return results during update. You can force a cache refresh by running `pkgman cachedb` to re-download the databases (applies to `alcatraz`, `grunt`, `cocoa`). Alternatively you can run `pkgman cleardb` to remove all stored cache, but this isn't recommended. Clearing your cache is recommended after an update if the package manager you use had a bug previously.
+
+The Python Package Index is very slow due to a lack on API and pagination. A min query length has been put in place to help speed this up. You can change it in the script, `$min_query_length = 3`. Perhaps someone with a python background can improve this.
+
+![][bower]
+![][npm]
+![][yo]
+![][grunt]
+![][gulp]
+![][alcatraz]
+![][cocoa]
+![][composer]
+![][pear]
+![][pypi]
+![][gems]
+![][maven]
+![][brew]
+![][rpm]
+![][docker]
+![][chef]
+![][hex]
+
+[alcatraz]: ./screenshots/alcatraz.png "Sample alcatraz result"
+[bower]: ./screenshots/bower.png "Sample bower result"
+[brew]: ./screenshots/brew.png "Sample brew result"
+[chef]: ./screenshots/chef.png "Sample chef result"
+[cocoa]: ./screenshots/cocoa.png "Sample cocoa result"
+[composer]: ./screenshots/composer.png "Sample composer result"
+[docker]: ./screenshots/docker.png "Sample docker result"
+[gems]: ./screenshots/gems.png "Sample gems result"
+[grunt]: ./screenshots/grunt.png "Sample grunt result"
+[gulp]: ./screenshots/gulp.png "Sample gulp result"
+[hex]: ./screenshots/hex.png "Sample hex resuls"
+[maven]: ./screenshots/maven.png "Sample maven result"
+[npm]: ./screenshots/npm.png "Sample npm result"
+[pear]: ./screenshots/pear.png "Sample pear result"
+[pypi]: ./screenshots/pypi.png "Sample pypi result"
+[rpm]: ./screenshots/rpm.png "Sample rpm result"
+[yo]: ./screenshots/yo.png "Sample yo result"</string>
+	<key>uidata</key>
+	<dict>
+		<key>0376C25E-AF4F-4F76-B9BC-AD9E998CE4A3</key>
+		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
+			<key>ypos</key>
+			<real>2380</real>
+		</dict>
+		<key>0A704625-29E6-450E-8F2C-8E4EC7179899</key>
+		<dict>
+			<key>xpos</key>
+			<integer>700</integer>
+			<key>ypos</key>
+			<real>130</real>
+		</dict>
+		<key>135ECB8C-557A-41D9-BF9A-6439A5EA949E</key>
+		<dict>
+			<key>xpos</key>
+			<integer>500</integer>
+			<key>ypos</key>
+			<real>2080</real>
+		</dict>
+		<key>18B0C07D-A101-4267-B306-7925DE8A30C9</key>
+		<dict>
+			<key>xpos</key>
+			<integer>500</integer>
+			<key>ypos</key>
+			<real>130</real>
+		</dict>
+		<key>1A806429-BBAB-4227-B0C9-46E96CD3E492</key>
+		<dict>
+			<key>xpos</key>
+			<integer>500</integer>
+			<key>ypos</key>
+			<real>1930</real>
+		</dict>
+		<key>265DF548-7D96-4F94-AB0E-6AD26F31B4A1</key>
+		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
+			<key>ypos</key>
+			<real>1350</real>
+		</dict>
+		<key>2BECD5EE-3FDE-434C-8ADA-2FEAE34FBF34</key>
+		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>2F314483-5E76-477B-BB7E-574CA71131B4</key>
+		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
+			<key>ypos</key>
+			<real>1980</real>
+		</dict>
+		<key>348251C4-2B72-432F-A923-B082C6740DEA</key>
+		<dict>
+			<key>xpos</key>
+			<integer>700</integer>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>436DF03B-19A8-47CA-A8C6-27C31A52BB22</key>
+		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
+			<key>ypos</key>
+			<real>2180</real>
+		</dict>
+		<key>4F9B49BB-0F1E-4D72-A339-08C76E2D2C2A</key>
+		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
+			<key>ypos</key>
+			<real>130</real>
+		</dict>
+		<key>52E889A1-1A44-49FD-AEE9-5CBD1DC38AC4</key>
+		<dict>
+			<key>xpos</key>
+			<integer>500</integer>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>5D46DE45-AD0E-4A12-8AE6-BFC129AA4C0F</key>
+		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
+			<key>ypos</key>
+			<real>2480</real>
+		</dict>
+		<key>5F73C46B-877B-4BC6-A231-E72525BBCEB2</key>
+		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
+			<key>ypos</key>
+			<real>640</real>
+		</dict>
+		<key>641E4359-7656-456E-93F2-11FE0F755254</key>
+		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
+			<key>ypos</key>
+			<real>1560</real>
+		</dict>
+		<key>67851157-5987-4B55-BDD9-90A9347C46A5</key>
+		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
+			<key>ypos</key>
+			<real>840</real>
+		</dict>
+		<key>689DD809-6CBA-476F-9299-4D22CAF07D9F</key>
+		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
+			<key>ypos</key>
+			<integer>2580</integer>
+		</dict>
+		<key>6DA4E86D-6897-4E36-811B-EA9340364E48</key>
+		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
+			<key>ypos</key>
+			<real>440</real>
+		</dict>
+		<key>72C0A2C4-3F23-46F5-831F-F0A7C4FD04C2</key>
+		<dict>
+			<key>xpos</key>
+			<integer>100</integer>
+			<key>ypos</key>
+			<real>460</real>
+		</dict>
+		<key>78A70680-7C8A-4CC4-AE71-A070E3E8CCD9</key>
+		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
+			<key>ypos</key>
+			<real>1450</real>
+		</dict>
+		<key>8CEC2062-2484-4200-AE7A-BED7DA65E298</key>
+		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
+			<key>ypos</key>
+			<real>2280</real>
+		</dict>
+		<key>96A609DD-13FB-44C7-9ADB-F3BC94017A65</key>
+		<dict>
+			<key>xpos</key>
+			<integer>100</integer>
+			<key>ypos</key>
+			<real>340</real>
+		</dict>
+		<key>98FB2C27-091A-41A9-B3E1-109EA8523BBF</key>
+		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
+			<key>ypos</key>
+			<real>1250</real>
+		</dict>
+		<key>A43C7C1D-6687-4F87-8C0E-45EAB012AB05</key>
+		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
+			<key>ypos</key>
+			<real>2680</real>
+		</dict>
+		<key>A6F75F15-2128-4002-A841-2872651A1640</key>
+		<dict>
+			<key>xpos</key>
+			<integer>700</integer>
+			<key>ypos</key>
+			<real>2260</real>
+		</dict>
+		<key>A83F18D3-B34F-4AA7-A164-F19D8CE1C790</key>
+		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
+			<key>ypos</key>
+			<real>950</real>
+		</dict>
+		<key>B9D9D59E-5B75-418E-8D5D-75EADD6D162A</key>
+		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
+			<key>ypos</key>
+			<real>1050</real>
+		</dict>
+		<key>C0190356-1EDC-4E5C-8187-9E3C4C69FBD1</key>
+		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
+			<key>ypos</key>
+			<real>540</real>
+		</dict>
+		<key>CDC59D6D-6D7A-48F9-BFC3-72DAF712EF19</key>
+		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
+			<key>ypos</key>
+			<real>2080</real>
+		</dict>
+		<key>CF42FBD1-70E7-4EC3-89A3-84B1E7B131AD</key>
+		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
+			<key>ypos</key>
+			<integer>2880</integer>
+		</dict>
+		<key>D16CFAE9-21B6-44DD-965D-73EC1BE630C2</key>
+		<dict>
+			<key>xpos</key>
+			<integer>500</integer>
+			<key>ypos</key>
+			<real>2260</real>
+		</dict>
+		<key>D22F4CD1-A38D-4D9A-B910-E82A467AB0CC</key>
+		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
+			<key>ypos</key>
+			<real>1150</real>
+		</dict>
+		<key>D882F2C5-CA0E-4D23-B1CC-28AC8AD1DB0E</key>
+		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
+			<key>ypos</key>
+			<real>1660</real>
+		</dict>
+		<key>D8F2FDC0-B462-4C50-8A42-9E6A511395A8</key>
+		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
+			<key>ypos</key>
+			<real>1880</real>
+		</dict>
+		<key>E106723F-9932-431B-8250-64F2983338FC</key>
+		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
+			<key>ypos</key>
+			<real>740</real>
+		</dict>
+		<key>E894CAC8-3680-4863-B8A5-EFCFD78B56F3</key>
+		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
+			<key>ypos</key>
+			<real>340</real>
+		</dict>
+		<key>E928110A-9651-4404-BCF3-CCF77B35BB0B</key>
+		<dict>
+			<key>xpos</key>
+			<integer>700</integer>
+			<key>ypos</key>
+			<real>2040</real>
+		</dict>
+		<key>F1559F42-7F85-4A26-A604-6E31BD686380</key>
+		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
+			<key>ypos</key>
+			<real>1770</real>
+		</dict>
+		<key>F79627F4-5450-4A78-A93A-73EDCFB50A2B</key>
+		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
+			<key>ypos</key>
+			<integer>2780</integer>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string>github.com/willfarrell</string>
+</dict>
+</plist>

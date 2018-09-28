@@ -1,0 +1,69 @@
+{
+  "version": "1.0.5",
+  "manifest_version": 2,
+  "name": "Themer Dark",
+  "theme": {
+    "colors": {
+      "frame": [
+        40,
+        44,
+        52
+      ],
+      "frame_inactive": [
+        57,
+        62,
+        72
+      ],
+      "frame_incognito": [
+        92,
+        99,
+        112
+      ],
+      "frame_incognito_inactive": [
+        99,
+        109,
+        131
+      ],
+      "toolbar": [
+        57,
+        62,
+        72
+      ],
+      "tab_text": [
+        171,
+        178,
+        191
+      ],
+      "tab_background_text": [
+        130,
+        137,
+        151
+      ],
+      "bookmark_text": [
+        151,
+        158,
+        171
+      ],
+      "ntp_background": [
+        40,
+        44,
+        52
+      ],
+      "ntp_text": [
+        151,
+        158,
+        171
+      ],
+      "ntp_section": [
+        75,
+        81,
+        92
+      ],
+      "ntp_section_text": [
+        171,
+        178,
+        191
+      ]
+    }
+  }
+}

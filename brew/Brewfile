@@ -1,0 +1,63 @@
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/cask-fonts"
+tap "homebrew/completions"
+tap "homebrew/core"
+tap "homebrew/dupes"
+tap "homebrew/services"
+tap "homebrew/versions"
+tap "mas-cli/tap"
+tap "tldr-pages/tldr"
+tap "tomanthony/brews"
+brew "ack"
+brew "ag"
+brew "pcre"
+brew "argtable"
+brew "gettext"
+brew "bat"
+brew "confuse"
+brew "bmon"
+brew "boost"
+brew "readline"
+brew "gawk"
+brew "dos2unix"
+brew "findutils"
+brew "c-ares"
+brew "cabextract"
+brew "libpng", args: ["universal"]
+brew "freetype", args: ["universal"]
+brew "fontconfig", args: ["universal"]
+brew "coreutils"
+brew "cryptopp"
+brew "curl", args: ["with-libssh2", "with-openssl"]
+brew "diff-so-fancy"
+brew "fasd"
+brew "fzf"
+brew "jpeg", args: ["universal"]
+brew "webp", args: ["universal"]
+brew "gd", args: ["universal"]
+brew "git-extras"
+brew "highlight"
+brew "htop"
+brew "python"
+brew "httpie"
+brew "mas"
+brew "ncdu"
+brew "nmap"
+brew "ssh-copy-id"
+brew "tree"
+brew "wget"
+brew "yarn"
+brew "grep"
+brew "zsh-syntax-highlighting"
+brew "tldr-pages/tldr/tldr"
+brew "tomanthony/brews/itermocil"
+mas "Amphetamine", id: 937984704
+mas "BetterSnapTool", id: 417375580
+mas "NordVPN IKE", id: 1116599239
+mas "Shazam", id: 897118787
+mas "Slack", id: 803453959
+mas "The Unarchiver", id: 425424353
+mas "Twitter", id: 409789998
+mas "Xcode", id: 497799835
+mas "YubiKey Personalization Tool", id: 638161122
