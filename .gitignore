@@ -5,11 +5,4 @@
 ._*
 id_rsa
 node_modules
-homedir/.vim/backup/*
-!homedir/.vim/backup/.gitignore
-homedir/.vim/temp/*
-!homedir/.vim/temp/.gitignore
-homedir/.vim/.netrwhist
-homedir/.vim/bundle/*
-!homedir/.vim/bundle/.gitignore
-!homedir/.vim/bundle/Vundle.vim
+

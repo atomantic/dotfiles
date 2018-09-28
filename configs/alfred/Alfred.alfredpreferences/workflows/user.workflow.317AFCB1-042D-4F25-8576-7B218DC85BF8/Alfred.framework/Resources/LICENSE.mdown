@@ -1,0 +1,3 @@
+Framework code by Daniel Shannon ([d@daniel.sh](d@daniel.sh)), 2013. This license may not be removed or altered. Alfred.framework is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 3.0](http://creativecommons.org/licenses/by-nc-sa/3.0/) license. This means that you may share and redistribute the package, but only for non-commercial purposes, only so long as you credit the original author---_moi_---and only if your derivative work is similarly licensed.
+
+To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/3.0/ or send a letter to Creative Commons, 444 Castro Street, Suite 900, Mountain View, California, 94041, USA.

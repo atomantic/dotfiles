@@ -1,0 +1,721 @@
+<?= '<?xml version="1.0" encoding="UTF-8"?>' . PHP_EOL ?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>bundleid</key>
+    <string>com.yannickglt.alfred2.devdocs</string>
+    <key>category</key>
+    <string>Productivity</string>
+    <key>connections</key>
+    <dict>
+      <key>addalltask</key>
+      <array>
+        <dict>
+          <key>destinationuid</key>
+          <string>shownotificationwhencomplete</string>
+          <key>modifiers</key>
+          <integer>0</integer>
+          <key>modifiersubtext</key>
+          <string></string>
+        </dict>
+      </array>
+      <key>addalltaskkeyword</key>
+      <array>
+        <dict>
+          <key>destinationuid</key>
+          <string>addalltask</string>
+          <key>modifiers</key>
+          <integer>0</integer>
+          <key>modifiersubtext</key>
+          <string></string>
+        </dict>
+      </array>
+      <key>addtask</key>
+      <array>
+        <dict>
+          <key>destinationuid</key>
+          <string>dotaskbasedoncommand</string>
+          <key>modifiers</key>
+          <integer>0</integer>
+          <key>modifiersubtext</key>
+          <string></string>
+        </dict>
+      </array>
+      <key>aliastask</key>
+      <array>
+        <dict>
+          <key>destinationuid</key>
+          <string>dotaskbasedoncommand</string>
+          <key>modifiers</key>
+          <integer>0</integer>
+          <key>modifiersubtext</key>
+          <string></string>
+        </dict>
+      </array>
+      <key>unaliastask</key>
+      <array>
+        <dict>
+          <key>destinationuid</key>
+          <string>dotaskbasedoncommand</string>
+          <key>modifiers</key>
+          <integer>0</integer>
+          <key>modifiersubtext</key>
+          <string></string>
+        </dict>
+      </array>
+      <key>doc</key>
+      <array>
+        <dict>
+          <key>destinationuid</key>
+          <string>output</string>
+          <key>modifiers</key>
+          <integer>0</integer>
+          <key>modifiersubtext</key>
+          <string></string>
+          <key>vitoclose</key>
+          <false />
+        </dict>
+      </array>
+      <key>dotaskbasedoncommand</key>
+      <array>
+        <dict>
+          <key>destinationuid</key>
+          <string>shownotificationwhencomplete</string>
+          <key>modifiers</key>
+          <integer>0</integer>
+          <key>modifiersubtext</key>
+          <string></string>
+        </dict>
+      </array>
+      <key>nuketask</key>
+      <array>
+        <dict>
+          <key>destinationuid</key>
+          <string>shownotificationwhencomplete</string>
+          <key>modifiers</key>
+          <integer>0</integer>
+          <key>modifiersubtext</key>
+          <string></string>
+        </dict>
+      </array>
+      <key>nuketaskkeyword</key>
+      <array>
+        <dict>
+          <key>destinationuid</key>
+          <string>nuketask</string>
+          <key>modifiers</key>
+          <integer>0</integer>
+          <key>modifiersubtext</key>
+          <string></string>
+        </dict>
+      </array>
+      <key>refreshtask</key>
+      <array>
+        <dict>
+          <key>destinationuid</key>
+          <string>dotaskbasedoncommand</string>
+          <key>modifiers</key>
+          <integer>0</integer>
+          <key>modifiersubtext</key>
+          <string></string>
+        </dict>
+      </array>
+      <key>removetask</key>
+      <array>
+        <dict>
+          <key>destinationuid</key>
+          <string>dotaskbasedoncommand</string>
+          <key>modifiers</key>
+          <integer>0</integer>
+          <key>modifiersubtext</key>
+          <string></string>
+        </dict>
+      </array>
+      <?php foreach ($documentations as $doc): ?>
+        <key><?= htmlspecialchars($doc->slug) ?></key>
+        <array>
+          <dict>
+            <key>destinationuid</key>
+            <string>output</string>
+            <key>modifiers</key>
+            <integer>0</integer>
+            <key>modifiersubtext</key>
+            <string></string>
+          </dict>
+        </array>
+      <?php endforeach; ?>
+      <?php foreach ($aliases as $docName => $docAliases): ?>
+        <?php foreach ($docAliases as $alias): ?>
+          <key><?= htmlspecialchars($alias) ?></key>
+          <array>
+            <dict>
+              <key>destinationuid</key>
+              <string>output</string>
+              <key>modifiers</key>
+              <integer>0</integer>
+              <key>modifiersubtext</key>
+              <string></string>
+            </dict>
+          </array>
+        <?php endforeach; ?>
+      <?php endforeach; ?>
+    </dict>
+    <key>createdby</key>
+    <string>Yannick Galatol</string>
+    <key>description</key>
+    <string>Alfred workflow for devdocs.io documentations</string>
+    <key>disabled</key>
+    <false />
+    <key>name</key>
+    <string>devdocs</string>
+    <key>objects</key>
+    <array>
+      <dict>
+        <key>config</key>
+        <dict>
+          <key>lastpathcomponent</key>
+          <false />
+          <key>onlyshowifquerypopulated</key>
+          <true />
+          <key>output</key>
+          <integer>0</integer>
+          <key>removeextension</key>
+          <false />
+          <key>sticky</key>
+          <false />
+          <key>title</key>
+          <string>{query}</string>
+        </dict>
+        <key>type</key>
+        <string>alfred.workflow.output.notification</string>
+        <key>uid</key>
+        <string>shownotificationwhencomplete</string>
+        <key>version</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>config</key>
+        <dict>
+          <key>argumenttype</key>
+          <integer>0</integer>
+          <key>escaping</key>
+          <integer>118</integer>
+          <key>keyword</key>
+          <string>doc</string>
+          <key>queuedelaycustom</key>
+          <integer>1</integer>
+          <key>queuedelayimmediatelyinitially</key>
+          <false />
+          <key>queuedelaymode</key>
+          <integer>0</integer>
+          <key>queuemode</key>
+          <integer>1</integer>
+          <key>runningsubtext</key>
+          <string>Searching for "{query}"</string>
+          <key>script</key>
+          <string>$query = "{query}"; require_once("scripts/devdocs.php");</string>
+          <key>subtext</key>
+          <string>Search for "{query}"</string>
+          <key>title</key>
+          <string>DevDocs</string>
+          <key>type</key>
+          <integer>1</integer>
+          <key>withspace</key>
+          <true />
+        </dict>
+        <key>type</key>
+        <string>alfred.workflow.input.scriptfilter</string>
+        <key>uid</key>
+        <string>doc</string>
+        <key>version</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>config</key>
+        <dict>
+          <key>concurrently</key>
+          <false />
+          <key>escaping</key>
+          <integer>126</integer>
+          <key>script</key>
+          <string>$query = "{query}"; require_once("scripts/conf.php");</string>
+          <key>type</key>
+          <integer>1</integer>
+        </dict>
+        <key>type</key>
+        <string>alfred.workflow.action.script</string>
+        <key>uid</key>
+        <string>dotaskbasedoncommand</string>
+        <key>version</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>config</key>
+        <dict>
+          <key>argumenttype</key>
+          <integer>1</integer>
+          <key>escaping</key>
+          <integer>118</integer>
+          <key>keyword</key>
+          <string>cdoc:add</string>
+          <key>queuedelaycustom</key>
+          <integer>1</integer>
+          <key>queuedelayimmediatelyinitially</key>
+          <false />
+          <key>queuedelaymode</key>
+          <integer>0</integer>
+          <key>queuemode</key>
+          <integer>1</integer>
+          <key>script</key>
+          <string>$query = "selectAdd {query}"; require_once("scripts/conf.php");</string>
+          <key>title</key>
+          <string>Add a doc on DevDocs workflow</string>
+          <key>type</key>
+          <integer>1</integer>
+          <key>withspace</key>
+          <true />
+        </dict>
+        <key>type</key>
+        <string>alfred.workflow.input.scriptfilter</string>
+        <key>uid</key>
+        <string>addtask</string>
+        <key>version</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>config</key>
+        <dict>
+          <key>argumenttype</key>
+          <integer>0</integer>
+          <key>escaping</key>
+          <integer>118</integer>
+          <key>keyword</key>
+          <string>cdoc:alias</string>
+          <key>queuedelaycustom</key>
+          <integer>1</integer>
+          <key>queuedelayimmediatelyinitially</key>
+          <false />
+          <key>queuedelaymode</key>
+          <integer>0</integer>
+          <key>queuemode</key>
+          <integer>1</integer>
+          <key>script</key>
+          <string>$query = "selectAlias {query}"; require_once("scripts/conf.php");</string>
+          <key>title</key>
+          <string>Create an alias for a documentation</string>
+          <key>type</key>
+          <integer>1</integer>
+          <key>withspace</key>
+          <true />
+        </dict>
+        <key>type</key>
+        <string>alfred.workflow.input.scriptfilter</string>
+        <key>uid</key>
+        <string>aliastask</string>
+        <key>version</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>config</key>
+        <dict>
+          <key>argumenttype</key>
+          <integer>1</integer>
+          <key>escaping</key>
+          <integer>118</integer>
+          <key>keyword</key>
+          <string>cdoc:unalias</string>
+          <key>queuedelaycustom</key>
+          <integer>1</integer>
+          <key>queuedelayimmediatelyinitially</key>
+          <false />
+          <key>queuedelaymode</key>
+          <integer>0</integer>
+          <key>queuemode</key>
+          <integer>1</integer>
+          <key>script</key>
+          <string>$query = "selectUnalias {query}"; require_once("scripts/conf.php");</string>
+          <key>title</key>
+          <string>Remove an existing alias of a documentation</string>
+          <key>type</key>
+          <integer>1</integer>
+          <key>withspace</key>
+          <true />
+        </dict>
+        <key>type</key>
+        <string>alfred.workflow.input.scriptfilter</string>
+        <key>uid</key>
+        <string>unaliastask</string>
+        <key>version</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>config</key>
+        <dict>
+          <key>argumenttype</key>
+          <integer>1</integer>
+          <key>escaping</key>
+          <integer>118</integer>
+          <key>keyword</key>
+          <string>cdoc:remove</string>
+          <key>queuedelaycustom</key>
+          <integer>1</integer>
+          <key>queuedelayimmediatelyinitially</key>
+          <false />
+          <key>queuedelaymode</key>
+          <integer>0</integer>
+          <key>queuemode</key>
+          <integer>1</integer>
+          <key>script</key>
+          <string>$query = "selectRemove {query}"; require_once("scripts/conf.php");</string>
+          <key>title</key>
+          <string>Remove a doc on DevDocs workflow</string>
+          <key>type</key>
+          <integer>1</integer>
+          <key>withspace</key>
+          <true />
+        </dict>
+        <key>type</key>
+        <string>alfred.workflow.input.scriptfilter</string>
+        <key>uid</key>
+        <string>removetask</string>
+        <key>version</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>config</key>
+        <dict>
+          <key>argumenttype</key>
+          <integer>1</integer>
+          <key>escaping</key>
+          <integer>118</integer>
+          <key>keyword</key>
+          <string>cdoc:refresh</string>
+          <key>queuedelaycustom</key>
+          <integer>1</integer>
+          <key>queuedelayimmediatelyinitially</key>
+          <false />
+          <key>queuedelaymode</key>
+          <integer>0</integer>
+          <key>queuemode</key>
+          <integer>1</integer>
+          <key>script</key>
+          <string>$query = "selectRefresh {query}"; require_once("scripts/conf.php");</string>
+          <key>title</key>
+          <string>Refresh docs on DevDocs workflow</string>
+          <key>type</key>
+          <integer>1</integer>
+          <key>withspace</key>
+          <true />
+        </dict>
+        <key>type</key>
+        <string>alfred.workflow.input.scriptfilter</string>
+        <key>uid</key>
+        <string>refreshtask</string>
+        <key>version</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>config</key>
+        <dict>
+          <key>argumenttype</key>
+          <integer>1</integer>
+          <key>escaping</key>
+          <integer>118</integer>
+          <key>keyword</key>
+          <string>cdoc:list</string>
+          <key>queuedelaycustom</key>
+          <integer>1</integer>
+          <key>queuedelayimmediatelyinitially</key>
+          <false />
+          <key>queuedelaymode</key>
+          <integer>0</integer>
+          <key>queuemode</key>
+          <integer>1</integer>
+          <key>script</key>
+          <string>$query = "list {query}"; require_once("scripts/conf.php");</string>
+          <key>title</key>
+          <string>List available docs on DevDocs workflow</string>
+          <key>type</key>
+          <integer>1</integer>
+          <key>withspace</key>
+          <true />
+        </dict>
+        <key>type</key>
+        <string>alfred.workflow.input.scriptfilter</string>
+        <key>uid</key>
+        <string>listtask</string>
+        <key>version</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>config</key>
+        <dict>
+          <key>argumenttype</key>
+          <integer>2</integer>
+          <key>keyword</key>
+          <string>cdoc:all</string>
+          <key>text</key>
+          <string>Add all available docs on DevDocs workflow</string>
+          <key>withspace</key>
+          <false />
+        </dict>
+        <key>type</key>
+        <string>alfred.workflow.input.keyword</string>
+        <key>uid</key>
+        <string>addalltaskkeyword</string>
+        <key>version</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>config</key>
+        <dict>
+          <key>concurrently</key>
+          <false />
+          <key>escaping</key>
+          <integer>118</integer>
+          <key>script</key>
+          <string>$query = "addAll"; require_once("scripts/conf.php");</string>
+          <key>type</key>
+          <integer>1</integer>
+        </dict>
+        <key>type</key>
+        <string>alfred.workflow.action.script</string>
+        <key>uid</key>
+        <string>addalltask</string>
+        <key>version</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>config</key>
+        <dict>
+          <key>argumenttype</key>
+          <integer>2</integer>
+          <key>keyword</key>
+          <string>cdoc:nuke</string>
+          <key>text</key>
+          <string>Remove all docs on your DevDocs workflow</string>
+          <key>withspace</key>
+          <false />
+        </dict>
+        <key>type</key>
+        <string>alfred.workflow.input.keyword</string>
+        <key>uid</key>
+        <string>nuketaskkeyword</string>
+        <key>version</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>config</key>
+        <dict>
+          <key>concurrently</key>
+          <false />
+          <key>escaping</key>
+          <integer>118</integer>
+          <key>script</key>
+          <string>$query = "nuke"; require_once("scripts/conf.php");</string>
+          <key>type</key>
+          <integer>1</integer>
+        </dict>
+        <key>type</key>
+        <string>alfred.workflow.action.script</string>
+        <key>uid</key>
+        <string>nuketask</string>
+        <key>version</key>
+        <integer>0</integer>
+      </dict>
+<?php foreach ($documentations as $doc): ?>
+      <dict>
+        <key>config</key>
+        <dict>
+          <key>argumenttype</key>
+          <integer>1</integer>
+          <key>escaping</key>
+          <integer>118</integer>
+          <key>keyword</key>
+          <string><?= htmlspecialchars($doc->slug) ?></string>
+          <key>queuedelaycustom</key>
+          <integer>1</integer>
+          <key>queuedelayimmediatelyinitially</key>
+          <false />
+          <key>queuedelaymode</key>
+          <integer>0</integer>
+          <key>queuemode</key>
+          <integer>1</integer>
+          <key>runningsubtext</key>
+          <string>Searching for "{query}"</string>
+          <key>script</key>
+          <string>$query = "{query}"; $documentation = '<?= htmlspecialchars($doc->slug) ?>';
+            require_once("scripts/devdocs.php");
+          </string>
+          <key>subtext</key>
+          <string>Search for <?= htmlspecialchars($doc->fullName) ?> "{query}"</string>
+          <key>title</key>
+          <string>DevDocs - <?= htmlspecialchars($doc->fullName) ?></string>
+          <key>type</key>
+          <integer>1</integer>
+          <key>withspace</key>
+          <true />
+        </dict>
+        <key>type</key>
+        <string>alfred.workflow.input.scriptfilter</string>
+        <key>uid</key>
+        <string><?= htmlspecialchars($doc->slug) ?></string>
+        <key>version</key>
+        <integer>0</integer>
+      </dict>
+<?php endforeach; ?>
+<?php foreach ($aliases as $docName => $docAliases): ?>
+<?php foreach ($docAliases as $alias): ?>
+      <dict>
+        <key>config</key>
+        <dict>
+          <key>argumenttype</key>
+          <integer>1</integer>
+          <key>escaping</key>
+          <integer>118</integer>
+          <key>keyword</key>
+          <string><?= htmlspecialchars($alias) ?></string>
+          <key>queuedelaycustom</key>
+          <integer>1</integer>
+          <key>queuedelayimmediatelyinitially</key>
+          <false />
+          <key>queuedelaymode</key>
+          <integer>0</integer>
+          <key>queuemode</key>
+          <integer>1</integer>
+          <key>runningsubtext</key>
+          <string>Searching for "{query}"</string>
+          <key>script</key>
+          <string>$query = "{query}"; $documentation = '<?= htmlspecialchars($docName) ?>';
+            require_once("scripts/devdocs.php");
+          </string>
+          <key>subtext</key>
+          <string>Search for <?= htmlspecialchars($documentations[$docName]->fullName) ?> "{query}"</string>
+          <key>title</key>
+          <string>DevDocs - <?= htmlspecialchars($documentations[$docName]->fullName) ?></string>
+          <key>type</key>
+          <integer>1</integer>
+          <key>withspace</key>
+          <true />
+        </dict>
+        <key>type</key>
+        <string>alfred.workflow.input.scriptfilter</string>
+        <key>uid</key>
+        <string><?= htmlspecialchars($docName) ?></string>
+        <key>version</key>
+        <integer>0</integer>
+      </dict>
+<?php endforeach; ?>
+<?php endforeach; ?>
+      <dict>
+        <key>config</key>
+        <dict>
+          <key>plusspaces</key>
+          <false />
+          <key>url</key>
+          <string>{query}</string>
+          <key>utf8</key>
+          <true />
+        </dict>
+        <key>type</key>
+        <string>alfred.workflow.action.openurl</string>
+        <key>uid</key>
+        <string>output</string>
+        <key>version</key>
+        <integer>0</integer>
+      </dict>
+    </array>
+    <key>uidata</key>
+    <dict>
+      <key>addalltask</key>
+      <dict>
+        <key>ypos</key>
+        <real>510</real>
+      </dict>
+      <key>addalltaskkeyword</key>
+      <dict>
+        <key>ypos</key>
+        <real>510</real>
+      </dict>
+      <key>addtask</key>
+      <dict>
+        <key>ypos</key>
+        <real>110</real>
+      </dict>
+      <key>aliastask</key>
+      <dict>
+        <key>ypos</key>
+        <real>710</real>
+      </dict>
+      <key>unaliastask</key>
+      <dict>
+        <key>ypos</key>
+        <real>810</real>
+      </dict>
+      <key>doc</key>
+      <dict>
+        <key>ypos</key>
+        <real>10</real>
+      </dict>
+      <key>dotaskbasedoncommand</key>
+      <dict>
+        <key>ypos</key>
+        <real>110</real>
+      </dict>
+      <key>listtask</key>
+      <dict>
+        <key>ypos</key>
+        <real>410</real>
+      </dict>
+      <key>nuketask</key>
+      <dict>
+        <key>ypos</key>
+        <real>610</real>
+      </dict>
+      <key>nuketaskkeyword</key>
+      <dict>
+        <key>ypos</key>
+        <real>610</real>
+      </dict>
+      <key>output</key>
+      <dict>
+        <key>ypos</key>
+        <real>10</real>
+      </dict>
+      <key>refreshtask</key>
+      <dict>
+        <key>ypos</key>
+        <real>310</real>
+      </dict>
+      <key>removetask</key>
+      <dict>
+        <key>ypos</key>
+        <real>210</real>
+      </dict>
+      <key>shownotificationwhencomplete</key>
+      <dict>
+        <key>ypos</key>
+        <real>10</real>
+      </dict>
+<?php $i = 1 ?>
+<?php foreach ($documentations as $doc): ?>
+      <key><?= htmlspecialchars($doc->slug) ?></key>
+      <dict>
+        <key>ypos</key>
+        <real><?= ($i++ * 110) + 820 ?></real>
+      </dict>
+<?php endforeach; ?>
+<?php foreach ($aliases as $docName => $docAliases): ?>
+<?php foreach ($docAliases as $alias): ?>
+      <key><?= htmlspecialchars($alias) ?></key>
+      <dict>
+        <key>ypos</key>
+        <real><?= ($i++ * 110) + 920 ?></real>
+      </dict>
+<?php endforeach; ?>
+<?php endforeach; ?>
+    </dict>
+    <key>webaddress</key>
+    <string>https://github.com/yannickglt/alfred-devdocs</string>
+  </dict>
+</plist>

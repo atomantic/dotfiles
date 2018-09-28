@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.alfredapp.moul.gauth</string>
+	<key>connections</key>
+	<dict>
+		<key>3859F17F-F608-473F-B690-DDAB90827E02</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>0C69FA9F-6875-40F5-ADFB-CD20428410A0</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>7BEE3C7D-A99B-42F8-BCB9-BC625434942E</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>8D4FBD76-2AC8-4B24-A980-15CEA567F80A</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>7DD3BDE5-A157-42E5-9376-F681FB50A4EE</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>D2D03A99-8E4B-4042-896C-4126662B8CD4</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>C7915157-5379-4CCC-9076-D0918BB66AB0</string>
+				<key>modifiers</key>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string>Copy {query} to Clipboard</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>3859F17F-F608-473F-B690-DDAB90827E02</string>
+				<key>modifiers</key>
+				<integer>524288</integer>
+				<key>modifiersubtext</key>
+				<string>Large Type {query}</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>8D4FBD76-2AC8-4B24-A980-15CEA567F80A</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>EBE66B7E-A102-4C7D-8E1E-FFC0D86ADF1F</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>C7915157-5379-4CCC-9076-D0918BB66AB0</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>C74DB286-B179-49BB-947D-91B3706ADB20</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>D28AB140-ED93-4395-AD40-4A240B9BDD8D</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>D2D03A99-8E4B-4042-896C-4126662B8CD4</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>1086994E-3BDA-4202-8551-27D286CC5E7A</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>9C87E9F8-DFE4-4A19-AE02-F468FE5DA32B</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Manfred Touron</string>
+	<key>description</key>
+	<string>Google Authenticator Workflow</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Google Authenticator</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<true/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+				<key>transient</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>1086994E-3BDA-4202-8551-27D286CC5E7A</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>127</integer>
+				<key>script</key>
+				<string>printf "{query}"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>D2D03A99-8E4B-4042-896C-4126662B8CD4</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<true/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>Verification code ({query}) has been wrote at the Cursor</string>
+				<key>title</key>
+				<string>Google Authenticator</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>9C87E9F8-DFE4-4A19-AE02-F468FE5DA32B</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<true/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>Verification code ({query}) has been copied to the clipboard</string>
+				<key>title</key>
+				<string>Google Authenticator</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>C74DB286-B179-49BB-947D-91B3706ADB20</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>127</integer>
+				<key>script</key>
+				<string>printf "{query}"
+</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>C7915157-5379-4CCC-9076-D0918BB66AB0</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>63</integer>
+				<key>keyword</key>
+				<string>gauth</string>
+				<key>queuedelaycustom</key>
+				<integer>1</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Please wait...</string>
+				<key>script</key>
+				<string>python gauth.py list "{query}"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Account</string>
+				<key>title</key>
+				<string>Google Authenticator</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>7DD3BDE5-A157-42E5-9376-F681FB50A4EE</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+				<key>transient</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>D28AB140-ED93-4395-AD40-4A240B9BDD8D</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>largetypetext</key>
+				<string></string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.largetype</string>
+			<key>uid</key>
+			<string>0C69FA9F-6875-40F5-ADFB-CD20428410A0</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>127</integer>
+				<key>script</key>
+				<string>echo "{query}"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>3859F17F-F608-473F-B690-DDAB90827E02</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>gauth add</string>
+				<key>subtext</key>
+				<string>Account name, secret</string>
+				<key>text</key>
+				<string>Add a new secret</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>7BEE3C7D-A99B-42F8-BCB9-BC625434942E</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>127</integer>
+				<key>script</key>
+				<string>python gauth.py add "{query}"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>8D4FBD76-2AC8-4B24-A980-15CEA567F80A</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>Google Authenticator</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>EBE66B7E-A102-4C7D-8E1E-FFC0D86ADF1F</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string>Description
+———————————
+Equivalent of the mobile versions of Google Authenticator: https://itunes.apple.com/en/app/google-authenticator/id388497605?mt=8.
+ 
+System Modifications
+————————————————————
+Create a ~/.gauth file with your secrets, ie:
+[google - bob@gmail.com]
+secret = xxxxxxxxxxxxxxxxxx
+
+[evernote - robert]
+secret = yyyyyyyyyyyyyyyyyy
+Source Code: Github
+https://github.com/m...-workflow-gauth
+ 
+Links
+—————
+- Packal: http://www.packal.org/workflow/gauth-google-authenticator
+- Direct Download: https://github.com/packal/repository/raw/master/com.alfredapp.moul.gauth/google_authenticator.alfredworkflow
+- Official Forum Post: http://www.alfredforum.com/topic/4062-gauth-google-authenticator-time-based-two-factor-authentication/
+- Github: https://github.com/moul/alfred-workflow-gauth/
+ 
+Acknowledgments
+——————————————-
+- Original alarm clock icon
+  - Alex Auda Samora from The Noun Project
+  - Licensed under Creative Commons Attribution
+- Status &amp; signs icons
+  - Hereldar Terkenya
+  - Licensed under a Creative Commons Attribution-Share Alike 3.0 License
+- Original source code
+  - Manfred Touron
+- Serial contributor
+  - Gilberto Olimpio</string>
+	<key>uidata</key>
+	<dict>
+		<key>0C69FA9F-6875-40F5-ADFB-CD20428410A0</key>
+		<dict>
+			<key>xpos</key>
+			<integer>700</integer>
+			<key>ypos</key>
+			<real>650</real>
+		</dict>
+		<key>1086994E-3BDA-4202-8551-27D286CC5E7A</key>
+		<dict>
+			<key>xpos</key>
+			<integer>700</integer>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>3859F17F-F608-473F-B690-DDAB90827E02</key>
+		<dict>
+			<key>xpos</key>
+			<integer>500</integer>
+			<key>ypos</key>
+			<real>650</real>
+		</dict>
+		<key>7BEE3C7D-A99B-42F8-BCB9-BC625434942E</key>
+		<dict>
+			<key>xpos</key>
+			<integer>280</integer>
+			<key>ypos</key>
+			<integer>760</integer>
+		</dict>
+		<key>7DD3BDE5-A157-42E5-9376-F681FB50A4EE</key>
+		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
+			<key>ypos</key>
+			<real>400</real>
+		</dict>
+		<key>8D4FBD76-2AC8-4B24-A980-15CEA567F80A</key>
+		<dict>
+			<key>xpos</key>
+			<integer>500</integer>
+			<key>ypos</key>
+			<real>770</real>
+		</dict>
+		<key>9C87E9F8-DFE4-4A19-AE02-F468FE5DA32B</key>
+		<dict>
+			<key>xpos</key>
+			<integer>700</integer>
+			<key>ypos</key>
+			<real>150</real>
+		</dict>
+		<key>C74DB286-B179-49BB-947D-91B3706ADB20</key>
+		<dict>
+			<key>xpos</key>
+			<integer>700</integer>
+			<key>ypos</key>
+			<real>330</real>
+		</dict>
+		<key>C7915157-5379-4CCC-9076-D0918BB66AB0</key>
+		<dict>
+			<key>xpos</key>
+			<integer>500</integer>
+			<key>ypos</key>
+			<real>400</real>
+		</dict>
+		<key>D28AB140-ED93-4395-AD40-4A240B9BDD8D</key>
+		<dict>
+			<key>xpos</key>
+			<integer>700</integer>
+			<key>ypos</key>
+			<real>470</real>
+		</dict>
+		<key>D2D03A99-8E4B-4042-896C-4126662B8CD4</key>
+		<dict>
+			<key>xpos</key>
+			<integer>500</integer>
+			<key>ypos</key>
+			<real>80</real>
+		</dict>
+		<key>EBE66B7E-A102-4C7D-8E1E-FFC0D86ADF1F</key>
+		<dict>
+			<key>xpos</key>
+			<integer>700</integer>
+			<key>ypos</key>
+			<real>770</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string>https://github.com/moul/alfred-workflow-gauth</string>
+</dict>
+</plist>

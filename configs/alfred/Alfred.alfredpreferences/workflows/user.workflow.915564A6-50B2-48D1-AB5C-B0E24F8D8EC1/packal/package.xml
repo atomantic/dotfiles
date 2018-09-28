@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<workflow>
+  <name>Packal Workflow Search</name>
+  <version>1.3</version>
+  <bundle>net.deanishe.alfred-packal-search</bundle>
+  <updated>1433943614</updated>
+  <file>packal-search-1.3.alfredworkflow</file>
+</workflow>

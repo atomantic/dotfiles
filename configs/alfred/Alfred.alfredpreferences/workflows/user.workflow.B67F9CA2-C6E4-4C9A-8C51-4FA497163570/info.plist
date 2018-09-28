@@ -1,0 +1,1317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.stuartryan.alfred.lastpass</string>
+	<key>connections</key>
+	<dict>
+		<key>01DFFE0F-13AB-4E19-AC39-8E2177548224</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>D21298B3-763D-48F9-A804-C3B06D3B70E7</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>09AC0796-377F-4D73-87DC-B1164AC85A95</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>D71065D5-E20E-435B-A76B-9C351D59165F</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>102D0B94-B4FC-4450-9B5B-9D76AA0FF12C</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>8820573B-DB5E-4B65-9178-3DD86CF620CC</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>149C4CF2-82AE-4F6C-8D1D-726438E36F75</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>1B629A30-41FB-400F-89DC-8B35990D0F84</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>201D2F2C-024E-4FA6-8B0C-CF32974E5077</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>8C058736-CA55-492F-B2EC-8715A0266564</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>29656ADA-02CB-48FC-BC0E-20376CF8D8EF</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>D21298B3-763D-48F9-A804-C3B06D3B70E7</string>
+				<key>modifiers</key>
+				<integer>262144</integer>
+				<key>modifiersubtext</key>
+				<string>Login to LastPass Vault</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>5811419C-5D78-450A-8F28-46CC209BF760</string>
+				<key>modifiers</key>
+				<integer>131072</integer>
+				<key>modifiersubtext</key>
+				<string>Copy Username</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>D049EE1A-03D1-4BDF-8920-EE8667E7365C</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>A2718C33-DE84-4E0F-8A09-37DA3C9E8732</string>
+				<key>modifiers</key>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string>Logout of Lastpass</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>56D8A615-388A-490E-AA3E-34935634080F</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>149C4CF2-82AE-4F6C-8D1D-726438E36F75</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>5811419C-5D78-450A-8F28-46CC209BF760</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>815177FB-CED1-42F3-AC5B-C1AC60735FA1</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>58BA8F4E-3368-453A-9490-DBE7FE60328C</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>01DFFE0F-13AB-4E19-AC39-8E2177548224</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>59F80385-2185-4AB0-BE88-A49588D5F66B</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>102D0B94-B4FC-4450-9B5B-9D76AA0FF12C</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>815177FB-CED1-42F3-AC5B-C1AC60735FA1</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>8F65DC4B-ED8E-4EE0-A6E0-14C1F0CDF3A4</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>C2D0FB11-55FC-4FD2-B32A-9923121F0321</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>A2718C33-DE84-4E0F-8A09-37DA3C9E8732</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>D049EE1A-03D1-4BDF-8920-EE8667E7365C</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>201D2F2C-024E-4FA6-8B0C-CF32974E5077</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>D21298B3-763D-48F9-A804-C3B06D3B70E7</key>
+		<array/>
+		<key>DB22D973-A681-4DE3-A677-6B316CF64CFD</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>C439C78F-0FFF-4CF5-A710-0C1A2224FE73</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>03DAF80B-F889-4506-8550-BC4E1A1A3A48</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>DE8D285B-733F-4B2D-91DA-4613717E2005</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>29656ADA-02CB-48FC-BC0E-20376CF8D8EF</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>FF2D41F7-FB7E-4CCD-B82B-4F66FCC78F37</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>09AC0796-377F-4D73-87DC-B1164AC85A95</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Stuart Ryan</string>
+	<key>description</key>
+	<string></string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>LastPass CLI</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>script</key>
+				<string>--display notification "Please wait... preparing login process..." with title "LastPass Login"
+
+--Kill any previous login process as sometimes they hang or a user may interrupt them, if there are none (which there often are...) we will get an error response which we ignore.
+try
+	do shell script "killall -9 lpass &gt; /dev/null 2&gt;&amp;1"
+end try
+
+try
+	set login_email to do shell script "`perl -e 'use strict; use warnings; my $emailAddress =`security find-generic-password -w -s \"alfred-lastpass-email-address\"`; chomp $emailAddress; print $emailAddress;'`"
+on error
+	display alert "Email address not set" message "It appears that no email address has been set. Please run 'lpsetemail your_email@example.com' and try again." as critical
+	return
+end try
+
+--Try to get a login timeout if a custom one has been set, if not we set to default
+try
+	set login_timeout to do shell script "`perl -e 'use strict; use warnings; my $loginTimeout =`security find-generic-password -w -s \"alfred-lastpass-login-timeout\"`; chomp $loginTimeout; print $loginTimeout;'`"
+on error
+	set login_timeout to 28800
+end try
+
+tell application "Finder"
+	set current_path to container of (path to me) as alias
+end tell
+set current_unix_path to POSIX path of current_path
+
+--set osascript to current_unix_path &amp; "passwordInput.osascript"
+
+set osascript to (system attribute "alfred_preferences") &amp; "/workflows/" &amp; (system attribute "alfred_workflow_uid") &amp; "/passwordInput.osascript"
+
+try
+	do shell script "mkdir \"" &amp; (system attribute "alfred_workflow_data") &amp; "\""
+end try
+
+do shell script "echo \"" &amp; osascript &amp; "\" &gt; \"" &amp; (system attribute "alfred_workflow_data") &amp; "/running_location.txt\""
+
+do shell script "export LPASS_ASKPASS=\"" &amp; osascript &amp; "\""
+do shell script "launchctl setenv LPASS_ASKPASS \"" &amp; osascript &amp; "\""
+
+do shell script "launchctl setenv LPASS_AGENT_TIMEOUT " &amp; login_timeout
+
+tell application "Finder"
+	if exists POSIX file "/usr/bin/lpass" then
+		set lpass_binary to "/usr/bin/lpass"
+	else if exists POSIX file "/usr/local/bin/lpass" then
+		set lpass_binary to "/usr/local/bin/lpass"
+	else if exists POSIX file "/opt/local/bin/lpass" then
+		set lpass_binary to "/opt/local/bin/lpass"
+	end if
+end tell
+
+--improvement required here, test if we actually HAVE an lpass_binary and if not error out
+
+if ("{query}" = "scriptlocationnotset") then
+display notification "Please wait... the alfred search will be presented once login is complete." with title "LastPass Login"
+end if
+
+do shell script "/bin/bash -c '" &amp; "export TERM=\"xterm-256color\" &amp;&amp; export LPASS_ASKPASS=\"" &amp; osascript &amp; "\" &amp;&amp; export LPASS_AGENT_TIMEOUT=" &amp; login_timeout &amp; " &amp;&amp; " &amp; lpass_binary &amp; " login --trust \"" &amp; login_email &amp; "\" &amp;&amp; clear &amp;&amp; " &amp; lpass_binary &amp; " ls --sync=now &gt; /dev/null 2&gt;&amp;1 &amp;&amp; exit 0'"
+
+if ("{query}" = "scriptlocationnotset") then
+tell application "Alfred 3" to search "lp "
+end if</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>6</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>D21298B3-763D-48F9-A804-C3B06D3B70E7</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>0</integer>
+				<key>focusedappvariable</key>
+				<false/>
+				<key>focusedappvariablename</key>
+				<string></string>
+				<key>hotkey</key>
+				<integer>0</integer>
+				<key>hotmod</key>
+				<integer>0</integer>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>58BA8F4E-3368-453A-9490-DBE7FE60328C</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>lplogin</string>
+				<key>subtext</key>
+				<string></string>
+				<key>text</key>
+				<string>Lastpass Login</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>01DFFE0F-13AB-4E19-AC39-8E2177548224</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+				<key>transient</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>815177FB-CED1-42F3-AC5B-C1AC60735FA1</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>script</key>
+				<string>@details=({query});
+
+if ($details[0] eq 'error-noinstall'){
+`open https://github.com/LastPass/lastpass-cli`;
+exit 1;
+} else {
+
+my $lpass_exec;
+foreach my $f (qw@lpass /usr/local/bin/lpass /opt/local/bin/lpass /usr/bin/lpass@) {
+    $lpass_exec = $f
+        if (-x $f);
+}
+
+my $loginTimeout =`security find-generic-password -w -s \"alfred-lastpass-login-timeout\"`; 
+chomp $loginTimeout;
+
+
+open my $file, '&lt;', $ENV{alfred_workflow_data} . "/running_location.txt"; 
+my $firstLine = &lt;$file&gt;; 
+close $file;
+chomp $myFirstLine;
+
+my $results = qx{export LPASS_ASKPASS=\"$firstLine\" &amp;&amp; export LPASS_AGENT_TIMEOUT="$loginTimeout" &amp;&amp; $lpass_exec show --sync=no --username $details[1]};
+chomp $results;
+print $results;
+}</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>4</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>5811419C-5D78-450A-8F28-46CC209BF760</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string></string>
+				<key>title</key>
+				<string>Copied username to clipboard.</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>8F65DC4B-ED8E-4EE0-A6E0-14C1F0CDF3A4</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>126</integer>
+				<key>keyword</key>
+				<string>lp</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>1</integer>
+				<key>queuemode</key>
+				<integer>2</integer>
+				<key>runningsubtext</key>
+				<string>Synchronising and then searching for "{query}". Please wait...</string>
+				<key>script</key>
+				<string>use strict;
+use warnings;
+
+use Env;
+use Capture::Tiny 'capture';
+
+my $search="{query}";
+$search=~ s/\'/\\'/g;
+
+my $loginTimeout =`security find-generic-password -w -s \"alfred-lastpass-login-timeout\"`; 
+chomp $loginTimeout;
+
+open my $file, '&lt;', $ENV{alfred_workflow_data} . "/running_location.txt"; 
+my $firstLine = &lt;$file&gt;; 
+close $file;
+chomp $firstLine;
+
+#if ( length($search) &lt; 3 ) {
+#    exit 0;
+#}
+
+my $loginScriptLocation = `launchctl getenv LPASS_ASKPASS`;
+
+chomp($loginScriptLocation);
+
+#check if getenv LPASS_ASKPASS is not set... if it isn't a login definitely
+#hasn't been completed by the flow and needs to be.
+
+if ($loginScriptLocation eq "")
+{
+print qq{&lt;?xml version="1.0"?&gt;\n&lt;items&gt;\n};
+print qq{&lt;item uid="error-login"&gt;&lt;arg&gt;scriptlocationnotset&lt;/arg&gt;&lt;title&gt;It appears you are not logged in to LastPass.&lt;/title&gt;&lt;subtitle&gt;Please login using the 'lplogin' command or press 'ctrl' + enter to login now.&lt;/subtitle&gt;&lt;icon&gt;icon.png&lt;/icon&gt;&lt;/item&gt;\n};
+
+print "&lt;/items&gt;\n";
+exit 1;
+}
+
+my ($agent, $agentErr, $agentErrCode) = capture {
+  system('ps -ef | grep "lpass \[agent\]" | grep -v grep | grep -v "perl"');
+};
+
+my $lpass_exec;
+foreach my $f (qw@lpass /usr/local/bin/lpass /opt/local/bin/lpass /usr/bin/lpass@) {
+    $lpass_exec = $f
+        if (-x $f);
+}
+
+#add multiple grep statements to deal with multiple words as AWK on OSx
+#does not allow for case insensitive searches
+
+$search=~ s/ /" | grep -i "/g;
+
+my ($results, $err, $errorCode) = capture {
+    system("export LPASS_ASKPASS=\"/dev/null\" &amp;&amp; export LPASS_AGENT_TIMEOUT=\"" . $loginTimeout . "\" &amp;&amp; " . $lpass_exec . ' ls --sync=no | grep -i "' . $search . '"');
+};
+
+print qq{&lt;?xml version="1.0"?&gt;\n&lt;items&gt;\n};
+
+if (($err =~ '^Error.*ogin.*') || ($agentErr ne "" &amp;&amp; $agentErr != 0)){
+print qq{&lt;item uid="error-login"&gt;&lt;arg&gt;'error-login', '$results'&lt;/arg&gt;&lt;title&gt;It appears you are not logged in to LastPass.&lt;/title&gt;&lt;subtitle&gt;Please login using the 'lplogin' command or press 'ctrl' + enter to login now.&lt;/subtitle&gt;&lt;icon&gt;icon.png&lt;/icon&gt;&lt;/item&gt;\n};
+
+print "&lt;/items&gt;\n";
+exit 1;
+} elsif (($err =~ '^Error.*Unable.*retrieve.*askpass.*reply.*')){
+print qq{&lt;item uid="error-login"&gt;&lt;arg&gt;'error-login', '$results'&lt;/arg&gt;&lt;title&gt;It appears you are not logged in to LastPass.&lt;/title&gt;&lt;subtitle&gt;Please login using the 'lplogin' command or press 'ctrl' + enter to login now.&lt;/subtitle&gt;&lt;icon&gt;icon.png&lt;/icon&gt;&lt;/item&gt;\n};
+
+print "&lt;/items&gt;\n";
+exit 1;
+}
+elsif ($errorCode !=0 &amp;&amp; ($err =~ '^.*No such file or directory.*$')){
+print qq{&lt;item uid="error-noinstall"&gt;&lt;arg&gt;'error-noinstall'&lt;/arg&gt;&lt;title&gt;You do not have the Lastpass CLI Installed.&lt;/title&gt;&lt;subtitle&gt;Press enter to be taken to the install instructions.&lt;/subtitle&gt;&lt;icon&gt;icon.png&lt;/icon&gt;&lt;/item&gt;\n};
+
+print "&lt;/items&gt;\n";
+exit 2;
+}elsif ($errorCode !=0 &amp;&amp; $err eq ""){
+print qq{&lt;item uid="error-nonefound"&gt;&lt;arg&gt;'error-nonefound'&lt;/arg&gt;&lt;title&gt;$errorCode : $results : $err No search results matching your query found.&lt;/title&gt;&lt;subtitle&gt;Please try again with a different query.&lt;/subtitle&gt;&lt;icon&gt;icon.png&lt;/icon&gt;&lt;/item&gt;\n};
+
+print "&lt;/items&gt;\n";
+exit 2;
+}else {
+
+my @resultsArray = split /\n/, $results;
+
+foreach my $result (@resultsArray) {
+my $id;
+my $name;
+my $username;
+if ($result =~ '^(.*) +\[id: ([0-9]*)\]'){
+$name = "$1";
+$id = "$2";
+($username, $err, $errorCode) = capture {
+    system("export LPASS_ASKPASS=\"/dev/null\" &amp;&amp; export LPASS_AGENT_TIMEOUT=\"" . $loginTimeout . "\" &amp;&amp; " . $lpass_exec . ' show --username --sync=no ' . $id);
+};
+}
+
+chomp $username;
+
+if ($username eq "")
+{
+  $username = "No username available.";
+} else {
+  $username = "Username: $username";
+}
+
+print qq{&lt;item uid="$id"&gt;&lt;arg&gt;&lt;![CDATA['$name', '$id']]&gt;&lt;/arg&gt;&lt;title&gt;&lt;![CDATA[$name]]&gt;&lt;/title&gt;&lt;subtitle&gt;&lt;![CDATA[$username]]&gt;&lt;/subtitle&gt;&lt;icon&gt;icon.png&lt;/icon&gt;&lt;/item&gt;\n};
+}
+
+print "&lt;/items&gt;\n";
+}
+exit 0;</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Search Lastpass Vault</string>
+				<key>title</key>
+				<string>Search Lastpass Vault</string>
+				<key>type</key>
+				<integer>4</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>29656ADA-02CB-48FC-BC0E-20376CF8D8EF</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>0</integer>
+				<key>focusedappvariable</key>
+				<false/>
+				<key>focusedappvariablename</key>
+				<string></string>
+				<key>hotkey</key>
+				<integer>0</integer>
+				<key>hotmod</key>
+				<integer>0</integer>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>DE8D285B-733F-4B2D-91DA-4613717E2005</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>script</key>
+				<string>use Env;
+
+@details=({query});
+
+if ($details[0] eq 'error-noinstall'){
+`open https://github.com/LastPass/lastpass-cli`;
+exit 0;
+} elsif ($details[0] eq 'error-nonefound'){
+exit 1;
+} else {
+
+my $lpass_exec;
+foreach my $f (qw@lpass /usr/local/bin/lpass /opt/local/bin/lpass /usr/bin/lpass@) {
+    $lpass_exec = $f
+        if (-x $f);
+}
+
+my $loginTimeout =`security find-generic-password -w -s \"alfred-lastpass-login-timeout\"`; 
+chomp $loginTimeout;
+
+open my $file, '&lt;', $ENV{alfred_workflow_data} . "/running_location.txt"; 
+my $firstLine = &lt;$file&gt;; 
+close $file;
+chomp $myFirstLine;
+
+my $results = qx{export LPASS_ASKPASS=\"$firstLine\" &amp;&amp; export LPASS_AGENT_TIMEOUT="$loginTimeout" &amp;&amp; $lpass_exec show --sync=no --password $details[1]};
+chomp $results;
+print $results;
+}</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>4</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>D049EE1A-03D1-4BDF-8920-EE8667E7365C</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>lplogout</string>
+				<key>subtext</key>
+				<string></string>
+				<key>text</key>
+				<string>Lastpass Logout</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>C2D0FB11-55FC-4FD2-B32A-9923121F0321</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+				<key>transient</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>201D2F2C-024E-4FA6-8B0C-CF32974E5077</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string></string>
+				<key>title</key>
+				<string>Copied password to clipboard.</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>8C058736-CA55-492F-B2EC-8715A0266564</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>127</integer>
+				<key>script</key>
+				<string>#!/bin/bash
+for f in lpass /usr/local/bin/lpass /opt/local/bin/lpass /usr/bin/lpass; do
+    if test -x $f; then
+        lpass_exec=$f
+    fi
+done
+$lpass_exec logout --force</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>A2718C33-DE84-4E0F-8A09-37DA3C9E8732</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>lpsync</string>
+				<key>subtext</key>
+				<string>Sync Lastpass Vault</string>
+				<key>text</key>
+				<string>Sync Lastpass Vault</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>FF2D41F7-FB7E-4CCD-B82B-4F66FCC78F37</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>use strict;
+use warnings;
+
+use Capture::Tiny 'capture';
+
+my ($agent, $agentErr, $agentErrCode) = capture {
+  system('ps -ef | grep "lpass \[agent\]" | grep -v grep | grep -v "perl"');
+};
+
+my $lpass_exec;
+foreach my $f (qw@lpass /usr/local/bin/lpass /opt/local/bin/lpass /usr/bin/lpass@) {
+    $lpass_exec = $f
+        if (-x $f);
+}
+
+my ($results, $err, $errorCode) = capture {
+    system($lpass_exec . ' ls --sync=now');
+};
+
+if (($err =~ '^Error.*ogin.*') || ($agentErr ne "" &amp;&amp; $agentErr != 0)){
+print qq{ERROR: Not currently logged into lastpass};
+exit 1;
+} elsif ($errorCode !=0 &amp;&amp; ($err =~ '^.*No such file or directory.*$')){
+print qq{ERROR: Lastpass CLI not installed};
+
+exit 2;
+}
+print qq{Sync completed successfully.};
+exit 0;</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>4</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>09AC0796-377F-4D73-87DC-B1164AC85A95</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>Vault Sync Completed</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>D71065D5-E20E-435B-A76B-9C351D59165F</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>#!/bin/bash
+
+security add-generic-password -a "alfred-lastpass-email-address" -s "alfred-lastpass-email-address" -w "{query}" -C "note" -U
+
+echo "{query}"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>102D0B94-B4FC-4450-9B5B-9D76AA0FF12C</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>lpsetemail</string>
+				<key>subtext</key>
+				<string></string>
+				<key>text</key>
+				<string>Set Lastpass Email Address</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>59F80385-2185-4AB0-BE88-A49588D5F66B</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>Login Email Address Set To:</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>8820573B-DB5E-4B65-9178-3DD86CF620CC</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>Login Timeout Set To:</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>1B629A30-41FB-400F-89DC-8B35990D0F84</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>#!/bin/bash
+
+security add-generic-password -a "alfred-lastpass-login-timeout" -s "alfred-lastpass-login-timeout" -w "{query}" -C "note" -U
+
+echo "{query}"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>149C4CF2-82AE-4F6C-8D1D-726438E36F75</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>lpsettimeout</string>
+				<key>subtext</key>
+				<string></string>
+				<key>text</key>
+				<string>Set Lastpass Login Timeout</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>56D8A615-388A-490E-AA3E-34935634080F</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+				<key>transient</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>C439C78F-0FFF-4CF5-A710-0C1A2224FE73</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>escaping</key>
+				<integer>116</integer>
+				<key>keyword</key>
+				<string>lppg</string>
+				<key>queuedelaycustom</key>
+				<integer>1</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Generating passwords...</string>
+				<key>script</key>
+				<string>python lppg_query.py generate-passwords</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Hit ENTER to generate a number of randomized passwords.</string>
+				<key>title</key>
+				<string>Generate Passwords</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>DB22D973-A681-4DE3-A677-6B316CF64CFD</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>Generated password copied to clipboard.</string>
+				<key>title</key>
+				<string>LastPass Vault Manager</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>03DAF80B-F889-4506-8550-BC4E1A1A3A48</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string>See installation instructions at https://github.com/stuartcryan/lastpass-alfred-workflow
+For support please log a ticket on https://github.com/stuartcryan/lastpass-alfred-workflow
+
+NOTE: This Alfred Workflow is not affiliated in any way with LastPass. The LastPass trademark and logo are owned by LastPass.com. The LastPass logo and product name have been used with permission of the LastPass team.
+
+My thanks go out to LastPass for their awesome product and the new CLI!</string>
+	<key>uidata</key>
+	<dict>
+		<key>01DFFE0F-13AB-4E19-AC39-8E2177548224</key>
+		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
+			<key>ypos</key>
+			<real>160</real>
+		</dict>
+		<key>03DAF80B-F889-4506-8550-BC4E1A1A3A48</key>
+		<dict>
+			<key>xpos</key>
+			<integer>700</integer>
+			<key>ypos</key>
+			<integer>1120</integer>
+		</dict>
+		<key>09AC0796-377F-4D73-87DC-B1164AC85A95</key>
+		<dict>
+			<key>xpos</key>
+			<integer>500</integer>
+			<key>ypos</key>
+			<integer>620</integer>
+		</dict>
+		<key>102D0B94-B4FC-4450-9B5B-9D76AA0FF12C</key>
+		<dict>
+			<key>xpos</key>
+			<integer>500</integer>
+			<key>ypos</key>
+			<integer>760</integer>
+		</dict>
+		<key>149C4CF2-82AE-4F6C-8D1D-726438E36F75</key>
+		<dict>
+			<key>xpos</key>
+			<integer>500</integer>
+			<key>ypos</key>
+			<integer>870</integer>
+		</dict>
+		<key>1B629A30-41FB-400F-89DC-8B35990D0F84</key>
+		<dict>
+			<key>xpos</key>
+			<integer>700</integer>
+			<key>ypos</key>
+			<integer>870</integer>
+		</dict>
+		<key>201D2F2C-024E-4FA6-8B0C-CF32974E5077</key>
+		<dict>
+			<key>xpos</key>
+			<integer>700</integer>
+			<key>ypos</key>
+			<integer>470</integer>
+		</dict>
+		<key>29656ADA-02CB-48FC-BC0E-20376CF8D8EF</key>
+		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
+			<key>ypos</key>
+			<real>320</real>
+		</dict>
+		<key>56D8A615-388A-490E-AA3E-34935634080F</key>
+		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
+			<key>ypos</key>
+			<integer>870</integer>
+		</dict>
+		<key>5811419C-5D78-450A-8F28-46CC209BF760</key>
+		<dict>
+			<key>xpos</key>
+			<integer>500</integer>
+			<key>ypos</key>
+			<real>270</real>
+		</dict>
+		<key>58BA8F4E-3368-453A-9490-DBE7FE60328C</key>
+		<dict>
+			<key>xpos</key>
+			<integer>100</integer>
+			<key>ypos</key>
+			<real>160</real>
+		</dict>
+		<key>59F80385-2185-4AB0-BE88-A49588D5F66B</key>
+		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
+			<key>ypos</key>
+			<integer>760</integer>
+		</dict>
+		<key>815177FB-CED1-42F3-AC5B-C1AC60735FA1</key>
+		<dict>
+			<key>xpos</key>
+			<integer>700</integer>
+			<key>ypos</key>
+			<integer>270</integer>
+		</dict>
+		<key>8820573B-DB5E-4B65-9178-3DD86CF620CC</key>
+		<dict>
+			<key>xpos</key>
+			<integer>700</integer>
+			<key>ypos</key>
+			<integer>760</integer>
+		</dict>
+		<key>8C058736-CA55-492F-B2EC-8715A0266564</key>
+		<dict>
+			<key>xpos</key>
+			<integer>880</integer>
+			<key>ypos</key>
+			<integer>470</integer>
+		</dict>
+		<key>8F65DC4B-ED8E-4EE0-A6E0-14C1F0CDF3A4</key>
+		<dict>
+			<key>xpos</key>
+			<integer>880</integer>
+			<key>ypos</key>
+			<integer>270</integer>
+		</dict>
+		<key>A2718C33-DE84-4E0F-8A09-37DA3C9E8732</key>
+		<dict>
+			<key>xpos</key>
+			<integer>500</integer>
+			<key>ypos</key>
+			<integer>510</integer>
+		</dict>
+		<key>C2D0FB11-55FC-4FD2-B32A-9923121F0321</key>
+		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
+			<key>ypos</key>
+			<integer>450</integer>
+		</dict>
+		<key>C439C78F-0FFF-4CF5-A710-0C1A2224FE73</key>
+		<dict>
+			<key>xpos</key>
+			<integer>700</integer>
+			<key>ypos</key>
+			<integer>1010</integer>
+		</dict>
+		<key>D049EE1A-03D1-4BDF-8920-EE8667E7365C</key>
+		<dict>
+			<key>xpos</key>
+			<integer>500</integer>
+			<key>ypos</key>
+			<integer>390</integer>
+		</dict>
+		<key>D21298B3-763D-48F9-A804-C3B06D3B70E7</key>
+		<dict>
+			<key>xpos</key>
+			<integer>500</integer>
+			<key>ypos</key>
+			<real>160</real>
+		</dict>
+		<key>D71065D5-E20E-435B-A76B-9C351D59165F</key>
+		<dict>
+			<key>xpos</key>
+			<integer>700</integer>
+			<key>ypos</key>
+			<integer>620</integer>
+		</dict>
+		<key>DB22D973-A681-4DE3-A677-6B316CF64CFD</key>
+		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
+			<key>ypos</key>
+			<integer>1050</integer>
+		</dict>
+		<key>DE8D285B-733F-4B2D-91DA-4613717E2005</key>
+		<dict>
+			<key>xpos</key>
+			<integer>100</integer>
+			<key>ypos</key>
+			<real>320</real>
+		</dict>
+		<key>FF2D41F7-FB7E-4CCD-B82B-4F66FCC78F37</key>
+		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
+			<key>ypos</key>
+			<integer>620</integer>
+		</dict>
+	</dict>
+	<key>version</key>
+	<string>1.4.7</string>
+	<key>webaddress</key>
+	<string>http://technicalnotebook.com</string>
+</dict>
+</plist>
