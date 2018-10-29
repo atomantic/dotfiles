@@ -151,6 +151,8 @@ require_brew zsh
 # set zsh as the user login shell
 bot "setting newer homebrew zsh (/usr/local/bin/zsh) as your shell (password required)"
 chsh -s /usr/local/bin/zsh
+# fzf is a fuzzy match file search
+require_brew fzf
 
 # nvm
 require_nvm stable
