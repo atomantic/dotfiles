@@ -205,6 +205,9 @@ if [[ ! -d "./oh-my-zsh/custom/themes/powerlevel9k" ]]; then
   git clone https://github.com/bhilburn/powerlevel9k.git oh-my-zsh/custom/themes/powerlevel9k
 fi
 
+bot "installing fuzzy search tool"
+require_brew fzf
+
 bot "creating symlinks for project dotfiles..."
 pushd homedir > /dev/null 2>&1
 now=$(date +"%Y.%m.%d.%H.%M.%S")
