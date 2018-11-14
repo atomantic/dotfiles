@@ -10,6 +10,7 @@ module.exports = {
     // Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed
     'findutils',
     // 'fortune',
+    'fzf',
     'readline', // ensure gawk gets good readline
     'gawk',
     // http://www.lcdf.org/gifsicle/ (because I'm a gif junky)
