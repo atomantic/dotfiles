@@ -4,7 +4,8 @@
   "description": "atomantic dotfiles for macos",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "preinstall": "npm i -g prettier"
   },
   "private": true,
   "repository": {
@@ -29,6 +30,7 @@
   },
   "homepage": "https://github.com/atomantic/dotfiles#readme",
   "dependencies": {
+    ""
     "inquirer": "1.0.2",
     "node-emoji": "1.3.0"
   }

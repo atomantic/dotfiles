@@ -1,3 +1,12 @@
+# Performance Logging
+#zmodload zsh/datetime
+#setopt PROMPT_SUBST
+#PS4='+$EPOCHREALTIME %N:%i> '
+#logfile=$(mktemp ~/zsh_profile.XXXXXXXX)
+#echo "Logging to $logfile"
+#exec 3>&2 2>$logfile
+#setopt XTRACE
+
 # Path to your oh-my-zsh configuration.
 export ZSH=$HOME/.dotfiles/oh-my-zsh
 # if you want to use this, change your non-ascii font to Droid Sans Mono for Awesome
@@ -37,16 +46,6 @@ source $ZSH/oh-my-zsh.sh
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 
-autoload -U add-zsh-hook
-load-nvmrc() {
-  if [[ -f .nvmrc && -r .nvmrc ]]; then
-    nvm use &> /dev/null
-  elif [[ $(nvm version) != $(nvm version default)  ]]; then
-    nvm use default &> /dev/null
-  fi
-}
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc
 
 # Customize to your needs...
 unsetopt correct
@@ -76,4 +75,29 @@ function fgr {
    fgrep -r -n $@ .
 }
 
-source /usr/local/opt/nvm/nvm.sh
+# NVM autoload stuff below, nvmi function should do this if not make this below into a function. doing it on every load
+# is too slow
+# 
+#source /usr/local/opt/nvm/nvm.sh
+#autoload -U add-zsh-hook
+#load-nvmrc() {
+  #if [[ -f .nvmrc && -r .nvmrc ]]; then
+    #nvm use &> /dev/null
+  #elif [[ $(nvm version) != $(nvm version default)  ]]; then
+    #nvm use default &> /dev/null
+  #fi
+#}
+#add-zsh-hook chpwd load-nvmrc
+#load-nvmrc
+
+nvmi() {
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+}
+
+[[ -n "$NVM_INIT" ]] && nvmi
+
+# Performance Logging
+#unsetopt XTRAC#E
+#exec 2>&3 3>&-
