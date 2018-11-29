@@ -316,14 +316,13 @@ defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool true;ok
 running "Menu bar: hide the Time Machine"
 for domain in ~/Library/Preferences/ByHost/com.apple.systemuiserver.*; do
   defaults write "${domain}" dontAutoLoad -array \
-    "/System/Library/CoreServices/Menu Extras/TimeMachine.menu" \
+    "/System/Library/CoreServices/Menu Extras/TimeMachine.menu"
 done;
 defaults write com.apple.systemuiserver menuExtras -array \
   "/System/Library/CoreServices/Menu Extras/Bluetooth.menu" \
   "/System/Library/CoreServices/Menu Extras/AirPort.menu" \
   "/System/Library/CoreServices/Menu Extras/Battery.menu" \
-  "/System/Library/CoreServices/Menu Extras/Clock.menu"
-ok
+  "/System/Library/CoreServices/Menu Extras/Clock.menu";ok
 
 running "Set highlight color to gold"
 defaults write NSGlobalDomain AppleHighlightColor -string "0.94 0.19 0.54";ok
