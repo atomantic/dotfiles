@@ -233,7 +233,7 @@ popd > /dev/null 2>&1
 bot "Installing vim plugins"
 # cmake is required to compile vim bundle YouCompleteMe
 # require_brew cmake
-vim +PluginInstall +qall > /dev/null 2>&1
+vim +PluginInstall +qall 
 
 bot "installing fonts"
 ./fonts/install.sh
@@ -248,6 +248,8 @@ require_cask font-roboto-mono
 require_cask font-roboto-mono-for-powerline
 require_cask font-source-code-pro
 ok
+o
+echo "dont install vim fonts"
 
 if [[ -d "/Library/Ruby/Gems/2.0.0" ]]; then
   running "Fixing Ruby Gems Directory Permissions"
