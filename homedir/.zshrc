@@ -3,6 +3,7 @@ export ZSH=$HOME/.dotfiles/oh-my-zsh
 # if you want to use this, change your non-ascii font to Droid Sans Mono for Awesome
 # POWERLEVEL9K_MODE='awesome-patched'
 export ZSH_THEME="powerlevel9k/powerlevel9k"
+# export ZSH_THEME="agnoster"
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 # https://github.com/bhilburn/powerlevel9k#customizing-prompt-segments
 # https://github.com/bhilburn/powerlevel9k/wiki/Stylizing-Your-Prompt
@@ -51,7 +52,7 @@ load-nvmrc
 unsetopt correct
 
 # run fortune on new terminal :)
-fortune
+# fortune
 
 # Add Google Cloud /bin to PATH.
 export PATH="$PATH:$HOME/Development/google-cloud-sdk/bin"
