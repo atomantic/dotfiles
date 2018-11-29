@@ -35,7 +35,6 @@ source $ZSH/oh-my-zsh.sh
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-source /usr/local/opt/nvm/nvm.sh
 
 autoload -U add-zsh-hook
 load-nvmrc() {
@@ -53,3 +52,27 @@ unsetopt correct
 
 # run fortune on new terminal :)
 fortune
+
+# Add Google Cloud /bin to PATH.
+export PATH="$PATH:$HOME/Development/google-cloud-sdk/bin"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+# Add Node & NPM
+export PATH="/usr/local/bin/:$PATH"
+
+# Erase when we get vim.obsession installed, also need to install tmux-resurrect
+#vim () {
+#    if [ -f 'Session.vim' ] && [ $# -eq 0 ]; then
+#        command $vim -S Session.vim
+#    else
+#        command $vim "$@"
+#    fi
+#}
+
+function fgr {
+   fgrep -r -n $@ .
+}
+
+source /usr/local/opt/nvm/nvm.sh

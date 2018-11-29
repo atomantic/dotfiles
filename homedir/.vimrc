@@ -25,6 +25,7 @@ call vundle#begin()
 " Keep Plugin commands between vundle#begin/end.
 " let Vundle manage Vundle
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'prettier/vim-prettier'
 " Plugin 'Valloric/YouCompleteMe'
 " Navigation (IDE frame)
 Plugin 'scrooloose/nerdtree'
@@ -75,6 +76,22 @@ filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 "
+
+" Specify a directory for plugins
+" - For Neovim: ~/.local/share/nvim/plugged
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
+
+" post install (yarn install | npm install) then load plugin only for editing supported files
+Plug 'prettier/vim-prettier', {
+    \ 'do': 'npm install',
+    \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss'] }
+
+call plug#end()
+
+
+
+
 " Brief help
 " :PluginList       - lists configured plugins
 " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
@@ -151,9 +168,9 @@ set laststatus=2 " always show the status line
 set ai " autoindent (filetype indenting instead)
 set nosi " smartindent (filetype indenting instead)
 set cindent " do c-style indenting
-set softtabstop=4 " unify
-set shiftwidth=4 " unify
-set tabstop=4 " real tabs should be 4, but they will show with set list on
+set softtabstop=2 " unify
+set shiftwidth=2 " unify
+set tabstop=2 " real tabs should be 4, but they will show with set list on
 set copyindent " but above all -- follow the conventions laid before us
 " wrap lines at 120 chars. 80 is somewhat antiquated with nowadays displays.
 set textwidth=120
@@ -306,3 +323,20 @@ let g:syntastic_pug_checkers = ['jade','pug']
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:sneak#streak = 1
 let g:airline_theme='bubblegum'
+
+"Prettier"
+"
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue Prettier
+
+nnoremap { gT
+nnoremap } gt
+nnoremap + :tabnew<CR>
+let NERDTreeShowHidden=1
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Make default paste more useful
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+vnoremap p "_dP
