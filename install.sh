@@ -248,8 +248,6 @@ require_cask font-roboto-mono
 require_cask font-roboto-mono-for-powerline
 require_cask font-source-code-pro
 ok
-o
-echo "dont install vim fonts"
 
 if [[ -d "/Library/Ruby/Gems/2.0.0" ]]; then
   running "Fixing Ruby Gems Directory Permissions"

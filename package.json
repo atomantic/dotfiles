@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/atomantic/dotfiles#readme",
   "dependencies": {
-    ""
+    "prettier",
     "inquirer": "1.0.2",
     "node-emoji": "1.3.0"
   }
