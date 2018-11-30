@@ -39,6 +39,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-surround'
 Plugin 'dkprice/vim-easygrep'
 Plugin 'editorconfig/editorconfig-vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 " visual undo list
 Plugin 'sjl/gundo.vim'
 " Plugin 'majutsushi/tagbar'
