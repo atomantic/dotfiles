@@ -90,6 +90,8 @@ cd ~/.dotfiles;
 ```
 * When it finishes, open iTerm and press `Command + ,` to open preferences. Under Profiles > Colors, select "Load Presets" and choose the `Solarized Dark Patch` scheme. If it isn't there for some reason, import it from `~/.dotfiles/configs` -- you may also need to select the `Hack` font and check the box for non-ascii font and set to `Roboto Mono For Powerline` (I've had mixed results for automating these settings--love a pull request that improves this)
 * I've also found that you need to reboot before fast key repeat will be enabled
+* Setup moom with the below keyboard configurations
+
 
 > Note: running install.sh is idempotent. You can run it again and again as you add new features or software to the scripts! I'll regularly add new configurations so keep an eye on this repo as it grows and optimizes.
 
@@ -138,7 +140,7 @@ The following will only happen if you agree on the prompt
 - overwrite your /etc/hosts file with a copy from someonewhocares.org (see ./configs/hosts for the file that will be used)
 - replace the system wallpaper with `img/wallpaper.jpg`
 
-## SSD-specific tweaks  
+## SSD-specific tweaks
 - Disable local Time Machine snapshots
 - Disable hibernation (speeds up entering sleep mode)
 - Remove the sleep image file to save disk space
