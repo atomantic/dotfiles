@@ -114,6 +114,7 @@ set ffs=unix,dos,mac " support all three, in this order
 set viminfo+=! " make sure it can save viminfo
 set isk+=_,$,@,%,# " none of these should be word dividers, so make them not be
 set nosol " leave my cursor where it was
+imap ;; <Esc>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Files/Backups/Sessions

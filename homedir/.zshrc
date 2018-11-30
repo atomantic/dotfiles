@@ -39,12 +39,11 @@ export DISABLE_AUTO_TITLE="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.dotfiles/oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(colorize compleat dirpersist autojump git gulp history cp)
+plugins=(colorize compleat dirpersist autojump git gulp history cp zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
 
 
 # Customize to your needs...
@@ -77,7 +76,7 @@ function fgr {
 
 # NVM autoload stuff below, nvmi function should do this if not make this below into a function. doing it on every load
 # is too slow
-# 
+#
 #source /usr/local/opt/nvm/nvm.sh
 #autoload -U add-zsh-hook
 #load-nvmrc() {
