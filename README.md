@@ -92,6 +92,7 @@ cd ~/.dotfiles;
 * I've also found that you need to reboot before fast key repeat will be enabled
 * Setup moom with the below keyboard configurations
 
+![Moom Config](https://raw.githubusercontent.com/the-real-adammork/dotfiles-1/master/img/Screen%20Shot%202018-11-29%20at%204.41.18%20PM.png)
 
 > Note: running install.sh is idempotent. You can run it again and again as you add new features or software to the scripts! I'll regularly add new configurations so keep an eye on this repo as it grows and optimizes.
 
