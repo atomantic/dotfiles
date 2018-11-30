@@ -91,6 +91,7 @@ module.exports = {
     // 'gulp',
     "npm-check-updates",
     "prettyjson",
+    "prettier",
     "trash",
     "vtop"
     // ,'yo'
