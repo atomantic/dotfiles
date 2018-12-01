@@ -77,17 +77,17 @@ function fgr {
 # NVM autoload stuff below, nvmi function should do this if not make this below into a function. doing it on every load
 # is too slow
 #
-#source /usr/local/opt/nvm/nvm.sh
-#autoload -U add-zsh-hook
-#load-nvmrc() {
-  #if [[ -f .nvmrc && -r .nvmrc ]]; then
-    #nvm use &> /dev/null
-  #elif [[ $(nvm version) != $(nvm version default)  ]]; then
-    #nvm use default &> /dev/null
-  #fi
-#}
-#add-zsh-hook chpwd load-nvmrc
-#load-nvmrc
+source /usr/local/opt/nvm/nvm.sh
+autoload -U add-zsh-hook
+load-nvmrc() {
+  if [[ -f .nvmrc && -r .nvmrc ]]; then
+    nvm use &> /dev/null
+  elif [[ $(nvm version) != $(nvm version default)  ]]; then
+    nvm use default &> /dev/null
+  fi
+}
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
 
 nvmi() {
   export NVM_DIR="$HOME/.nvm"
@@ -96,6 +96,8 @@ nvmi() {
 }
 
 [[ -n "$NVM_INIT" ]] && nvmi
+
+HISTFILESIZE=10000000
 
 # Performance Logging
 #unsetopt XTRAC#E
