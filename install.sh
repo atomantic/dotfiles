@@ -233,7 +233,7 @@ popd > /dev/null 2>&1
 bot "Installing vim plugins"
 # cmake is required to compile vim bundle YouCompleteMe
 # require_brew cmake
-vim +PluginInstall +qall 
+vim +PluginInstall +qall
 
 bot "installing fonts"
 ./fonts/install.sh
@@ -295,7 +295,7 @@ ok
 ################################################
 bot "Standard System Changes"
 ################################################
-running "dont boot in verbose mode (not MacOS GUI mode)"
+running "-v boots in verbose mode (not MacOS GUI mode)"
 sudo nvram boot-args="-v";ok
 
 running "allow 'locate' command"
