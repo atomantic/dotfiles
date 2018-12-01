@@ -25,6 +25,8 @@ module.exports = {
     "grep --with-default-names",
     // better, more recent grep
     "homebrew/dupes/grep",
+    // Because gkze says vtop is gross
+    "htop",
     // https://github.com/jkbrzt/httpie
     "httpie",
     // jq is a sort of JSON grep
@@ -46,7 +48,7 @@ module.exports = {
     "vim --with-override-system-vi",
     "watch",
     // Install wget with IRI support
-    "wget --enable-iri"
+    "wget --enable-iri",
   ],
   cask: [
     "3hub",
@@ -78,7 +80,7 @@ module.exports = {
     //'torbrowser',
     "transmission",
     //'visual-studio-code',
-    "vlc"
+    "vlc",
     //'xquartz'
   ],
   gem: [],
@@ -93,7 +95,7 @@ module.exports = {
     "prettyjson",
     "prettier",
     "trash",
-    "vtop"
+    "vtop",
     // ,'yo'
-  ]
+  ],
 };
