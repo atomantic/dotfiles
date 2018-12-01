@@ -90,6 +90,7 @@ cd ~/.dotfiles;
 ```
 * When it finishes, open iTerm and press `Command + ,` to open preferences. Under Profiles > Colors, select "Load Presets" and choose the `Solarized Dark Patch` scheme. If it isn't there for some reason, import it from `~/.dotfiles/configs` -- you may also need to select the `Hack` font and check the box for non-ascii font and set to `Roboto Mono For Powerline` (I've had mixed results for automating these settings--love a pull request that improves this)
 * I've also found that you need to reboot before fast key repeat will be enabled
+* Setup xVim follow directions in the README.
 * Setup moom with the below keyboard configurations
 
 ![Moom Config](https://raw.githubusercontent.com/the-real-adammork/dotfiles-1/master/img/Screen%20Shot%202018-11-29%20at%204.41.18%20PM.png)
