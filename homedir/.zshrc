@@ -61,6 +61,12 @@ export PATH="$PATH:$HOME/.rvm/bin"
 # Add Node & NPM
 export PATH="/usr/local/bin/:$PATH"
 
+# Add python to the path
+export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+
+# Add lib_py to path for helper scripts
+export PATH="$HOME/.dotfiles/lib_py:$PATH"
+
 # Erase when we get vim.obsession installed, also need to install tmux-resurrect
 #vim () {
 #    if [ -f 'Session.vim' ] && [ $# -eq 0 ]; then
@@ -77,17 +83,17 @@ function fgr {
 # NVM autoload stuff below, nvmi function should do this if not make this below into a function. doing it on every load
 # is too slow
 #
-source /usr/local/opt/nvm/nvm.sh
-autoload -U add-zsh-hook
-load-nvmrc() {
-  if [[ -f .nvmrc && -r .nvmrc ]]; then
-    nvm use &> /dev/null
-  elif [[ $(nvm version) != $(nvm version default)  ]]; then
-    nvm use default &> /dev/null
-  fi
-}
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc
+#source /usr/local/opt/nvm/nvm.sh
+#autoload -U add-zsh-hook
+#load-nvmrc() {
+  #if [[ -f .nvmrc && -r .nvmrc ]]; then
+    #nvm use &> /dev/null
+  #elif [[ $(nvm version) != $(nvm version default)  ]]; then
+    #nvm use default &> /dev/null
+  #fi
+#}
+#add-zsh-hook chpwd load-nvmrc
+#load-nvmrc
 
 nvmi() {
   export NVM_DIR="$HOME/.nvm"

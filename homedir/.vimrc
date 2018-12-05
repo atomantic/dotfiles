@@ -29,6 +29,7 @@ Plugin 'prettier/vim-prettier'
 " Plugin 'Valloric/YouCompleteMe'
 " Navigation (IDE frame)
 Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -115,7 +116,7 @@ set ffs=unix,dos,mac " support all three, in this order
 set viminfo+=! " make sure it can save viminfo
 set isk+=_,$,@,%,# " none of these should be word dividers, so make them not be
 set nosol " leave my cursor where it was
-imap ;; <Esc>
+imap ;; <Esc> " map ;; to escape 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Files/Backups/Sessions
@@ -191,6 +192,18 @@ set smartcase " if there are caps, go case-sensitive
 set completeopt=menu,longest,preview " improve the way autocomplete works
 set cursorcolumn " show the current column
 set cursorline
+
+" Minimum 5 lines above or below the cursor
+set scrolloff=5
+
+" Make search results appear in the middle of the screen
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap * *zz
+nnoremap # #zz
+nnoremap g* g*zz
+nnoremap g# g#zz
+
 " hi CursorLine term=underline ctermbg=008 guibg=#493a35
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -320,6 +333,13 @@ let g:syntastic_enable_tslint_checker = 1
 let g:syntastic_typescript_checkers = ['tslint', 'tsc']
 let g:syntastic_enable_pug_checker = 1
 let g:syntastic_pug_checkers = ['jade','pug']
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ctrlP Vim
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:ctrlp_show_hidden = 1
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Other
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

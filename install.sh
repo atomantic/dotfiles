@@ -283,6 +283,26 @@ running "cleanup homebrew"
 brew cleanup > /dev/null 2>&1
 ok
 
+#Break into a sub script for easier adjustments
+bot "configure git to use diff-so-fancy"
+git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
+git config --global color.ui true
+
+# Dialed, use lib_py/colortest to see colors
+git config --global color.diff-highlight.oldNormal    "red bold 16"
+git config --global color.diff-highlight.oldHighlight "203 bold 234"
+git config --global color.diff-highlight.newNormal    "28 bold 16"
+git config --global color.diff-highlight.newHighlight "43 bold 234"
+git config --global color.diff.new        "43 bold 16"
+git config --global color.diff.whitespace "255 bold 240"
+
+# Defaults, change these at some point ?
+git config --global color.diff.meta       "yellow"
+git config --global color.diff.frag       "magenta bold"
+git config --global color.diff.commit     "yellow bold"
+git config --global color.diff.old        "red bold"
+ok
+
 ###############################################################################
 bot "Configuring General System UI/UX..."
 ###############################################################################

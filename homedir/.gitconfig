@@ -11,7 +11,7 @@
 # When false, never. When set to true or auto, use colors only when the output is to the terminal.
 # When more specific variables of color.* are set, they always take precedence over this setting.
 # Defaults to false.
-  ui = auto
+	ui = true
   # diff = auto
   # status = auto
   # branch = auto
@@ -21,10 +21,12 @@
   local = yellow
   remote = green
 [color "diff"]
-  meta = yellow bold
-  frag = magenta bold
-  old = red bold
-  new = green bold
+	meta = yellow
+	frag = magenta bold
+	old = red bold
+	new = 43 bold 16
+	commit = yellow bold
+	whitespace = 255 bold 240
 [color "status"]
   added = yellow
   changed = green
@@ -48,6 +50,7 @@
   # prevent crlf (then you will have to deal with the problem -- dos2unix, etc)
   #safecrlf = true
   editor = vim
+	pager = diff-so-fancy | less --tabs=4 -RFX
   #editor = subl -w
 
 [alias]
@@ -200,3 +203,8 @@
   clean = git-lfs clean %f
   smudge = git-lfs smudge %f
   required = true
+[color "diff-highlight"]
+	oldNormal = red bold 16
+	oldHighlight = 203 bold 234
+	newNormal = 28 bold 16
+	newHighlight = 43 bold 234

@@ -9,6 +9,7 @@ module.exports = {
     // Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
     "coreutils",
     "dos2unix",
+    "diff-so-fancy",
     // Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed
     "findutils",
     // 'fortune',
@@ -17,6 +18,7 @@ module.exports = {
     "gawk",
     // http://www.lcdf.org/gifsicle/ (because I'm a gif junky)
     "gifsicle",
+    "git-extras",
     "gnupg",
     // Install GNU `sed`, overwriting the built-in `sed`
     // so we can do "sed -i 's/foo/bar/' file" instead of "sed -i '' 's/foo/bar/' file"
@@ -37,6 +39,7 @@ module.exports = {
     "moreutils",
     "nmap",
     "openconnect",
+    "python",
     "reattach-to-user-namespace",
     // better/more recent version of screen
     "homebrew/dupes/screen",
