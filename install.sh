@@ -290,9 +290,9 @@ git config --global color.ui true
 
 # Dialed, use lib_py/colortest to see colors
 git config --global color.diff-highlight.oldNormal    "red bold 16"
-git config --global color.diff-highlight.oldHighlight "203 bold 234"
+git config --global color.diff-highlight.oldHighlight "203 bold 16"
 git config --global color.diff-highlight.newNormal    "28 bold 16"
-git config --global color.diff-highlight.newHighlight "43 bold 234"
+git config --global color.diff-highlight.newHighlight "43 bold 16"
 git config --global color.diff.new        "43 bold 16"
 git config --global color.diff.whitespace "255 bold 240"
 

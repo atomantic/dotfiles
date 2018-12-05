@@ -205,6 +205,6 @@
   required = true
 [color "diff-highlight"]
 	oldNormal = red bold 16
-	oldHighlight = 203 bold 234
+	oldHighlight = 203 bold 16
 	newNormal = 28 bold 16
-	newHighlight = 43 bold 234
+	newHighlight = 43 bold 16
