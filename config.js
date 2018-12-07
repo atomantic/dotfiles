@@ -52,6 +52,8 @@ module.exports = {
     "watch",
     // Install wget with IRI support
     "wget --enable-iri",
+    // Need vim from brew to get copy to clipboard, not compiled by default in mac.
+    "vim",
   ],
   cask: [
     "3hub",

@@ -6,11 +6,9 @@ colorscheme solarized
 syntax enable
 let g:solarized_termtrans = 1
 call togglebg#map("<F5>")
-if has('gui_running')
-    set background=light
-else
-    set background=dark
-endif
+
+" Always use light
+set background=light
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vundle
@@ -121,6 +119,7 @@ set pastetoggle=<F10>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Files/Backups/Sessions
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set autoread
 set nobackup
 set nowb
 set noswapfile

@@ -12,6 +12,7 @@ export ZSH=$HOME/.dotfiles/oh-my-zsh
 # if you want to use this, change your non-ascii font to Droid Sans Mono for Awesome
 # POWERLEVEL9K_MODE='awesome-patched'
 export ZSH_THEME="powerlevel9k/powerlevel9k"
+POWERLEVEL9K_COLOR_SCHEME='light'
 # export ZSH_THEME="agnoster"
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 # https://github.com/bhilburn/powerlevel9k#customizing-prompt-segments
@@ -19,7 +20,9 @@ POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir nvm vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status history time)
 # colorcode test
-# for code ({000..255}) print -P -- "$code: %F{$code}This is how your text would look like%f"
+#
+textcolortest() { for code ({000..255}) print -P -- "$code: %F{$code}This is how your text would look like%f"}
+
 POWERLEVEL9K_NVM_FOREGROUND='000'
 POWERLEVEL9K_NVM_BACKGROUND='072'
 POWERLEVEL9K_SHOW_CHANGESET=true
@@ -32,7 +35,7 @@ export CASE_SENSITIVE="true"
 # export DISABLE_AUTO_UPDATE="true"
 
 # disable colors in ls
-# export DISABLE_LS_COLORS="true"
+# export DISABLE_LS_COLORS="false"
 
 # disable autosetting terminal title.
 export DISABLE_AUTO_TITLE="true"
@@ -51,21 +54,6 @@ unsetopt correct
 
 # run fortune on new terminal :)
 # fortune
-
-# Add Google Cloud /bin to PATH.
-export PATH="$PATH:$HOME/Development/google-cloud-sdk/bin"
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-
-# Add Node & NPM
-export PATH="/usr/local/bin/:$PATH"
-
-# Add python to the path
-export PATH="/usr/local/opt/python/libexec/bin:$PATH"
-
-# Add lib_py to path for helper scripts
-export PATH="$HOME/.dotfiles/lib_py:$PATH"
 
 # Erase when we get vim.obsession installed, also need to install tmux-resurrect
 #vim () {

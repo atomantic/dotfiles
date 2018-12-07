@@ -24,7 +24,7 @@
 	meta = yellow
 	frag = magenta bold
 	old = red bold
-	new = 43 bold 16
+	new = 43 bold
 	commit = yellow bold
 	whitespace = 255 bold 240
 [color "status"]
@@ -204,7 +204,7 @@
   smudge = git-lfs smudge %f
   required = true
 [color "diff-highlight"]
-	oldNormal = red bold 16
-	oldHighlight = 203 bold 16
-	newNormal = 28 bold 16
-	newHighlight = 43 bold 16
+	oldNormal = red bold
+	oldHighlight = 203 bold
+	newNormal = 28 bold
+	newHighlight = 43 bold

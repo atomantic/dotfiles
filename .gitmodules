@@ -13,3 +13,6 @@
 [submodule "xVim"]
 	path = xVim
 	url = https://github.com/XVimProject/XVim2.git
+[submodule "tmux-colors-solarized"]
+	path = tmux-colors-solarized
+	url = https://github.com/seebi/tmux-colors-solarized.git

@@ -205,6 +205,8 @@ if [[ ! -d "./oh-my-zsh/custom/themes/powerlevel9k" ]]; then
   git clone https://github.com/bhilburn/powerlevel9k.git oh-my-zsh/custom/themes/powerlevel9k
 fi
 
+
+
 bot "creating symlinks for project dotfiles..."
 pushd homedir > /dev/null 2>&1
 now=$(date +"%Y.%m.%d.%H.%M.%S")
@@ -289,11 +291,11 @@ git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
 git config --global color.ui true
 
 # Dialed, use lib_py/colortest to see colors
-git config --global color.diff-highlight.oldNormal    "red bold 16"
-git config --global color.diff-highlight.oldHighlight "203 bold 16"
-git config --global color.diff-highlight.newNormal    "28 bold 16"
-git config --global color.diff-highlight.newHighlight "43 bold 16"
-git config --global color.diff.new        "43 bold 16"
+  git config --global color.diff-highlight.oldNormal    "red bold"
+  git config --global color.diff-highlight.oldHighlight "203 bold"
+  git config --global color.diff-highlight.newNormal    "28 bold"
+  git config --global color.diff-highlight.newHighlight "43 bold"
+  git config --global color.diff.new        "43 bold"
 git config --global color.diff.whitespace "255 bold 240"
 
 # Defaults, change these at some point ?

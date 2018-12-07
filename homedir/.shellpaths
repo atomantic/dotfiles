@@ -2,9 +2,26 @@
 export PATH=$PATH:.
 #export PATH=$PATH:~/.dotfiles/scripts
 
-#Brew
-export PATH=/usr/local/sbin:$PATH
-export PATH=/usr/local/bin:$PATH
+# Add brew's executables to front of path to override system ones
+#export PATH=/usr/local/sbin:$PATH
+#export PATH=/usr/local/bin:$PATH
+export PATH=$(brew --prefix)/bin:$(brew --prefix)/sbin:$PATH
+
+# Add Google Cloud /bin to PATH.
+export PATH="$PATH:$HOME/Development/google-cloud-sdk/bin"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+# Add Node & NPM DUPLICATE
+#export PATH="/usr/local/bin/:$PATH"
+
+# Add python to the path
+export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+
+# Add lib_py to path for helper scripts
+export PATH="$PATH:$HOME/.dotfiles/lib_py"
+
 
 # GO
 #export PATH=$PATH:/usr/local/opt/go/libexec/bin
