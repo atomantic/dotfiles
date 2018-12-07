@@ -100,6 +100,11 @@ nvmload() {
 
 HISTFILESIZE=10000000
 
+# Add a history repeat search using fzf
+fh() {
+  eval $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//')
+}
+
 # Performance Logging
 #unsetopt XTRAC#E
 #exec 2>&3 3>&-
