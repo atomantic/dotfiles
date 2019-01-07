@@ -56,6 +56,8 @@
   d = diff --color-words
   cam = commit -a -m
   upm = !git fetch upstream && git merge upstream/master
+  # new standard to replace the deprecated git-up gem package:
+  up = pull --rebase --autostash
 
   # least used
   br = branch -a

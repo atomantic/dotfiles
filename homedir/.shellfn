@@ -1,12 +1,6 @@
 #########################################
 # Utility Functions
 
-function bot() {
-  ESC_SEQ="\x1b["
-  echo
-  echo -e "$ESC_SEQ"32;01m\[._.]/$ESC_SEQ"39;49;00m - "$1
-}
-
 # Create a new git repo with one README commit and CD into it
 function gitnr() { mkdir $1; cd $1; git init; touch README; git add README; git commit -mFirst-commit;}
 
@@ -117,7 +111,18 @@ function tre(){
   tree -aC -I '.git|node_modules|bower_components|.DS_Store' --dirsfirst "$@"
 }
 
-## weather seattle
 function weather() {
   curl wttr.in/$1
+}
+function ipinfo(){
+  curl ipinfo.io/$1
+}
+
+# fo [FUZZY PATTERN] - Open the selected file with the default editor
+#   - Bypass fuzzy finder if there's only one match (--select-1)
+#   - Exit if there's no match (--exit-0)
+function fo() {
+  local files
+  IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
+  [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
 }

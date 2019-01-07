@@ -3,6 +3,7 @@ export ZSH=$HOME/.dotfiles/oh-my-zsh
 # if you want to use this, change your non-ascii font to Droid Sans Mono for Awesome
 # POWERLEVEL9K_MODE='awesome-patched'
 export ZSH_THEME="powerlevel9k/powerlevel9k"
+# export ZSH_THEME="agnoster"
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 # https://github.com/bhilburn/powerlevel9k#customizing-prompt-segments
 # https://github.com/bhilburn/powerlevel9k/wiki/Stylizing-Your-Prompt
@@ -39,11 +40,11 @@ source /usr/local/opt/nvm/nvm.sh
 
 autoload -U add-zsh-hook
 load-nvmrc() {
-  if [[ -f .nvmrc && -r .nvmrc ]]; then
-    nvm use &> /dev/null
-  elif [[ $(nvm version) != $(nvm version default)  ]]; then
-    nvm use default &> /dev/null
-  fi
+    if [[ -f .nvmrc && -r .nvmrc ]]; then
+        nvm use &> /dev/null
+    elif [[ $(nvm version) != $(nvm version default)  ]]; then
+        nvm use default &> /dev/null
+    fi
 }
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
