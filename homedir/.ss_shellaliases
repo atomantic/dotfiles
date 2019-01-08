@@ -1,18 +1,24 @@
 # Custom zsh settings
 
 # -------------------------------------------------------------------
+# Directories
+# -------------------------------------------------------------------
+
+# REPOS
+# The directory of git/ github repos
+alias repos="cd ${MYREPOS}"
+
+# -------------------------------------------------------------------
 # Editors
 # -------------------------------------------------------------------
 
-# Emacs - scimax mode
-# The 'emacsh' starts emacs here i.e. active directory
-export emacs="emacs -q -l $MYREPOS/scimax/init.el"
-export emacsh="emacs ."
+# Emacs
+# The 'emacs' starts emacs here i.e. active directory
+alias emacs="emacs --debug-init ."
 
 # Rstudio
-# The 'rstudioh' starts rstudio here i.e. active directory
-export rstudio="open -a /Applications/RStudio.app"
-export rstudioh="open -a /Applications/RStudio.app ."
+# The 'rstudio' starts rstudio here i.e. active directory
+alias rstudio="open -a /Applications/RStudio.app ."
 
 # -------------------------------------------------------------------
 # Source: https://gist.github.com/zanshin/1142739

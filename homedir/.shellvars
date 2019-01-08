@@ -1,6 +1,6 @@
 # Set vim as default editor (vi is the default otherwise)
-export EDITOR="vim"
-bindkey -v
+export EDITOR="emacs"
+#bindkey -v
 
 #########################################################################
 # Temporary aliases useful for demos, other current projects
