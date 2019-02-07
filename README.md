@@ -385,7 +385,15 @@ Please refer to the [Contributor Covenant](https://github.com/atomantic/dotfiles
 1. Loathing should be directed into pull requests that make it better. woot.
 2. Bugs with the setup should be put as GitHub issues.
 3. Mehs should be > /dev/null
-4. Praise should be directed to ![@antic](https://img.shields.io/twitter/follow/antic.svg?style=social&label=@antic)
+4. Praise should be directed to [![@antic](https://img.shields.io/twitter/follow/antic.svg?style=social&label=@antic)](https://twitter.com/antic)
+
+# Tips Accepted
+⚡ Lightning Network Satoshi Tips Accepted https://tippin.me/@antic
+> With the advent of Bitcoin Lightning Network, you can tip me as little as 1 satoshi (.00000001 $BTC). 1000 satoshi is about $.04 as of this writing. Any amount is appreciated and playing with Lightning will help you learn about the future of the internet! :)
+
+Don't have Lightning? 
+- [Blue Wallet (for iOS and Android)](https://bluewallet.io/)
+- [Eclair Wallet (for Android)](https://play.google.com/store/apps/details?id=fr.acinq.eclair.wallet.mainnet2)
 
 
 # ¯\\_(ツ)_/¯ Warning / Liability
