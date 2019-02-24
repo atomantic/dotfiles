@@ -1,9 +1,9 @@
 [user]
-  name = GITHUBFULLNAME
-  email = GITHUBEMAIL
+  name = Bill 
+  email = bill@bcorrigan
 [github]
   # https://github.com/blog/180-local-github-config
-  user = GITHUBUSER
+  user = wcorriga
 [color]
 # ui = true is a superset of all the more specific color options
 #  as documented at http://book.git-scm.com/5_customizing_git.html
