@@ -1,4 +1,5 @@
 # \\[._.]/ - Hi, I'm the MacOS bot
+02/24/2019: Bill started using this for dotfiles management.
 
 I will update your MacOS machine with Better™ system defaults, preferences, software configuration and even auto-install some handy development tools and apps that my developer friends find helpful.
 
@@ -136,7 +137,7 @@ The following will only happen if you agree on the prompt
 - overwrite your /etc/hosts file with a copy from someonewhocares.org (see ./configs/hosts for the file that will be used)
 - replace the system wallpaper with `img/wallpaper.jpg`
 
-## SSD-specific tweaks  
+## SSD-specific tweaks
 - Disable local Time Machine snapshots
 - Disable hibernation (speeds up entering sleep mode)
 - Remove the sleep image file to save disk space
@@ -391,7 +392,7 @@ Please refer to the [Contributor Covenant](https://github.com/atomantic/dotfiles
 ⚡ Lightning Network Satoshi Tips Accepted https://tippin.me/@antic
 > With the advent of Bitcoin Lightning Network, you can tip me as little as 1 satoshi (.00000001 $BTC). 1000 satoshi is about $.04 as of this writing. Any amount is appreciated and playing with Lightning will help you learn about the future of the internet! :)
 
-Don't have Lightning? 
+Don't have Lightning?
 - [Blue Wallet (for iOS and Android)](https://bluewallet.io/)
 - [Eclair Wallet (for Android)](https://play.google.com/store/apps/details?id=fr.acinq.eclair.wallet.mainnet2)
 
