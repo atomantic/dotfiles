@@ -30,8 +30,9 @@ export DISABLE_AUTO_TITLE="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.dotfiles/oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-# (colorize compleat dirpersist autojump git gulp history cp)
-plugins=(colorize compleat dirpersist autojump git gulp history cp colored-man-pages)
+# plugins=(colorize compleat dirpersist autojump git gulp history cp) original atomantic/dotfiles 
+# adding some from https://sourabhbajaj.com/mac-setup/iTerm/zsh.html
+plugins=(colorize compleat dirpersist autojump git gulp history cp colored-man-pages pip python brew)
 
 source $ZSH/oh-my-zsh.sh
 
