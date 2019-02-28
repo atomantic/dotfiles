@@ -793,6 +793,10 @@ defaults write com.apple.dock showhidden -bool true;ok
 running "Make Dock more transparent"
 defaults write com.apple.dock hide-mirror -bool true;ok
 
+# adding stuff from https://sourabhbajaj.com/mac-setup/SystemPreferences/
+# Remove workspace auto-switching
+defaults write com.apple.dock workspaces-auto-swoosh -bool NO
+
 running "Reset Launchpad, but keep the desktop wallpaper intact"
 find "${HOME}/Library/Application Support/Dock" -name "*-*.db" -maxdepth 1 -delete;ok
 
