@@ -32,7 +32,8 @@ export DISABLE_AUTO_TITLE="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # plugins=(colorize compleat dirpersist autojump git gulp history cp) original atomantic/dotfiles 
 # adding some from https://sourabhbajaj.com/mac-setup/iTerm/zsh.html
-plugins=(colorize compleat dirpersist autojump git gulp history cp colored-man-pages pip python brew)
+#zsh-syntax-highlighting has to be the last one in the list
+plugins=(colorize compleat dirpersist autojump git gulp history cp colored-man-pages pip python brew zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
