@@ -57,7 +57,7 @@ module.exports = {
     //'diffmerge',
     'docker', // docker for mac
     'dropbox',
-    'evernote',
+    // 'evernote',
     'flux',
     'gpg-suite',
     //'ireadfast',
@@ -73,7 +73,7 @@ module.exports = {
     'the-unarchiver',
     //'torbrowser',
     'transmission',
-    'visual-studio-code',
+    // 'visual-studio-code',
     'vlc',
     'xquartz'
   ],
