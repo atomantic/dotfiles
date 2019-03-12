@@ -124,9 +124,11 @@ if [[ "$MD5_NEWWP" != "$MD5_OLDWP" ]]; then
     ok
   else
     running "Set a custom wallpaper image"
-    # `DefaultDesktop.jpg` is already a symlink, and
-    # all wallpapers are in `/Library/Desktop Pictures/`. The default is `Wave.jpg`.
-    rm -rf ~/Library/Application Support/Dock/desktoppicture.db
+    # rm -rf ~/Library/Application Support/Dock/desktoppicture.db
+    sudo cp /System/Library/CoreServices/DefaultDesktop.jpg img/DefaultDesktop.jpg > /dev/null 2>&1
+    sudo cp /Library/Desktop\ Pictures/El\ Capitan.jpg img/El\ Capitan.jpg > /dev/null 2>&1
+    sudo cp /Library/Desktop\ Pictures/Sierra.jpg img/Sierra.jpg > /dev/null 2>&1
+    sudo cp /Library/Desktop\ Pictures/Sierra\ 2.jpg img/Sierra\ 2.jpg > /dev/null 2>&1
     sudo rm -f /System/Library/CoreServices/DefaultDesktop.jpg > /dev/null 2>&1
     sudo rm -f /Library/Desktop\ Pictures/El\ Capitan.jpg > /dev/null 2>&1
     sudo rm -f /Library/Desktop\ Pictures/Sierra.jpg > /dev/null 2>&1
@@ -209,7 +211,7 @@ bot "creating symlinks for project dotfiles..."
 pushd homedir > /dev/null 2>&1
 now=$(date +"%Y.%m.%d.%H.%M.%S")
 
-for file in .*; do
+for f in .dotfiles/homedir/.*; do
   if [[ $file == "." || $file == ".." ]]; then
     continue
   fi
@@ -249,11 +251,11 @@ require_cask font-roboto-mono-for-powerline
 require_cask font-source-code-pro
 ok
 
-if [[ -d "/Library/Ruby/Gems/2.0.0" ]]; then
-  running "Fixing Ruby Gems Directory Permissions"
-  sudo chown -R $(whoami) /Library/Ruby/Gems/2.0.0
-  ok
-fi
+# if [[ -d "/Library/Ruby/Gems/2.0.0" ]]; then
+#   running "Fixing Ruby Gems Directory Permissions"
+#   sudo chown -R $(whoami) /Library/Ruby/Gems/2.0.0
+#   ok
+# fi
 
 # node version manager
 require_brew nvm

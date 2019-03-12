@@ -32,7 +32,12 @@ inquirer.prompt([{
     }
   }
 
-  ['brew', 'cask', 'npm', 'gem'].forEach( type => {
+  [
+    'brew'
+    ,'cask'
+    ,'npm'
+    // ,'gem'
+  ].forEach( type => {
     if(config[type] && config[type].length){
       console.info(emoji.get('coffee'), ' installing '+type+' packages')
       config[type].map(function(item){
@@ -45,3 +50,4 @@ inquirer.prompt([{
   })
 
 })
+
