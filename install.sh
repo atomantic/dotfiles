@@ -211,7 +211,7 @@ bot "creating symlinks for project dotfiles..."
 pushd homedir > /dev/null 2>&1
 now=$(date +"%Y.%m.%d.%H.%M.%S")
 
-for f in .dotfiles/homedir/.*; do
+for file in .*; do
   if [[ $file == "." || $file == ".." ]]; then
     continue
   fi
