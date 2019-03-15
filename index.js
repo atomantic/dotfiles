@@ -10,6 +10,11 @@ inquirer.prompt([{
   name: 'gitshots',
   message: 'Do you want to use gitshots?',
   default: false
+},{
+  type: 'confirm',
+  name: 'packages',
+  message: 'Do you want to install packages from config.js?',
+  default: false
 }]).then(function (answers) {
   if(answers.gitshots){
 
@@ -31,6 +36,10 @@ inquirer.prompt([{
         if(err) throw err
       })
     }
+  }
+
+  if(!answers.packages){
+    return console.log('skipping package installs')
   }
 
   const tasks = [];
