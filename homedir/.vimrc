@@ -86,17 +86,29 @@ filetype plugin indent on    " required
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" global enable spell check
+"set spell spelllang=en_us   " spell check go to highlighted word and "z=" to see list to turn off set nospell
+setlocal spell spelllang=en_us
+setlocal spellfile=$HOME/.vim-spell-en.utf-8.add
+autocmd BufRead,BufNewFile *.md,*.txt setlocal spell  " enable spell check for certain files
 " set UTF-8 encoding
 set enc=utf-8
 set fenc=utf-8
 set termencoding=utf-8
 set history=1000 " How many lines of history to remember
 set cf " enable error files and error jumping
-" set clipboard+=unnamed " turns out I do like sharing windows clipboard
 set ffs=unix,dos,mac " support all three, in this order
 set viminfo+=! " make sure it can save viminfo
 set isk+=_,$,@,%,# " none of these should be word dividers, so make them not be
 set nosol " leave my cursor where it was
+" yank to clipboard
+if has("clipboard")
+  set clipboard=unnamed " copy to the system clipboard
+
+  if has("unnamedplus") " X11 support
+    set clipboard+=unnamedplus
+  endif
+endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Files/Backups/Sessions
@@ -286,9 +298,9 @@ vnoremap <silent> <leader>es :EsformatterVisual<CR>
 " more info: https://shapeshed.com/vim-netrw/
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:netrw_banner = 0
-let g:netrw_liststyle = 3
-let g:netrw_browse_split = 2 " open files in new vertical split
-"let g:netrw_browse_split = 4 " open file in previous window
+let g:netrw_liststyle = 3 " tre style directory listing
+"let g:netrw_browse_split = 2 " open files in new vertical split
+let g:netrw_browse_split = 4 " open file in previous window
 let g:netrw_altv = 1
 let g:netrw_winsize = 25 " width of dir explorer
 augroup ProjectDrawer

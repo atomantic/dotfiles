@@ -29,7 +29,8 @@
   },
   "homepage": "https://github.com/atomantic/dotfiles#readme",
   "dependencies": {
-    "inquirer": "1.0.2",
-    "node-emoji": "1.3.0"
+    "async.series": "0.5.2",
+    "inquirer": "6.2.2",
+    "node-emoji": "1.10.0"
   }
 }

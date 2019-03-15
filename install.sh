@@ -11,7 +11,7 @@ source ./lib_sh/requirers.sh
 
 bot "Hi! I'm going to install tooling and tweak your system settings. Here I go..."
 
-# Ask for the administrator password upfront
+# Do we need to ask for sudo password or is it already passwordless?
 if ! sudo grep -q "%wheel		ALL=(ALL) NOPASSWD: ALL #atomantic/dotfiles" "/etc/sudoers"; then
 
   # Ask for the administrator password upfront
@@ -33,7 +33,9 @@ if ! sudo grep -q "%wheel		ALL=(ALL) NOPASSWD: ALL #atomantic/dotfiles" "/etc/su
   fi
 fi
 
-# /etc/hosts
+# ###########################################################
+# /etc/hosts -- spyware/ad blocking
+# ###########################################################
 read -r -p "Overwrite /etc/hosts with the ad-blocking hosts file from someonewhocares.org? (from ./configs/hosts file) [y|N] " response
 if [[ $response =~ (yes|y|Y) ]];then
     action "cp /etc/hosts /etc/hosts.backup"
@@ -43,11 +45,17 @@ if [[ $response =~ (yes|y|Y) ]];then
     sudo cp ./configs/hosts /etc/hosts
     ok
     bot "Your /etc/hosts file has been updated. Last version is saved in /etc/hosts.backup"
+else
+    ok "skipped";
 fi
 
+# ###########################################################
+# Git Config
+# ###########################################################
+bot "OK, now I am going to update the .gitconfig for your user info:"
 grep 'user = GITHUBUSER' ./homedir/.gitconfig > /dev/null 2>&1
 if [[ $? = 0 ]]; then
-    read -r -p "What is your github.com username? " githubuser
+    read -r -p "What is your git username? " githubuser
 
   fullname=`osascript -e "long user name of (system info)"`
 
@@ -64,14 +72,14 @@ if [[ $? = 0 ]]; then
   fi
   email=`dscl . -read /Users/$(whoami)  | grep EMailAddress | sed "s/EMailAddress: //"`
 
-  if [[ ! "$firstname" ]];then
+  if [[ ! "$firstname" ]]; then
     response='n'
   else
     echo -e "I see that your full name is $COL_YELLOW$firstname $lastname$COL_RESET"
     read -r -p "Is this correct? [Y|n] " response
   fi
 
-  if [[ $response =~ ^(no|n|N) ]];then
+  if [[ $response =~ ^(no|n|N) ]]; then
     read -r -p "What is your first name? " firstname
     read -r -p "What is your last name? " lastname
   fi
@@ -79,14 +87,14 @@ if [[ $? = 0 ]]; then
 
   bot "Great $fullname, "
 
-  if [[ ! $email ]];then
+  if [[ ! $email ]]; then
     response='n'
   else
     echo -e "The best I can make out, your email address is $COL_YELLOW$email$COL_RESET"
     read -r -p "Is this correct? [Y|n] " response
   fi
 
-  if [[ $response =~ ^(no|n|N) ]];then
+  if [[ $response =~ ^(no|n|N) ]]; then
     read -r -p "What is your email? " email
     if [[ ! $email ]];then
       error "you must provide an email to configure .gitconfig"
@@ -103,28 +111,29 @@ if [[ $? = 0 ]]; then
   if [[ ${PIPESTATUS[0]} != 0 ]]; then
     echo
     running "looks like you are using MacOS sed rather than gnu-sed, accommodating"
-    sed -i '' "s/GITHUBFULLNAME/$firstname $lastname/" ./homedir/.gitconfig;
-    sed -i '' 's/GITHUBEMAIL/'$email'/' ./homedir/.gitconfig;
-    sed -i '' 's/GITHUBUSER/'$githubuser'/' ./homedir/.gitconfig;
+    sed -i '' "s/GITHUBFULLNAME/$firstname $lastname/" ./homedir/.gitconfig
+    sed -i '' 's/GITHUBEMAIL/'$email'/' ./homedir/.gitconfig
+    sed -i '' 's/GITHUBUSER/'$githubuser'/' ./homedir/.gitconfig
     ok
   else
     echo
     bot "looks like you are already using gnu-sed. woot!"
-    sed -i 's/GITHUBEMAIL/'$email'/' ./homedir/.gitconfig;
-    sed -i 's/GITHUBUSER/'$githubuser'/' ./homedir/.gitconfig;
+    sed -i 's/GITHUBEMAIL/'$email'/' ./homedir/.gitconfig
+    sed -i 's/GITHUBUSER/'$githubuser'/' ./homedir/.gitconfig
   fi
 fi
 
+# ###########################################################
+# Wallpaper
+# ###########################################################
 MD5_NEWWP=$(md5 img/wallpaper.jpg | awk '{print $4}')
 MD5_OLDWP=$(md5 /System/Library/CoreServices/DefaultDesktop.jpg | awk '{print $4}')
 if [[ "$MD5_NEWWP" != "$MD5_OLDWP" ]]; then
-  read -r -p "Do you want to use the project's custom desktop wallpaper? [Y|n] " response
-  if [[ $response =~ ^(no|n|N) ]];then
-    echo "skipping...";
-    ok
-  else
+  read -r -p "Do you want to use the project's custom desktop wallpaper? [y|N] " response
+  if [[ $response =~ (yes|y|Y) ]]; then
     running "Set a custom wallpaper image"
     # rm -rf ~/Library/Application Support/Dock/desktoppicture.db
+    bot "I will backup system wallpapers in ~/.dotfiles/img/"
     sudo cp /System/Library/CoreServices/DefaultDesktop.jpg img/DefaultDesktop.jpg > /dev/null 2>&1
     sudo cp /Library/Desktop\ Pictures/El\ Capitan.jpg img/El\ Capitan.jpg > /dev/null 2>&1
     sudo cp /Library/Desktop\ Pictures/Sierra.jpg img/Sierra.jpg > /dev/null 2>&1
@@ -137,43 +146,50 @@ if [[ "$MD5_NEWWP" != "$MD5_OLDWP" ]]; then
     sudo cp ./img/wallpaper.jpg /Library/Desktop\ Pictures/Sierra.jpg;
     sudo cp ./img/wallpaper.jpg /Library/Desktop\ Pictures/Sierra\ 2.jpg;
     sudo cp ./img/wallpaper.jpg /Library/Desktop\ Pictures/El\ Capitan.jpg;ok
+  else
+    ok "skipped"
   fi
 fi
 
-#####
-# install homebrew (CLI Packages)
-#####
+# ###########################################################
+# Install non-brew various tools (PRE-BREW Installs)
+# ###########################################################
+bot "ensuring build/install tools are available"
+xcode-select --install 2>&1 > /dev/null
+sudo xcode-select -s /Applications/Xcode.app/Contents/Developer 2>&1 > /dev/null
+sudo xcodebuild -license accept 2>&1 > /dev/null
 
-running "checking homebrew install"
+# ###########################################################
+# install homebrew (CLI Packages)
+# ###########################################################
+running "checking homebrew..."
 brew_bin=$(which brew) 2>&1 > /dev/null
 if [[ $? != 0 ]]; then
   action "installing homebrew"
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    if [[ $? != 0 ]]; then
-      error "unable to install homebrew, script $0 abort!"
-      exit 2
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  if [[ $? != 0 ]]; then
+    error "unable to install homebrew, script $0 abort!"
+    exit 2
   fi
 else
   ok
-  # Make sure we’re using the latest Homebrew
-  running "updating homebrew"
-  brew update
-  ok
-  bot "before installing brew packages, we can upgrade any outdated packages."
-  read -r -p "run brew upgrade? [y|N] " response
-  if [[ $response =~ ^(y|yes|Y) ]];then
-      # Upgrade any already-installed formulae
-      action "upgrade brew packages..."
-      brew upgrade
-      ok "brews updated..."
+  bot "Homebrew"
+  read -r -p "run brew update && upgrade? [y|N] " response
+  if [[ $response =~ (y|yes|Y) ]]; then
+    action "updating homebrew..."
+    brew update
+    ok "homebrew updated"
+    action "upgrading brew packages..."
+    brew upgrade
+    ok "brews upgraded"
   else
-      ok "skipped brew package upgrades.";
+    ok "skipped brew package upgrades."
   fi
 fi
 
-#####
+# ###########################################################
 # install brew cask (UI Packages)
-#####
+# ###########################################################
 running "checking brew-cask install"
 output=$(brew tap | grep cask)
 if [[ $? != 0 ]]; then
@@ -185,8 +201,6 @@ ok
 
 # skip those GUI clients, git command-line all the way
 require_brew git
-# need fontconfig to install/build fonts
-require_brew fontconfig
 # update zsh to latest
 require_brew zsh
 # update ruby to latest
@@ -207,49 +221,66 @@ if [[ ! -d "./oh-my-zsh/custom/themes/powerlevel9k" ]]; then
   git clone https://github.com/bhilburn/powerlevel9k.git oh-my-zsh/custom/themes/powerlevel9k
 fi
 
-bot "creating symlinks for project dotfiles..."
-pushd homedir > /dev/null 2>&1
-now=$(date +"%Y.%m.%d.%H.%M.%S")
+bot "Dotfiles Setup"
+read -r -p "symlink ./homedir/* files in ~/ (these are the dotfiles)? [y|N] " response
+if [[ $response =~ (y|yes|Y) ]]; then
+  bot "creating symlinks for project dotfiles..."
+  pushd homedir > /dev/null 2>&1
+  now=$(date +"%Y.%m.%d.%H.%M.%S")
 
-for file in .*; do
-  if [[ $file == "." || $file == ".." ]]; then
-    continue
-  fi
-  running "~/$file"
-  # if the file exists:
-  if [[ -e ~/$file ]]; then
-      mkdir -p ~/.dotfiles_backup/$now
-      mv ~/$file ~/.dotfiles_backup/$now/$file
-      echo "backup saved as ~/.dotfiles_backup/$now/$file"
-  fi
-  # symlink might still exist
-  unlink ~/$file > /dev/null 2>&1
-  # create the link
-  ln -s ~/.dotfiles/homedir/$file ~/$file
-  echo -en '\tlinked';ok
-done
+  for file in .*; do
+    if [[ $file == "." || $file == ".." ]]; then
+      continue
+    fi
+    running "~/$file"
+    # if the file exists:
+    if [[ -e ~/$file ]]; then
+        mkdir -p ~/.dotfiles_backup/$now
+        mv ~/$file ~/.dotfiles_backup/$now/$file
+        echo "backup saved as ~/.dotfiles_backup/$now/$file"
+    fi
+    # symlink might still exist
+    unlink ~/$file > /dev/null 2>&1
+    # create the link
+    ln -s ~/.dotfiles/homedir/$file ~/$file
+    echo -en '\tlinked';ok
+  done
 
-popd > /dev/null 2>&1
+  popd > /dev/null 2>&1
+fi
+
+bot "VIM Setup"
+read -r -p "Do you want to install vim plugins now? [y|N] " response
+if [[ $response =~ (y|yes|Y) ]];then
+  bot "Installing vim plugins"
+  # cmake is required to compile vim bundle YouCompleteMe
+  # require_brew cmake
+  vim +PluginInstall +qall > /dev/null 2>&1
+  ok
+else
+  ok "skipped. Install by running :PluginInstall within vim"
+fi
 
 
-bot "Installing vim plugins"
-# cmake is required to compile vim bundle YouCompleteMe
-# require_brew cmake
-vim +PluginInstall +qall > /dev/null 2>&1
+read -r -p "Install fonts? [y|N] " response
+if [[ $response =~ (y|yes|Y) ]];then
+  bot "installing fonts"
+  # need fontconfig to install/build fonts
+  require_brew fontconfig
+  ./fonts/install.sh
+  brew tap caskroom/fonts
+  require_cask font-fontawesome
+  require_cask font-awesome-terminal-fonts
+  require_cask font-hack
+  require_cask font-inconsolata-dz-for-powerline
+  require_cask font-inconsolata-g-for-powerline
+  require_cask font-inconsolata-for-powerline
+  require_cask font-roboto-mono
+  require_cask font-roboto-mono-for-powerline
+  require_cask font-source-code-pro
+  ok
+fi
 
-bot "installing fonts"
-./fonts/install.sh
-brew tap caskroom/fonts
-require_cask font-fontawesome
-require_cask font-awesome-terminal-fonts
-require_cask font-hack
-require_cask font-inconsolata-dz-for-powerline
-require_cask font-inconsolata-g-for-powerline
-require_cask font-inconsolata-for-powerline
-require_cask font-roboto-mono
-require_cask font-roboto-mono-for-powerline
-require_cask font-source-code-pro
-ok
 
 # if [[ -d "/Library/Ruby/Gems/2.0.0" ]]; then
 #   running "Fixing Ruby Gems Directory Permissions"
@@ -282,8 +313,17 @@ node index.js
 ok
 
 running "cleanup homebrew"
-brew cleanup > /dev/null 2>&1
+brew cleanup --force > /dev/null 2>&1
+rm -f -r /Library/Caches/Homebrew/* > /dev/null 2>&1
 ok
+
+bot "OS Configuration"
+read -r -p "Do you want to update the system configurations? [y|N] " response
+if [[ -z $response || $response =~ ^(n|N) ]]; then
+  open /Applications/iTerm.app
+  bot "All done"
+  exit
+fi 
 
 ###############################################################################
 bot "Configuring General System UI/UX..."
@@ -374,9 +414,6 @@ sudo defaults write /Library/Preferences/com.apple.loginwindow GuestEnabled -boo
 
 # Disable Bonjour multicast advertisements
 #sudo defaults write /Library/Preferences/com.apple.mDNSResponder.plist NoMulticastAdvertisements -bool true
-
-# Disable the crash reporter
-#defaults write com.apple.CrashReporter DialogType -string "none"
 
 # Disable diagnostic reports
 #sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.SubmitDiagInfo.plist
@@ -1040,6 +1077,8 @@ defaults write com.irradiatedsoftware.SizeUp ShowPrefsOnNextStart -bool false;ok
 
 killall cfprefsd
 
+open /Applications/iTerm.app
+
 ###############################################################################
 # Kill affected applications                                                  #
 ###############################################################################
@@ -1051,4 +1090,4 @@ for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
 done
 
 
-bot "Woot! All done. Kill this terminal and launch iTerm"
+bot "Woot! All done"

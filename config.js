@@ -4,7 +4,7 @@ module.exports = {
     'ack',
     'ag',
     // alternative to `cat`: https://github.com/sharkdp/bat
-    'bat', 
+    'bat',
     // Install GNU core utilities (those that come with macOS are outdated)
     // Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
     'coreutils',
@@ -43,7 +43,7 @@ module.exports = {
     'tree',
     'ttyrec',
     // better, more recent vim
-    'vim --with-override-system-vi',
+    'vim --with-client-server --with-override-system-vi',
     'watch',
     // Install wget with IRI support
     'wget --enable-iri'
