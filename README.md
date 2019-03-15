@@ -61,7 +61,7 @@ When I finish with your machine, you will be able to look at your command-line i
 
 Check out how your shell prompt includes the full path, node.js version & the working git branch along with a lot of other info!
 We use powerlevel9k for command prompt, so customization of what you want is easily changable in `./.zshrc`
-The top terminal is using vim + NerdTree as a full Atom replacement IDE.
+The top terminal is using vim as a full replacement IDE.
 The bottom left two are git terminals.
 The bottom right is running `vtop`
 
