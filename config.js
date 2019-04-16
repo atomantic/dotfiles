@@ -11,12 +11,9 @@ module.exports = {
     'dos2unix',
     // Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed
     'findutils',
-    // 'fortune',
     'fzf',
     'readline', // ensure gawk gets good readline
     'gawk',
-    // http://www.lcdf.org/gifsicle/ (because I'm a gif junky)
-    'gifsicle',
     'gnupg',
     // Install GNU `sed`, overwriting the built-in `sed`
     // so we can do "sed -i 's/foo/bar/' file" instead of "sed -i '' 's/foo/bar/' file"
@@ -38,10 +35,8 @@ module.exports = {
     'reattach-to-user-namespace',
     // better/more recent version of screen
     'homebrew/dupes/screen',
-    'tmux',
     'todo-txt',
     'tree',
-    'ttyrec',
     // better, more recent vim
     'vim --with-client-server --with-override-system-vi',
     'watch',
@@ -49,18 +44,11 @@ module.exports = {
     'wget --enable-iri'
   ],
   cask: [
-    //'adium',
-    //'amazon-cloud-drive',
-    //'atom',
-    // 'box-sync',
-    //'comicbooklover',
     //'diffmerge',
-    'docker', // docker for mac
-    //'dropbox',
-    //'evernote',
+    'dropbox',
+    'evernote',
     'flux',
     'gpg-suite',
-    //'ireadfast',
     'iterm2',
     'little-snitch',
     'macbreakz',
@@ -68,28 +56,12 @@ module.exports = {
     'signal',
     //'macvim',
     'sizeup',
-    //'sketchup',
     'slack',
     'the-unarchiver',
-    //'torbrowser',
-    //'transmission',
     'visual-studio-code',
-    //'vlc',
-    'xquartz'
+    'vlc'
   ],
   gem: [
-  ],
-  npm: [
-    'antic',
-    'buzzphrase',
-    'eslint',
-    'instant-markdown-d',
-    // 'generator-dockerize',
-    // 'gulp',
-    'npm-check-updates',
-    'prettyjson',
-    'trash',
-    'vtop'
-    // ,'yo'
+    'cocoapods'
   ]
 };
