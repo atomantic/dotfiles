@@ -6,8 +6,8 @@ export ZSH_THEME="powerlevel9k/powerlevel9k"
 # POWERLEVEL9K_MODE='awesome-patched'
 # export ZSH_THEME="powerlevel9k/powerlevel9k"
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
-POWERLEVEL9K_SHORTEN_FOLDER_MARKER="code.espn.com"
-# POWERLEVEL9K_SHORTEN_STRATEGY="truncate_with_package_name"
+# POWERLEVEL9K_SHORTEN_FOLDER_MARKER="code.espn.com"
+POWERLEVEL9K_SHORTEN_STRATEGY="truncate_with_package_name"
 POWERLEVEL9K_DIR_SHOW_WRITABLE=true
 # https://github.com/bhilburn/powerlevel9k#customizing-prompt-segments
 # https://github.com/bhilburn/powerlevel9k/wiki/Stylizing-Your-Prompt

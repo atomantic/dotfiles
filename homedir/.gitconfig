@@ -1,6 +1,8 @@
 [user]
   name = Trost, Adam
-  email = Adam.W.Trost@espn.com
+  email = Adam.W.Trost@disney.com
+[gitlab]
+  user = Adam.W.Trost
 [github]
   # https://github.com/blog/180-local-github-config
   user = AWTrost
