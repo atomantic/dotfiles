@@ -1,6 +1,6 @@
 [user]
-  name = Will Long
-  email = drmrlong@gmail.com
+	name = Will Long
+	email = drmrlong@gmail.com
 [github]
   # https://github.com/blog/180-local-github-config
   user = drmrlong
@@ -11,7 +11,7 @@
 # When false, never. When set to true or auto, use colors only when the output is to the terminal.
 # When more specific variables of color.* are set, they always take precedence over this setting.
 # Defaults to false.
-  ui = auto
+	ui = auto
   # diff = auto
   # status = auto
   # branch = auto
@@ -155,7 +155,7 @@
 
 [rerere]
   #Enable the recording of resolved conflicts, so that identical hunks can be resolved automatically later on
-  enabled = 1
+	enabled = true
 
 [difftool]
   prompt = false
@@ -175,8 +175,10 @@
   # Always show a diffstat at the end of a merge
   stat = true
   conflictstyle = diff3
+	defaulttoupstream = true
 
 [branch]
+	autosetuprebase = remote
     # Automatically set up pull to be --rebase
     # autosetuprebase = always
 
@@ -188,7 +190,7 @@
   clean = expand -t 4
 
 [push]
-  default = matching
+	default = upstream
 	followTags = true
 
 [filter "media"]
@@ -201,3 +203,5 @@
 	smudge = git-lfs smudge -- %f
   required = true
 	process = git-lfs filter-process
+[rebase]
+	autosquash = true
