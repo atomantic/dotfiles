@@ -268,7 +268,7 @@ if [[ $response =~ (y|yes|Y) ]];then
   # need fontconfig to install/build fonts
   require_brew fontconfig
   ./fonts/install.sh
-  brew tap caskroom/fonts
+  brew tap homebrew/cask-fonts
   require_cask font-fontawesome
   require_cask font-awesome-terminal-fonts
   require_cask font-hack
