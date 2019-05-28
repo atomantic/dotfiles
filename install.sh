@@ -187,18 +187,6 @@ else
   fi
 fi
 
-# ###########################################################
-# install brew cask (UI Packages)
-# ###########################################################
-running "checking brew-cask install"
-output=$(brew tap | grep cask)
-if [[ $? != 0 ]]; then
-  action "installing brew-cask"
-  require_brew caskroom/cask/brew-cask
-fi
-brew tap caskroom/versions > /dev/null 2>&1
-ok
-
 # skip those GUI clients, git command-line all the way
 require_brew git
 # update zsh to latest
