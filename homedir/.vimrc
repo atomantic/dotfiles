@@ -200,6 +200,12 @@ set foldopen-=search " don't open folds when you search into them
 set foldopen-=undo " don't open folds when you undo stuff
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Security
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set modelines=0
+set nomodeline
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CTags
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "let Tlist_Ctags_Cmd = 'ctags' " Location of ctags
