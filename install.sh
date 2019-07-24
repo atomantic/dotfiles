@@ -562,8 +562,9 @@ defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true;ok
 running "Disable the “Are you sure you want to open this application?” dialog"
 defaults write com.apple.LaunchServices LSQuarantine -bool false;ok
 
-running "Remove duplicates in the “Open With” menu (also see 'lscleanup' alias)"
-/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user;ok
+# https://github.com/atomantic/dotfiles/issues/30#issuecomment-514589462
+#running "Remove duplicates in the “Open With” menu (also see 'lscleanup' alias)"
+#/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user;ok
 
 running "Display ASCII control characters using caret notation in standard text views"
 # Try e.g. `cd /tmp; unidecode "\x{0000}" > cc.txt; open -e cc.txt`
