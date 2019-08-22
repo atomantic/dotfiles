@@ -834,8 +834,20 @@ defaults write com.apple.dock showhidden -bool true;ok
 running "Make Dock more transparent"
 defaults write com.apple.dock hide-mirror -bool true;ok
 
+# defaults write com.apple.dock ResetLaunchPad -bool TRUE
 running "Reset Launchpad, but keep the desktop wallpaper intact"
 find "${HOME}/Library/Application Support/Dock" -name "*-*.db" -maxdepth 1 -delete;ok
+
+# You can change the layout of your Launchpad
+# Use the following command in Terminal to change the layout of Launchpad.
+# Change ‘X’ into the number of icons to be showed in a single row (e.g 9).
+#defaults write com.apple.dock springboard-columns -int 9
+
+# Change ‘X’ to the number of rows (e.g 3).
+#defaults write com.apple.dock springboard-rows -int 3
+
+# Force a restart of Launchpad with the following command to apply the changes:
+#defaults write com.apple.dock ResetLaunchPad -bool TRUE;killall Dock
 
 bot "Configuring Hot Corners"
 # Possible values:
