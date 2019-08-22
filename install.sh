@@ -427,8 +427,9 @@ sudo defaults write /Library/Preferences/com.apple.loginwindow GuestEnabled -boo
 # SSD-specific tweaks                                                         #
 ###############################################################################
 
-running "Disable local Time Machine snapshots"
-sudo tmutil disablelocal;ok
+# disablelocal is no longer used, check man tmutil for more info
+# running "Disable local Time Machine snapshots"
+# sudo tmutil disablelocal;ok
 
 # running "Disable hibernation (speeds up entering sleep mode)"
 # sudo pmset -a hibernatemode 0;ok
