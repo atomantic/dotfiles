@@ -807,11 +807,15 @@ running "Don’t group windows by application in Mission Control"
 # (i.e. use the old Exposé behavior instead)
 defaults write com.apple.dock expose-group-by-app -bool false;ok
 
-running "Disable Dashboard"
-defaults write com.apple.dashboard mcx-disabled -bool true;ok
 
-running "Don’t show Dashboard as a Space"
-defaults write com.apple.dock dashboard-in-overlay -bool true;ok
+# Dashboard is disabled by default on macOS Mojave,
+# Moreover as of macOS 10.15 Catalina, Dashboard is removed macOS.
+
+# running "Disable Dashboard"
+# defaults write com.apple.dashboard mcx-disabled -bool true;ok
+
+# running "Don’t show Dashboard as a Space"
+# defaults write com.apple.dock dashboard-in-overlay -bool true;ok
 
 running "Don’t automatically rearrange Spaces based on most recent use"
 defaults write com.apple.dock mru-spaces -bool false;ok
