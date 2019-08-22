@@ -764,9 +764,10 @@ defaults write com.apple.finder EmptyTrashSecurely -bool true;ok
 running "Enable AirDrop over Ethernet and on unsupported Macs running Lion"
 defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true;ok
 
-running "Show the ~/Library folder"
-chflags nohidden ~/Library;ok
-
+# Issue on macOS Mojave, for more info
+# check https://github.com/mathiasbynens/dotfiles/issues/865
+# running "Show the ~/Library folder"
+# chflags nohidden ~/Library;ok
 
 running "Expand the following File Info panes: “General”, “Open with”, and “Sharing & Permissions”"
 defaults write com.apple.finder FXInfoPanesExpanded -dict \
