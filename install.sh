@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+#TODO: update after macOS Catalina, default mac shell: bash is changing to zsh
+
 ###########################
 # This script installs the dotfiles and runs all other system configuration scripts
 # @author Adam Eivy
@@ -205,6 +207,10 @@ else
     ok "skipped brew package upgrades."
   fi
 fi
+
+# Just to avoid a potential bug
+mkdir -p ~/Library/Caches/Homebrew/Formula
+brew doctor
 
 # skip those GUI clients, git command-line all the way
 require_brew git
@@ -1191,5 +1197,6 @@ for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
   killall "${app}" > /dev/null 2>&1
 done
 
+brew update && brew upgrade && brew cleanup && brew cask cleanup
 
 bot "Woot! All done"
