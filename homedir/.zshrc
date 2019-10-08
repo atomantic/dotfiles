@@ -34,14 +34,12 @@ plugins=(colorize compleat dirpersist autojump git gulp history cp)
 
 source $ZSH/oh-my-zsh.sh
 
-source /usr/local/opt/nvm/nvm.sh
+source /usr/local/opt/nvm/nvm.sh --no-use
 
 autoload -U add-zsh-hook
 load-nvmrc() {
   if [[ -f .nvmrc && -r .nvmrc ]]; then
     nvm use &> /dev/null
-  elif [[ $(nvm version) != $(nvm version default)  ]]; then
-    nvm use default &> /dev/null
   fi
 }
 add-zsh-hook chpwd load-nvmrc
