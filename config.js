@@ -45,8 +45,8 @@ module.exports = {
     'tree',
     'ttyrec',
     // better, more recent vim
-    'vim --with-client-server --with-override-system-vi',
-    'watch',
+    // 'vim --with-client-server --with-override-system-vi',
+    // 'watch',
     // Install wget with IRI support
     'wget --enable-iri'
   ],
@@ -60,38 +60,39 @@ module.exports = {
     'docker', // docker for mac
     //'dropbox',
     //'evernote',
-    'flux',
-    'gpg-suite',
+    // 'flux',
+    // 'gpg-suite',
     //'ireadfast',
     'iterm2',
-    'little-snitch',
-    'macbreakz',
-    'micro-snitch',
-    'signal',
+    // 'little-snitch',
+    // 'macbreakz',
+    // 'micro-snitch',
+    // 'signal',
     //'macvim',
-    'sizeup',
+    // 'sizeup',
     //'sketchup',
     'slack',
     'the-unarchiver',
     //'torbrowser',
     //'transmission',
     'visual-studio-code',
-    //'vlc',
-    'xquartz'
+    'vlc',
+    'android-studio'
+    // 'xquartz'
   ],
   gem: [
   ],
   npm: [
-    'antic',
-    'buzzphrase',
-    'eslint',
-    'instant-markdown-d',
+    // 'antic',
+    // 'buzzphrase',
+    // 'eslint',
+    // 'instant-markdown-d',
     // 'generator-dockerize',
     // 'gulp',
-    'npm-check-updates',
-    'prettyjson',
-    'trash',
-    'vtop'
+    // 'npm-check-updates',
+    // 'prettyjson',
+    // 'trash',
+    // 'vtop'
     // ,'yo'
   ]
 };

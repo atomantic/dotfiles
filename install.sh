@@ -128,30 +128,30 @@ fi
 # ###########################################################
 # Wallpaper
 # ###########################################################
-MD5_NEWWP=$(md5 img/wallpaper.jpg | awk '{print $4}')
-MD5_OLDWP=$(md5 /System/Library/CoreServices/DefaultDesktop.jpg | awk '{print $4}')
-if [[ "$MD5_NEWWP" != "$MD5_OLDWP" ]]; then
-  read -r -p "Do you want to use the project's custom desktop wallpaper? [y|N] " response
-  if [[ $response =~ (yes|y|Y) ]]; then
-    running "Set a custom wallpaper image"
-    # rm -rf ~/Library/Application Support/Dock/desktoppicture.db
-    bot "I will backup system wallpapers in ~/.dotfiles/img/"
-    sudo cp /System/Library/CoreServices/DefaultDesktop.jpg img/DefaultDesktop.jpg > /dev/null 2>&1
-    sudo cp /Library/Desktop\ Pictures/El\ Capitan.jpg img/El\ Capitan.jpg > /dev/null 2>&1
-    sudo cp /Library/Desktop\ Pictures/Sierra.jpg img/Sierra.jpg > /dev/null 2>&1
-    sudo cp /Library/Desktop\ Pictures/Sierra\ 2.jpg img/Sierra\ 2.jpg > /dev/null 2>&1
-    sudo rm -f /System/Library/CoreServices/DefaultDesktop.jpg > /dev/null 2>&1
-    sudo rm -f /Library/Desktop\ Pictures/El\ Capitan.jpg > /dev/null 2>&1
-    sudo rm -f /Library/Desktop\ Pictures/Sierra.jpg > /dev/null 2>&1
-    sudo rm -f /Library/Desktop\ Pictures/Sierra\ 2.jpg > /dev/null 2>&1
-    sudo cp ./img/wallpaper.jpg /System/Library/CoreServices/DefaultDesktop.jpg;
-    sudo cp ./img/wallpaper.jpg /Library/Desktop\ Pictures/Sierra.jpg;
-    sudo cp ./img/wallpaper.jpg /Library/Desktop\ Pictures/Sierra\ 2.jpg;
-    sudo cp ./img/wallpaper.jpg /Library/Desktop\ Pictures/El\ Capitan.jpg;ok
-  else
-    ok "skipped"
-  fi
-fi
+# MD5_NEWWP=$(md5 img/wallpaper.jpg | awk '{print $4}')
+# MD5_OLDWP=$(md5 /System/Library/CoreServices/DefaultDesktop.jpg | awk '{print $4}')
+# if [[ "$MD5_NEWWP" != "$MD5_OLDWP" ]]; then
+#   read -r -p "Do you want to use the project's custom desktop wallpaper? [y|N] " response
+#   if [[ $response =~ (yes|y|Y) ]]; then
+#     running "Set a custom wallpaper image"
+#     # rm -rf ~/Library/Application Support/Dock/desktoppicture.db
+#     bot "I will backup system wallpapers in ~/.dotfiles/img/"
+#     sudo cp /System/Library/CoreServices/DefaultDesktop.jpg img/DefaultDesktop.jpg > /dev/null 2>&1
+#     sudo cp /Library/Desktop\ Pictures/El\ Capitan.jpg img/El\ Capitan.jpg > /dev/null 2>&1
+#     sudo cp /Library/Desktop\ Pictures/Sierra.jpg img/Sierra.jpg > /dev/null 2>&1
+#     sudo cp /Library/Desktop\ Pictures/Sierra\ 2.jpg img/Sierra\ 2.jpg > /dev/null 2>&1
+#     sudo rm -f /System/Library/CoreServices/DefaultDesktop.jpg > /dev/null 2>&1
+#     sudo rm -f /Library/Desktop\ Pictures/El\ Capitan.jpg > /dev/null 2>&1
+#     sudo rm -f /Library/Desktop\ Pictures/Sierra.jpg > /dev/null 2>&1
+#     sudo rm -f /Library/Desktop\ Pictures/Sierra\ 2.jpg > /dev/null 2>&1
+#     sudo cp ./img/wallpaper.jpg /System/Library/CoreServices/DefaultDesktop.jpg;
+#     sudo cp ./img/wallpaper.jpg /Library/Desktop\ Pictures/Sierra.jpg;
+#     sudo cp ./img/wallpaper.jpg /Library/Desktop\ Pictures/Sierra\ 2.jpg;
+#     sudo cp ./img/wallpaper.jpg /Library/Desktop\ Pictures/El\ Capitan.jpg;ok
+#   else
+#     ok "skipped"
+#   fi
+# fi
 
 # ###########################################################
 # Install non-brew various tools (PRE-BREW Installs)
@@ -262,17 +262,17 @@ if [[ $response =~ (y|yes|Y) ]]; then
   popd > /dev/null 2>&1
 fi
 
-bot "VIM Setup"
-read -r -p "Do you want to install vim plugins now? [y|N] " response
-if [[ $response =~ (y|yes|Y) ]];then
-  bot "Installing vim plugins"
-  # cmake is required to compile vim bundle YouCompleteMe
-  # require_brew cmake
-  vim +PluginInstall +qall > /dev/null 2>&1
-  ok
-else
-  ok "skipped. Install by running :PluginInstall within vim"
-fi
+# bot "VIM Setup"
+# read -r -p "Do you want to install vim plugins now? [y|N] " response
+# if [[ $response =~ (y|yes|Y) ]];then
+#   bot "Installing vim plugins"
+#   # cmake is required to compile vim bundle YouCompleteMe
+#   # require_brew cmake
+#   vim +PluginInstall +qall > /dev/null 2>&1
+#   ok
+# else
+#   ok "skipped. Install by running :PluginInstall within vim"
+# fi
 
 
 read -r -p "Install fonts? [y|N] " response
@@ -874,7 +874,7 @@ find "${HOME}/Library/Application Support/Dock" -name "*-*.db" -maxdepth 1 -dele
 # Force a restart of Launchpad with the following command to apply the changes:
 #defaults write com.apple.dock ResetLaunchPad -bool TRUE;killall Dock
 
-bot "Configuring Hot Corners"
+# bot "Configuring Hot Corners"
 # Possible values:
 #  0: no-op
 #  2: Mission Control
@@ -887,82 +887,82 @@ bot "Configuring Hot Corners"
 # 11: Launchpad
 # 12: Notification Center
 
-running "Top left screen corner → Mission Control"
-defaults write com.apple.dock wvous-tl-corner -int 2
-defaults write com.apple.dock wvous-tl-modifier -int 0;ok
-running "Top right screen corner → Desktop"
-defaults write com.apple.dock wvous-tr-corner -int 4
-defaults write com.apple.dock wvous-tr-modifier -int 0;ok
-running "Bottom right screen corner → Start screen saver"
-defaults write com.apple.dock wvous-br-corner -int 5
-defaults write com.apple.dock wvous-br-modifier -int 0;ok
+# running "Top left screen corner → Mission Control"
+# defaults write com.apple.dock wvous-tl-corner -int 2
+# defaults write com.apple.dock wvous-tl-modifier -int 0;ok
+# running "Top right screen corner → Desktop"
+# defaults write com.apple.dock wvous-tr-corner -int 4
+# defaults write com.apple.dock wvous-tr-modifier -int 0;ok
+# running "Bottom right screen corner → Start screen saver"
+# defaults write com.apple.dock wvous-br-corner -int 5
+# defaults write com.apple.dock wvous-br-modifier -int 0;ok
 
 ###############################################################################
-bot "Configuring Safari & WebKit"
+# bot "Configuring Safari & WebKit"
 ###############################################################################
 
-running "Set Safari’s home page to ‘about:blank’ for faster loading"
-defaults write com.apple.Safari HomePage -string "about:blank";ok
+# running "Set Safari’s home page to ‘about:blank’ for faster loading"
+# defaults write com.apple.Safari HomePage -string "about:blank";ok
 
-running "Prevent Safari from opening ‘safe’ files automatically after downloading"
-defaults write com.apple.Safari AutoOpenSafeDownloads -bool false;ok
+# running "Prevent Safari from opening ‘safe’ files automatically after downloading"
+# defaults write com.apple.Safari AutoOpenSafeDownloads -bool false;ok
 
 # TODO : doesn't work on macOS Mojave,
 # check for more info : https://apple.stackexchange.com/questions/338313/how-can-i-enable-backspace-to-go-back-in-safari-on-mojave
-running "Allow hitting the Backspace key to go to the previous page in history"
-defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2BackspaceKeyNavigationEnabled -bool true;ok
+# running "Allow hitting the Backspace key to go to the previous page in history"
+# defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2BackspaceKeyNavigationEnabled -bool true;ok
 
-running "Hide Safari’s bookmarks bar by default"
-defaults write com.apple.Safari ShowFavoritesBar -bool false;ok
+# running "Hide Safari’s bookmarks bar by default"
+# defaults write com.apple.Safari ShowFavoritesBar -bool false;ok
 
-running "Hide Safari’s sidebar in Top Sites"
-defaults write com.apple.Safari ShowSidebarInTopSites -bool false;ok
+# running "Hide Safari’s sidebar in Top Sites"
+# defaults write com.apple.Safari ShowSidebarInTopSites -bool false;ok
 
-running "Disable Safari’s thumbnail cache for History and Top Sites"
-defaults write com.apple.Safari DebugSnapshotsUpdatePolicy -int 2;ok
+# running "Disable Safari’s thumbnail cache for History and Top Sites"
+# defaults write com.apple.Safari DebugSnapshotsUpdatePolicy -int 2;ok
 
-running "Enable Safari’s debug menu"
-defaults write com.apple.Safari IncludeInternalDebugMenu -bool true;ok
+# running "Enable Safari’s debug menu"
+# defaults write com.apple.Safari IncludeInternalDebugMenu -bool true;ok
 
-running "Make Safari’s search banners default to Contains instead of Starts With"
-defaults write com.apple.Safari FindOnPageMatchesWordStartsOnly -bool false;ok
+# running "Make Safari’s search banners default to Contains instead of Starts With"
+# defaults write com.apple.Safari FindOnPageMatchesWordStartsOnly -bool false;ok
 
-running "Remove useless icons from Safari’s bookmarks bar"
-defaults write com.apple.Safari ProxiesInBookmarksBar "()";ok
+# running "Remove useless icons from Safari’s bookmarks bar"
+# defaults write com.apple.Safari ProxiesInBookmarksBar "()";ok
 
-running "Enable the Develop menu and the Web Inspector in Safari"
-defaults write com.apple.Safari IncludeDevelopMenu -bool true
-defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
-defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true;ok
+# running "Enable the Develop menu and the Web Inspector in Safari"
+# defaults write com.apple.Safari IncludeDevelopMenu -bool true
+# defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
+# defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true;ok
 
-running "Add a context menu item for showing the Web Inspector in web views"
-defaults write NSGlobalDomain WebKitDeveloperExtras -bool true;ok
+# running "Add a context menu item for showing the Web Inspector in web views"
+# defaults write NSGlobalDomain WebKitDeveloperExtras -bool true;ok
 
 ###############################################################################
-bot "Configuring Mail"
+# bot "Configuring Mail"
 ###############################################################################
 
 
-running "Disable send and reply animations in Mail.app"
-defaults write com.apple.mail DisableReplyAnimations -bool true
-defaults write com.apple.mail DisableSendAnimations -bool true;ok
+# running "Disable send and reply animations in Mail.app"
+# defaults write com.apple.mail DisableReplyAnimations -bool true
+# defaults write com.apple.mail DisableSendAnimations -bool true;ok
 
-running "Copy email addresses as 'foo@example.com' instead of 'Foo Bar <foo@example.com>' in Mail.app"
-defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false;ok
+# running "Copy email addresses as 'foo@example.com' instead of 'Foo Bar <foo@example.com>' in Mail.app"
+# defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false;ok
 
-running "Add the keyboard shortcut ⌘ + Enter to send an email in Mail.app"
-defaults write com.apple.mail NSUserKeyEquivalents -dict-add "Send" -string "@\\U21a9";ok
+# running "Add the keyboard shortcut ⌘ + Enter to send an email in Mail.app"
+# defaults write com.apple.mail NSUserKeyEquivalents -dict-add "Send" -string "@\\U21a9";ok
 
-running "Display emails in threaded mode, sorted by date (oldest at the top)"
-defaults write com.apple.mail DraftsViewerAttributes -dict-add "DisplayInThreadedMode" -string "yes"
-defaults write com.apple.mail DraftsViewerAttributes -dict-add "SortedDescending" -string "yes"
-defaults write com.apple.mail DraftsViewerAttributes -dict-add "SortOrder" -string "received-date";ok
+# running "Display emails in threaded mode, sorted by date (oldest at the top)"
+# defaults write com.apple.mail DraftsViewerAttributes -dict-add "DisplayInThreadedMode" -string "yes"
+# defaults write com.apple.mail DraftsViewerAttributes -dict-add "SortedDescending" -string "yes"
+# defaults write com.apple.mail DraftsViewerAttributes -dict-add "SortOrder" -string "received-date";ok
 
-running "Disable inline attachments (just show the icons)"
-defaults write com.apple.mail DisableInlineAttachmentViewing -bool true;ok
+# running "Disable inline attachments (just show the icons)"
+# defaults write com.apple.mail DisableInlineAttachmentViewing -bool true;ok
 
-running "Disable automatic spell checking"
-defaults write com.apple.mail SpellCheckingBehavior -string "NoSpellCheckingEnabled";ok
+# running "Disable automatic spell checking"
+# defaults write com.apple.mail SpellCheckingBehavior -string "NoSpellCheckingEnabled";ok
 
 ###############################################################################
 bot "Spotlight"
@@ -1130,25 +1130,25 @@ running "Change Dock Icon"
 defaults write com.apple.ActivityMonitor IconType -int 3;ok
 
 ###############################################################################
-bot "Address Book, Dashboard, iCal, TextEdit, and Disk Utility"
+# bot "Address Book, Dashboard, iCal, TextEdit, and Disk Utility"
 ###############################################################################
 
-running "Enable the debug menu in Address Book"
-defaults write com.apple.addressbook ABShowDebugMenu -bool true;ok
+# running "Enable the debug menu in Address Book"
+# defaults write com.apple.addressbook ABShowDebugMenu -bool true;ok
 
-running "Enable Dashboard dev mode (allows keeping widgets on the desktop)"
-defaults write com.apple.dashboard devmode -bool true;ok
+# running "Enable Dashboard dev mode (allows keeping widgets on the desktop)"
+# defaults write com.apple.dashboard devmode -bool true;ok
 
-running "Use plain text mode for new TextEdit documents"
-defaults write com.apple.TextEdit RichText -int 0;ok
+# running "Use plain text mode for new TextEdit documents"
+# defaults write com.apple.TextEdit RichText -int 0;ok
 
-running "Open and save files as UTF-8 in TextEdit"
-defaults write com.apple.TextEdit PlainTextEncoding -int 4
-defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4;ok
+# running "Open and save files as UTF-8 in TextEdit"
+# defaults write com.apple.TextEdit PlainTextEncoding -int 4
+# defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4;ok
 
-running "Enable the debug menu in Disk Utility"
-defaults write com.apple.DiskUtility DUDebugMenuEnabled -bool true
-defaults write com.apple.DiskUtility advanced-image-options -bool true;ok
+# running "Enable the debug menu in Disk Utility"
+# defaults write com.apple.DiskUtility DUDebugMenuEnabled -bool true
+# defaults write com.apple.DiskUtility advanced-image-options -bool true;ok
 
 ###############################################################################
 bot "Mac App Store"
@@ -1161,27 +1161,27 @@ running "Enable Debug Menu in the Mac App Store"
 defaults write com.apple.appstore ShowDebugMenu -bool true;ok
 
 ###############################################################################
-bot "Messages"
+# bot "Messages"
 ###############################################################################
 
-running "Disable automatic emoji substitution (i.e. use plain text smileys)"
-defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticEmojiSubstitutionEnablediMessage" -bool false;ok
+# running "Disable automatic emoji substitution (i.e. use plain text smileys)"
+# defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticEmojiSubstitutionEnablediMessage" -bool false;ok
 
-running "Disable smart quotes as it’s annoying for messages that contain code"
-defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticQuoteSubstitutionEnabled" -bool false;ok
+# running "Disable smart quotes as it’s annoying for messages that contain code"
+# defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticQuoteSubstitutionEnabled" -bool false;ok
 
-running "Disable continuous spell checking"
-defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "continuousSpellCheckingEnabled" -bool false;ok
+# running "Disable continuous spell checking"
+# defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "continuousSpellCheckingEnabled" -bool false;ok
 
 ###############################################################################
-bot "SizeUp.app"
+# bot "SizeUp.app"
 ###############################################################################
 
-running "Start SizeUp at login"
-defaults write com.irradiatedsoftware.SizeUp StartAtLogin -bool true;ok
+# running "Start SizeUp at login"
+# defaults write com.irradiatedsoftware.SizeUp StartAtLogin -bool true;ok
 
-running "Don’t show the preferences window on next start"
-defaults write com.irradiatedsoftware.SizeUp ShowPrefsOnNextStart -bool false;ok
+# running "Don’t show the preferences window on next start"
+# defaults write com.irradiatedsoftware.SizeUp ShowPrefsOnNextStart -bool false;ok
 
 killall cfprefsd
 
