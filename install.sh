@@ -129,13 +129,14 @@ fi
 # Wallpaper
 # ###########################################################
 MD5_NEWWP=$(md5 img/wallpaper.jpg | awk '{print $4}')
-MD5_OLDWP=$(md5 /System/Library/CoreServices/DefaultDesktop.jpg | awk '{print $4}')
+MD5_OLDWP=$(md5 /System/Library/CoreServices/DefaultDesktop.* | awk '{print $4}')
 if [[ "$MD5_NEWWP" != "$MD5_OLDWP" ]]; then
   read -r -p "Do you want to use the project's custom desktop wallpaper? [y|N] " response
   if [[ $response =~ (yes|y|Y) ]]; then
     running "Set a custom wallpaper image"
     # rm -rf ~/Library/Application Support/Dock/desktoppicture.db
     bot "I will backup system wallpapers in ~/.dotfiles/img/"
+    sudo cp /System/Library/CoreServices/DefaultDesktop.heic img/DefaultDesktop.heic
     sudo cp /System/Library/CoreServices/DefaultDesktop.jpg img/DefaultDesktop.jpg > /dev/null 2>&1
     sudo cp /Library/Desktop\ Pictures/El\ Capitan.jpg img/El\ Capitan.jpg > /dev/null 2>&1
     sudo cp /Library/Desktop\ Pictures/Sierra.jpg img/Sierra.jpg > /dev/null 2>&1
@@ -1197,6 +1198,6 @@ for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
   killall "${app}" > /dev/null 2>&1
 done
 
-brew update && brew upgrade && brew cleanup && brew cask cleanup
+brew update && brew upgrade && brew cleanup
 
 bot "Woot! All done"
