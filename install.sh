@@ -192,6 +192,7 @@ if [[ $? != 0 ]]; then
     error "unable to install homebrew, script $0 abort!"
     exit 2
   fi
+  brew analytics off
 else
   ok
   bot "Homebrew"
