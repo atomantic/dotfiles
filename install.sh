@@ -1198,6 +1198,6 @@ for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
   killall "${app}" > /dev/null 2>&1
 done
 
-brew update && brew upgrade && brew cleanup && brew cask cleanup
+brew update && brew upgrade && brew cleanup 
 
 bot "Woot! All done"
