@@ -27,8 +27,8 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 " Plugin 'Valloric/YouCompleteMe'
 " Navigation (IDE frame)
-Plugin 'scrooloose/nerdtree'
-Plugin 'jistr/vim-nerdtree-tabs'
+" Plugin 'scrooloose/nerdtree'
+" Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-fugitive'
@@ -65,7 +65,7 @@ Plugin 'SuperTab'
 " different version somewhere else.
 " Plugin 'ascenator/L9', {'name': 'newL9'}
 " TypeScript
-Plugin 'leafgarland/typescript-vim'
+" Plugin 'leafgarland/typescript-vim'
 " Vue.js
 Plugin 'posva/vim-vue'
 
@@ -86,17 +86,29 @@ filetype plugin indent on    " required
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" global enable spell check
+"set spell spelllang=en_us   " spell check go to highlighted word and "z=" to see list to turn off set nospell
+setlocal spell spelllang=en_us
+setlocal spellfile=$HOME/.vim-spell-en.utf-8.add
+autocmd BufRead,BufNewFile *.md,*.txt setlocal spell  " enable spell check for certain files
 " set UTF-8 encoding
 set enc=utf-8
 set fenc=utf-8
 set termencoding=utf-8
 set history=1000 " How many lines of history to remember
 set cf " enable error files and error jumping
-" set clipboard+=unnamed " turns out I do like sharing windows clipboard
 set ffs=unix,dos,mac " support all three, in this order
 set viminfo+=! " make sure it can save viminfo
 set isk+=_,$,@,%,# " none of these should be word dividers, so make them not be
 set nosol " leave my cursor where it was
+" yank to clipboard
+if has("clipboard")
+  set clipboard=unnamed " copy to the system clipboard
+
+  if has("unnamedplus") " X11 support
+    set clipboard+=unnamedplus
+  endif
+endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Files/Backups/Sessions
@@ -188,6 +200,12 @@ set foldopen-=search " don't open folds when you search into them
 set foldopen-=undo " don't open folds when you undo stuff
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Security
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set modelines=0
+set nomodeline
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CTags
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "let Tlist_Ctags_Cmd = 'ctags' " Location of ctags
@@ -235,11 +253,11 @@ iab xdate <c-r>=strftime("%d/%m/%y %H:%M:%S")<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Autocommands
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-au BufRead,BufNewFile *.zcml set filetype=xml
-au BufRead,BufNewFile *.rb,*.rhtml set tabstop=2
-au BufRead,BufNewFile *.rb,*.rhtml set shiftwidth=2
-au BufRead,BufNewFile *.rb,*.rhtml set softtabstop=2
-au BufRead,BufNewFile *.otl set syntax=blockhl
+"au BufRead,BufNewFile *.zcml set filetype=xml
+"au BufRead,BufNewFile *.rb,*.rhtml set tabstop=2
+"au BufRead,BufNewFile *.rb,*.rhtml set shiftwidth=2
+"au BufRead,BufNewFile *.rb,*.rhtml set softtabstop=2
+"au BufRead,BufNewFile *.otl set syntax=blockhl
 au BufRead,BufNewFile *.json set syntax=javascript
 au FileType python set omnifunc=pythoncomplete#Complete
 au FileType javascript set omnifunc=javascriptcomplete#CompleteJS
@@ -271,15 +289,30 @@ vnoremap <silent> <leader>es :EsformatterVisual<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NERDTree
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let NERDTreeShowHidden=1
-let NERDTreeIgnore=['\.DS_Store$']
-" auto open if no file sent as arg
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-" Toggle NERDtree with C-n
-map ,n <plug>NERDTreeTabsToggle<CR>
-" Autoclose if only NERDtree is left
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+"let NERDTreeShowHidden=1
+"let NERDTreeIgnore=['\.DS_Store$']
+"" auto open if no file sent as arg
+"autocmd StdinReadPre * let s:std_in=1
+"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+"" Toggle NERDtree with C-n
+"map ,n <plug>NERDTreeTabsToggle<CR>
+"" Autoclose if only NERDtree is left
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" netrw (default installed alt for NERDTree)
+" more info: https://shapeshed.com/vim-netrw/
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3 " tre style directory listing
+"let g:netrw_browse_split = 2 " open files in new vertical split
+let g:netrw_browse_split = 4 " open file in previous window
+let g:netrw_altv = 1
+let g:netrw_winsize = 25 " width of dir explorer
+augroup ProjectDrawer
+  autocmd!
+  autocmd VimEnter * :Vexplore
+augroup END
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Syntastic
@@ -298,7 +331,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_enable_eslint_checker = 1
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_enable_tslint_checker = 1
-let g:syntastic_typescript_checkers = ['tslint', 'tsc']
+"let g:syntastic_typescript_checkers = ['tslint', 'tsc']
 let g:syntastic_enable_pug_checker = 1
 let g:syntastic_pug_checkers = ['jade','pug']
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

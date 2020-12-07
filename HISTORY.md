@@ -3,6 +3,8 @@
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
 - [Release History](#release-history)  
+  - [v5.1.0](#v510)
+  - [v5.0.0](#v500)
   - [v4.4.2](#v442)
   - [v4.4.1](#v441)
   - [v4.4.0](#v440)
@@ -25,6 +27,16 @@
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # Release History
+
+## v5.1.0
+ * update passwordless sudo to use method in [issue #35](https://github.com/atomantic/dotfiles/issues/35)
+
+## v5.0.0
+ * each segment of setup now requires positive user input to change the system
+ * replace `NERDtree` in vim with `netrw`
+ * add spell check to `vim`
+ * fix package installs (run in series to prevent homebrew from stepping on itself in parallel)
+ * update /etc/hosts file from someonewhocares.org
 
 ## v4.4.2
  * add .iterm2_shell_integration.zsh

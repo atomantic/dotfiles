@@ -38,3 +38,23 @@ function warn() {
 function error() {
     echo -e "$COL_RED[error]$COL_RESET "$1
 }
+
+function print_error() {
+    printf " [✖] %s\n" "$1"
+}
+
+function print_result() {
+
+    if [ "$1" -eq 0 ]; then
+        print_success "$2"
+    else
+        print_error "$2"
+    fi
+
+    return "$1"
+
+}
+
+function print_success() {
+    printf " [✔] %s\n" "$1"
+}
