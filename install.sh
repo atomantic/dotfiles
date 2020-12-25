@@ -283,6 +283,7 @@ if [[ $response =~ (y|yes|Y) ]];then
   require_brew fontconfig
   ./fonts/install.sh
   brew tap homebrew/cask-fonts
+  require_brew svn #required for roboto
   require_cask font-fontawesome
   require_cask font-awesome-terminal-fonts
   require_cask font-hack
