@@ -61,15 +61,15 @@ module.exports = {
     //'dropbox',
     //'evernote',
     'flux',
-    'gpg-suite',
+    //'gpg-suite',
     //'ireadfast',
     'iterm2',
-    'little-snitch',
-    'macbreakz',
-    'micro-snitch',
+    //'little-snitch',
+    //'macbreakz',
+    //'micro-snitch',
     'signal',
     //'macvim',
-    'sizeup',
+    //'sizeup',
     //'sketchup',
     'slack',
     'the-unarchiver',
@@ -82,16 +82,17 @@ module.exports = {
   gem: [
   ],
   npm: [
-    'antic',
-    'buzzphrase',
+    //'antic',
+    //'buzzphrase',
     'eslint',
-    'instant-markdown-d',
+    //'instant-markdown-d',
     // 'generator-dockerize',
     // 'gulp',
-    'npm-check-updates',
-    'prettyjson',
-    'trash',
-    'vtop'
+    //'npm-check-updates',
+    //'prettyjson',
+    //'trash',
+    //'vtop'
+    'yarn'
     // ,'yo'
   ],
   mas: [
