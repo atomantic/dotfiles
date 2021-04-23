@@ -18,9 +18,8 @@ You don't need to install or configure anything upfront! This works with a brand
   - [Crontab](#crontab)
   - [Remap Caps-Lock](#remap-caps-lock)
 - [Settings](#settings)
-  - [SSD-specific tweaks](#ssd-specific-tweaks)
-  - [General System Changes](#general-system-changes)
   - [Security](#security)
+  - [General System Changes](#general-system-changes)
   - [Trackpad, mouse, keyboard, Bluetooth accessories, and input](#trackpad-mouse-keyboard-bluetooth-accessories-and-input)
   - [Configuring the Screen](#configuring-the-screen)
   - [Finder Configs](#finder-configs)
@@ -40,7 +39,6 @@ You don't need to install or configure anything upfront! This works with a brand
   - [Utilities](#utilities)
   - [Apps](#apps)
   - [NPM Global Modules](#npm-global-modules)
-  - [Ruby Gems](#ruby-gems)
 - [License](#license)
 - [Contributions](#contributions)
 - [Loathing, Mehs and Praise](#loathing-mehs-and-praise)
@@ -109,7 +107,7 @@ Do the following to upgrade your ~/.dotfiles safely:
 
 1. backup your dotfiles: `cp -R ~/.dotfiles ~/.dotfiles_old`
 2. `cd ~/.dotfiles`
-3. update dotfiles: `git-up` or `git pull`
+3. update dotfiles: `git up` or `git pull`
 4. remove old submodule location: `rm -rf .vim` (now lives in `homedir/.vim`)
 5. inspect `install.sh` and `config.js` to make sure all the software you want is installed
 6. inspect `homedir/*` for any changes you want to port from `./dotfiles_old`
@@ -139,10 +137,13 @@ The following will only happen if you agree on the prompt
 - overwrite your /etc/hosts file with a copy from someonewhocares.org (see ./configs/hosts for the file that will be used)
 - replace the system wallpaper with `img/wallpaper.jpg`
 
-## SSD-specific tweaks
-- Disable local Time Machine snapshots
-- Disable hibernation (speeds up entering sleep mode)
-- Remove the sleep image file to save disk space
+## Security
+- Enable firewall
+- Enable firewall stealth mode (no response to ICMP / ping requests)
+- Disable remote apple events
+- Disable wake-on modem
+- Disable wake-on LAN
+- Disable guest account login
 
 ## General System Changes
 - always boot in verbose mode (not MacOS GUI mode)
@@ -162,23 +163,12 @@ The following will only happen if you agree on the prompt
 - Disable the “Are you sure you want to open this application?” dialog
 - Remove duplicates in the “Open With” menu (also see 'lscleanup' alias)
 - Display ASCII control characters using caret notation in standard text views
-- Disable automatic termination of inactive apps
 - Disable the crash reporter
 - Set Help Viewer windows to non-floating mode
 - Reveal IP, hostname, OS, etc. when clicking clock in login window
-- Restart automatically if the computer freezes
-- Never go into computer sleep mode
 - Check for software updates daily, not just once per week
 - Disable smart quotes as they’re annoying when typing code
 - Disable smart dashes as they’re annoying when typing code
-
-## Security
-- Enable firewall
-- Enable firewall stealth mode (no response to ICMP / ping requests)
-- Disable remote apple events
-- Disable wake-on modem
-- Disable wake-on LAN
-- Disable guest account login
 
 ## Trackpad, mouse, keyboard, Bluetooth accessories, and input
 - Trackpad: enable tap to click for this user and for the login screen
@@ -191,7 +181,6 @@ The following will only happen if you agree on the prompt
 - Disable press-and-hold for keys in favor of key repeat
 - Set a blazingly fast keyboard repeat rate:
 - Set language and text formats (english/US)
-- Disable auto-correct
 
 ## Configuring the Screen
 - Require password immediately after sleep or screen saver begins
@@ -310,7 +299,6 @@ The following will only happen if you agree on the prompt
 ## Messages
 - Disable automatic emoji substitution (i.e. use plain text smileys)
 - Disable smart quotes as it’s annoying for messages that contain code
-- Disable continuous spell checking
 
 ## SizeUp.app
 - Start SizeUp at login
@@ -318,7 +306,7 @@ The following will only happen if you agree on the prompt
 
 # Software Installation
 
-homebrew, fontconfig, git, ruby (latest), nvm (node + npm), and zsh (latest) are all installed inside the `install.sh` as foundational software for running this project.
+homebrew, fontconfig, git, nvm (node + npm), and zsh (latest) are all installed inside the `install.sh` as foundational software for running this project.
 Additional software is configured in `config.js` and can be customized in your own fork/branch (you can change everything in your own fork/brance).
 The following is the software that I have set as default:
 
@@ -372,9 +360,6 @@ The following is the software that I have set as default:
 * prettyjson
 * trash
 * vtop
-
-## Ruby Gems
-* git-up
 
 # License
 This project is licensed under ISC. Please fork, contribute and share.

@@ -55,7 +55,7 @@
   co = checkout
   d = diff --color-words
   cam = commit -a -m
-  upm = !git fetch upstream && git merge upstream/master
+  upm = !git fetch upstream && git merge upstream/main
   # new standard to replace the deprecated git-up gem package:
   up = pull --rebase --autostash
 
@@ -95,7 +95,6 @@
   logr2 = log --stat -M -2
   logit = log --stat -M
   scrub = !git reset --hard && git clean -fd
-  pub = !git pub checkout master && git pull && git checkout dev && git rebase master && git checkout master && git merge dev && git wtf
   cs = status
   rv = remote -v
   lwr = log --stat -C
@@ -119,7 +118,7 @@
   blg = log --graph --decorate --all --abbrev-commit --pretty=oneline
   slog = log --graph --simplify-by-decoration --all --abbrev-commit --pretty=oneline
   lgso = log --graph --date=short --pretty=format:'%C(yellow)%h%Creset %cn%x09%cd %s%C(green bold)%d'
-  ro = !git fetch origin && git reset --hard origin/master
+  ro = !git fetch origin && git reset --hard origin/main
   shorten = "!sh -c 'curl -i http://git.io -F url=$1' -"
   pushnotes = !sh -c 'git push $1 refs/notes/*' -
   fetchnotes = !sh -c 'git fetch $1 refs/notes/*:refs/notes/*' -
@@ -166,15 +165,14 @@
 [init]
   templatedir = ~/.dotfiles/.git_template
 
-[mergetool]
-  prompt = false
-  keepBackup = false
-
 [merge]
-  tool = vimdiff
-  # Always show a diffstat at the end of a merge
-  stat = true
-  conflictstyle = diff3
+    tool = vscode
+[mergetool "vscode"]
+    cmd = code --wait $MERGED
+[diff]
+    tool = vscode
+[difftool "vscode"]
+    cmd = code --wait --diff $LOCAL $REMOTE
 
 [branch]
     # Automatically set up pull to be --rebase
@@ -200,3 +198,5 @@
   clean = git-lfs clean %f
   smudge = git-lfs smudge %f
   required = true
+[pull]
+	rebase = true
