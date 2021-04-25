@@ -1,3 +1,9 @@
+### Jekyll ###
+_site/
+.jekyll-metadata
+*-cache/
+.sass-cache/
+.jekyll-cache/
 #########
 # MacOS #
 #########

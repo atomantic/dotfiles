@@ -2,10 +2,11 @@
 :backtrace: false
 :bulk_threshold: 1000
 :sources:
-- http://gems.rubyforge.org/
+- https://rubygems.org/
 :update_sources: true
 :verbose: true
+:concurrent_downloads: 8
 update: "--env-shebang"
 benchmark: false
 install: "--env-shebang"
-gem: -n/usr/local/bin
+gem: "-n/usr/local/bin"
