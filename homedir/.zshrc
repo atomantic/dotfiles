@@ -33,6 +33,8 @@ export DISABLE_AUTO_TITLE="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(colorize compleat dirpersist autojump git gulp history cp zsh-syntax-highlighting)
 
+eval $(thefuck --alias damn)
+
 source $ZSH/oh-my-zsh.sh
 
 source /usr/local/opt/nvm/nvm.sh --no-use

@@ -4,6 +4,21 @@ _site/
 *-cache/
 .sass-cache/
 .jekyll-cache/
+
+#####################
+# Firebase Hosting #
+####################
+.firebaserc
+firebase-debug.log
+.idea
+**/node_modules/*
+**/.firebaserc
+
+### Firebase Patch ###
+.runtimeconfig.json
+.firebase/
+
+
 #########
 # MacOS #
 #########
