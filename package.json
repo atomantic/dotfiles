@@ -1,6 +1,6 @@
 {
   "name": "dotfiles",
-  "version": "4.4.3",
+  "version": "5.2.0",
   "description": "atomantic dotfiles for macos",
   "main": "index.js",
   "scripts": {
@@ -34,7 +34,7 @@
     "async.series": "0.5.2",
     "inquirer": "6.2.2",
     "node-emoji": "1.10.0",
-    "snyk": "^1.274.0"
+    "snyk": "^1.518.0"
   },
   "snyk": true
 }
