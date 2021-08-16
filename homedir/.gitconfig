@@ -142,6 +142,12 @@
   discard = "!f() { git add . && git stash && git stash drop stash@{0}; }; f"
   nr = "!sh -c 'git init $0'"
   echoparam1 = "!sh -c 'echo $0'"
+  mr = !sh -c 'git fetch $1 merge-requests/$2/head:mr-$1-$2 && git checkout mr-$1-$2' -
+
+  # for github remotes
+  pr  = "!f() { git fetch -fu ${2:-$(git remote |grep ^upstream || echo origin)} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f"
+  pr-clean = "!git for-each-ref refs/heads/pr/* --format='%(refname)' | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done"
+
   #testshfunction = "!function gitme() { git init $1; cd $1; }; gitme"
 
   fixup = "!sh -c 'git commit -m \"fixup! $(git log -1 --format='\\''%s'\\'' $@)\"' -"
