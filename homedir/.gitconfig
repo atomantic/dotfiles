@@ -4,6 +4,10 @@
 [github]
   # https://github.com/blog/180-local-github-config
   user = wcorrigan
+  email = bill@bcorrigan
+[github]
+  # https://github.com/blog/180-local-github-config
+  user = wcorrigan
 [color]
 # ui = true is a superset of all the more specific color options
 #  as documented at http://book.git-scm.com/5_customizing_git.html
@@ -196,8 +200,9 @@
   smudge = git media smudge %f
 
 [filter "lfs"]
-  clean = git-lfs clean %f
-  smudge = git-lfs smudge %f
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
   required = true
 [pull]
 	rebase = true
+	process = git-lfs filter-process

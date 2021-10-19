@@ -678,9 +678,18 @@ defaults write com.apple.universalaccess closeViewZoomFollowsFocus -bool true;ok
 running "Disable press-and-hold for keys in favor of key repeat"
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false;ok
 
-running "Set a blazingly fast keyboard repeat rate"
-defaults write NSGlobalDomain KeyRepeat -int 2
-defaults write NSGlobalDomain InitialKeyRepeat -int 10;ok
+running "Set a blazingly fast keyboard repeat rate (BC modifications)"
+# normal minimum is 15 (225 ms)
+defaults write -g InitialKeyRepeat -float 12.0
+defaults write NSGlobalDomain InitialKeyRepeat -float 12.0
+
+# normal minimum is 2 (30 ms)
+defaults write NSGlobalDomain KeyRepeat -float 1.5
+defaults write -g KeyRepeat -float 1.5
+
+#from the @author:
+# defaults write NSGlobalDomain KeyRepeat -int 2
+# defaults write NSGlobalDomain InitialKeyRepeat -int 10;ok
 
 running "Set language and text formats (english/US)"
 defaults write NSGlobalDomain AppleLanguages -array "en"
@@ -699,8 +708,12 @@ running "Require password immediately after sleep or screen saver begins"
 defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 0;ok
 
-running "Save screenshots to the desktop"
-defaults write com.apple.screencapture location -string "${HOME}/Desktop";ok
+running "Save screenshots to the ~/screenshots folder (BC modifications)"
+defaults write com.apple.screencapture location -string "${HOME}/screenshots";ok
+
+# from @author:
+# running "Save screenshots to the desktop"
+# defaults write com.apple.screencapture location -string "${HOME}/Desktop";ok
 
 running "Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)"
 defaults write com.apple.screencapture type -string "png";ok
@@ -858,7 +871,14 @@ defaults write com.apple.dock showhidden -bool true;ok
 running "Make Dock more transparent"
 defaults write com.apple.dock hide-mirror -bool true;ok
 
+<<<<<<< HEAD
 # defaults write com.apple.dock ResetLaunchPad -bool TRUE
+=======
+# adding stuff from https://sourabhbajaj.com/mac-setup/SystemPreferences/
+# Remove workspace auto-switching
+defaults write com.apple.dock workspaces-auto-swoosh -bool NO
+
+>>>>>>> 664979e0197fc017ffc211c2dd022a47b6b911ef
 running "Reset Launchpad, but keep the desktop wallpaper intact"
 find "${HOME}/Library/Application Support/Dock" -name "*-*.db" -maxdepth 1 -delete;ok
 
@@ -1048,8 +1068,8 @@ defaults write com.googlecode.iterm2 HotkeyModifiers -int 262401;
 running "Make iTerm2 load new tabs in the same directory"
 /usr/libexec/PlistBuddy -c "set \"New Bookmarks\":0:\"Custom Directory\" Recycle" ~/Library/Preferences/com.googlecode.iterm2.plist
 running "setting fonts"
-defaults write com.googlecode.iterm2 "Normal Font" -string "Hack-Regular 12";
-defaults write com.googlecode.iterm2 "Non Ascii Font" -string "RobotoMonoForPowerline-Regular 12";
+defaults write com.googlecode.iterm2 "Normal Font" -string "Hack-Regular 14";
+defaults write com.googlecode.iterm2 "Non Ascii Font" -string "RobotoMonoForPowerline-Regular 14";
 ok
 running "reading iterm settings"
 defaults read -app iTerm > /dev/null 2>&1;
