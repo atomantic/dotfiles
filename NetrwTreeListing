@@ -1,0 +1,23 @@
+../
+.git/
+| hooks/
+| info/
+| logs/
+| modules/
+| objects/
+| refs/
+| rr-cache/
+| COMMIT_EDITMSG
+| FETCH_HEAD
+| HEAD
+| MERGE_HEAD
+| MERGE_MODE
+| MERGE_MSG
+| MERGE_RR
+| ORIG_HEAD
+| REBASE_HEAD
+| config
+| description
+| index
+| index.lock
+| packed-refs
