@@ -51,7 +51,7 @@
   safecrlf = warn
   # prevent crlf (then you will have to deal with the problem -- dos2unix, etc)
   #safecrlf = true
-  editor = vim
+	editor = code --wait
   #editor = subl -w
 
 [alias]
