@@ -1,0 +1,289 @@
+tap "adoptopenjdk/openjdk"
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/cask-fonts"
+tap "homebrew/core"
+tap "homebrew/services"
+tap "jesseduffield/lazygit"
+tap "puma/puma"
+tap "sambadevi/powerlevel9k"
+# Search tool like grep, but optimized for programmers
+brew "ack"
+# Image manipulation library
+brew "jpeg"
+# Image format providing lossless and lossy compression for web images
+brew "webp"
+# Password hashing library and CLI utility
+brew "argon2"
+# Spell checker with better logic than ispell
+brew "aspell"
+# Automatic configure script builder
+brew "autoconf"
+# GNU database manager
+brew "gdbm"
+# Shell extension to jump to frequently used directories
+brew "autojump"
+# Tool for generating GNU Standards-compliant Makefiles
+brew "automake"
+# Parser generator
+brew "bison"
+# GNU multiple precision arithmetic library
+brew "gmp"
+# GNU File, Shell, and Text utilities
+brew "coreutils"
+# Generic library support script
+brew "libtool"
+# Manage compile and link flags for libraries
+brew "pkg-config"
+# Asynchronous event library
+brew "libevent"
+# GNU Emacs text editor
+brew "emacs"
+# Emacs dependency management
+brew "cask"
+# Dependency Manager for PHP
+brew "composer"
+# C library implementing the SSH2 protocol
+brew "libssh2"
+# Get a file from an HTTP, HTTPS or FTP server
+brew "curl"
+# File comparison utilities
+brew "diffutils"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.9"
+# Core application library for C
+brew "glib"
+# Spellchecker wrapping library
+brew "enchant"
+# Perl lib for reading and writing EXIF metadata
+brew "exiftool"
+# Collection of GNU find, xargs, and locate
+brew "findutils"
+# Firebase command-line tools
+brew "firebase-cli", link: false
+# XML-based font configuration API for X Windows
+brew "fontconfig"
+# ODBC 3 connectivity for UNIX
+brew "unixodbc"
+# Libraries to talk to Microsoft SQL Server and Sybase databases
+brew "freetds"
+# GNU awk utility
+brew "gawk"
+# GNU compiler collection
+brew "gcc"
+# Graphics library to dynamically manipulate images
+brew "gd"
+# Distributed revision control system
+brew "git"
+# Syntax-highlighting pager for git and diff output
+brew "git-delta"
+# GNU implementation of the famous stream editor
+brew "gnu-sed"
+# GNU version of the tar archiving utility
+brew "gnu-tar"
+# GNU implementation of which utility
+brew "gnu-which"
+# Open source programming language to build simple/reliable/efficient software
+brew "go"
+# Colorize logfiles and command output
+brew "grc"
+# GNU grep, egrep and fgrep
+brew "grep"
+# Popular GNU data compression program
+brew "gzip"
+# Improved top (interactive process viewer)
+brew "htop"
+# Apache HTTP server
+brew "httpd", restart_service: true
+# Add GitHub support to git on the command-line
+brew "hub"
+# Tools and libraries to manipulate images in many formats
+brew "imagemagick"
+# University of Washington IMAP toolkit
+brew "imap-uw"
+# Convert JPG images to ASCII
+brew "jp2a"
+# Lightweight and flexible command-line JSON processor
+brew "jq"
+# Pager program similar to more
+brew "less"
+# C library of Git core methods that is re-entrant and linkable
+brew "libgit2"
+# Postgres C API library
+brew "libpq"
+# NaCl networking and cryptography library
+brew "libsodium"
+# GNOME XML library
+brew "libxml2"
+# C XSLT library for GNOME
+brew "libxslt"
+# C library for reading, creating, and modifying zip archives
+brew "libzip"
+# Mac App Store command-line interface
+brew "mas"
+# Uniform interface to a large number of hash algorithms
+brew "mhash"
+# Replacement for the old crypt package and crypt(1) command
+brew "mcrypt"
+# Open source relational database management system
+brew "mysql"
+# Open source relational database management system
+brew "mysql-client"
+# Free (GNU) replacement for the Pico text editor
+brew "nano"
+# Implements SNMP v1, v2c, and v3, using IPv4 and IPv6
+brew "net-snmp"
+# Manage multiple Node.js versions
+brew "nvm"
+# Development kit for the Java programming language
+brew "openjdk"
+# 7-Zip (high compression file archiver) implementation
+brew "p7zip"
+# Granddaddy of HTML tools, with support for modern standards
+brew "tidy-html5"
+# General-purpose scripting language
+brew "php", restart_service: true
+# Object-relational database system
+brew "postgresql"
+# Install various Ruby versions and implementations
+brew "ruby-build"
+# Ruby version manager
+brew "rbenv"
+# Generate C-based recognizers from regular expressions
+brew "re2c"
+# Persistent key-value database, with built-in net interface
+brew "redis", restart_service: true
+# Unit testing tool
+brew "roundup"
+# Utility that provides fast incremental file transfer
+brew "rsync"
+# Powerful, clean, object-oriented scripting language
+brew "ruby"
+# Terminal multiplexer with VT100/ANSI terminal emulation
+brew "screen"
+# Sparklines for the shell
+brew "spark"
+# Add a public key to a remote machine's authorized_keys file
+brew "ssh-copy-id"
+# Version control system designed to be a better CVS
+brew "subversion"
+# Programmatically correct mistyped console commands
+brew "thefuck"
+# Simplified and community-driven man pages
+brew "tldr"
+# Display directories as trees (with optional color/HTML output)
+brew "tree"
+# Executes a program periodically, showing output fullscreen
+brew "watch"
+# Internet file retriever
+brew "wget"
+# JavaScript package manager
+brew "yarn"
+# Download YouTube videos from the command-line
+brew "youtube-dl"
+# UNIX shell (command interpreter)
+brew "zsh"
+# Additional completion definitions for zsh
+brew "zsh-completions"
+# Fish shell like syntax highlighting for zsh
+brew "zsh-syntax-highlighting"
+# A simple terminal UI for git commands, written in Go
+brew "jesseduffield/lazygit/lazygit"
+# A tool to manage rack apps in development with puma
+brew "puma/puma/puma-dev"
+# A badass zsh theme with more power than a normal earthling
+brew "sambadevi/powerlevel9k/powerlevel9k"
+# Password manager that keeps all passwords secure behind one password
+cask "1password", args: { appdir: "/Applications" }
+# Instant messaging application
+cask "adium", args: { appdir: "/Applications" }
+# AdoptOpenJDK OpenJDK (Java) Development Kit
+cask "adoptopenjdk11"
+# AdoptOpenJDK OpenJDK (Java) Development Kit
+cask "adoptopenjdk13"
+# AdoptOpenJDK OpenJDK (Java) Development Kit
+cask "adoptopenjdk16"
+# AdoptOpenJDK OpenJDK (Java) Development Kit
+cask "adoptopenjdk8"
+# Application launcher and productivity software
+cask "alfred", args: { appdir: "/Applications" }
+# API documentation browser and code snippet manager
+cask "dash", args: { appdir: "/Applications" }
+# Disk usage utility
+cask "disk-inventory-x", args: { appdir: "/Applications" }
+# App to build and share containerized applications and microservices
+cask "docker", args: { appdir: "/Applications" }
+# Client for the Dropbox cloud storage service
+cask "dropbox", args: { appdir: "/Applications" }
+# Web browser
+cask "firefox", args: { appdir: "/Applications" }
+# Change the behavior of the fn keys depending on the active application
+cask "fluor", args: { appdir: "/Applications" }
+cask "font-roboto-mono"
+# Hosts file editor/manager
+cask "gas-mask", args: { appdir: "/Applications" }
+# Set of tools to manage resources and applications hosted on Google Cloud
+cask "google-cloud-sdk"
+# Terminal emulator as alternative to Apple's Terminal app
+cask "iterm2"
+# Clipboard manager
+cask "jumpcut", args: { appdir: "/Applications" }
+# Visual user interface for Docker Container management
+cask "kitematic", args: { appdir: "/Applications" }
+# Automator software to start apps, run scripts or commands and more
+cask "lingon-x", args: { appdir: "/Applications" }
+# Clipboard manager
+cask "maccy"
+# Visual diff and merge tool
+cask "meld", args: { appdir: "/Applications" }
+# Remote desktop client
+cask "microsoft-remote-desktop"
+# Rename a list of files quickly
+cask "namechanger", args: { appdir: "/Applications" }
+# File manager
+cask "path-finder", args: { appdir: "/Applications" }
+cask "qlvideo", args: { appdir: "/Applications" }
+# Move and resize windows using keyboard shortcuts or snap areas
+cask "rectangle"
+# MySQL/MariaDB database management platform
+cask "sequel-pro", args: { appdir: "/Applications" }
+# Utility to resize and position application windows
+cask "sizeup", args: { appdir: "/Applications" }
+# Video chat, voice call and instant messaging application
+cask "skype", args: { appdir: "/Applications" }
+# Team communication and collaboration software
+cask "slack", args: { appdir: "/Applications" }
+# Compiler for the Standard ML '97 programming language
+cask "smlnj", args: { appdir: "/Applications" }
+# Move and resize windows with ease
+cask "spectacle", args: { appdir: "/Applications" }
+# Video game digital distribution service
+cask "steam", args: { appdir: "/Applications" }
+# Open-source BitTorrent client
+cask "transmission", args: { appdir: "/Applications" }
+# File transfer application
+cask "transmit", args: { appdir: "/Applications" }
+# VPN client for secure internet access and private browsing
+cask "tunnelbear", args: { appdir: "/Applications" }
+# Open-source code editor
+cask "visual-studio-code", args: { appdir: "~/Applications" }
+# Multimedia player
+cask "vlc", args: { appdir: "/Applications" }
+# Video communication and virtual meeting platform
+cask "zoom", args: { appdir: "/Applications" }
+mas "AJA System Test Lite", id: 1092006274
+mas "Amphetamine", id: 937984704
+mas "Decompressor", id: 1033480833
+mas "Developer", id: 640199958
+mas "Disk Diag", id: 672206759
+mas "Disk Speed Test", id: 425264550
+mas "Evernote", id: 406056744
+mas "FX Photo Studio PRO", id: 432888949
+mas "Intensify", id: 716854513
+mas "IP Scanner", id: 404167149
+mas "iWifi", id: 1476136371
+mas "Kindle", id: 405399194
+mas "Perfect Rename", id: 908357091
+mas "Snapheal", id: 480623975
+mas "Termius", id: 1176074088
+mas "Tonality", id: 892581529
