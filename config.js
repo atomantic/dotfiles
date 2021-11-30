@@ -45,7 +45,7 @@ module.exports = {
     'tree',
     'ttyrec',
     // better, more recent vim
-    'vim --with-client-server --with-override-system-vi',
+    // 'vim --with-client-server --with-override-system-vi',
     'watch',
     // Install wget with IRI support
     'wget --enable-iri'
@@ -61,15 +61,15 @@ module.exports = {
     //'dropbox',
     //'evernote',
     'flux',
-    'gpg-suite',
+    //'gpg-suite',
     //'ireadfast',
     'iterm2',
-    'little-snitch',
+    // 'little-snitch',
     // 'macbreakz',
-    'micro-snitch',
+    // 'micro-snitch',
     // 'signal',
     //'macvim',
-    'sizeup',
+    // 'sizeup',
     //'sketchup',
     'slack',
     // 'the-unarchiver',
@@ -77,21 +77,23 @@ module.exports = {
     //'transmission',
     'visual-studio-code',
     //'vlc',
-    'xquartz'
+    // 'xquartz'
   ],
   gem: [
   ],
   npm: [
-    'antic',
-    'buzzphrase',
+    // 'antic',
+    // 'buzzphrase',
     'eslint',
-    'instant-markdown-d',
+    'prettier',
+    // 'instant-markdown-d',
     // 'generator-dockerize',
     // 'gulp',
-    'npm-check-updates',
-    'prettyjson',
-    'trash',
-    'vtop'
+    // 'npm-check-updates',
+    // 'prettyjson',
+    // 'trash',
+    // 'vtop'
+    'yarn'
     // ,'yo'
   ],
   mas: [
