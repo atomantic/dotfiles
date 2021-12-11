@@ -1,109 +1,147 @@
+// Search for casks and formulaas at https://formulae.brew.sh
 module.exports = {
   brew: [
-    // http://conqueringthecommandline.com/book/ack_ag
-    'ack',
-    'ag',
-    // https://github.com/wting/autojump
-    'autojump',
-    // alternative to `cat`: https://github.com/sharkdp/bat
-    'bat',
-    // Install GNU core utilities (those that come with macOS are outdated)
-    // Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
-    'coreutils',
-    'dos2unix',
-    // Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed
-    'findutils',
-    // 'fortune',
-    'fzf',
-    'readline', // ensure gawk gets good readline
-    'gawk',
-    // http://www.lcdf.org/gifsicle/ (because I'm a gif junky)
-    'gifsicle',
-    'gnupg',
+    "ack", // http://conqueringthecommandline.com/book/ack_ag
+    "ag", // Code Search similar to ack (https://github.com/ggreer/the_silver_searcher)
+    "autojump", //github.com/wting/autojump // https
+    "bat", //github.com/sharkdp/bat, alternative to `cat`: https
+    "brew-cask-completion",
+    "coreutils", // Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`. Install GNU core utilities (those that come with macOS are outdated)
+    "docker-completion",
+    "docker-compose-completion",
+    "docker-slim", // Minify and secure docker images (https://dockersl.im)
+    "findutils", // Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed
+    "fzf",
+    "gifsicle", // GIF animation creator/editor (https://www.lcdf.org/gifsicle/)
+    "git",
+    "git-credential-manager",
+    "git-open",
+    "gnupg",
+    "graphviz",
     // Install GNU `sed`, overwriting the built-in `sed`
-    // so we can do "sed -i 's/foo/bar/' file" instead of "sed -i '' 's/foo/bar/' file"
-    'gnu-sed --with-default-names',
-    // upgrade grep so we can get things like inverted match (-v)
-    'grep --with-default-names',
+    // so we can do "sed -i "s/foo/bar/" file" instead of "sed -i "" "s/foo/bar/" file"
+    "gnu-sed --with-default-names",
+    "grep --with-default-names", // upgrade grep so we can get things like inverted match (-v)
     // better, more recent grep
-    'homebrew/dupes/grep',
-    // https://github.com/jkbrzt/httpie
-    'httpie',
-    // jq is a sort of JSON grep
-    'jq',
-    // Mac App Store CLI: https://github.com/mas-cli/mas
-    'mas',
-    // Install some other useful utilities like `sponge`
-    'moreutils',
-    'nmap',
-    // 'openconnect',
-    'reattach-to-user-namespace',
-    // better/more recent version of screen
-    'homebrew/dupes/screen',
-    'tmux',
-    'todo-txt',
-    'tree',
-    'ttyrec',
-    // better, more recent vim
-    'vim --with-client-server --with-override-system-vi',
-    'watch',
-    // Install wget with IRI support
-    'wget --enable-iri'
+    "homebrew/dupes/grep", // better, more recent grep
+    "homebrew/dupes/screen", // better/more recent version of screen
+    "htop",
+    "httpie", // HTTP Client - powerful for API testing - alternative to Postman (https://github.com/jkbrzt/httpie | https://httpie.io/docs)
+    "lazygit",
+    "jq", // JSON Processor | is a sort of JSON sed / grep (https://stedolan.github.io/jq/)
+    "mas", // Mac App Store CLI: https://github.com/mas-cli/mas
+    "maven",
+    "maven-completion",
+    "moreutils", // Install some other useful utilities like `sponge` (https://joeyh.name/code/moreutils/)
+    "nmap", // Network Mapper (https://nmap.org)
+    "openjdk",
+    "plantuml",
+    "tree", // The Tree Command for *nix (http://mama.indstate.edu/users/ice/tree/)
+    "ttyrec", // TTY Recorder and Player | Shell Macro? (http://0xcc.net/ttyrec/)
+    "vim --with-client-server --with-override-system-vi", // better, more recent vim
+    "watch",
+    "wget --enable-iri", // Install wget with IRI support
+    "yarn",
+    "yarn-completion",
   ],
   cask: [
-    //'adium',
-    //'amazon-cloud-drive',
-    //'atom',
-    // 'box-sync',
-    //'comicbooklover',
-    //'diffmerge',
-    'docker', // docker for mac
-    //'dropbox',
-    //'evernote',
-    'flux',
-    'gpg-suite',
-    //'ireadfast',
-    'iterm2',
-    'little-snitch',
-    // 'macbreakz',
-    'micro-snitch',
-    // 'signal',
-    //'macvim',
-    'sizeup',
-    //'sketchup',
-    'slack',
-    // 'the-unarchiver',
-    //'torbrowser',
-    //'transmission',
-    'visual-studio-code',
-    //'vlc',
-    'xquartz'
+    "alfred",
+    "bartender",
+    // "battle-net",
+    "blender",
+    // "cheetah3d",
+    "curiosity",
+    "dash",
+    "deltawalker",
+    "devonagent",
+    // "devonthink2",
+    "drawio",
+    "docker",
+    // "dotnet",
+    // "electrum",
+    // "epic-games",
+    "firefox",
+    // "ganache", // Block Chain tooling
+    // "ganttproject",
+    // "gog-galaxy",
+    "handbrake",
+    "iterm2",
+    // "intellij-idea",
+    "istat-menus",
+    // "jetbrains-toolbox",
+    "little-snitch",
+    // "macpass", // Normally covered through 1password
+    // "microsoft-auto-update",
+    // "microsoft-edge",
+    // "microsoft-office",
+    "microsoft-remote-desktop",
+    // "notion",
+    "onedrive",
+    // "parallels", // Only if really necessary
+    "plasticscm-cloud-edition",
+    "postman",
+    "rancher",
+    // "resilio-sync",
+    // "rider",
+    // "scapple", // Normally covered through TheBrain
+    // "screenflow",
+    "sevenzip",
+    "signal",
+    "slack",
+    "smartgit",
+    "snagit",
+    // "spark-ar-studio",
+    "sublime-text",
+    "thebrain",
+    "unity-hub",
+    "visual-studio-code",
+    // "vlc",
+    // "xquartz"
   ],
-  gem: [
-  ],
+  gem: [],
   npm: [
-    'antic',
-    'buzzphrase',
-    'eslint',
-    'instant-markdown-d',
-    // 'generator-dockerize',
-    // 'gulp',
-    'npm-check-updates',
-    'prettyjson',
-    'trash',
-    'vtop'
-    // ,'yo'
+    "eslint",
+    // "generator-dockerize",
+    // "gulp",
+    "npm-check-updates",
+    "prettyjson",
+    // "trash",
+    "trash-cli",
+    "vtop",
+    // ,"yo"
   ],
   mas: [
-    //com.apple.dt.Xcode (10.2.1)
-    '497799835',
-    //com.if.Amphetamine (4.1.6)
-    //'937984704',
+    // 1 Password
+    "1333542190",
+    // Affinity Designer
+    "824171161",
+    // Affinity Photo
+    "824183456",
+    // Affinity Publisher
+    "881418622",
+    // Pixelmator Pro
+    "1289583905",
+    // Fantastical
+    "975937182",
+    // TickTick
+    "966085870",
+    // Xcode
+    "497799835",
+    // Telegram
+    "747648890",
+    // Disk Diet
+    "445512770",
+    // DaisyDisk
+    "411643860",
+    // The Unarchiver
+    "425424353",
+    //com.if.Amphetamine [like caffeine]
+    "937984704",
     //net.shinyfrog.bear (1.6.15)
-    //'1091189122',
+    //"1091189122",
     //com.monosnap.monosnap (3.5.8)
-    //'540348655',
+    //"540348655",
     //com.app77.pwsafemac (4.17)
-    //'520993579',
+    //"520993579",
   ],
 };
