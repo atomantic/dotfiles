@@ -64,6 +64,7 @@ module.exports = {
     "firefox",
     // "ganache", // Block Chain tooling
     // "ganttproject",
+    "github", // Github Desktop
     // "gog-galaxy",
     "handbrake",
     "iterm2",
