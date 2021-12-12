@@ -105,3 +105,18 @@ alias k='kubectl'
 alias kp='kubectl get pods -o wide'
 alias kdp='kubectl describe pod'
 alias kdn='kubectl describe node'
+
+########################
+# GIT
+########################
+
+alias lz='lazygit'
+alias yb='yarn build'
+alias yc='yarn clean'
+alias yd='yarn dist'
+alias yl='yarn lint'
+alias yli='yarn link'
+alias yuli='yarn unlink'
+alias yw='yarn watch'
+alias gc='git clean -fdx'
+alias go='git open'

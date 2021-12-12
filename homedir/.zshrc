@@ -1,8 +1,12 @@
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+export JAVA_HOME=$(/usr/libexec/java_home -v 17.0.1)
+
 # Path to your oh-my-zsh configuration.
 export ZSH=$HOME/.dotfiles/oh-my-zsh
 # if you want to use this, change your non-ascii font to Droid Sans Mono for Awesome
 # POWERLEVEL9K_MODE='awesome-patched'
-export ZSH_THEME="powerlevel9k/powerlevel9k"
+export ZSH_THEME="powerlevel10k/powerlevel10k"
 # export ZSH_THEME="agnoster"
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 # https://github.com/bhilburn/powerlevel9k#customizing-prompt-segments
@@ -34,7 +38,7 @@ plugins=(colorize compleat dirpersist autojump git gulp history cp)
 
 source $ZSH/oh-my-zsh.sh
 
-source /usr/local/opt/nvm/nvm.sh --no-use
+source /opt/homebrew/opt/nvm/nvm.sh --no-use
 
 autoload -U add-zsh-hook
 load-nvmrc() {
