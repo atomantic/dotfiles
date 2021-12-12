@@ -25,3 +25,7 @@ if command -v fc-cache @>/dev/null ; then
 fi
 
 echo "All Powerline fonts installed to $font_dir"
+
+# The default configuration is stored in .p10k.zsh
+# echo "Configure p10k for iTerm2"
+# p10k configure

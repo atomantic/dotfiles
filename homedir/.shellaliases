@@ -111,7 +111,6 @@ alias kdn='kubectl describe node'
 ########################
 
 alias lz='lazygit'
-alias yb='yarn build'
 alias yc='yarn clean'
 alias yd='yarn dist'
 alias yl='yarn lint'

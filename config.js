@@ -1,4 +1,4 @@
-// Search for casks and formulaas at https://formulae.brew.sh
+// Search for casks and formulas at https://formulae.brew.sh
 module.exports = {
   brew: [
     "ack", // http://conqueringthecommandline.com/book/ack_ag
@@ -36,6 +36,7 @@ module.exports = {
     "nmap", // Network Mapper (https://nmap.org)
     "openjdk",
     "plantuml",
+    "thefuck",
     "tree", // The Tree Command for *nix (http://mama.indstate.edu/users/ice/tree/)
     "ttyrec", // TTY Recorder and Player | Shell Macro? (http://0xcc.net/ttyrec/)
     "vim --with-client-server --with-override-system-vi", // better, more recent vim
