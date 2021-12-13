@@ -42,7 +42,6 @@ module.exports = {
     "vim --with-client-server --with-override-system-vi", // better, more recent vim
     "watch",
     "wget --enable-iri", // Install wget with IRI support
-    "yarn",
     "yarn-completion",
   ],
   cask: [
@@ -109,7 +108,9 @@ module.exports = {
     "prettyjson",
     // "trash",
     "trash-cli",
+    "ts-node",
     "vtop",
+    "yarn"
     // ,"yo"
   ],
   mas: [
