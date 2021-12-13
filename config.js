@@ -34,7 +34,7 @@ module.exports = {
     "maven-completion",
     "moreutils", // Install some other useful utilities like `sponge` (https://joeyh.name/code/moreutils/)
     "nmap", // Network Mapper (https://nmap.org)
-    "openjdk",
+    "openjdk@11",
     "plantuml",
     "thefuck",
     "tree", // The Tree Command for *nix (http://mama.indstate.edu/users/ice/tree/)

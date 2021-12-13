@@ -7,8 +7,8 @@ fi
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-export JAVA_HOME=$(/usr/libexec/java_home -v 17.0.1)
-
+export JAVA_HOME="/opt/homebrew/opt/openjdk@11/"
+export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
 # Path to your oh-my-zsh configuration.
 export ZSH=$HOME/.dotfiles/oh-my-zsh
 # if you want to use this, change your non-ascii font to Droid Sans Mono for Awesome
