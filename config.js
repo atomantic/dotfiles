@@ -64,6 +64,7 @@ module.exports = {
     // "ganache", // Block Chain tooling
     // "ganttproject",
     "github", // Github Desktop
+    // "gswitch", // GPU Controll Software when on Intel based Macs to enforce internal / dedicated
     // "gog-galaxy",
     "handbrake",
     "iterm2",
