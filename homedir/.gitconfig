@@ -1,6 +1,6 @@
 [user]
-  name = GITHUBFULLNAME
-  email = GITHUBEMAIL
+	name = Marc Schärer
+	email = marc.schaerer@quatico.com
 [github]
   # https://github.com/blog/180-local-github-config
   user = GITHUBUSER
@@ -41,13 +41,14 @@
   quotepath = false
   # line endings
   # force LF during add
-  autocrlf = input
+	autocrlf = input
   # autocrlf = true # for windows to convert to CRLF on checkout and LF on add
   # warn but allow line ending conversion to proceed
-  safecrlf = warn
+	safecrlf = warn
   # prevent crlf (then you will have to deal with the problem -- dos2unix, etc)
   #safecrlf = true
   editor = vim
+	longpaths = true
   #editor = subl -w
 
 [alias]
@@ -180,14 +181,16 @@
 
 [credential]
     # cache creds (git help credential-cache)
-  helper = cache
+	helper = osxkeychain
 
 [filter "tabspace"]
   clean = expand -t 4
 
 [push]
-  default = matching
+	default = simple
 	followTags = true
+	autocrlf = input
+	safecrlf = warn
 
 [filter "media"]
   required = true
