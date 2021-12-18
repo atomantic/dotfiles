@@ -119,3 +119,9 @@ alias yuli='yarn unlink'
 alias yw='yarn watch'
 alias gc='git clean -fdx'
 alias go='git open'
+
+########################
+# CONSOLE
+########################
+
+alias c='clear'

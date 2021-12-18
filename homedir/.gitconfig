@@ -1,6 +1,6 @@
 [user]
-	name = Marc Schärer
-	email = marc.schaerer@quatico.com
+  name = GITHUBFULLNAME
+  email = GITHUBEMAIL
 [github]
   # https://github.com/blog/180-local-github-config
   user = GITHUBUSER
