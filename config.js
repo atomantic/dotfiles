@@ -45,6 +45,7 @@ module.exports = {
     "yarn-completion",
   ],
   cask: [
+    "aldente",
     "alfred",
     "bartender",
     // "battle-net",
@@ -71,6 +72,7 @@ module.exports = {
     // "intellij-idea",
     "istat-menus",
     // "jetbrains-toolbox",
+    // "ledger-live",
     "little-snitch",
     // "macpass", // Normally covered through 1password
     // "microsoft-auto-update",
@@ -79,6 +81,7 @@ module.exports = {
     "microsoft-remote-desktop",
     // "notion",
     "onedrive",
+    "paragon-ntfs",
     // "parallels", // Only if really necessary
     "plasticscm-cloud-edition",
     "portfolioperformance",
@@ -96,6 +99,7 @@ module.exports = {
     // "spark-ar-studio",
     "sublime-text@3",
     "thebrain",
+    "turbo-boost-switcher",
     "unity-hub",
     "visual-studio-code",
     // "vlc",
@@ -124,24 +128,32 @@ module.exports = {
     "824183456",
     // Affinity Publisher
     "881418622",
-    // Pixelmator Pro
-    "1289583905",
+    // AirMail 5
+    "918858936",
+    //com.if.Amphetamine [like caffeine]
+    "937984704",
+    // Day One
+    "1055511498",
+    // DaisyDisk
+    "411643860",
+    // Disk Diet
+    "445512770",
     // Fantastical
     "975937182",
+    // Gemini Duplicate Finder
+    "1090488118",
+    // Pluralsight
+    "431748264",
+    // Pixelmator Pro
+    "1289583905",
+    // Telegram
+    "747648890",
+    // The Unarchiver
+    "425424353",
     // TickTick
     "966085870",
     // Xcode
     "497799835",
-    // Telegram
-    "747648890",
-    // Disk Diet
-    "445512770",
-    // DaisyDisk
-    "411643860",
-    // The Unarchiver
-    "425424353",
-    //com.if.Amphetamine [like caffeine]
-    "937984704",
     //net.shinyfrog.bear (1.6.15)
     //"1091189122",
     //com.monosnap.monosnap (3.5.8)
