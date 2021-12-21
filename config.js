@@ -1,7 +1,12 @@
 module.exports = {
-  brew: [], // Moved to ./homedir/.Brewfile
-  cask: [], // Moved to ./homedir/.Brewfile
-  gem: [],
+  brew: [
+    // Moved to ./homedir/.Brewfile
+  ],
+  cask: [
+    // Moved to ./homedir/.Brewfile
+  ],
+  gem: [
+  ],
   npm: [
     'antic',
     'buzzphrase',
@@ -12,7 +17,7 @@ module.exports = {
     'npm-check-updates',
     'prettyjson',
     'trash',
-    'vtop',
+    'vtop'
     // ,'yo'
   ],
   mas: [], // Moved to ./homedir/.Brewfile
