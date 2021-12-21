@@ -28,9 +28,9 @@ brew "gifsicle"
 brew "gnupg"
 # Install GNU `sed`, overwriting the built-in `sed`
 # so we can do "sed -i 's/foo/bar/' file" instead of "sed -i '' 's/foo/bar/' file"
-brew "gnu-sedbrew --with-default-names"
+brew "gnu-sedbrew", args: ["--with-default-names"]
 # upgrade grep so we can get things like inverted match (-v)
-brwe "grepbrew --with-default-names"
+brwe "grepbrew", args: ["--with-default-names"]
 # better, more recent grep
 brew "homebrew/dupes/grep"
 # https://github.com/jkbrzt/httpie
