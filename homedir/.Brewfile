@@ -51,10 +51,10 @@ brew "todo-txt"
 brew "tree"
 brew "ttyrec"
 # better, more recent vim
-brew "vim --with-client-serverbrew --with-override-system-vi"
+brew "vim", args: ["--with-client-serverbrew", "--with-override-system-vi"]
 brew "watch"
 # Install wget with IRI support
-brew "wget --enable-iri"
+brew "wget", args: ["--enable-iri"]
 # Homebrew Casks
 # cask "adium"
 # cask "amazon-cloud-drive"
