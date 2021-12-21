@@ -20,5 +20,7 @@ module.exports = {
     'vtop'
     // ,'yo'
   ],
-  mas: [], // Moved to ./homedir/.Brewfile
+  mas: [
+    // Moved to ./homedir/.Brewfile
+  ],
 };
