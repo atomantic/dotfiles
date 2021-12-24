@@ -111,14 +111,17 @@ alias kdn='kubectl describe node'
 ########################
 
 alias lz='lazygit'
+alias yb='yarn build'
 alias yc='yarn clean'
 alias yd='yarn dist'
 alias yl='yarn lint'
 alias yli='yarn link'
+alias yt='yarn test'
 alias yuli='yarn unlink'
 alias yw='yarn watch'
 alias gc='git clean -fdx'
 alias go='git open'
+alias gdc='yarn dist && git commit'
 
 ########################
 # CONSOLE
