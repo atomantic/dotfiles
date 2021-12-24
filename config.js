@@ -47,6 +47,7 @@ module.exports = {
   cask: [
     "aldente",
     "alfred",
+    "app-tamer",
     "bartender",
     // "battle-net",
     "blender",
