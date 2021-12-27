@@ -16,7 +16,6 @@ module.exports = {
     "git",
     "git-credential-manager",
     "git-open",
-    "gnupg",
     "graphviz",
     // Install GNU `sed`, overwriting the built-in `sed`
     // so we can do "sed -i "s/foo/bar/" file" instead of "sed -i "" "s/foo/bar/" file"
