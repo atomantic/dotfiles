@@ -1,6 +1,6 @@
 [user]
-  name = GITHUBFULLNAME
-  email = GITHUBEMAIL
+	name = Marc Schärer
+	email = dreamora@users.noreply.github.com
 [github]
   # https://github.com/blog/180-local-github-config
   user = GITHUBUSER

@@ -1,9 +1,9 @@
-eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(/usr/local/bin/brew shellenv)"
 
 
-export PATH=/opt/homebrew/bin:$PATH
-export JAVA_HOME="/opt/homebrew/opt/openjdk@11/"
-export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
+export PATH=/usr/local/bin:$PATH
+export JAVA_HOME="/usr/local/opt/openjdk@11/"
+export PATH="/usr/local/opt/openjdk@11/bin:$PATH"
 
 # Path to your oh-my-zsh configuration.
 export ZSH=$HOME/.dotfiles/oh-my-zsh
@@ -42,7 +42,7 @@ plugins=(colorize compleat dirpersist autojump git gulp history cp)
 
 source $ZSH/oh-my-zsh.sh
 
-source /opt/homebrew/opt/nvm/nvm.sh --no-use
+source /usr/local/opt/nvm/nvm.sh --no-use
 
 autoload -U add-zsh-hook
 load-nvmrc() {

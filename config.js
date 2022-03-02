@@ -52,6 +52,7 @@ module.exports = {
     "battle-net",
     "blender",
     "cheetah3d",
+    "context",
     "curiosity",
     "dash",
     "deltawalker",
