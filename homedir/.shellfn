@@ -126,3 +126,9 @@ function fo() {
   IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
   [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
 }
+
+
+
+function gittyup(){
+  git pull --rebase --autostash  && git push
+}
