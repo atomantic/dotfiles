@@ -1,7 +1,8 @@
-eval "$(/usr/local/bin/brew shellenv)"
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 
-export PATH=/usr/local/bin:$PATH
+
+export PATH=/usr/local/bin:/opt/homebrew/bin:$PATH
 export JAVA_HOME="/usr/local/opt/openjdk@11/"
 export PATH="/usr/local/opt/openjdk@11/bin:$PATH"
 
@@ -42,7 +43,7 @@ plugins=(colorize compleat dirpersist autojump git gulp history cp)
 
 source $ZSH/oh-my-zsh.sh
 
-source /usr/local/opt/nvm/nvm.sh --no-use
+source /opt/homebrew/opt/nvm/nvm.sh --no-use
 
 autoload -U add-zsh-hook
 load-nvmrc() {
@@ -70,3 +71,5 @@ unsetopt correct
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
