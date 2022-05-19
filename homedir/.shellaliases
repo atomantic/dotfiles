@@ -106,11 +106,21 @@ alias kp='kubectl get pods -o wide'
 alias kdp='kubectl describe pod'
 alias kdn='kubectl describe node'
 
+
+########################
+# MVN
+########################
+
+alias mdt="mvn dependency:tree"
+alias mct="mvn clean test"
+alias mci="mvn clean install"
+
 ########################
 # GIT
 ########################
 
 alias lz='lazygit'
+alias y='yarn install'
 alias yb='yarn build'
 alias yc='yarn clean'
 alias yd='yarn dist'
