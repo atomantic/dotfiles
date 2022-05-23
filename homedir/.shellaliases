@@ -106,6 +106,21 @@ alias kp='kubectl get pods -o wide'
 alias kdp='kubectl describe pod'
 alias kdn='kubectl describe node'
 
+########################
+# SERVER MANAGEMENT
+# ######################
+
+alias killNode="killall -9 node"
+alias killTomcat="pkill -9 -f tomcat"
+
+########################
+# Java Version
+########################
+
+alias listJava="/usr/libexec/java_home -V"
+alias setJ8="export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0_292`"
+alias setJ11="export JAVA_HOME=`/usr/libexec/java_home -v 11.0.15`"
+alias setJ17="export JAVA_HOME=`/usr/libexec/java_home -v 17.0.2`"
 
 ########################
 # MVN
@@ -114,6 +129,7 @@ alias kdn='kubectl describe node'
 alias mdt="mvn dependency:tree"
 alias mct="mvn clean test"
 alias mci="mvn clean install"
+alias mvn-purge="mvn dependency:purge-local-repository"
 
 ########################
 # GIT

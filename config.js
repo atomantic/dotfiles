@@ -3,6 +3,7 @@ module.exports = {
   brew: [
     "ack", // http://conqueringthecommandline.com/book/ack_ag
     "ag", // Code Search similar to ack (https://github.com/ggreer/the_silver_searcher)
+    "asdf",
     "autojump", //github.com/wting/autojump // https
     "bat", //github.com/sharkdp/bat, alternative to `cat`: https
     "brew-cask-completion",
