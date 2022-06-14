@@ -145,6 +145,8 @@ module.exports = {
     "975937182",
     // Gemini Duplicate Finder
     "1090488118",
+    // Good Notes 5
+    "1444383602",
     // Magnet
     "441258766",
     // Pluralsight
