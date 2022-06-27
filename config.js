@@ -9,13 +9,11 @@ module.exports = {
     "brew-cask-completion",
     "coreutils", // Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`. Install GNU core utilities (those that come with macOS are outdated)
     "docker-completion",
-    "docker-compose-completion",
     "docker-slim", // Minify and secure docker images (https://dockersl.im)
     "findutils", // Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed
     "fzf",
     "gifsicle", // GIF animation creator/editor (https://www.lcdf.org/gifsicle/)
     "git",
-    "git-credential-manager",
     "git-open",
     "graphviz",
     // Install GNU `sed`, overwriting the built-in `sed`
@@ -35,7 +33,6 @@ module.exports = {
     "moreutils", // Install some other useful utilities like `sponge` (https://joeyh.name/code/moreutils/)
     "neovim",
     "nmap", // Network Mapper (https://nmap.org)
-    "openjdk@11",
     "plantuml",
     "thefuck",
     "tree", // The Tree Command for *nix (http://mama.indstate.edu/users/ice/tree/)
@@ -101,6 +98,11 @@ module.exports = {
     "steam",
     // "spark-ar-studio",
     "sublime-text@3",
+    "adoptopenjdk8",
+    "temurin8",
+    "temurin11",
+    "temurin17",
+    "temurin",
     "thebrain",
     "turbo-boost-switcher",
     "unity-hub",
