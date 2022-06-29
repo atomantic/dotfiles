@@ -151,6 +151,8 @@ module.exports = {
     "1444383602",
     // Magnet
     "441258766",
+    // Money
+    "1185488696",
     // Pluralsight
     "431748264",
     // Pixelmator Pro
