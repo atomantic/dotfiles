@@ -98,7 +98,6 @@ module.exports = {
     "steam",
     // "spark-ar-studio",
     "sublime-text@3",
-    "adoptopenjdk8",
     "temurin8",
     "temurin11",
     "temurin17",

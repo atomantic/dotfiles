@@ -131,11 +131,11 @@ alias killTomcat="pkill -9 -f tomcat"
 ########################
 
 alias listJava="/usr/libexec/java_home -V"
-alias setJ8="export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0_292` && export PATH=$JAVA_HOME/bin:$PATH"
-alias setJ8Latest="export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0_332` && export PATH=$JAVA_HOME/bin:$PATH"
-alias setJ11="export JAVA_HOME=`/usr/libexec/java_home -v 11.0.15` &&  export PATH=$JAVA_HOME/bin:$PATH"
-alias setJ17="export JAVA_HOME=`/usr/libexec/java_home -v 17.0.3` && export PATH=$JAVA_HOME/bin:$PATH"
-alias setJ18="export JAVA_HOME=`/usr/libexec/java_home -v 18.0.1` && export PATH=$JAVA_HOME/bin:$PATH"
+alias setJ8="export JAVA_HOME=`/usr/libexec/java_home -v 1.8`"
+alias setJ11="export JAVA_HOME=`/usr/libexec/java_home -v 11`"
+alias setJ17="export JAVA_HOME=`/usr/libexec/java_home -v 17`"
+alias setJ18="export JAVA_HOME=`/usr/libexec/java_home -v 18`"
+alias setJava="export JAVA_HOME=`/usr/libexec/java_home -v 1`"
 
 ########################
 # MVN
