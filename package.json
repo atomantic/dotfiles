@@ -11,7 +11,7 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/atomantic/dotfiles.git"
+    "url": "git+https://github.com/dreamora/dotfiles.git"
   },
   "keywords": [
     "dotfiles",
