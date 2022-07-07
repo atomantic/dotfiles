@@ -151,6 +151,13 @@ alias mvn-purge="mvn dependency:purge-local-repository"
 ########################
 
 alias lz='lazygit'
+alias gc='git clean -fdx'
+alias go='git open'
+alias gdc='yarn dist && git commit'
+
+########################
+# YARN
+########################
 alias y='yarn install'
 alias yb='yarn build'
 alias yc='yarn clean'
@@ -164,9 +171,21 @@ alias yte='yarn test:e2e'
 alias yuli='yarn unlink'
 alias yulip='yarn unlink:packages'
 alias yw='yarn watch'
-alias gc='git clean -fdx'
-alias go='git open'
-alias gdc='yarn dist && git commit'
+# List all linked yarn packages
+alias ylp='( ls -l node_modules ; ls -l node_modules/@* ) | grep ^l'
+# Opens directory where are linked packages are referenced
+alias ylo='open ~/.config/yarn/link'
+
+########################
+# YARN NX
+########################
+alias ynb='yarn nx run-many --target=build --all'
+alias ync='yarn nx run-many --target=clean --all'
+alias ynl='yarn nx run-many --target=lint --all'
+alias yns='yarn nx run-many --target=serve'
+alias ynt='yarn nx run-many --target=test --all'
+alias ynte='yarn nx run-many --target=test:e2e --all'
+alias ynw='yarn nx run-many --target=watch --all'
 
 ########################
 # CONSOLE
