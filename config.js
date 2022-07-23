@@ -5,6 +5,7 @@ module.exports = {
     "ag", // Code Search similar to ack (https://github.com/ggreer/the_silver_searcher)
     "asdf",
     "autojump", //github.com/wting/autojump // https
+    "asimov", // https://asimov.io/
     "bat", //github.com/sharkdp/bat, alternative to `cat`: https
     "brew-cask-completion",
     "coreutils", // Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`. Install GNU core utilities (those that come with macOS are outdated)

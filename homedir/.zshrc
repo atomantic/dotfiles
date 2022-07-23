@@ -5,6 +5,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 export PATH=/usr/local/bin:/opt/homebrew/bin:$PATH
 export PATH="/usr/local/opt/openjdk@11/bin:$PATH"
 export JAVA_HOME=`/usr/libexec/java_home -v 11.0.15`
+export JAVA_HOME=`/usr/libexec/java_home -v 17`
 export PATH=$JAVA_HOME/bin:$PATH
 
 # Path to your oh-my-zsh configuration.
