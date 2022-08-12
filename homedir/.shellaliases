@@ -144,7 +144,9 @@ alias setJava="export JAVA_HOME=`/usr/libexec/java_home -v 1`"
 alias mdt="mvn dependency:tree"
 alias mct="mvn clean test"
 alias mci="mvn clean install"
+alias mciA="mvn clean install -DskipTests -PdeployPackage -DskipITs"
 alias mvn-purge="mvn dependency:purge-local-repository"
+alias mvn-verify="mvn -B -U verify -DskipTests -DskipITs"
 
 ########################
 # GIT

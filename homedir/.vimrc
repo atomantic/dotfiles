@@ -46,13 +46,11 @@ Plugin 'suan/vim-instant-markdown'
 Plugin 'godlygeek/tabular'
 " language tools
 Plugin 'scrooloose/syntastic'
-Plugin 'millermedeiros/vim-esformatter'
 Plugin 'digitaltoad/vim-pug'
 " Plugin 'elzr/vim-json'
 " Plugin 'SirVer/ultisnips'
 "Plugin 'sheerun/vim-polyglot'
 " plugins from http://vim-scripts.org/vim/scripts.html
-Plugin 'node.js'
 Plugin 'SuperTab'
 " Git plugin not hosted on GitHub
 " Plugin 'git://git.wincent.com/command-t.git'
@@ -65,9 +63,7 @@ Plugin 'SuperTab'
 " different version somewhere else.
 " Plugin 'ascenator/L9', {'name': 'newL9'}
 " TypeScript
-" Plugin 'leafgarland/typescript-vim'
-" Vue.js
-Plugin 'posva/vim-vue'
+Plugin 'leafgarland/typescript-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
