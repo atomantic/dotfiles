@@ -62,6 +62,7 @@ module.exports = {
     // "dotnet",
     "electrum",
     "epic-games",
+    "fig",
     "firefox",
     // "ganache", // Block Chain tooling
     "ganttproject",
