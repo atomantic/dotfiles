@@ -7,6 +7,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 export PATH=/usr/local/bin:/opt/homebrew/bin:$PATH
 export PATH="/usr/local/opt/openjdk@11/bin:$PATH"
 export JAVA_HOME=`/usr/libexec/java_home -v 11.0.15`
+export PATH=$HOMEBREW_PREFIX/bin:/opt/homebrew/lib/ruby/gems/3.1.0/bin:$PATH
 export JAVA_HOME=`/usr/libexec/java_home -v 17`
 export PATH=$JAVA_HOME/bin:$PATH
 
