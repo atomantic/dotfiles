@@ -120,7 +120,7 @@
   slog = log --graph --simplify-by-decoration --all --abbrev-commit --pretty=oneline
   lgso = log --graph --date=short --pretty=format:'%C(yellow)%h%Creset %cn%x09%cd %s%C(green bold)%d'
   ro = !git fetch origin && git reset --hard origin/main
-  shorten = "!sh -c 'curl -i http://git.io -F url=$1' -"
+  shorten = !sh -c 'curl -i http://git.io -F url=$1' -
   pushnotes = !sh -c 'git push $1 refs/notes/*' -
   fetchnotes = !sh -c 'git fetch $1 refs/notes/*:refs/notes/*' -
   showignored = clean -ndX
@@ -140,16 +140,24 @@
   configpushmatching = config push.default matching
   configpushcurrent = config push.default current
 
-  nr = "!sh -c 'git init $0'"
-  echoparam1 = "!sh -c 'echo $0'"
+  nr = !sh -c 'git init $0'
+  echoparam1 = !sh -c 'echo $0'
   #testshfunction = "!function gitme() { git init $1; cd $1; }; gitme"
 
-  fixup = "!sh -c 'git commit -m \"fixup! $(git log -1 --format='\\''%s'\\'' $@)\"' -"
-  squash = "!sh -c 'git commit -m \"squash! $(git log -1 --format='\\''%s'\\'' $@)\"' -"
-  ccfq = "!sh -c 'git add $1 && git commit -m\"Placeholder\"' -"
+  fixup = !sh -c 'git commit -m \"fixup! $(git log -1 --format='\\''%s'\\'' $@)\"' -
+  squash = !sh -c 'git commit -m \"squash! $(git log -1 --format='\\''%s'\\'' $@)\"' -
+  ccfq = !sh -c 'git add $1 && git commit -m\"Placeholder\"' -
   cob = checkout -b
   sno = show --name-only
   logsimple = log --graph --abbrev-commit --pretty=oneline --all --decorate
+  wip = "!f() { \
+              git add -A; \
+              if [ \"$(git log -1 --pretty=%B)\" = \"WIP:Do not merge\" ]; then git commit --amend --no-edit; else git commit -m \"WIP:Do not merge\"; fi; \
+              }; f"
+  unwip = "!f() { \
+              if [ \"$(git log -1 --pretty=%B)\" = \"WIP:Do not merge\" ]; then git reset HEAD^; else echo \"No work in progress commit\"; fi; \
+              }; f"
+
 [apply]
   whitespace = nowarn
 
