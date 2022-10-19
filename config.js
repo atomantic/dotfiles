@@ -81,6 +81,7 @@ module.exports = {
     "microsoft-edge",
     "microsoft-office",
     "microsoft-remote-desktop",
+    "microsoft-teams",
     "notion",
     "onedrive",
     "paragon-ntfs",
