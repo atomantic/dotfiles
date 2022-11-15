@@ -165,6 +165,8 @@ module.exports = {
     "425424353",
     // TickTick
     "966085870",
+    // Whatsapp
+    "1147396723",
     // Xcode
     "497799835",
     //net.shinyfrog.bear (1.6.15)
