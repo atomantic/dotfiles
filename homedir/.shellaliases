@@ -2,6 +2,7 @@
 
 alias localjenkinsrestart='docker stop jenkins;docker rm jenkins;docker run --name jenkins -i -d -p 8787:8080 -p 50000:50000 -v /Users/marcschaerer/quatico/jenkins_home:/var/jenkins_home:rw local_jenkins'
 
+alias checkPackage='npm ls --depth 1'
 
 #################################
 # Simple Program Name Shortening
@@ -181,6 +182,19 @@ alias yw='yarn watch'
 alias ylp='( ls -l node_modules ; ls -l node_modules/@* ) | grep ^l'
 # Opens directory where are linked packages are referenced
 alias ylo='open ~/.config/yarn/link'
+
+########################
+# pnpm
+########################
+alias pn='pnpm install'
+alias pnb='pnpm build'
+alias pnc='pnpm clean'
+alias pnd='pnpm dist'
+alias pnl='pnpm lint'
+alias pns='pnpm serve'
+alias pnt='pnpm test'
+alias pnte='pnpm test:e2e'
+alias pnw='pnpm watch'
 
 ########################
 # YARN NX
