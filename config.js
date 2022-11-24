@@ -112,7 +112,7 @@ module.exports = {
     "vlc",
     // "xquartz"
   ],
-  gem: [],
+  gem: ["git-up"],
   npm: [
     "eslint",
     // "generator-dockerize",
@@ -123,7 +123,7 @@ module.exports = {
     "trash-cli",
     "ts-node",
     "vtop",
-    "yarn"
+    "yarn",
     // ,"yo"
   ],
   mas: [

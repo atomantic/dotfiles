@@ -161,6 +161,7 @@ alias lz='lazygit'
 alias gc='git clean -fdx'
 alias go='git open'
 alias gdc='yarn dist && git commit'
+alias gpyi='git pull --rebase && yarn install --frozen-lockfile --force'
 
 ########################
 # YARN
