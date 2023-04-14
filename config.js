@@ -144,6 +144,8 @@ module.exports = {
     "1055511498",
     // DaisyDisk
     "411643860",
+    // Hugging Face Diffusers
+    "1666309574",
     // Disk Diet
     "445512770",
     // Fantastical
@@ -162,6 +164,8 @@ module.exports = {
     "1289583905",
     // Telegram
     "747648890",
+    // toggl-track-hours-time-log
+    "1291898086",
     // The Unarchiver
     "425424353",
     // TickTick
