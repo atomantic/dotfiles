@@ -13,6 +13,7 @@ module.exports = {
     "docker-slim", // Minify and secure docker images (https://dockersl.im)
     "findutils", // Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed
     "fzf",
+    "gawk", // GNU `awk`, overwriting the built-in `awk`
     "gifsicle", // GIF animation creator/editor (https://www.lcdf.org/gifsicle/)
     "git",
     "git-open",

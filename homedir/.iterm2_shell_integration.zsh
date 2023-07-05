@@ -18,7 +18,8 @@ if [[ -o interactive ]]; then
     # \(user.currentDirectory).
     whence -v iterm2_print_user_vars > /dev/null 2>&1
     if [ $? -ne 0 ]; then
-      iterm2_print_user_vars() {
+      iterm2_print_user_vars(){
+        printf ""
       }
     fi
 

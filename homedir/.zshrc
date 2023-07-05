@@ -5,9 +5,11 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 export GEM_HOME=$HOME/.gem
 export PATH=$GEM_HOME/bin:$PATH
+
+export PATH="/Users/marcschaerer/quatico/google-cloud-sdk/bin:$PATH"
+# Add jetbrains command line
+export PATH="/Users/marcschaerer/Library/Application Support/JetBrains/Toolbox/scripts:$PATH"
 export PATH=/opt/homebrew/bin:/usr/local/bin:$PATH
-export PATH="/usr/local/opt/openjdk@11/bin:$PATH"
-export JAVA_HOME=`/usr/libexec/java_home -v 11.0.15`
 export PATH=$HOMEBREW_PREFIX/bin:/opt/homebrew/lib/ruby/gems/3.1.0/bin:$PATH
 export JAVA_HOME=`/usr/libexec/java_home -v 17`
 export PATH=$JAVA_HOME/bin:$PATH
@@ -50,7 +52,12 @@ plugins=(colorize compleat dirpersist autojump git gulp history cp)
 source $ZSH/oh-my-zsh.sh
 
 . $(brew --prefix asdf)/libexec/asdf.sh
+. ~/.asdf/plugins/java/set-java-home.zsh
 source /opt/homebrew/opt/nvm/nvm.sh --no-use
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
 autoload -U add-zsh-hook
 load-nvmrc() {
@@ -87,6 +94,7 @@ fi
 export PATH=/usr/local/opt/ruby/bin:$PATH
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH="$(which node)":$PATH
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
