@@ -149,6 +149,7 @@
   cob = checkout -b
   sno = show --name-only
   logsimple = log --graph --abbrev-commit --pretty=oneline --all --decorate
+  again = !git commit -a -m \"😭 once more, with feeling\" && git push
 [apply]
   whitespace = nowarn
 
