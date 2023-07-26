@@ -4,9 +4,7 @@
   "description": "atomantic dotfiles for macos",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "snyk-protect": "snyk protect",
-    "prepare": "npm run snyk-protect"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "private": true,
   "repository": {
@@ -33,8 +31,6 @@
   "dependencies": {
     "async.series": "0.5.2",
     "inquirer": "6.2.2",
-    "node-emoji": "1.10.0",
-    "snyk": "^1.465.0"
-  },
-  "snyk": true
+    "node-emoji": "1.10.0"
+  }
 }

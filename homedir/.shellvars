@@ -26,4 +26,3 @@ export MYDEVAPPS=/Applications/Dev
 # Tool settings
 #########################################################################
 export FONTCONFIG_PATH=/opt/X11/lib/X11/fontconfig
-export NVM_DIR=~/.nvm
