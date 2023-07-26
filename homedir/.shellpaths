@@ -3,8 +3,9 @@ export PATH=$PATH:.
 #export PATH=$PATH:~/.dotfiles/scripts
 
 #Brew
-export PATH=/usr/local/sbin:$PATH
-export PATH=/usr/local/bin:$PATH
+export PATH="/opt/homebrew/bin:$PATH"
+# export PATH=/usr/local/sbin:$PATH
+# export PATH=/usr/local/bin:$PATH
 
 # GO
 #export PATH=$PATH:/usr/local/opt/go/libexec/bin
