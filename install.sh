@@ -219,20 +219,20 @@ brew doctor
 # git is now included with macos terminal
 #require_brew git
 # update zsh to latest
-require_brew zsh
+#require_brew zsh
 # update ruby to latest
 # use versions of packages installed with homebrew
 #RUBY_CONFIGURE_OPTS="--with-openssl-dir=`brew --prefix openssl` --with-readline-dir=`brew --prefix readline` --with-libyaml-dir=`brew --prefix libyaml`"
 #require_brew ruby
 # set zsh as the user login shell
-CURRENTSHELL=$(dscl . -read /Users/$USER UserShell | awk '{print $2}')
-if [[ "$CURRENTSHELL" != "/usr/local/bin/zsh" ]]; then
-  bot "setting newer homebrew zsh (/usr/local/bin/zsh) as your shell (password required)"
-  # sudo bash -c 'echo "/usr/local/bin/zsh" >> /etc/shells'
-  # chsh -s /usr/local/bin/zsh
-  sudo dscl . -change /Users/$USER UserShell $SHELL /usr/local/bin/zsh > /dev/null 2>&1
-  ok
-fi
+# CURRENTSHELL=$(dscl . -read /Users/$USER UserShell | awk '{print $2}')
+# if [[ "$CURRENTSHELL" != "/usr/local/bin/zsh" ]]; then
+#   bot "setting newer homebrew zsh (/usr/local/bin/zsh) as your shell (password required)"
+#   # sudo bash -c 'echo "/usr/local/bin/zsh" >> /etc/shells'
+#   # chsh -s /usr/local/bin/zsh
+#   sudo dscl . -change /Users/$USER UserShell $SHELL /usr/local/bin/zsh > /dev/null 2>&1
+#   ok
+# fi
 
 if [[ ! -d "./oh-my-zsh/custom/themes/powerlevel9k" ]]; then
   git clone https://github.com/bhilburn/powerlevel9k.git oh-my-zsh/custom/themes/powerlevel9k
