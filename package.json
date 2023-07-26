@@ -4,8 +4,7 @@
   "description": "atomantic dotfiles for macos",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "prepare": "npm run snyk-protect"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "private": true,
   "repository": {
