@@ -47,8 +47,10 @@ module.exports = {
   cask: [
     "aldente",
     "alfred",
+    "android-platform-tools",
     "app-tamer",
     "bartender",
+    "bundletool",
     //"battle-net",
     "blender",
     "cheetah3d",
@@ -67,6 +69,7 @@ module.exports = {
     "epic-games",
     "fig",
     "firefox",
+    "fork",
     // "ganache", // Block Chain tooling
     "ganttproject",
     "github", // Github Desktop
