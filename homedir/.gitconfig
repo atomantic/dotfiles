@@ -59,6 +59,7 @@
   upm = !git fetch upstream && git merge upstream/main
   # new standard to replace the deprecated git-up gem package:
   up = pull --rebase --autostash
+  sr = switch --recurse-submodules
 
   # least used
   br = branch -a
