@@ -43,6 +43,9 @@ if [[ $response =~ (yes|y|Y) ]];then
     action "cp /etc/hosts /etc/hosts.backup"
     sudo cp /etc/hosts /etc/hosts.backup
     ok
+    action "curl https://someonewhocares.org/hosts/hosts > ./configs/hosts"
+    sudo curl https://someonewhocares.org/hosts/hosts > ./configs/hosts
+    ok
     action "cp ./configs/hosts /etc/hosts"
     sudo cp ./configs/hosts /etc/hosts
     ok
