@@ -2,6 +2,7 @@
 
 alias localjenkinsrestart='docker stop jenkins;docker rm jenkins;docker run --name jenkins -i -d -p 8787:8080 -p 50000:50000 -v /Users/marcschaerer/quatico/jenkins_home:/var/jenkins_home:rw local_jenkins'
 
+alias github-switch-accounts='gh auth switch && gh auth setup-git'
 alias checkPackage='npm ls --depth 1'
 
 #################################
