@@ -159,7 +159,13 @@ alias mvn-check="mvn artifact:check-buildplan -U -DskipTests -DskipITs"
 ########################
 
 alias lz='lazygit'
-alias gitpullall='git pull origin master;git submodule update --init --recursive; git submodule foreach git pull origin master;'
+
+alias gitmaster='git pull origin master;git submodule update --init --recursive; git submodule foreach sh -e -c "git switch master;git pull origin master"'
+alias gitmastersubmodules='git submodule update --init --recursive; git submodule foreach sh -e -c "git switch master;git pull origin master"'
+alias gitpullall=gitmaster
+alias gitpullsub=gitmastersubmodules
+
+
 alias gc='git clean -fdx'
 alias gopen='git open'
 alias gdc='yarn dist && git commit'
