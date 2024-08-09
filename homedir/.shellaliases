@@ -8,6 +8,10 @@ alias checkPackage='npm ls --depth 1'
 # Simple Program Name Shortening
 alias g=git
 
+#################################
+#
+alias env_dbt='source ~/development/learning/dbt-learning/dbt-env/bin/activate'
+
 #############################
 # Utilities
 
@@ -160,10 +164,8 @@ alias mvn-check="mvn artifact:check-buildplan -U -DskipTests -DskipITs"
 
 alias lz='lazygit'
 
-alias gitmaster='git pull origin master;git submodule update --init --recursive; git submodule foreach sh -e -c "git switch master;git pull origin master"'
-alias gitmastersubmodules='git submodule update --init --recursive; git submodule foreach sh -e -c "git switch master;git pull origin master"'
-alias gitpullall=gitmaster
-alias gitpullsub=gitmastersubmodules
+alias gitmaster='git pull origin master;git submodule update --init --recursive;git lfs fetch;git submodule foreach sh -e -c "git switch master;git pull origin master;git lfs fetch"'
+alias gitmastersubmodules='git submodule update --init --recursive; git submodule foreach sh -e -c "git switch master;git pull origin master;git lfs fetch"'
 
 
 alias gc='git clean -fdx'
