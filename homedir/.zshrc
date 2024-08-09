@@ -8,7 +8,6 @@ else
     eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
-
 # Ruby Paths
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 export GEM_HOME=$HOME/.gem
@@ -23,7 +22,7 @@ export JAVA_HOME=$HOME/Applications/Android\ Studio.app/Contents/jbr/Contents/Ho
 export ANDROID_HOME=$HOME/Library/Android/sdk
 
 export PATH="$ANDROID_HOME/tools:ANDROID_HOME/tools/bin:ANDROID_HOME/platform-tools:$ANDROID_HOME/cmdline-tools/latest/bin:$PATH"
-export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
+export PATH="/opt/homebrew/opt/openjdk@/bin:$PATH"
 
 # Add jetbrains command line
 export PATH="$HOME/Library/Application Support/JetBrains/Toolbox/scripts:$PATH"
@@ -116,18 +115,20 @@ export PATH="$(which node)":$PATH
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export PATH="$HOME/google-cloud-sdk/bin:$PATH"
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '$HOME/google-cloud-sdk/path.zsh.inc' ]; then . '$HOME/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-pyenv global 2.7.18
-if [ -f '$HOME/google-cloud-sdk/completion.zsh.inc' ]; then . '$HOME/google-cloud-sdk/completion.zsh.inc'; fi
 
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+pyenv global 2.7.18
+
+export PATH="$HOME/google-cloud-sdk/bin:$PATH"
+
+# The next line enables shell command completion for gcloud.
+# pyenv global 2.7.18
+if [ -f '$HOME/google-cloud-sdk/completion.zsh.inc' ]; then . '$HOME/google-cloud-sdk/completion.zsh.inc'; fi
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '$HOME/google-cloud-sdk/path.zsh.inc' ]; then . '$HOME/google-cloud-sdk/path.zsh.inc'; fi
 
 
 PATH=~/.console-ninja/.bin:$PATH

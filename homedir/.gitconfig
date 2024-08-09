@@ -35,6 +35,7 @@
 
 [gui]
   fontdiff = -family Monaco -size 10 -weight normal -slant roman -underline 0 -overstrike 0
+	pruneduringfetch = true
 
 [core]
   excludesfile = ~/.gitignore
@@ -158,6 +159,8 @@
   unwip = "!f() { \
               if [ \"$(git log -1 --pretty=%B)\" = \"WIP:Do not merge\" ]; then git reset HEAD^; else echo \"No work in progress commit\"; fi; \
               }; f"
+	fdr = "!git fetch origin pull//head:pr #"
+	pwl = !git push --force-with-lease
 
 [apply]
   whitespace = nowarn
@@ -174,6 +177,7 @@
 
 [init]
   templatedir = ~/.dotfiles/.git_template
+	defaultBranch = main
 
 [merge]
     tool = vscode
@@ -200,6 +204,7 @@
 	followTags = true
 	autocrlf = input
 	safecrlf = warn
+	recurseSubmodules = check
 
 [filter "media"]
   required = true
@@ -213,3 +218,11 @@
 	process = git-lfs filter-process
 [pull]
 	rebase = true
+[commit]
+	gpgSign = false
+[smartgit "submodule"]
+	fetchalways = false
+	update = true
+	initializenew = true
+[checkout]
+	workers = 0

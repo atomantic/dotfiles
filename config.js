@@ -121,7 +121,7 @@ module.exports = {
     // "generator-dockerize",
     // "gulp",
     "npm-check-updates",
-    "openupm-cli"ork
+    "openupm-cli",
     "prettyjson",
     // "trash",
     "trash-cli",
