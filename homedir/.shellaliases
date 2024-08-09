@@ -167,8 +167,8 @@ alias lz='lazygit'
 alias gitmaster='git pull origin master;git submodule update --init --recursive;git lfs fetch;git submodule foreach sh -e -c "git switch master;git pull origin master;git lfs fetch"'
 alias gitmastersubmodules='git submodule update --init --recursive; git submodule foreach sh -e -c "git switch master;git pull origin master;git lfs fetch"'
 
-
-alias gc='git clean -fdx'
+source ~/.init_gitaliases.sh
+alias git-reinit-aliases='~/.init_gitaliases.sh'
 alias gopen='git open'
 alias gdc='yarn dist && git commit'
 alias gpyi='git pull --rebase && yarn install --frozen-lockfile --force'
