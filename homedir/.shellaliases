@@ -49,6 +49,7 @@ alias game.seek='txt="";for i in {1..20};do txt=$txt"$i. ";done;txt=$txt" Ready 
 # assumes git-up is installed (gem install git-up)
 # switches to 'develop' branch, updates all local branches (nicely using git-up), removes all local branches already merged into 'develop'
 alias gitdev='git checkout develop; git-up; git branch --merged develop | grep -v "\* develop" | xargs -n 1 git branch -d; git branch;'
+alias gitcts='git commit -a -m "$(date +'%Y%m%d-%H%M')" -s'
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"

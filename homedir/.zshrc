@@ -19,7 +19,7 @@ if [ -f "$HOME/.private_vars.inc" ]; then source "$HOME/.private_vars.inc"; fi
 
 # General
 
-if [ -d '$HOME/Applications/Android\ Studio.app']; then
+if [ -d '$HOME/Applications/Android\ Studio.app' ]; then
 	export JAVA_HOME=$HOME/Applications/Android\ Studio.app/Contents/jbr/Contents/Home
 	export ANDROID_HOME=$HOME/Library/Android/sdk
 
@@ -76,7 +76,9 @@ plugins=(colorize compleat dirpersist autojump git gulp history cp kubectl-autoc
 source $ZSH/oh-my-zsh.sh
 
 
-source /opt/homebrew/opt/nvm/nvm.sh --no-use
+if [[ -f /opt/homebrew/opt/nvm/nvm.sh ]]; then
+    source /opt/homebrew/opt/nvm/nvm.sh --no-use
+fi
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
