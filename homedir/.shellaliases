@@ -52,6 +52,7 @@ alias httpserver='python3 -m http.server '
 # switches to 'develop' branch, updates all local branches (nicely using git-up), removes all local branches already merged into 'develop'
 alias gitdev='git checkout develop; git-up; git branch --merged develop | grep -v "\* develop" | xargs -n 1 git branch -d; git branch;'
 alias gitcts='git add -A && git commit -m "$(date +'%Y%m%d-%H%M')" -s'
+alias secondbrain='github-switch-accounts && gitcts && git sync && github-switch-accounts'
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
