@@ -1,0 +1,25 @@
+# !/bin/bash
+
+# Configuration
+CSV_FILE="$HOME/git-commit-log.csv"                                # Path to your CSV log file
+EXCLUDED_REPOS=("/private1/second-brain" "/path/to/excluded/repo2") # Paths to excluded repositories
+
+# Get current repository path
+REPO_PATH=$(git rev-parse --show-toplevel)
+
+# Check if repository is in the exclusion list
+for EXCLUDED_REPO in "${EXCLUDED_REPOS[@]}"; do
+  if [ "$REPO_PATH" == "$EXCLUDED_REPO" ]; then
+    exit 0 # Exit without doing anything if the repository is excluded
+  fi
+done
+
+# Gather information
+date=$(date +"%Y-%m-%d %H:%M:%S")
+branch=$(git rev-parse --abbrev-ref HEAD)
+commit_message=$(git log -1 --pretty=%B | sed '/Signed-off-by:/d' | sed '/^$/d' | tr '\n' '; ' | sed 's/[;[:space:]]*$//')
+repository=$(basename "$REPO_PATH")
+
+echo "Running the commit magic"
+# Add information to CSV file
+echo "$repository,$branch,$date,\"$commit_message\"" >> "$CSV_FILE"
