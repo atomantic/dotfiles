@@ -8,6 +8,8 @@ alias checkPackage='npm ls --depth 1'
 #################################
 # Simple Program Name Shortening
 alias g=git
+alias ack=ag
+
 
 #################################
 #
@@ -141,12 +143,12 @@ alias killTomcat="pkill -9 -f tomcat"
 # Java Version
 ########################
 
-alias listJava="/usr/libexec/java_home -V"
-alias setJ8="export JAVA_HOME=`/usr/libexec/java_home -v 1.8`"
-alias setJ11="export JAVA_HOME=`/usr/libexec/java_home -v 11`"
-alias setJ17="export JAVA_HOME=`/usr/libexec/java_home -v 17`"
-alias setJ18="export JAVA_HOME=`/usr/libexec/java_home -v 18`"
-alias setJava="export JAVA_HOME=`/usr/libexec/java_home -v 1`"
+# alias listJava="/usr/libexec/java_home -V"
+# alias setJ8="export JAVA_HOME=`/usr/libexec/java_home -v 1.8`"
+# alias setJ11="export JAVA_HOME=`/usr/libexec/java_home -v 11`"
+# alias setJ17="export JAVA_HOME=`/usr/libexec/java_home -v 17`"
+# alias setJ18="export JAVA_HOME=`/usr/libexec/java_home -v 18`"
+# alias setJava="export JAVA_HOME=`/usr/libexec/java_home -v 1`"
 
 ########################
 # MVN

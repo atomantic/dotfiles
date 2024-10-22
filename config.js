@@ -8,14 +8,19 @@ module.exports = {
     "asimov", // https://asimov.io/ // Ignore dev cache fragments from TimeMachine
     "bat", //github.com/sharkdp/bat, alternative to `cat`: https
     "brew-cask-completion",
+    "cloudflared", // cloudflare tooling
     "coreutils", // Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`. Install GNU core utilities (those that come with macOS are outdated)
     "docker-completion",
     "docker-slim", // Minify and secure docker images (https://dockersl.im)
+    "fd", // better find
     "findutils", // Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed
     "fzf",
     "gawk", // GNU `awk`, overwriting the built-in `awk`
+    "gh", // github cli for login etc
     "gifsicle", // GIF animation creator/editor (https://www.lcdf.org/gifsicle/)
     "git",
+    "git-flow",
+    "git-lfs",
     "git-open",
     "graphviz",
     // Install GNU `sed`, overwriting the built-in `sed`
@@ -29,27 +34,32 @@ module.exports = {
     "httpie", // HTTP Client - powerful for API testing - alternative to Postman (https://github.com/jkbrzt/httpie | https://httpie.io/docs)
     "lazygit",
     "jq", // JSON Processor | is a sort of JSON sed / grep (https://stedolan.github.io/jq/)
+    "kubectx", // https://github.com/ahmetb/kubectx
+    "kubernetes-cli", // kubectl
     "mas", // Mac App Store CLI: https://github.com/mas-cli/mas
-    "maven",
-    "maven-completion",
+    "minikube",
     "moreutils", // Install some other useful utilities like `sponge` (https://joeyh.name/code/moreutils/)
     "neovim",
-    "ngrok",
     "nmap", // Network Mapper (https://nmap.org)
-    "plantuml",
-    "thefuck",
+    "nvtop", // NVTOP stands for Neat Videocard TOP, a (h)top like task monitor for GPUs and accelerators. It can handle multiple GPUs and print information about them in a htop-familiar way.
+    "sevenzip", // cli sevenzip in the form of 7zz
+    "tmux",
     "tree", // The Tree Command for *nix (http://mama.indstate.edu/users/ice/tree/)
+    "tree-sitter",
     "ttyrec", // TTY Recorder and Player | Shell Macro? (http://0xcc.net/ttyrec/)
     "vim --with-client-server --with-override-system-vi", // better, more recent vim
     "watch",
     "wget --enable-iri", // Install wget with IRI support
     "yarn-completion",
+    "yq" // Process YAML, JSON, XML, CSV and properties documents from the CLI
   ],
   cask: [
+    "1password-cli",
     "aldente",
     "alfred",
     "android-platform-tools",
     "app-tamer",
+    "balenaetcher",
     "bartender",
     "bundletool",
     //"battle-net",
@@ -68,52 +78,53 @@ module.exports = {
     // "dotnet",
     "electrum",
     "epic-games",
-    "fig",
     "firefox",
+    "font-awesome-terminal-fonts",
+    "font-fontawesome",
+    "font-hack",
+    "font-inconsolata-dz-for-powerline",
+    "font-inconsolata-for-powerline",
+    "font-inconsolata-g-for-powerline",
+    "font-jetbrains-mono-nerd-font",
+    "font-roboto-mono",
+    "font-roboto-mono-for-powerline",
+    "font-source-code-pro",
     "fork",
     // "ganache", // Block Chain tooling
     "ganttproject",
     "github", // Github Desktop
-    "gswitch", // GPU Controll Software when on Intel based Macs to enforce internal / dedicated
+    //"gswitch", // GPU Controll Software when on Intel based Macs to enforce internal / dedicated
     "gog-galaxy",
     "handbrake",
-    "iterm2",
-    // "intellij-idea",
     "istat-menus",
+    "iterm2",
     "jetbrains-toolbox",
+    "kitty",
     //"latest",
-    //"ledger-live",
+    "ledger-live",
     "little-snitch",
-    // "macpass", // Normally covered through 1password
-    //"microsoft-auto-update",
-    //"microsoft-edge",
-    //"microsoft-office",
-    //"//microsoft-remote-desktop",
-    //"microsoft-teams",
-    //"notion",
+    "micropip install trash-clisoft-auto-update",
+    "microsoft-edge",
+    "microsoft-office",
+    "microsoft-remote-desktop",
     "obsidian",
-    "onedrive",
     "paragon-ntfs",
-    //"parallels", // Only if really necessary
-    //"plasticscm-cloud-edition",
-    //"portfolioperformance",
-    "postman",
-    // "rancher",
+    "parallels", // Only if really necessary
+    "plasticscm-cloud-edition",
+    "portfolioperformance",
     // "resilio-sync",
-    // "rider",
     "screenflow",
-    // "sevenzip", // Command Line only
     "signal",
     "slack",
-    "smartgit",
     "snagit",
     "steam",
     // "spark-ar-studio",
-    "sublime-text@3",
-    //"turbo-boost-switcher",
+    //"sublime-text@3",
+    "thebrain",
+    //"turbo-boost-switcher", // only on intel mac
     "unity-hub",
     "visual-studio-code",
-    //"vlc",
+    "vlc",
     // "xquartz"
   ],
   gem: ["git-up"],
@@ -124,9 +135,6 @@ module.exports = {
     "npm-check-updates",
     "openupm-cli",
     "prettyjson",
-    // "trash",
-    "trash-cli",
-    "ts-node",
     "vtop",
     "yarn",
     // ,"yo"
@@ -134,14 +142,12 @@ module.exports = {
   mas: [
     // 1 Password
     "1333542190",
-    // Affinity Designer
-    "824171161",
-    // Affinity Photo
-    "824183456",
-    // Affinity Publisher
-    "881418622",
-    // AirMail 5
-    "918858936",
+    // Affinity Designer 2
+    "1616831348",
+    // Affinity Photo 2
+    "1616822987",
+    // Affinity Publisher 2
+    "1606941598",
     //com.if.Amphetamine [like caffeine]
     "937984704",
     // Day One
@@ -152,12 +158,12 @@ module.exports = {
     "1666309574",
     // Disk Diet
     "445512770",
-    // Fantastical
-    "975937182",
     // Gemini Duplicate Finder
     "1090488118",
-    // Good Notes 5
+    // Good Notes 5+
     "1444383602",
+    // iA Writer
+    "775737590",
     // Magnet
     "441258766",
     // Money
@@ -166,6 +172,8 @@ module.exports = {
     "431748264",
     // Pixelmator Pro
     "1289583905",
+    // Spark
+    "1176895641",
     // Telegram
     "747648890",
     // toggl-track-hours-time-log

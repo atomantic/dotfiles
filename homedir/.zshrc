@@ -3,13 +3,14 @@ if [ $(arch) = "i386" ]; then
     alias brew86="/usr/local/bin/brew"
     alias pyenv86="arch -x86_64 pyenv"
     eval "$(/usr/local/bin/brew shellenv)"
+ 	export PATH="/usr/local/opt/ruby/bin:$PATH"
 else
     # Fig pre block. Keep at the top of this file.
     eval "$(/opt/homebrew/bin/brew shellenv)"
+	export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 fi
 
 # Ruby Paths
-export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 export GEM_HOME=$HOME/.gem
 export PATH=$GEM_HOME/bin:$PATH
 
@@ -18,11 +19,19 @@ if [ -f "$HOME/.private_vars.inc" ]; then source "$HOME/.private_vars.inc"; fi
 
 # General
 
-export JAVA_HOME=$HOME/Applications/Android\ Studio.app/Contents/jbr/Contents/Home
-export ANDROID_HOME=$HOME/Library/Android/sdk
+if [ -d '$HOME/Applications/Android\ Studio.app']; then
+	export JAVA_HOME=$HOME/Applications/Android\ Studio.app/Contents/jbr/Contents/Home
+	export ANDROID_HOME=$HOME/Library/Android/sdk
 
-export PATH="$ANDROID_HOME/tools:ANDROID_HOME/tools/bin:ANDROID_HOME/platform-tools:$ANDROID_HOME/cmdline-tools/latest/bin:$PATH"
-export PATH="/opt/homebrew/opt/openjdk@/bin:$PATH"
+	export PATH="$ANDROID_HOME/tools:ANDROID_HOME/tools/bin:ANDROID_HOME/platform-tools:$ANDROID_HOME/cmdline-tools/latest/bin:$PATH"
+fi
+
+if [ $(arch) = "i386" ]; then
+	export PATH="/usr/local/opt/openjdk@/bin:$PATH"
+else
+	export PATH="/opt/homebrew/opt/openjdk@/bin:$PATH"
+fi
+
 
 # Add jetbrains command line
 export PATH="$HOME/Library/Application Support/JetBrains/Toolbox/scripts:$PATH"
@@ -62,13 +71,10 @@ export DISABLE_AUTO_TITLE="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.dotfiles/oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(colorize compleat dirpersist autojump git gulp history cp)
+plugins=(colorize compleat dirpersist autojump git gulp history cp kubectl-autocomplete)
 
 source $ZSH/oh-my-zsh.sh
 
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
 
 source /opt/homebrew/opt/nvm/nvm.sh --no-use
 
@@ -77,6 +83,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
 autoload -U add-zsh-hook
+ export NVM_DIR="$HOME/.nvm"
+  [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 load-nvmrc() {
   if [[ -f .nvmrc && -r .nvmrc ]]; then
     nvm use &> /dev/null
@@ -115,13 +124,17 @@ export PATH="$(which node)":$PATH
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+if command -v pyenv &> /dev/null; then
+	export PYENV_ROOT="$HOME/.pyenv"
+	[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+	eval "$(pyenv init -)"
+else
+  	echo "pyenv not installed, skip configuratin"
+fi
 
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-pyenv global 2.7.18
 
-export PATH="$HOME/google-cloud-sdk/bin:$PATH"
+
+if [ -d '$HOME/google-cloud-sdk/bin' ]; then export PATH="$HOME/google-cloud-sdk/bin:$PATH"; fi
 
 # The next line enables shell command completion for gcloud.
 # pyenv global 2.7.18
@@ -131,4 +144,4 @@ if [ -f '$HOME/google-cloud-sdk/completion.zsh.inc' ]; then . '$HOME/google-clou
 if [ -f '$HOME/google-cloud-sdk/path.zsh.inc' ]; then . '$HOME/google-cloud-sdk/path.zsh.inc'; fi
 
 
-PATH=~/.console-ninja/.bin:$PATH
+if [ -d '$HOME/.console-ninja' ]; then PATH=$HOME/.console-ninja/.bin:$PATH; fi
