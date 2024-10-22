@@ -5,7 +5,7 @@ module.exports = {
     "ag", // Code Search similar to ack (https://github.com/ggreer/the_silver_searcher)
     "asdf",
     "autojump", //github.com/wting/autojump // https
-    "asimov", // https://asimov.io/
+    "asimov", // https://asimov.io/ // Ignore dev cache fragments from TimeMachine
     "bat", //github.com/sharkdp/bat, alternative to `cat`: https
     "brew-cask-completion",
     "coreutils", // Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`. Install GNU core utilities (those that come with macOS are outdated)
@@ -49,12 +49,13 @@ module.exports = {
     "alfred",
     "app-tamer",
     "bartender",
-    "battle-net",
+    //"battle-net",
     "blender",
     "cheetah3d",
     "cocoapods",
     "context",
-    "curiosity",
+    //"curiosity",
+    "coteditor",
     "dash",
     "deltawalker",
     "devonagent",
@@ -76,20 +77,22 @@ module.exports = {
     // "intellij-idea",
     "istat-menus",
     "jetbrains-toolbox",
-    "ledger-live",
+    //"latest",
+    //"ledger-live",
     "little-snitch",
     // "macpass", // Normally covered through 1password
-    "microsoft-auto-update",
-    "microsoft-edge",
-    "microsoft-office",
-    "microsoft-remote-desktop",
-    "microsoft-teams",
-    "notion",
+    //"microsoft-auto-update",
+    //"microsoft-edge",
+    //"microsoft-office",
+    //"//microsoft-remote-desktop",
+    //"microsoft-teams",
+    //"notion",
+    "obsidian",
     "onedrive",
     "paragon-ntfs",
-    "parallels", // Only if really necessary
-    "plasticscm-cloud-edition",
-    "portfolioperformance",
+    //"parallels", // Only if really necessary
+    //"plasticscm-cloud-edition",
+    //"portfolioperformance",
     "postman",
     // "rancher",
     // "resilio-sync",
@@ -103,15 +106,10 @@ module.exports = {
     "steam",
     // "spark-ar-studio",
     "sublime-text@3",
-    "temurin8",
-    "temurin11",
-    "temurin17",
-    "temurin",
-    "thebrain",
-    "turbo-boost-switcher",
+    //"turbo-boost-switcher",
     "unity-hub",
     "visual-studio-code",
-    "vlc",
+    //"vlc",
     // "xquartz"
   ],
   gem: ["git-up"],
@@ -120,6 +118,7 @@ module.exports = {
     // "generator-dockerize",
     // "gulp",
     "npm-check-updates",
+    "openupm-cli"ork
     "prettyjson",
     // "trash",
     "trash-cli",
