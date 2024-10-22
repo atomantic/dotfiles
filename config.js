@@ -34,6 +34,7 @@ module.exports = {
     "maven-completion",
     "moreutils", // Install some other useful utilities like `sponge` (https://joeyh.name/code/moreutils/)
     "neovim",
+    "ngrok",
     "nmap", // Network Mapper (https://nmap.org)
     "plantuml",
     "thefuck",
