@@ -51,6 +51,7 @@ module.exports = {
     "battle-net",
     "blender",
     "cheetah3d",
+    "cocoapods",
     "context",
     "curiosity",
     "dash",
