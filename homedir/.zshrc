@@ -1,9 +1,10 @@
 # Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && . "$HOME/.fig/shell/zshrc.pre.zsh"
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
+[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 
-
+export GEM_HOME=$HOME/.gem
+export PATH=$GEM_HOME/bin:$PATH
 export PATH=/opt/homebrew/bin:/usr/local/bin:$PATH
 export PATH="/usr/local/opt/openjdk@11/bin:$PATH"
 export JAVA_HOME=`/usr/libexec/java_home -v 11.0.15`
@@ -49,7 +50,6 @@ plugins=(colorize compleat dirpersist autojump git gulp history cp)
 source $ZSH/oh-my-zsh.sh
 
 . $(brew --prefix asdf)/libexec/asdf.sh
-. ~/.asdf/plugins/java/set-java-home.zsh
 source /opt/homebrew/opt/nvm/nvm.sh --no-use
 
 autoload -U add-zsh-hook
@@ -79,10 +79,16 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+if [ -d "/usr/local/opt/ruby/bin" ]; then
+   export PATH=/usr/local/opt/ruby/bin:$PATH
+   export PATH=`gem environment gemdir`/bin:$PATH
+fi
+
+export PATH=/usr/local/opt/ruby/bin:$PATH
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && . "$HOME/.fig/shell/zshrc.post.zsh"
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
