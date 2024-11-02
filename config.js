@@ -74,11 +74,11 @@ module.exports = {
     "devonagent",
     // "devonthink2",
     "drawio",
-    // "docker",
+    "docker",
     // "dotnet",
-    "electrum",
+    // "electrum",
     "epic-games",
-    "firefox",
+    // "firefox",
     "font-awesome-terminal-fonts",
     "font-fontawesome",
     "font-hack",
@@ -92,7 +92,7 @@ module.exports = {
     "fork",
     // "ganache", // Block Chain tooling
     "ganttproject",
-    "github", // Github Desktop
+    // "github", // Github Desktop
     //"gswitch", // GPU Controll Software when on Intel based Macs to enforce internal / dedicated
     "gog-galaxy",
     "handbrake",
@@ -103,11 +103,12 @@ module.exports = {
     //"latest",
     "ledger-live",
     "little-snitch",
-    "micropip install trash-clisoft-auto-update",
+    // "micropip install trash-clisoft-auto-update",
     "microsoft-edge",
     "microsoft-office",
     "microsoft-remote-desktop",
     "obsidian",
+    "ollama",
     "paragon-ntfs",
     "parallels", // Only if really necessary
     "plasticscm-cloud-edition",
@@ -121,22 +122,23 @@ module.exports = {
     // "spark-ar-studio",
     //"sublime-text@3",
     "thebrain",
+    "thonny",
     //"turbo-boost-switcher", // only on intel mac
     "unity-hub",
     "visual-studio-code",
     "vlc",
     // "xquartz"
   ],
-  gem: ["git-up"],
+  gem: [],
   npm: [
-    "eslint",
+    // "eslint",
     // "generator-dockerize",
     // "gulp",
-    "npm-check-updates",
+    "npm-check-updates", // ncu in shell afterwards
     "openupm-cli",
     "prettyjson",
     "vtop",
-    "yarn",
+    // "yarn",
     // ,"yo"
   ],
   mas: [
