@@ -55,6 +55,7 @@ alias gitwip='git add -A && git commit -m "$WIP (date +'%Y%m%d-%H%M'" -s'
 alias gitcts='git add -A && git commit -m "$(date +'%Y%m%d-%H%M')" -s'
 alias secondbrain='github-switch-accounts && gitcts && git sync && github-switch-accounts'
 alias gitclean='git clean -fdX'
+alias gitup='git pull -r --autostash'
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
