@@ -39,6 +39,7 @@ module.exports = {
     "mas", // Mac App Store CLI: https://github.com/mas-cli/mas
     "minikube",
     "moreutils", // Install some other useful utilities like `sponge` (https://joeyh.name/code/moreutils/)
+    "navi", // cheatsheet for commandline
     "neovim",
     "nmap", // Network Mapper (https://nmap.org)
     "nvtop", // NVTOP stands for Neat Videocard TOP, a (h)top like task monitor for GPUs and accelerators. It can handle multiple GPUs and print information about them in a htop-familiar way.
@@ -47,6 +48,7 @@ module.exports = {
     "tree", // The Tree Command for *nix (http://mama.indstate.edu/users/ice/tree/)
     "tree-sitter",
     "ttyrec", // TTY Recorder and Player | Shell Macro? (http://0xcc.net/ttyrec/)
+    "up", // Ultimate Plumber - interactive data pipelining to work with *nix shell commands
     "vim --with-client-server --with-override-system-vi", // better, more recent vim
     "watch",
     "wget --enable-iri", // Install wget with IRI support
