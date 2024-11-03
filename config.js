@@ -3,6 +3,8 @@ module.exports = {
   brew: [
     "ack", // http://conqueringthecommandline.com/book/ack_ag
     "ag", // Code Search similar to ack (https://github.com/ggreer/the_silver_searcher)
+    "agg", // converter for asciinema -> agg demo.cast demo.gif for example
+    "asciinema", // ascii recorder
     "asdf",
     "autojump", //github.com/wting/autojump // https
     "asimov", // https://asimov.io/ // Ignore dev cache fragments from TimeMachine
