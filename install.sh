@@ -235,6 +235,8 @@ if [[ ! -d "./oh-my-zsh/custom/themes/powerlevel10k" ]]; then
   git clone https://github.com/romkatv/powerlevel10k.git oh-my-zsh/custom/themes/powerlevel10k
 fi
 
+p10k configure
+
 bot "Dotfiles Setup"
 read -r -p "symlink ./homedir/* files in ~/ (these are the dotfiles)? [y|N] " response
 if [[ $response =~ (y|yes|Y) ]]; then

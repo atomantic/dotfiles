@@ -226,3 +226,5 @@
 	initializenew = true
 [checkout]
 	workers = 0
+[fetch]
+	prune = true
