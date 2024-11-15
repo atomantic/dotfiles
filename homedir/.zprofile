@@ -21,7 +21,8 @@ setopt    incappendhistory  #Immediately append to the history file, not just wh
 function precmd () {
   z --add "$(pwd -P)"
 }
-eval "$(/usr/local/Homebrew/bin/brew shellenv)"
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 if command -v pyenv &> /dev/null; then
 	export PYENV_ROOT="$HOME/.pyenv"
