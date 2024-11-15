@@ -58,6 +58,7 @@ module.exports = {
     "yq" // Process YAML, JSON, XML, CSV and properties documents from the CLI
   ],
   cask: [
+    "1password",
     "1password-cli",
     "aldente",
     "alfred",
@@ -69,7 +70,7 @@ module.exports = {
     //"battle-net",
     "blender",
     "cheetah3d",
-    "cocoapods",
+    "google-chrome",
     "context",
     //"curiosity",
     "coteditor",
@@ -110,7 +111,6 @@ module.exports = {
     // "micropip install trash-clisoft-auto-update",
     "microsoft-edge",
     "microsoft-office",
-    "microsoft-remote-desktop",
     "obsidian",
     "ollama",
     "paragon-ntfs",
@@ -123,15 +123,13 @@ module.exports = {
     "slack",
     "snagit",
     "steam",
-    // "spark-ar-studio",
+    //"spark-ar-studio",
     //"sublime-text@3",
     "thebrain",
     "thonny",
-    //"turbo-boost-switcher", // only on intel mac
     "unity-hub",
     "visual-studio-code",
     "vlc",
-    "whatsapp",
     // "xquartz"
   ],
   gem: [],
@@ -190,7 +188,7 @@ module.exports = {
     // TickTick
     "966085870",
     // Whatsapp
-    "1147396723",
+    "310633997",
     // Xcode
     "497799835",
     //net.shinyfrog.bear (1.6.15)
