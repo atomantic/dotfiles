@@ -131,6 +131,7 @@ module.exports = {
     "unity-hub",
     "visual-studio-code",
     "vlc",
+    "whatsapp",
     // "xquartz"
   ],
   gem: [],

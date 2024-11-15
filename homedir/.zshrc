@@ -10,9 +10,15 @@ else
 	export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 fi
 
+
+# Add jetbrains command line
+export PATH="$HOME/Library/Application Support/JetBrains/Toolbox/scripts:$PATH"
+export PATH=/opt/homebrew/bin:/usr/local/bin:$PATH
+
 # Ruby Paths
 export GEM_HOME=$HOME/.gem
 export PATH=$GEM_HOME/bin:$PATH
+export PATH=$HOMEBREW_PREFIX/bin:/opt/homebrew/lib/ruby/gems/3.1.0/bin:$PATH
 
 # AI Dev
 if [ -f "$HOME/.private_vars.inc" ]; then source "$HOME/.private_vars.inc"; fi
@@ -32,30 +38,11 @@ else
 	export PATH="/opt/homebrew/opt/openjdk@/bin:$PATH"
 fi
 
-
-# Add jetbrains command line
-export PATH="$HOME/Library/Application Support/JetBrains/Toolbox/scripts:$PATH"
-export PATH=/opt/homebrew/bin:/usr/local/bin:$PATH
-export PATH=$HOMEBREW_PREFIX/bin:/opt/homebrew/lib/ruby/gems/3.1.0/bin:$PATH
-
 # Path to your oh-my-zsh configuration.
 export ZSH=$HOME/.dotfiles/oh-my-zsh
 # if you want to use this, change your non-ascii font to Droid Sans Mono for Awesome
 # POWERLEVEL9K_MODE='awesome-patched'
 ZSH_THEME="powerlevel10k/powerlevel10k"
-# export ZSH_THEME="powerlevel9k/powerlevel9k"
-# export ZSH_THEME="agnoster"
-# POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
-# https://github.com/bhilburn/powerlevel9k#customizing-prompt-segments
-# https://github.com/bhilburn/powerlevel9k/wiki/Stylizing-Your-Prompt
-# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir nvm vcs)
-# POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status history time)
-# colorcode test
-# for code ({000..255}) print -P -- "$code: %F{$code}This is how your text would look like%f"
-# POWERLEVEL9K_NVM_FOREGROUND='000'
-# POWERLEVEL9K_NVM_BACKGROUND='072'
-# POWERLEVEL9K_SHOW_CHANGESET=true
-#export ZSH_THEME="random"
 
 # Set to this to use case-sensitive completion
 export CASE_SENSITIVE="true"
@@ -71,7 +58,7 @@ export DISABLE_AUTO_TITLE="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.dotfiles/oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(colorize compleat dirpersist autojump git gulp history cp kubectl-autocomplete)
+plugins=(colorize compleat dirpersist autojump git gulp history cp kubectl kubectx)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -119,9 +106,7 @@ if [ -d "/usr/local/opt/ruby/bin" ]; then
    export PATH=`gem environment gemdir`/bin:$PATH
 fi
 
-export PATH=/usr/local/opt/ruby/bin:$PATH
-
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+# export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="$(which node)":$PATH
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -129,23 +114,22 @@ export PATH="$(which node)":$PATH
 if command -v pyenv &> /dev/null; then
 	export PYENV_ROOT="$HOME/.pyenv"
 	[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-	eval "$(pyenv init -)"
+    eval "$(pyenv init --path)"
+    eval "$(pyenv init -)"
 else
-  	echo "pyenv not installed, skip configuratin"
+  	echo "pyenv not installed, skip configuration"
 fi
 
 
+if [ ! -d '$HOME/google-cloud-sdk' ]; then
+  if [ -d '$HOME/google-cloud-sdk/bin' ]; then export PATH="$HOME/google-cloud-sdk/bin:$PATH"; fi
 
-if [ -d '$HOME/google-cloud-sdk/bin' ]; then export PATH="$HOME/google-cloud-sdk/bin:$PATH"; fi
+  # The next line enables shell command completion for gcloud.
+  if [ -f '$HOME/google-cloud-sdk/completion.zsh.inc' ]; then . '$HOME/google-cloud-sdk/completion.zsh.inc'; fi
 
-# The next line enables shell command completion for gcloud.
-# pyenv global 2.7.18
-if [ -f '$HOME/google-cloud-sdk/completion.zsh.inc' ]; then . '$HOME/google-cloud-sdk/completion.zsh.inc'; fi
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '$HOME/google-cloud-sdk/path.zsh.inc' ]; then . '$HOME/google-cloud-sdk/path.zsh.inc'; fi
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
+  # The next line updates PATH for the Google Cloud SDK.
+  if [ -f '$HOME/google-cloud-sdk/path.zsh.inc' ]; then . '$HOME/google-cloud-sdk/path.zsh.inc'; fi
+fi
 
 function cd() {
   builtin cd "$@"
