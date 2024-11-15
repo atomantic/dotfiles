@@ -178,7 +178,7 @@ module.exports = {
     // Pixelmator Pro
     "1289583905",
     // Spark
-    "1176895641",
+    "6472704261",
     // Telegram
     "747648890",
     // toggl-track-hours-time-log
