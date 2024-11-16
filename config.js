@@ -108,6 +108,7 @@ module.exports = {
     //"latest",
     "ledger-live",
     "little-snitch",
+    "lm-studio",
     // "micropip install trash-clisoft-auto-update",
     "microsoft-edge",
     "microsoft-office",
