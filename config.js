@@ -180,6 +180,8 @@ module.exports = {
     "1289583905",
     // Spark
     "6472704261",
+    // Stoic
+    "1312926037",
     // Telegram
     "747648890",
     // toggl-track-hours-time-log
