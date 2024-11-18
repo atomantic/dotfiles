@@ -74,7 +74,7 @@ module.exports = {
     "context",
     //"curiosity",
     "coteditor",
-    "dash",
+    "dash@6",
     "deltawalker",
     "devonagent",
     // "devonthink2",
@@ -118,6 +118,7 @@ module.exports = {
     "parallels", // Only if really necessary
     "plasticscm-cloud-edition",
     "portfolioperformance",
+    "rectangle",
     // "resilio-sync",
     "screenflow",
     "signal",
@@ -170,8 +171,10 @@ module.exports = {
     "1444383602",
     // iA Writer
     "775737590",
+    // Kindle
+    "302584613",
     // Magnet
-    "441258766",
+    // "441258766", // replaced by cask rectangle
     // Money
     "1185488696",
     // Pluralsight

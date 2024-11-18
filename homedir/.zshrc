@@ -24,6 +24,7 @@ export PATH=$HOMEBREW_PREFIX/bin:/opt/homebrew/lib/ruby/gems/3.1.0/bin:$PATH
 if [ -f "$HOME/.private_vars.inc" ]; then source "$HOME/.private_vars.inc"; fi
 
 # General
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 
 if [ -d '$HOME/Applications/Android\ Studio.app' ]; then
 	export JAVA_HOME=$HOME/Applications/Android\ Studio.app/Contents/jbr/Contents/Home
@@ -31,6 +32,7 @@ if [ -d '$HOME/Applications/Android\ Studio.app' ]; then
 
 	export PATH="$ANDROID_HOME/tools:ANDROID_HOME/tools/bin:ANDROID_HOME/platform-tools:$ANDROID_HOME/cmdline-tools/latest/bin:$PATH"
 fi
+
 
 if [ $(arch) = "i386" ]; then
 	export PATH="/usr/local/opt/openjdk@/bin:$PATH"
@@ -151,3 +153,6 @@ function cd() {
 }
 
 if [ -d '$HOME/.console-ninja' ]; then PATH=$HOME/.console-ninja/.bin:$PATH; fi
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/marc/.cache/lm-studio/bin"
