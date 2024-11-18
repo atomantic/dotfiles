@@ -10,7 +10,6 @@ alias checkPackage='npm ls --depth 1'
 alias g=git
 alias ack=ag
 
-
 #################################
 #
 alias env_dbt='source ~/development/learning/dbt-learning/dbt-env/bin/activate'
@@ -50,10 +49,11 @@ alias httpserver='python3 -m http.server '
 # Git Tools
 # assumes git-up is installed (gem install git-up)
 # switches to 'develop' branch, updates all local branches (nicely using git-up), removes all local branches already merged into 'develop'
-alias gitdev='git checkout develop; git-up; git branch --merged develop | grep -v "\* develop" | xargs -n 1 git branch -d; git branch;'
+alias gitdev='git checkout develop; gitup; git branch --merged develop | grep -v "\* develop" | xargs -n 1 git branch -d; git branch;'
 alias gitwip='git add -A && git commit -m "$WIP (date +'%Y%m%d-%H%M'" -s'
 alias gitcts='git add -A && git commit -m "$(date +'%Y%m%d-%H%M')" -s'
 alias secondbrain='github-switch-accounts && gitcts && git sync && github-switch-accounts'
+alias secondbrain-today='github-switch-accounts && git reset $(git rev-list --max-count=1 --before="today" HEAD) && gitcts && gitup && git pwl && github-switch-accounts'
 alias gitclean='git clean -fdX'
 alias gitup='git pull -r --autostash'
 
