@@ -149,6 +149,8 @@ module.exports = {
   mas: [
     // 1 Password
     "1333542190",
+    // Assassin's Creed Mirage
+    "6472704261",
     // Affinity Designer 2
     "1616831348",
     // Affinity Photo 2
