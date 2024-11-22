@@ -197,6 +197,8 @@ module.exports = {
     "966085870",
     // Time Sink
     "404363161",
+    // Vinegar
+    "1591303229",
     // Whatsapp
     "310633997",
     // Xcode

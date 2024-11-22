@@ -3,7 +3,7 @@
 	email = dreamora@users.noreply.github.com
 [github]
   # https://github.com/blog/180-local-github-config
-  user = GITHUBUSER
+  user = 
 [color]
 # ui = true is a superset of all the more specific color options
 #  as documented at http://book.git-scm.com/5_customizing_git.html
@@ -176,7 +176,7 @@
   tool = vimdiff
 
 [init]
-  templatedir = ~/.dotfiles/.git_template
+	templateDir = /Users/marc/.git_template
 	defaultBranch = main
 
 [merge]
@@ -211,11 +211,6 @@
   clean = git media clean %f
   smudge = git media smudge %f
 
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-  required = true
-	process = git-lfs filter-process
 [pull]
 	rebase = true
 [commit]
@@ -228,3 +223,9 @@
 	workers = 0
 [fetch]
 	prune = true
+[credential "https://github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
