@@ -195,6 +195,8 @@ module.exports = {
     "425424353",
     // TickTick
     "966085870",
+    // Time Sink
+    "404363161",
     // Whatsapp
     "310633997",
     // Xcode
