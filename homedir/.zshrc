@@ -26,13 +26,17 @@ if [ -f "$HOME/.private_vars.inc" ]; then source "$HOME/.private_vars.inc"; fi
 # General
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 
-if [ -d '$HOME/Applications/Android\ Studio.app' ]; then
+echo "Checking for Android studio at $HOME/Applications/Android Studio.app and it was found?"
+if [ -d "$HOME/Applications/Android Studio.app" ]; then
+    echo 'Android Studio detected, use its Android SDK'
 	export JAVA_HOME=$HOME/Applications/Android\ Studio.app/Contents/jbr/Contents/Home
-	export ANDROID_HOME=$HOME/Library/Android/sdk
+	#export ANDROID_HOME=$HOME/Library/Android/sdk
+    export ANDROID_HOME=$HOME/development/Android\ Tooling/android-sdk
 
-	export PATH="$ANDROID_HOME/tools:ANDROID_HOME/tools/bin:ANDROID_HOME/platform-tools:$ANDROID_HOME/cmdline-tools/latest/bin:$PATH"
+	export PATH="$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:$ANDROID_HOME/build-tools/latest:$ANDROID_HOME/cmdline-tools/latest/bin:$PATH"
+else
+
 fi
-
 
 if [ $(arch) = "i386" ]; then
 	export PATH="/usr/local/opt/openjdk@/bin:$PATH"
