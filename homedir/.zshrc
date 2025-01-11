@@ -161,3 +161,4 @@ if [ -d '$HOME/.console-ninja' ]; then PATH=$HOME/.console-ninja/.bin:$PATH; fi
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/marc/.cache/lm-studio/bin"
 export HOMEBREW_EDITOR=nvim
+PATH="$HOME/.console-ninja/.bin:$PATH"
