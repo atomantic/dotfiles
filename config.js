@@ -103,6 +103,7 @@ module.exports = {
     // "github", // Github Desktop
     //"gswitch", // GPU Controll Software when on Intel based Macs to enforce internal / dedicated
     "gog-galaxy",
+    "ghostty",
     "handbrake",
     "istat-menus",
     "iterm2",
