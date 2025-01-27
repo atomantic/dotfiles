@@ -31,6 +31,7 @@ module.exports = {
     "gnu-sed --with-default-names",
     "grep --with-default-names", // upgrade grep so we can get things like inverted match (-v)
     // better, more recent grep
+    "grip", // Instant github readme previewer
     "homebrew/dupes/grep", // better, more recent grep
     "homebrew/dupes/screen", // better/more recent version of screen
     "htop",
@@ -48,11 +49,13 @@ module.exports = {
     "nvtop", // NVTOP stands for Neat Videocard TOP, a (h)top like task monitor for GPUs and accelerators. It can handle multiple GPUs and print information about them in a htop-familiar way.
     "rg", // ripgrep
     "sevenzip", // cli sevenzip in the form of 7zz
+    "shellcheck",
     "tmux",
     "tree", // The Tree Command for *nix (http://mama.indstate.edu/users/ice/tree/)
     "tree-sitter",
     "ttyrec", // TTY Recorder and Player | Shell Macro? (http://0xcc.net/ttyrec/)
     "up", // Ultimate Plumber - interactive data pipelining to work with *nix shell commands
+    "uni", // Unicode database querier: uni identity $  or uni i $
     "vim --with-client-server --with-override-system-vi", // better, more recent vim
     "watch",
     "wget --enable-iri", // Install wget with IRI support
