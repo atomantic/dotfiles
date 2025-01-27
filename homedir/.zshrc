@@ -162,3 +162,6 @@ if [ -d '$HOME/.console-ninja' ]; then PATH=$HOME/.console-ninja/.bin:$PATH; fi
 export PATH="$PATH:/Users/marc/.cache/lm-studio/bin"
 export HOMEBREW_EDITOR=nvim
 PATH="$HOME/.console-ninja/.bin:$PATH"
+
+
+if [ -f "$HOME/development/.env" ]; then source "$HOME/development/.env"; fi
