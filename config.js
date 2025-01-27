@@ -57,6 +57,7 @@ module.exports = {
     "watch",
     "wget --enable-iri", // Install wget with IRI support
     "yarn-completion",
+    "yazi",
     "yq" // Process YAML, JSON, XML, CSV and properties documents from the CLI
   ],
   cask: [
