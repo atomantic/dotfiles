@@ -1,4 +1,10 @@
 #########################################
+# Port Management
+kill_on_port() {
+  lsof -t -i :"$1" | xargs sudo kill -9
+}
+
+
 # Utility Functions
 
 # Create a new git repo with one README commit and CD into it
