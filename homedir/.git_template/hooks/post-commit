@@ -2,7 +2,7 @@
 
 # Configuration
 CSV_FILE="$HOME/git-commit-log.csv"                                # Path to your CSV log file
-EXCLUDED_REPOS=("/private/second-brain" "/second-brain") # Paths to excluded repositories
+EXCLUDED_REPOS=("/private/second-brain" "second-brain") # Paths to excluded repositories
 
 # Get current repository path
 REPO_PATH=$(git rev-parse --show-toplevel)
