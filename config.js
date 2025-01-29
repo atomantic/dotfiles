@@ -13,8 +13,8 @@ module.exports = {
     "cloudflared", // cloudflare tooling
     "coreutils", // Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`. Install GNU core utilities (those that come with macOS are outdated)
     "dive", // Analysis tool for docker layers to reduce size and fix caching
-    "docker-completion",
-    "docker-slim", // Minify and secure docker images (https://dockersl.im)
+    //"docker-completion",
+    //"docker-slim", // Minify and secure docker images (https://dockersl.im)
     "fd", // better find
     "findutils", // Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed
     "fzf",
@@ -47,6 +47,8 @@ module.exports = {
     "neovim",
     "nmap", // Network Mapper (https://nmap.org)
     "nvtop", // NVTOP stands for Neat Videocard TOP, a (h)top like task monitor for GPUs and accelerators. It can handle multiple GPUs and print information about them in a htop-familiar way.
+    "podman",
+    "podman-compose",
     "rg", // ripgrep
     "sevenzip", // cli sevenzip in the form of 7zz
     "shellcheck",
@@ -86,7 +88,7 @@ module.exports = {
     "devonagent",
     // "devonthink2",
     "drawio",
-    "docker",
+    //"docker", // replaced with podman
     // "dotnet",
     // "electrum",
     "epic-games",
@@ -112,7 +114,7 @@ module.exports = {
     "istat-menus",
     "iterm2",
     "jetbrains-toolbox",
-    "kitty",
+    // "kitty", // replaced with ghostty
     //"latest",
     "ledger-live",
     "little-snitch",
@@ -125,6 +127,7 @@ module.exports = {
     "paragon-ntfs",
     "parallels", // Only if really necessary
     "plasticscm-cloud-edition",
+    "podman-desktop",
     "portfolioperformance",
     "rectangle",
     // "resilio-sync",
