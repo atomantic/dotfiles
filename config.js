@@ -50,6 +50,7 @@ module.exports = {
     "podman",
     "podman-compose",
     "rg", // ripgrep
+    "reattach-to-user-namespace", // required by .tmux.conf
     "sevenzip", // cli sevenzip in the form of 7zz
     "shellcheck",
     "tmux",
