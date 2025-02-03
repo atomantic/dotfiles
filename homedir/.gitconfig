@@ -130,6 +130,7 @@
   showuntracked = ls-files --others --exclude-standard
   rmmissing = !git rm $(git ls-files --deleted)
   mergekeepoursonly = merge -s ours
+  mergekeeptheirsonly = merge -s theirs
   redocommit = reset --soft HEAD^
   listunstaged = diff --name-status
   liststaged = diff --name-status --staged
