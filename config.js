@@ -6,7 +6,7 @@ module.exports = {
     "agg", // converter for asciinema -> agg demo.cast demo.gif for example
     "asciinema", // ascii recorder
     "asdf",
-    "autojump", //github.com/wting/autojump // https
+    "autojump", // power tool to navigate: j > jump dir, jc > jump child dir, jo > open in file manager, jco > open child dir in fileman
     "asimov", // https://asimov.io/ // Ignore dev cache fragments from TimeMachine
     "bat", //github.com/sharkdp/bat, alternative to `cat`: https
     "brew-cask-completion",
