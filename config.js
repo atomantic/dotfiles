@@ -147,7 +147,9 @@ module.exports = {
     "vlc",
     // "xquartz"
   ],
-  gem: [],
+  gem: [
+    "rake"
+  ],
   npm: [
     // "eslint",
     // "generator-dockerize",
