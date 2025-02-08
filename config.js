@@ -198,6 +198,8 @@ module.exports = {
     "431748264",
     // Pixelmator Pro
     "1289583905",
+    // Scapple
+    "568020055",
     // Spark
     "6472704261",
     // Stoic
