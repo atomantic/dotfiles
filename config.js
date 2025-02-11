@@ -48,7 +48,6 @@ module.exports = {
     "nmap", // Network Mapper (https://nmap.org)
     "nvtop", // NVTOP stands for Neat Videocard TOP, a (h)top like task monitor for GPUs and accelerators. It can handle multiple GPUs and print information about them in a htop-familiar way.
     "podman",
-    "podman-compose",
     "podman-tui",
     "rg", // ripgrep
     "reattach-to-user-namespace", // required by .tmux.conf
