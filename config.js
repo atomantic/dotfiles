@@ -53,6 +53,7 @@ module.exports = {
     "reattach-to-user-namespace", // required by .tmux.conf
     "sevenzip", // cli sevenzip in the form of 7zz
     "shellcheck",
+    "syncthing",
     "tmux",
     "tree", // The Tree Command for *nix (http://mama.indstate.edu/users/ice/tree/)
     "tree-sitter",
@@ -137,6 +138,7 @@ module.exports = {
     "slack",
     "snagit",
     "steam",
+    "syncthing",
     //"spark-ar-studio",
     //"sublime-text@3",
     "thebrain",
