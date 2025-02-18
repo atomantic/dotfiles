@@ -6,6 +6,7 @@ module.exports = {
     "agg", // converter for asciinema -> agg demo.cast demo.gif for example
     "asciinema", // ascii recorder
     "asdf",
+    "autoenv",
     "autojump", // power tool to navigate: j > jump dir, jc > jump child dir, jo > open in file manager, jco > open child dir in fileman
     "asimov", // https://asimov.io/ // Ignore dev cache fragments from TimeMachine
     "bat", //github.com/sharkdp/bat, alternative to `cat`: https
@@ -13,8 +14,9 @@ module.exports = {
     "cloudflared", // cloudflare tooling
     "coreutils", // Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`. Install GNU core utilities (those that come with macOS are outdated)
     "dive", // Analysis tool for docker layers to reduce size and fix caching
-    //"docker-completion",
-    //"docker-slim", // Minify and secure docker images (https://dockersl.im)
+    "docker",
+    "docker-completion",
+    "docker-slim", // Minify and secure docker images (https://dockersl.im)
     "fd", // better find
     "findutils", // Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed
     "fzf",
@@ -37,6 +39,7 @@ module.exports = {
     "htop",
     "httpie", // HTTP Client - powerful for API testing - alternative to Postman (https://github.com/jkbrzt/httpie | https://httpie.io/docs)
     "k9s",
+    "lazydocker",
     "lazygit",
     "jq", // JSON Processor | is a sort of JSON sed / grep (https://stedolan.github.io/jq/)
     "kubectx", // https://github.com/ahmetb/kubectx
@@ -48,8 +51,8 @@ module.exports = {
     "neovim",
     "nmap", // Network Mapper (https://nmap.org)
     "nvtop", // NVTOP stands for Neat Videocard TOP, a (h)top like task monitor for GPUs and accelerators. It can handle multiple GPUs and print information about them in a htop-familiar way.
-    "podman",
-    "podman-tui",
+    // "podman",
+    // "podman-tui",
     "rg", // ripgrep
     "reattach-to-user-namespace", // required by .tmux.conf
     "sevenzip", // cli sevenzip in the form of 7zz
@@ -91,7 +94,7 @@ module.exports = {
     "devonagent",
     // "devonthink2",
     "drawio",
-    //"docker", // replaced with podman
+    "docker", // replaced with podman
     // "dotnet",
     // "electrum",
     "epic-games",
@@ -130,7 +133,7 @@ module.exports = {
     "paragon-ntfs",
     "parallels", // Only if really necessary
     "plasticscm-cloud-edition",
-    "podman-desktop",
+    // "podman-desktop",
     "portfolioperformance",
     "rectangle",
     // "resilio-sync",
