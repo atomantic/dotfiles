@@ -36,6 +36,7 @@ module.exports = {
     "homebrew/dupes/screen", // better/more recent version of screen
     "htop",
     "httpie", // HTTP Client - powerful for API testing - alternative to Postman (https://github.com/jkbrzt/httpie | https://httpie.io/docs)
+    "k9s",
     "lazygit",
     "jq", // JSON Processor | is a sort of JSON sed / grep (https://stedolan.github.io/jq/)
     "kubectx", // https://github.com/ahmetb/kubectx

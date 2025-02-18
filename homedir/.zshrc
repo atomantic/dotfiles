@@ -64,7 +64,7 @@ export DISABLE_AUTO_TITLE="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.dotfiles/oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(colorize compleat dirpersist autojump git gulp history cp kubectl kubectx)
+plugins=(1password autoenv autojump brew colorize compleat cp dirpersist docker docker-compose fzf git git-auto-fetch gitfast git-hubflow github gulp k9s kubectl kubectx nvm poetry ssh tailscale tmux)
 
 source $ZSH/oh-my-zsh.sh
 
