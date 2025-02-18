@@ -13,3 +13,4 @@ source ~/.iterm2_shell_integration.`basename $SHELL`
 
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/marc/.cache/lm-studio/bin"
+. "$HOME/.cargo/env"

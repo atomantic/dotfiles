@@ -167,6 +167,7 @@ if [ -n "$VIRTUAL_ENV" ]; then
     source $VIRTUAL_ENV/bin/activate;
 fi
 
+if [ -f "$HOME/.cargo/env.fish" ]; then source "$HOME/.cargo/env.fish"; fi
 if [ -f "$HOME/development/.env" ]; then source "$HOME/development/.env"; fi
 
 PATH=~/.console-ninja/.bin:$PATH
