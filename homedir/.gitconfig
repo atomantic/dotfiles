@@ -239,4 +239,4 @@
 	helper = 
 	helper = !/opt/homebrew/bin/gh auth git-credential
 [oh-my-zsh]
-	git-commit-alias = db32c6ccce91e0b36873c8bfccd1e40f452a2060
+	git-commit-alias = 6e7ac0544e71c7b777746cb50f70de68c6495b86

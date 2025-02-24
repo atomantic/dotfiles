@@ -168,3 +168,5 @@ if [ -n "$VIRTUAL_ENV" ]; then
 fi
 
 if [ -f "$HOME/development/.env" ]; then source "$HOME/development/.env"; fi
+
+PATH=~/.console-ninja/.bin:$PATH
