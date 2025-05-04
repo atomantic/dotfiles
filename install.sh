@@ -268,9 +268,11 @@ if [[ $response =~ (y|yes|Y) ]]; then
     echo -en '\tlinked'
     ok
   done
-
   popd >/dev/null 2>&1
 fi
+
+bot "create symlink for nvim"
+ln -s ~/.dotfiles/nvim ~/.config/nvim
 
 bot "VIM Setup"
 read -r -p "Do you want to install vim plugins now? [y|N] " response
