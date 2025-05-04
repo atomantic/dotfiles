@@ -41,6 +41,8 @@ module.exports = {
     "k9s",
     "lazydocker",
     "lazygit",
+    "lazyjj",
+    "jj",
     "jq", // JSON Processor | is a sort of JSON sed / grep (https://stedolan.github.io/jq/)
     "kubectx", // https://github.com/ahmetb/kubectx
     "kubernetes-cli", // kubectl

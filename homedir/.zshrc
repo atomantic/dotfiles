@@ -170,4 +170,6 @@ fi
 if [ -f "$HOME/.cargo/env.fish" ]; then source "$HOME/.cargo/env.fish"; fi
 if [ -f "$HOME/development/.env" ]; then source "$HOME/development/.env"; fi
 
+source <(jj util completion zsh)
+
 PATH=~/.console-ninja/.bin:$PATH
