@@ -157,7 +157,10 @@
   unwip = "!f() { \
               if [ \"$(git log -1 --pretty=%B)\" = \"WIP:Do not merge\" ]; then git reset HEAD^; else echo \"No work in progress commit\"; fi; \
               }; f"
-	fdr = "!git fetch origin pull//head:pr #"
+  wta = worktree add
+  wtl = worktree list
+  wtr = worktree remove
+  fdr = "!git fetch origin pull//head:pr #"
 	pwl = !git push --force-with-lease
 	build = "!a() {\nlocal _scope _attention _message\nwhile [ $# -ne 0 ]; do\ncase $1 in\n  -s | --scope )\n    if [ -z $2 ]; then\n      echo \"Missing scope!\"\n      return 1\n    fi\n    _scope=\"$2\"\n    shift 2\n    ;;\n  -a | --attention )\n    _attention=\"!\"\n    shift 1\n    ;;\n  * )\n    _message=\"${_message} $1\"\n    shift 1\n    ;;\nesac\ndone\ngit commit -m \"build${_scope:+(${_scope})}${_attention}:${_message}\"\n}; a"
 	chore = "!a() {\nlocal _scope _attention _message\nwhile [ $# -ne 0 ]; do\ncase $1 in\n  -s | --scope )\n    if [ -z $2 ]; then\n      echo \"Missing scope!\"\n      return 1\n    fi\n    _scope=\"$2\"\n    shift 2\n    ;;\n  -a | --attention )\n    _attention=\"!\"\n    shift 1\n    ;;\n  * )\n    _message=\"${_message} $1\"\n    shift 1\n    ;;\nesac\ndone\ngit commit -m \"chore${_scope:+(${_scope})}${_attention}:${_message}\"\n}; a"
@@ -239,4 +242,4 @@
 	helper = 
 	helper = !/opt/homebrew/bin/gh auth git-credential
 [oh-my-zsh]
-	git-commit-alias = 1c2127727af0ac452292f844ee32306f12906d03
+	git-commit-alias = f6a7bbf81a18d30f75bad72de3398d0f55c8792b
