@@ -170,6 +170,10 @@ fi
 if [ -f "$HOME/.cargo/env.fish" ]; then source "$HOME/.cargo/env.fish"; fi
 if [ -f "$HOME/development/.env" ]; then source "$HOME/development/.env"; fi
 
+# Add jj completion tooling
 source <(jj util completion zsh)
+
+# Enable VI mode in shell to use vim like keyboard operations
+set -o VI
 
 PATH=~/.console-ninja/.bin:$PATH
