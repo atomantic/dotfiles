@@ -177,3 +177,7 @@ source <(jj util completion zsh)
 set -o VI
 
 PATH=~/.console-ninja/.bin:$PATH
+
+HISTSIZE=10000       # Number of commands loaded into memory
+HISTFILESIZE=20000   # Number of commands stored in the file
+SAVEHIST=10000       # Number of commands saved to disk
