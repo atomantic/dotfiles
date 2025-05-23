@@ -156,16 +156,7 @@ bartender
 blender
 deltawalker
 drawio
-font-awesome-terminal-fonts
-font-fontawesome
-font-hack
-font-hack-nerd-font
-font-inconsolata-dz-for-powerline
-font-inconsolata-for-powerline
-font-inconsolata-g-for-powerline
-font-roboto-mono
-font-roboto-mono-for-powerline
-font-source-code-pro
+font-jetbrains-mono-nerd-font
 fork
 github
 istat-menus
