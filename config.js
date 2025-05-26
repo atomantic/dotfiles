@@ -17,6 +17,7 @@ module.exports = {
     "docker",
     "docker-completion",
     "docker-slim", // Minify and secure docker images (https://dockersl.im)
+    "eza", // exa successor, ls alternative
     "fd", // better find
     "findutils", // Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed
     "fzf",
@@ -41,25 +42,27 @@ module.exports = {
     "k9s",
     "lazydocker",
     "lazygit",
+    "lazyjournal",
     "lazyjj",
     "jj",
     "jq", // JSON Processor | is a sort of JSON sed / grep (https://stedolan.github.io/jq/)
     "kubectx", // https://github.com/ahmetb/kubectx
     "kubernetes-cli", // kubectl
-    "mas", // Mac App Store CLI: https://github.com/mas-cli/mas
+    "mas", // Mac epp Store CLI: https://github.com/mas-cli/mas
     "minikube",
     "moreutils", // Install some other useful utilities like `sponge` (https://joeyh.name/code/moreutils/)
     "navi", // cheatsheet for commandline
     "neovim",
     "nmap", // Network Mapper (https://nmap.org)
     "nvtop", // NVTOP stands for Neat Videocard TOP, a (h)top like task monitor for GPUs and accelerators. It can handle multiple GPUs and print information about them in a htop-familiar way.
-    // "podman",
-    // "podman-tui",
+    "podman",
+    "podman-tui",
     "rg", // ripgrep
     "reattach-to-user-namespace", // required by .tmux.conf
     "sevenzip", // cli sevenzip in the form of 7zz
     "shellcheck",
     "syncthing",
+    "tldr",
     "tmux",
     "tree", // The Tree Command for *nix (http://mama.indstate.edu/users/ice/tree/)
     "tree-sitter",
@@ -69,7 +72,6 @@ module.exports = {
     "vim --with-client-server --with-override-system-vi", // better, more recent vim
     "watch",
     "wget --enable-iri", // Install wget with IRI support
-    "yarn-completion",
     "yazi",
     "yq" // Process YAML, JSON, XML, CSV and properties documents from the CLI
   ],
@@ -96,21 +98,12 @@ module.exports = {
     "devonagent",
     // "devonthink2",
     "drawio",
-    "docker", // replaced with podman
+    "docker", // to be replaced with podman
     // "dotnet",
     // "electrum",
     "epic-games",
     // "firefox",
-    "font-awesome-terminal-fonts",
-    "font-fontawesome",
-    "font-hack",
-    "font-inconsolata-dz-for-powerline",
-    "font-inconsolata-for-powerline",
-    "font-inconsolata-g-for-powerline",
     "font-jetbrains-mono-nerd-font",
-    "font-roboto-mono",
-    "font-roboto-mono-for-powerline",
-    "font-source-code-pro",
     "fork",
     // "ganache", // Block Chain tooling
     "ganttproject",
@@ -136,7 +129,7 @@ module.exports = {
     "paragon-ntfs",
     "parallels", // Only if really necessary
     "plasticscm-cloud-edition",
-    // "podman-desktop",
+    "podman-desktop",
     "portfolioperformance",
     "rectangle",
     // "resilio-sync",

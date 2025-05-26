@@ -173,6 +173,9 @@ if [ -f "$HOME/development/.env" ]; then source "$HOME/development/.env"; fi
 # Add jj completion tooling
 source <(jj util completion zsh)
 
+# Enable Ctrl+R history search with preview
+export FZF_DEFAULT_COMMAND='ag -g ""'
+
 # Enable VI mode in shell to use vim like keyboard operations
 set -o VI
 
