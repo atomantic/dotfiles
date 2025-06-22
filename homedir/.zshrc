@@ -184,3 +184,10 @@ PATH=~/.console-ninja/.bin:$PATH
 HISTSIZE=10000       # Number of commands loaded into memory
 HISTFILESIZE=20000   # Number of commands stored in the file
 SAVEHIST=10000       # Number of commands saved to disk
+
+# bun completions
+[ -s "/Users/marc/.bun/_bun" ] && source "/Users/marc/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

@@ -238,3 +238,9 @@ alias ynw='yarn nx run-many --target=watch --all'
 ########################
 
 alias c='clear'
+
+########################
+# GNU Utils
+########################
+
+alias timeout=gtimeout

@@ -12,6 +12,7 @@ module.exports = {
     "bat", //github.com/sharkdp/bat, alternative to `cat`: https
     "brew-cask-completion",
     "cloudflared", // cloudflare tooling
+    "cloudflare-wrangler", // wrangler for pages / worker project management
     "coreutils", // Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`. Install GNU core utilities (those that come with macOS are outdated)
     "dive", // Analysis tool for docker layers to reduce size and fix caching
     "docker",
