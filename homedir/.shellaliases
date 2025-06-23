@@ -244,3 +244,7 @@ alias c='clear'
 ########################
 
 alias timeout=gtimeout
+# Helper scripts
+########################
+
+alias line-extract="~/.dotfiles/scripts/line-extract.sh"
