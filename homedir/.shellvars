@@ -27,3 +27,8 @@ export MYDEVAPPS=/Applications/Dev
 #########################################################################
 export FONTCONFIG_PATH=/opt/X11/lib/X11/fontconfig
 export NVM_DIR=~/.nvm
+
+export HOMEBREW_EDITOR=nvim
+
+export ANDROID_TOOLING="$HOME/development/Android Tooling"
+

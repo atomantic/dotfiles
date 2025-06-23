@@ -1,41 +1,38 @@
 # rosetta terminal setup
 if [ $(arch) = "i386" ]; then
-    alias brew86="/usr/local/bin/brew"
-    alias pyenv86="arch -x86_64 pyenv"
-    eval "$(/usr/local/bin/brew shellenv)"
+  echo "Initialize i386 based setup"
+  alias brew86="/usr/local/bin/brew"
+  alias pyenv86="arch -x86_64 pyenv"
+  eval "$(/usr/local/bin/brew shellenv)"
  	export PATH="/usr/local/opt/ruby/bin:$PATH"
 else
-    # Fig pre block. Keep at the top of this file.
-    eval "$(/opt/homebrew/bin/brew shellenv)"
+  echo "Initialize ARM based setup"
+  # Fig pre block. Keep at the top of this file.
+  eval "$(/opt/homebrew/bin/brew shellenv)"
 	export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 fi
 
 
 # Add jetbrains command line
 export PATH="$HOME/Library/Application Support/JetBrains/Toolbox/scripts:$PATH"
-export PATH=/opt/homebrew/bin:/usr/local/bin:$PATH
+# export PATH=/opt/homebrew/bin:/usr/local/bin:$PATH
 
-# Ruby Paths
-export GEM_HOME=$HOME/.gem
-export PATH=$GEM_HOME/bin:$PATH
-export PATH=$HOMEBREW_PREFIX/bin:/opt/homebrew/lib/ruby/gems/3.1.0/bin:$PATH
 
 # AI Dev
-if [ -f "$HOME/.private_vars.inc" ]; then source "$HOME/.private_vars.inc"; fi
+if [ -f "$HOME/.private_vars.inc" ]; then
+  echo "Initialize local private variables"
+  source "$HOME/.private_vars.inc"
+fi
 
 # General
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 
-echo "Checking for Android studio at $HOME/Applications/Android Studio.app and it was found?"
 if [ -d "$HOME/Applications/Android Studio.app" ]; then
-    echo 'Android Studio detected, use its Android SDK'
-	export JAVA_HOME=$HOME/Applications/Android\ Studio.app/Contents/jbr/Contents/Home
+  echo 'Configure Android SDK based on Android Studio'
+	export JAVA_HOME="$HOME/Applications/Android Studio.app/Contents/jbr/Contents/Home"
 	#export ANDROID_HOME=$HOME/Library/Android/sdk
-    export ANDROID_HOME=$HOME/development/Android\ Tooling/android-sdk
-
+  export ANDROID_HOME="$ANDRIOD_TOOLING/android-sdk"
 	export PATH="$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:$ANDROID_HOME/build-tools/latest:$ANDROID_HOME/cmdline-tools/latest/bin:$PATH"
-else
-
 fi
 
 if [ $(arch) = "i386" ]; then
@@ -107,7 +104,13 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# Ruby Paths
+export GEM_HOME=$HOME/.gem
+export PATH=$GEM_HOME/bin:$PATH
+export PATH=$HOMEBREW_PREFIX/bin:/opt/homebrew/lib/ruby/gems/3.1.0/bin:$PATH
+
 if [ -d "/usr/local/opt/ruby/bin" ]; then
+   echo "Configure Ruby"
    export PATH=/usr/local/opt/ruby/bin:$PATH
    export PATH=`gem environment gemdir`/bin:$PATH
 fi
@@ -126,8 +129,8 @@ else
   	echo "pyenv not installed, skip configuration"
 fi
 
-
 if [ ! -d '$HOME/google-cloud-sdk' ]; then
+  echo "Configure google-cloud-sdk"
   if [ -d '$HOME/google-cloud-sdk/bin' ]; then export PATH="$HOME/google-cloud-sdk/bin:$PATH"; fi
 
   # The next line enables shell command completion for gcloud.
@@ -137,31 +140,15 @@ if [ ! -d '$HOME/google-cloud-sdk' ]; then
   if [ -f '$HOME/google-cloud-sdk/path.zsh.inc' ]; then . '$HOME/google-cloud-sdk/path.zsh.inc'; fi
 fi
 
-function cd() {
-  builtin cd "$@"
-
-  if [[ -z "$VIRTUAL_ENV" ]] ; then
-    ## If env folder is found then activate the vitualenv
-      if [[ -d ./venv ]] ; then
-        source ./venv/bin/activate
-      fi
-  else
-    ## check the current folder belong to earlier VIRTUAL_ENV folder
-    # if yes then do nothing
-    # else deactivate
-      parentdir="$(dirname "$VIRTUAL_ENV")"
-      if [[ "$PWD"/ != "$parentdir"/* ]] ; then
-        deactivate
-      fi
-  fi
-}
 
 if [ -d '$HOME/.console-ninja' ]; then PATH=$HOME/.console-ninja/.bin:$PATH; fi
 
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:/Users/marc/.cache/lm-studio/bin"
-export HOMEBREW_EDITOR=nvim
-PATH="$HOME/.console-ninja/.bin:$PATH"
+if [ -d "$HOME/.cache/lm-studio" ]; then
+  echo "Configure LM Studio CLI"
+  # Added by LM Studio CLI (lms)
+  export PATH="$PATH:/Users/marc/.cache/lm-studio/bin"
+fi
+
 
 if [ -n "$VIRTUAL_ENV" ]; then
     source $VIRTUAL_ENV/bin/activate;
@@ -179,20 +166,34 @@ export FZF_DEFAULT_COMMAND='ag -g ""'
 # Enable VI mode in shell to use vim like keyboard operations
 set -o VI
 
-PATH=~/.console-ninja/.bin:$PATH
+if [ -d "$HOME/.console-ninja" ]; then
+  PATH="$HOME/.console-ninja/.bin:$PATH"
+fi
 
-HISTSIZE=10000       # Number of commands loaded into memory
-HISTFILESIZE=20000   # Number of commands stored in the file
-SAVEHIST=10000       # Number of commands saved to disk
 
 # bun completions
 [ -s "/Users/marc/.bun/_bun" ] && source "/Users/marc/.bun/_bun"
 
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-# The following lines have been added by Docker Desktop to enable Docker CLI completions.
-fpath=(/Users/marc/.docker/completions $fpath)
-autoload -Uz compinit
-compinit
-# End of Docker CLI completions
+if [ -d "$HOME/.bun" ]; then
+  echo "Configure BUN path and cli autocomplete"
+  # bun completions
+  [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+  # bun
+  export BUN_INSTALL="$HOME/.bun"
+  export PATH="$BUN_INSTALL/bin:$PATH"
+fi
+
+if [ -d "$ANDROID_TOOLING" ]; then
+  export PATH="$ANDROID_TOOLING:$PATH"
+fi
+
+if [ -d "$HOME/.docker" ]; then
+  # The following lines have been added by Docker Desktop to enable Docker CLI completions.
+  fpath=($HOME/.docker/completions $fpath)
+  autoload -Uz compinit
+  compinit
+  # End of Docker CLI completions
+fi
+
+
+

@@ -1,8 +1,13 @@
 fpath=($fpath $HOME/.zsh/func)
 typeset -U fpath
 
-# uv
-export PATH="$HOME/.local/bin:$PATH"
+if [ -d "$HOME/.local/bin" ]; then
+  echo "Configure UV paths"
+  # uv
+  export PATH="$HOME/.local/bin:$PATH"
+fi
+
 if [ -d "$HOME/.cargo" ]; then
-    . "$HOME/.cargo/env";
+  echo "Configure cargo"
+  . "$HOME/.cargo/env";
 fi
