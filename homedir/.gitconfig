@@ -50,6 +50,7 @@
   #safecrlf = true
   editor = vim
 	longpaths = true
+	ignorecase = true
   #editor = subl -w
 
 [alias]
