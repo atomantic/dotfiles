@@ -191,3 +191,8 @@ SAVEHIST=10000       # Number of commands saved to disk
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/marc/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
