@@ -14,7 +14,7 @@ alias cat='bat'
 
 #################################
 #
-alias env_dbt='source ~/development/learning/dbt-learning/dbt-env/bin/activate'
+alias env_dbt='source $HOME/development/learning/dbt-learning/dbt-env/bin/activate'
 
 #############################
 # Utilities
@@ -244,7 +244,10 @@ alias c='clear'
 ########################
 
 alias timeout=gtimeout
+
+########################
 # Helper scripts
 ########################
 
-alias line-extract="~/.dotfiles/scripts/line-extract.sh"
+alias line-extract="$HOME/.dotfiles/scripts/line_extract.sh"
+alias delete-files="$HOME/.dotfiles/scripts/delete_files.sh"
