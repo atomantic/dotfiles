@@ -57,9 +57,8 @@ alias gitcts='git add -A && git commit -m "$(date +'%Y%m%d-%H%M')" -s'
 alias secondbrain='github-switch-accounts && gitcts && git sync && github-switch-accounts'
 alias secondbrain-today='github-switch-accounts && git reset $(git rev-list --max-count=1 --before="today" HEAD) && gitcts && gitup && git pwl && github-switch-accounts'
 alias gitclean='git clean -fdX'
-alias gitup='git pull --autostash'
 # push git repo, but first, use git-up to make sure you are in sync and rebased with the remote
-alias pushup="gitup && git push"
+alias pushup="git up && git push"
 
 # Networking
 # IP addresses

@@ -108,7 +108,8 @@ module.exports = {
     "fork",
     // "ganache", // Block Chain tooling
     "ganttproject",
-    // "github", // Github Desktop
+    "gitup-app",
+    "github", // Github Desktop
     //"gswitch", // GPU Controll Software when on Intel based Macs to enforce internal / dedicated
     "gog-galaxy",
     "ghostty",
@@ -126,7 +127,7 @@ module.exports = {
     "microsoft-edge",
     "microsoft-office",
     "obsidian",
-    "ollama",
+    "ollama-app",
     "paragon-ntfs",
     "parallels", // Only if really necessary
     "plasticscm-cloud-edition",
@@ -139,7 +140,7 @@ module.exports = {
     "slack",
     "snagit",
     "steam",
-    "syncthing",
+    "syncthing-app",
     //"spark-ar-studio",
     //"sublime-text@3",
     "thebrain",
