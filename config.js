@@ -90,7 +90,7 @@ module.exports = {
     "blender",
     "cheetah3d",
     "google-chrome",
-    "hex-field",
+    "hex-fiend",
     // "context",
     //"curiosity",
     "coteditor",
@@ -115,7 +115,7 @@ module.exports = {
     "ghostty",
     "handbrake",
     "istat-menus",
-    "iterm2",
+    // "iterm2",
     "jetbrains-toolbox",
     // "kitty", // replaced with ghostty
     //"latest",
@@ -153,7 +153,7 @@ module.exports = {
   gem: [
     "rake"
   ],
-  npm: [
+  npm: [ // I would really like to have I and U operations and context|environment to split private/work
     // "eslint",
     // "generator-dockerize",
     // "gulp",

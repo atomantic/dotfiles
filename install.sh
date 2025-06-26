@@ -323,14 +323,7 @@ bot "installing npm tools needed to run this project..."
 npm install
 ok
 
-bot "installing packages from config.js..."
-node index.js
-ok
-
-running "cleanup homebrew"
-brew cleanup --force >/dev/null 2>&1
-rm -f -r /Library/Caches/Homebrew/* >/dev/null 2>&1
-ok
+./install-brew.sh
 
 bot "OS Configuration"
 read -r -p "Do you want to update the system configurations? [y|N] " response
