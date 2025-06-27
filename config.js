@@ -85,14 +85,9 @@ module.exports = {
     'antic',
     'buzzphrase',
     'eslint',
-    'instant-markdown-d',
-    //'generator-dockerize',
-    //'gulp',
-    //'npm-check-updates',
-    'prettyjson',
+    'gemini-cli',
     'trash',
     'vtop'
-    // ,'yo'
   ],
   mas: [
     //com.apple.dt.Xcode (10.2.1)
