@@ -56,3 +56,5 @@ unsetopt correct
 
 # run fortune on new terminal :)
 #fortune
+
+export GEMINI_SANDBOX=docker
