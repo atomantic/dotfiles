@@ -82,6 +82,7 @@ module.exports = {
   gem: [
   ],
   npm: [
+    '@anthropic-ai/claude-code',
     'antic',
     'buzzphrase',
     'eslint',
