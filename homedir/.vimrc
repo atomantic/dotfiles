@@ -311,7 +311,7 @@ let g:netrw_altv = 1
 let g:netrw_winsize = 25 " width of dir explorer
 augroup ProjectDrawer
   autocmd!
-  autocmd VimEnter * :Vexplore
+  "autocmd VimEnter * :Vexplore
 augroup END
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -338,4 +338,4 @@ let g:syntastic_pug_checkers = ['jade','pug']
 " Other
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:sneak#streak = 1
-let g:airline_theme='bubblegum'
+let g:airline_theme='solarized'
