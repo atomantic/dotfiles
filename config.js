@@ -113,7 +113,7 @@ module.exports = {
     //"gswitch", // GPU Controll Software when on Intel based Macs to enforce internal / dedicated
     "gog-galaxy",
     "ghostty",
-    "handbrake",
+    "handbrake-app",
     "istat-menus",
     // "iterm2",
     "jetbrains-toolbox",
