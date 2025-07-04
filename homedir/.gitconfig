@@ -239,10 +239,10 @@
 [fetch]
 	prune = true
 [credential "https://github.com"]
-	helper =
+	helper = 
 	helper = !/opt/homebrew/bin/gh auth git-credential
 [credential "https://gist.github.com"]
-	helper =
+	helper = 
 	helper = !/opt/homebrew/bin/gh auth git-credential
 [oh-my-zsh]
 	git-commit-alias = f8022980a3423f25e3d5e1b6a60d2372a2ba006b

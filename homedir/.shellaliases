@@ -250,3 +250,4 @@ alias timeout=gtimeout
 
 alias line-extract="$HOME/.dotfiles/scripts/line_extract.sh"
 alias delete-files="$HOME/.dotfiles/scripts/delete_files.sh"
+alias convert-android-keystore="$HOME/.dotfiles/scripts/convert-android-keystore.sh"
