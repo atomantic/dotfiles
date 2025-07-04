@@ -3,7 +3,7 @@
 	email = dreamora@users.noreply.github.com
 [github]
   # https://github.com/blog/180-local-github-config
-  user = 
+  user =
 [color]
 # ui = true is a superset of all the more specific color options
 #  as documented at http://book.git-scm.com/5_customizing_git.html
@@ -76,6 +76,7 @@
   dv = !git diff | vim
   who = shortlog -s --
   ph = push
+  pwl = push --force-with-lease
   pl = pull
   lp = log -p
   lod = log --oneline --decorate
@@ -98,7 +99,7 @@
   logr = log -M
   logr2 = log --stat -M -2
   logit = log --stat -M
-  scrub = !git reset --hard && git clean -fd
+  scrub = !git reset --hard && git clean -fdX
   cs = status
   rv = remote -v
   lwr = log --stat -C
@@ -225,7 +226,8 @@
   smudge = git media smudge %f
 
 [pull]
-	rebase = true
+  rebase = true
+  autostash = true
 [commit]
 	gpgSign = false
 [smartgit "submodule"]
@@ -237,10 +239,10 @@
 [fetch]
 	prune = true
 [credential "https://github.com"]
-	helper = 
+	helper =
 	helper = !/opt/homebrew/bin/gh auth git-credential
 [credential "https://gist.github.com"]
-	helper = 
+	helper =
 	helper = !/opt/homebrew/bin/gh auth git-credential
 [oh-my-zsh]
 	git-commit-alias = f8022980a3423f25e3d5e1b6a60d2372a2ba006b
