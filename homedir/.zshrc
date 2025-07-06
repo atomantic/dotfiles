@@ -1,12 +1,12 @@
 # rosetta terminal setup
 if [ $(arch) = "i386" ]; then
-  echo "Initialize i386 based setup"
+  # echo "Initialize i386 based setup"
   alias brew86="/usr/local/bin/brew"
   alias pyenv86="arch -x86_64 pyenv"
   eval "$(/usr/local/bin/brew shellenv)"
  	export PATH="/usr/local/opt/ruby/bin:$PATH"
 else
-  echo "Initialize ARM based setup"
+  # echo "Initialize ARM based setup"
   # Fig pre block. Keep at the top of this file.
   eval "$(/opt/homebrew/bin/brew shellenv)"
 	export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
@@ -20,7 +20,7 @@ export PATH="$HOME/Library/Application Support/JetBrains/Toolbox/scripts:$PATH"
 
 # AI Dev
 if [ -f "$HOME/.private_vars.inc" ]; then
-  echo "Initialize local private variables"
+  # echo "Initialize local private variables"
   source "$HOME/.private_vars.inc"
 fi
 
@@ -28,7 +28,7 @@ fi
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 
 if [ -d "$HOME/Applications/Android Studio.app" ]; then
-  echo 'Configure Android SDK based on Android Studio'
+  # echo 'Configure Android SDK based on Android Studio'
 	export JAVA_HOME="$HOME/Applications/Android Studio.app/Contents/jbr/Contents/Home"
 	#export ANDROID_HOME=$HOME/Library/Android/sdk
   export ANDROID_HOME="$ANDRIOD_TOOLING/android-sdk"
@@ -66,12 +66,12 @@ plugins=(1password autoenv autojump brew colorize compleat cp dirpersist docker 
 source $ZSH/oh-my-zsh.sh
 
 
-if [[ -f /opt/homebrew/opt/nvm/nvm.sh ]]; then
-    source /opt/homebrew/opt/nvm/nvm.sh --no-use
-fi
+# if [[ -f /opt/homebrew/opt/nvm/nvm.sh ]]; then
+#   source /opt/homebrew/opt/nvm/nvm.sh --no-use
+# fi
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
 autoload -U add-zsh-hook
@@ -80,9 +80,9 @@ autoload -U add-zsh-hook
   [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 load-nvmrc() {
   if [[ -f .nvmrc && -r .nvmrc ]]; then
-    nvm use &> /dev/null
+    nvm use &> /dev/null # the &> /dev/null ensures that there are no 'now using node version' type messages
   else
-    nvm use stable
+    nvm use stable &> /dev/null # the &> /dev/null ensures that there are no 'now using node version' type messages
   fi
 }
 add-zsh-hook chpwd load-nvmrc
@@ -110,7 +110,7 @@ export PATH=$GEM_HOME/bin:$PATH
 export PATH=$HOMEBREW_PREFIX/bin:/opt/homebrew/lib/ruby/gems/3.1.0/bin:$PATH
 
 if [ -d "/usr/local/opt/ruby/bin" ]; then
-   echo "Configure Ruby"
+   # echo "Configure Ruby"
    export PATH=/usr/local/opt/ruby/bin:$PATH
    export PATH=`gem environment gemdir`/bin:$PATH
 fi
@@ -130,7 +130,7 @@ else
 fi
 
 if [ ! -d '$HOME/google-cloud-sdk' ]; then
-  echo "Configure google-cloud-sdk"
+  # echo "Configure google-cloud-sdk"
   if [ -d '$HOME/google-cloud-sdk/bin' ]; then export PATH="$HOME/google-cloud-sdk/bin:$PATH"; fi
 
   # The next line enables shell command completion for gcloud.
@@ -144,7 +144,7 @@ fi
 if [ -d '$HOME/.console-ninja' ]; then PATH=$HOME/.console-ninja/.bin:$PATH; fi
 
 if [ -d "$HOME/.cache/lm-studio" ]; then
-  echo "Configure LM Studio CLI"
+  # echo "Configure LM Studio CLI"
   # Added by LM Studio CLI (lms)
   export PATH="$PATH:/Users/marc/.cache/lm-studio/bin"
 fi
@@ -175,7 +175,7 @@ fi
 [ -s "/Users/marc/.bun/_bun" ] && source "/Users/marc/.bun/_bun"
 
 if [ -d "$HOME/.bun" ]; then
-  echo "Configure BUN path and cli autocomplete"
+  # echo "Configure BUN path and cli autocomplete"
   # bun completions
   [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
   # bun

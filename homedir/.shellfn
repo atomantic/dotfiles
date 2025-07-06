@@ -21,12 +21,17 @@ function cd() {
         deactivate
       fi
   fi
+
+  if [ -f "pnpm-lock.yaml" ]; then
+    echo "Automatically install pnpm dependencies"
+    pnpm i
+  fi
 }
 
 # Utility Functions
 
 # Create a new git repo with one README commit and CD into it
-function gitnr() { mkdir $1; cd $1; git init; touch README; git add README; git commit -mFirst-commit;}
+function gitnr() { mkdir $1; cd $1; git init; touch "README.md"; git add "README.md"; git commit -m "Initial commit";}
 
 # Do a Matrix movie effect of falling characters
 function matrix1() {
