@@ -209,19 +209,6 @@ alias ylp='( ls -l node_modules ; ls -l node_modules/@* ) | grep ^l'
 alias ylo='open ~/.config/yarn/link'
 
 ########################
-# pnpm
-########################
-alias pn='pnpm install'
-alias pnb='pnpm build'
-alias pnc='pnpm clean'
-alias pnd='pnpm dist'
-alias pnl='pnpm lint'
-alias pns='pnpm serve'
-alias pnt='pnpm test'
-alias pnte='pnpm test:e2e'
-alias pnw='pnpm watch'
-
-########################
 # YARN NX
 ########################
 alias ynb='yarn nx run-many --target=build --all'
