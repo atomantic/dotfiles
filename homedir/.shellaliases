@@ -6,6 +6,12 @@ alias github-switch-accounts='gh auth switch && gh auth setup-git'
 alias checkPackage='npm ls --depth 1'
 
 #################################
+# AI Aliases
+#################################
+
+alias gemini='npx https://github.com/google-gemini/gemini-cli --show_memory_usage'
+
+#################################
 # Simple Program Name Shortening
 alias g=git
 alias ack=ag
@@ -186,27 +192,6 @@ alias git-reinit-aliases='~/.init_gitaliases.sh'
 alias gopen='git open'
 alias gdc='yarn dist && git commit'
 alias gpyi='git pull --rebase && yarn install --frozen-lockfile --force'
-
-########################
-# YARN
-########################
-alias y='yarn install'
-alias yb='yarn build'
-alias yc='yarn clean'
-alias yd='yarn dist'
-alias yl='yarn lint'
-alias yli='yarn link'
-alias ylip='yarn link:packages'
-alias ys='yarn serve'
-alias yt='yarn test'
-alias yte='yarn test:e2e'
-alias yuli='yarn unlink'
-alias yulip='yarn unlink:packages'
-alias yw='yarn watch'
-# List all linked yarn packages
-alias ylp='( ls -l node_modules ; ls -l node_modules/@* ) | grep ^l'
-# Opens directory where are linked packages are referenced
-alias ylo='open ~/.config/yarn/link'
 
 ########################
 # YARN NX
