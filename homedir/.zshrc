@@ -122,7 +122,7 @@ else
   	echo "pyenv not installed, skip configuration"
 fi
 
-if [ ! -d "$HOME/google-cloud-sdk" ]; then
+if [ -d "$HOME/google-cloud-sdk" ]; then
   # echo "Configure google-cloud-sdk"
   if [ -d "$HOME/google-cloud-sdk/bin" ]; then export PATH="$HOME/google-cloud-sdk/bin:$PATH"; fi
 
