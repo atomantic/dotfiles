@@ -172,7 +172,7 @@ fi
 
 
 # bun completions
-[ -s "/Users/marc/.bun/_bun" ] && source "/Users/marc/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 if [ -d "$HOME/.bun" ]; then
   # echo "Configure BUN path and cli autocomplete"
