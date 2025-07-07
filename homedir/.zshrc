@@ -26,12 +26,13 @@ fi
 
 # General
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+export ANDROID_TOOLING="$HOME/development/Android Tooling/platform-tools"
 
 if [ -d "$HOME/Applications/Android Studio.app" ]; then
   # echo 'Configure Android SDK based on Android Studio'
 	export JAVA_HOME="$HOME/Applications/Android Studio.app/Contents/jbr/Contents/Home"
 	#export ANDROID_HOME=$HOME/Library/Android/sdk
-  export ANDROID_HOME="$ANDRIOD_TOOLING/android-sdk"
+  export ANDROID_HOME="$ANDROID_TOOLING/android-sdk"
 	export PATH="$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:$ANDROID_HOME/build-tools/latest:$ANDROID_HOME/cmdline-tools/latest/bin:$PATH"
 fi
 
@@ -65,19 +66,11 @@ plugins=(1password autoenv autojump brew colorize compleat cp dirpersist docker 
 
 source $ZSH/oh-my-zsh.sh
 
-
-# if [[ -f /opt/homebrew/opt/nvm/nvm.sh ]]; then
-#   source /opt/homebrew/opt/nvm/nvm.sh --no-use
-# fi
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
 autoload -U add-zsh-hook
- export NVM_DIR="$HOME/.nvm"
-  [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
 load-nvmrc() {
   if [[ -f .nvmrc && -r .nvmrc ]]; then
     nvm use &> /dev/null # the &> /dev/null ensures that there are no 'now using node version' type messages
@@ -129,19 +122,19 @@ else
   	echo "pyenv not installed, skip configuration"
 fi
 
-if [ ! -d '$HOME/google-cloud-sdk' ]; then
+if [ ! -d "$HOME/google-cloud-sdk" ]; then
   # echo "Configure google-cloud-sdk"
-  if [ -d '$HOME/google-cloud-sdk/bin' ]; then export PATH="$HOME/google-cloud-sdk/bin:$PATH"; fi
+  if [ -d "$HOME/google-cloud-sdk/bin" ]; then export PATH="$HOME/google-cloud-sdk/bin:$PATH"; fi
 
   # The next line enables shell command completion for gcloud.
-  if [ -f '$HOME/google-cloud-sdk/completion.zsh.inc' ]; then . '$HOME/google-cloud-sdk/completion.zsh.inc'; fi
+  if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
 
   # The next line updates PATH for the Google Cloud SDK.
-  if [ -f '$HOME/google-cloud-sdk/path.zsh.inc' ]; then . '$HOME/google-cloud-sdk/path.zsh.inc'; fi
+  if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi
 fi
 
 
-if [ -d '$HOME/.console-ninja' ]; then PATH=$HOME/.console-ninja/.bin:$PATH; fi
+if [ -d "$HOME/.console-ninja" ]; then PATH="$HOME/.console-ninja/.bin:$PATH"; fi
 
 if [ -d "$HOME/.cache/lm-studio" ]; then
   # echo "Configure LM Studio CLI"
@@ -183,7 +176,6 @@ if [ -d "$HOME/.bun" ]; then
   export PATH="$BUN_INSTALL/bin:$PATH"
 fi
 
-export ANDROID_TOOLING="$HOME/development/Android Tooling/platform-tools"
 if [ -d "$ANDROID_TOOLING" ]; then
   export PATH="$ANDROID_TOOLING:$PATH"
 fi
