@@ -183,6 +183,7 @@ if [ -d "$HOME/.bun" ]; then
   export PATH="$BUN_INSTALL/bin:$PATH"
 fi
 
+export ANDROID_TOOLING="$HOME/development/Android Tooling/platform-tools"
 if [ -d "$ANDROID_TOOLING" ]; then
   export PATH="$ANDROID_TOOLING:$PATH"
 fi
