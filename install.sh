@@ -293,6 +293,16 @@ fi
 # node version manager
 require_brew nvm
 
+# Ensure NVM is sourced in future shells
+if ! grep -q 'NVM_DIR' ~/.zshrc; then
+  echo 'export NVM_DIR="$HOME/.nvm"' >> ~/.zshrc
+  echo '[ -s "$(brew --prefix nvm)/nvm.sh" ] && \\. "$(brew --prefix nvm)/nvm.sh"' >> ~/.zshrc
+fi
+
+# Source NVM for this script
+export NVM_DIR="$HOME/.nvm"
+[ -s "$(brew --prefix nvm)/nvm.sh" ] && \. "$(brew --prefix nvm)/nvm.sh"
+
 # nvm
 require_nvm stable
 
