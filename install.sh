@@ -596,6 +596,7 @@ bot "Trackpad, mouse, keyboard, Bluetooth accessories, and input"
 
 running "Trackpad: enable tap to click for this user and for the login screen"
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
 defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1;ok
 
@@ -603,13 +604,21 @@ running "Trackpad: map bottom right corner to right-click"
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadCornerSecondaryClick -int 2
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true
 defaults -currentHost write NSGlobalDomain com.apple.trackpad.trackpadCornerClickBehavior -int 1
-defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true;ok
+defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true
+defaults write com.apple.AppleMultitouchTrackpad TrackpadCornerSecondaryClick -int 2
+defaults write com.apple.AppleMultitouchTrackpad TrackpadRightClick -bool true;ok
 
 running "Disable 'natural' (Lion-style) scrolling"
 defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false;ok
 
-running "Increase sound quality for Bluetooth headphones/headsets"
-defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40;ok
+# running "Increase sound quality for Bluetooth headphones/headsets"
+# defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Max (editable)" 80
+# defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" 80
+# defaults write com.apple.BluetoothAudioAgent "Apple Initial Bitpool (editable)" 80
+# defaults write com.apple.BluetoothAudioAgent "Apple Initial Bitpool Min (editable)" 80
+# defaults write com.apple.BluetoothAudioAgent "Negotiated Bitpool" 80
+# defaults write com.apple.BluetoothAudioAgent "Negotiated Bitpool Max" 80
+# defaults write com.apple.BluetoothAudioAgent "Negotiated Bitpool Min" 80;ok
 
 running "Enable full keyboard access for all controls (e.g. enable Tab in modal dialogs)"
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3;ok
@@ -627,12 +636,6 @@ running "Set a blazingly fast keyboard repeat rate"
 defaults write NSGlobalDomain KeyRepeat -int 2
 defaults write NSGlobalDomain InitialKeyRepeat -int 10;ok
 
-running "Set language and text formats (english/US)"
-defaults write NSGlobalDomain AppleLanguages -array "en"
-defaults write NSGlobalDomain AppleLocale -string "en_US@currency=USD"
-defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters"
-defaults write NSGlobalDomain AppleMetricUnits -bool true;ok
-
 # running "Disable auto-correct"
 # defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false;ok
 
@@ -641,8 +644,7 @@ bot "Configuring the Screen"
 ###############################################################################
 
 running "Require password immediately after sleep or screen saver begins"
-defaults write com.apple.screensaver askForPassword -int 1
-defaults write com.apple.screensaver askForPasswordDelay -int 0;ok
+sysadminctl -screenLock immediate -password -;ok
 
 running "Save screenshots to the desktop"
 defaults write com.apple.screencapture location -string "${HOME}/Desktop";ok
@@ -689,8 +691,8 @@ defaults write com.apple.finder ShowStatusBar -bool true;ok
 running "Show path bar"
 defaults write com.apple.finder ShowPathbar -bool true;ok
 
-running "Allow text selection in Quick Look"
-defaults write com.apple.finder QLEnableTextSelection -bool true;ok
+#running "Allow text selection in Quick Look"
+#defaults write com.apple.finder QLEnableTextSelection -bool true;ok
 
 running "Display full POSIX path as Finder window title"
 defaults write com.apple.finder _FXShowPosixPathInTitle -bool true;ok
@@ -710,10 +712,10 @@ defaults write NSGlobalDomain com.apple.springing.delay -float 0;ok
 running "Avoid creating .DS_Store files on network volumes"
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true;ok
 
-running "Disable disk image verification"
-defaults write com.apple.frameworks.diskimages skip-verify -bool true
-defaults write com.apple.frameworks.diskimages skip-verify-locked -bool true
-defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true;ok
+#running "Disable disk image verification"
+#defaults write com.apple.frameworks.diskimages skip-verify -bool true
+#defaults write com.apple.frameworks.diskimages skip-verify-locked -bool true
+#defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true;ok
 
 running "Automatically open a new Finder window when a volume is mounted"
 defaults write com.apple.frameworks.diskimages auto-open-ro-root -bool true
@@ -727,11 +729,10 @@ defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv";ok
 running "Disable the warning before emptying the Trash"
 defaults write com.apple.finder WarnOnEmptyTrash -bool false;ok
 
-running "Empty Trash securely by default"
-defaults write com.apple.finder EmptyTrashSecurely -bool true;ok
 
-running "Enable AirDrop over Ethernet and on unsupported Macs running Lion"
-defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true;ok
+
+#running "Enable AirDrop over Ethernet and on unsupported Macs running Lion"
+#defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true;ok
 
 # Issue on macOS Mojave, for more info
 # check https://github.com/mathiasbynens/dotfiles/issues/865
@@ -774,7 +775,7 @@ defaults write com.apple.dock expose-animation-duration -float 0.1;ok
 
 running "Don’t group windows by application in Mission Control"
 # (i.e. use the old Exposé behavior instead)
-defaults write com.apple.dock expose-group-by-app -bool false;ok
+defaults write com.apple.dock expose-group-apps -bool false;ok
 
 
 # Dashboard is disabled by default on macOS Mojave,
@@ -871,8 +872,8 @@ defaults write com.apple.Safari IncludeInternalDebugMenu -bool true;ok
 running "Make Safari’s search banners default to Contains instead of Starts With"
 defaults write com.apple.Safari FindOnPageMatchesWordStartsOnly -bool false;ok
 
-running "Remove useless icons from Safari’s bookmarks bar"
-defaults write com.apple.Safari ProxiesInBookmarksBar "()";ok
+#running "Remove useless icons from Safari’s bookmarks bar"
+#defaults write com.apple.Safari ProxiesInBookmarksBar "()";ok
 
 running "Enable the Develop menu and the Web Inspector in Safari"
 defaults write com.apple.Safari IncludeDevelopMenu -bool true
@@ -894,8 +895,7 @@ defaults write com.apple.mail DisableSendAnimations -bool true;ok
 running "Copy email addresses as 'foo@example.com' instead of 'Foo Bar <foo@example.com>' in Mail.app"
 defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false;ok
 
-running "Add the keyboard shortcut ⌘ + Enter to send an email in Mail.app"
-defaults write com.apple.mail NSUserKeyEquivalents -dict-add "Send" -string "@\\U21a9";ok
+#running "Add the keyboard shortcut ⌘ + Enter to send an email in Mail.app"#defaults write com.apple.mail NSUserKeyEquivalents -dict-add "Send" -string "@\U21a9";ok
 
 running "Display emails in threaded mode, sorted by date (oldest at the top)"
 defaults write com.apple.mail DraftsViewerAttributes -dict-add "DisplayInThreadedMode" -string "yes"
@@ -924,24 +924,24 @@ bot "Spotlight"
 # Use `sudo mdutil -i off "/Volumes/foo"` to stop indexing any volume.
 # sudo defaults write /.Spotlight-V100/VolumeConfiguration Exclusions -array "/Volumes";ok
 
-running "Change indexing order and disable some file types from being indexed"
-defaults write com.apple.spotlight orderedItems -array \
-  '{"enabled" = 1;"name" = "APPLICATIONS";}' \
-  '{"enabled" = 1;"name" = "SYSTEM_PREFS";}' \
-  '{"enabled" = 1;"name" = "DIRECTORIES";}' \
-  '{"enabled" = 1;"name" = "PDF";}' \
-  '{"enabled" = 1;"name" = "FONTS";}' \
-  '{"enabled" = 0;"name" = "DOCUMENTS";}' \
-  '{"enabled" = 0;"name" = "MESSAGES";}' \
-  '{"enabled" = 0;"name" = "CONTACT";}' \
-  '{"enabled" = 0;"name" = "EVENT_TODO";}' \
-  '{"enabled" = 0;"name" = "IMAGES";}' \
-  '{"enabled" = 0;"name" = "BOOKMARKS";}' \
-  '{"enabled" = 0;"name" = "MUSIC";}' \
-  '{"enabled" = 0;"name" = "MOVIES";}' \
-  '{"enabled" = 0;"name" = "PRESENTATIONS";}' \
-  '{"enabled" = 0;"name" = "SPREADSHEETS";}' \
-  '{"enabled" = 0;"name" = "SOURCE";}';ok
+#running "Change indexing order and disable some file types from being indexed"
+#defaults write com.apple.spotlight orderedItems -array \
+#  '{"enabled" = 1;"name" = "APPLICATIONS";}' \
+#  '{"enabled" = 1;"name" = "SYSTEM_PREFS";}' \
+#  '{"enabled" = 1;"name" = "DIRECTORIES";}' \
+#  '{"enabled" = 1;"name" = "PDF";}' \
+#  '{"enabled" = 1;"name" = "FONTS";}' \
+#  '{"enabled" = 0;"name" = "DOCUMENTS";}' \
+#  '{"enabled" = 0;"name" = "MESSAGES";}' \
+#  '{"enabled" = 0;"name" = "CONTACT";}' \
+#  '{"enabled" = 0;"name" = "EVENT_TODO";}' \
+#  '{"enabled" = 0;"name" = "IMAGES";}' \
+#  '{"enabled" = 0;"name" = "BOOKMARKS";}' \
+#  '{"enabled" = 0;"name" = "MUSIC";}' \
+#  '{"enabled" = 0;"name" = "MOVIES";}' \
+#  '{"enabled" = 0;"name" = "PRESENTATIONS";}' \
+#  '{"enabled" = 0;"name" = "SPREADSHEETS";}' \
+#  '{"enabled" = 0;"name" = "SOURCE";}';ok
 running "Load new settings before rebuilding the index"
 killall mds > /dev/null 2>&1;ok
 running "Make sure indexing is enabled for the main volume"
@@ -986,10 +986,10 @@ running "hide pane titles in split panes"
 defaults write com.googlecode.iterm2 ShowPaneTitles -bool false;ok
 running "animate split-terminal dimming"
 defaults write com.googlecode.iterm2 AnimateDimming -bool true;ok
-defaults write com.googlecode.iterm2 HotkeyChar -int 96;
-defaults write com.googlecode.iterm2 HotkeyCode -int 50;
-defaults write com.googlecode.iterm2 FocusFollowsMouse -int 1;
-defaults write com.googlecode.iterm2 HotkeyModifiers -int 262401;
+#defaults write com.googlecode.iterm2 HotkeyChar -int 96;
+#defaults write com.googlecode.iterm2 HotkeyCode -int 50;
+#defaults write com.googlecode.iterm2 FocusFollowsMouse -int 1;
+#defaults write com.googlecode.iterm2 HotkeyModifiers -int 262401;
 running "Make iTerm2 load new tabs in the same directory"
 /usr/libexec/PlistBuddy -c "set \"New Bookmarks\":0:\"Custom Directory\" Recycle" ~/Library/Preferences/com.googlecode.iterm2.plist
 running "setting fonts"

@@ -3,6 +3,7 @@
   "version": "6.0.0",
   "description": "atomantic dotfiles for macos Sequoia+",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -29,8 +30,8 @@
   },
   "homepage": "https://github.com/atomantic/dotfiles#readme",
   "dependencies": {
+    "@inquirer/prompts": "^7.6.0",
     "async.series": "^0.5.2",
-    "inquirer": "^12.7.0",
     "node-emoji": "^2.2.0"
   }
 }

@@ -177,13 +177,11 @@ The following will only happen if you agree on the prompt
 - Trackpad: enable tap to click for this user and for the login screen
 - Trackpad: map bottom right corner to right-click
 - Disable “natural” (Lion-style) scrolling
-- Increase sound quality for Bluetooth headphones/headsets
 - Enable full keyboard access for all controls (e.g. enable Tab in modal dialogs)
 - Use scroll gesture with the Ctrl (^) modifier key to zoom
 - Follow the keyboard focus while zoomed in
 - Disable press-and-hold for keys in favor of key repeat
-- Set a blazingly fast keyboard repeat rate:
-- Set language and text formats (english/US)
+- Set a blazingly fast keyboard repeat rate
 
 ## Configuring the Screen
 
