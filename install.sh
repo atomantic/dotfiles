@@ -164,8 +164,7 @@ fi
 # install homebrew (CLI Packages)
 # ###########################################################
 running "checking homebrew..."
-brew_bin=$(which brew) 2>&1 > /dev/null
-if [[ $? != 0 ]]; then
+if ! command -v brew >/dev/null 2>&1; then
   action "installing homebrew"
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   if [[ $? != 0 ]]; then
