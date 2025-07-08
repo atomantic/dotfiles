@@ -21,3 +21,7 @@ setopt    incappendhistory  #Immediately append to the history file, not just wh
 function precmd () {
   z --add "$(pwd -P)"
 }
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+# Add Visual Studio Code (code)
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
