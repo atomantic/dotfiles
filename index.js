@@ -1,9 +1,13 @@
 import { confirm } from "@inquirer/prompts";
 import * as emoji from "node-emoji";
 import fs from "fs";
-import series from "async.series";
+// import series from "async.series"; // Remove this line
 import command from "./lib_node/command.js";
 import config from "./config.js";
+import { dirname } from "path";
+import { fileURLToPath } from "url";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 async function run() {
   const answers = await confirm({
@@ -13,11 +17,11 @@ async function run() {
 
   if (answers) {
     // additional brew packages needed to support gitshots
-    config.default.brew.push("imagemagick", "imagesnap");
+    config.brew.push("imagemagick", "imagesnap");
     // ensure ~/.gitshots exists
-    await command.default("mkdir -p ~/.gitshots", __dirname);
+    await command("mkdir -p ~/.gitshots", __dirname);
     // add post-commit hook
-    await command.default(
+    await command(
       "cp ./.git_template/hooks/gitshot-pc ./.git_template/hooks/post-commit",
       __dirname,
     );
@@ -25,7 +29,7 @@ async function run() {
     if (fs.existsSync("./.git_template/hooks/post-commit")) {
       // disable post-commit (in case we are undoing the git-shots enable)
       // TODO: examine and remove/comment out the file content with the git shots bit
-      await command.default(
+      await command(
         "mv ./.git_template/hooks/post-commit ./.git_template/hooks/disabled-pc",
         __dirname,
       );
@@ -44,16 +48,15 @@ async function run() {
   const tasks = [];
 
   ["brew", "cask", "npm", "gem", "mas"].forEach((type) => {
-    if (config.default[type] && config.default[type].length) {
-      tasks.push(async (cb) => {
+    if (config[type] && config[type].length) {
+      tasks.push(async () => {
         console.info(emoji.get("coffee"), " installing " + type + " packages");
-        cb();
       });
-      config.default[type].forEach((item) => {
-        tasks.push(async (cb) => {
+      config[type].forEach((item) => {
+        tasks.push(async () => {
           console.info(type + ":", item);
           try {
-            await command.default(
+            await command(
               `. lib_sh/echos.sh && . lib_sh/requirers.sh && require_` +
                 type +
                 ` ` +
@@ -63,20 +66,19 @@ async function run() {
           } catch (err) {
             console.error(emoji.get("fire"), err, err.stderr);
           }
-          cb();
         });
       });
     } else {
-      tasks.push(async (cb) => {
+      tasks.push(async () => {
         console.info(emoji.get("coffee"), type + " has no packages");
-        cb();
       });
     }
   });
 
-  series(tasks, function (err, results) {
-    console.log("package install complete");
-  });
+  for (const task of tasks) {
+    await task();
+  }
+  console.log("package install complete");
 }
 
 run();
