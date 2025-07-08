@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   brew: [
     // http://conqueringthecommandline.com/book/ack_ag
     "ack",

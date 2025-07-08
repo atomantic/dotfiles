@@ -2,11 +2,10 @@ import { confirm } from "@inquirer/prompts";
 import * as emoji from "node-emoji";
 import fs from "fs";
 import series from "async.series";
+import command from "./lib_node/command.js";
+import config from "./config.js";
 
 async function run() {
-  const config = await import("./config.js");
-  const command = await import("./lib_node/command.js");
-
   const answers = await confirm({
     message: "Do you want to use gitshots?",
     default: false,
