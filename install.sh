@@ -112,21 +112,21 @@ if [[ $update_gitconfig_response =~ (yes|y|Y) ]]; then
 
     running "replacing items in .gitconfig with your info ($COL_YELLOW$fullname, $email, $githubuser$COL_RESET)"
 
-    # test if gnu-sed or MacOS sed
-
-    sed -i "s/GITHUBFULLNAME/$firstname $lastname/" ./homedir/.gitconfig > /dev/null 2>&1 || true
+    # Try GNU sed first
+    sed -i "s/GITHUBFULLNAME/${firstname//\//\/} ${lastname//\//\/}/" ./homedir/.gitconfig 2>/dev/null
+    sed -i "s/GITHUBEMAIL/${email//\//\/}/" ./homedir/.gitconfig 2>/dev/null
+    sed -i "s/GITHUBUSER/${githubuser//\//\/}/" ./homedir/.gitconfig 2>/dev/null
     if [[ ${PIPESTATUS[0]} != 0 ]]; then
       echo
       running "looks like you are using MacOS sed rather than gnu-sed, accommodating"
-      sed -i '' "s/GITHUBFULLNAME/$firstname $lastname/" ./homedir/.gitconfig
-      sed -i '' 's/GITHUBEMAIL/'$email'/' ./homedir/.gitconfig
-      sed -i '' 's/GITHUBUSER/'$githubuser'/' ./homedir/.gitconfig
+      sed -i '' "s/GITHUBFULLNAME/${firstname//\//\/} ${lastname//\//\/}/" ./homedir/.gitconfig
+      sed -i '' "s/GITHUBEMAIL/${email//\//\/}/" ./homedir/.gitconfig
+      sed -i '' "s/GITHUBUSER/${githubuser//\//\/}/" ./homedir/.gitconfig
       ok
     else
       echo
       bot "looks like you are already using gnu-sed. woot!"
-      sed -i 's/GITHUBEMAIL/'$email'/' ./homedir/.gitconfig
-      sed -i 's/GITHUBUSER/'$githubuser'/' ./homedir/.gitconfig
+      ok
     fi
   fi
 else
