@@ -61,7 +61,7 @@ export default {
     //'dropbox',
     //'evernote',
     //'flux',
-    "gpg-suite",
+    // "gpg-suite",
     //'ireadfast',
     "iterm2",
     //'little-snitch',
@@ -77,7 +77,7 @@ export default {
     //'transmission',
     "visual-studio-code",
     //'vlc',
-    "xquartz",
+    // "xquartz",
   ],
   gem: [],
   npm: [
