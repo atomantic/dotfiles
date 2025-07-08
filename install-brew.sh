@@ -3,7 +3,8 @@
 source ./lib_sh/echos.sh
 
 bot "installing packages from config.js..."
-node index.js
+# node index.js
+brew bundle
 ok
 
 running "cleanup homebrew"

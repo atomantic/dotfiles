@@ -1,0 +1,162 @@
+brew "ack"
+brew "ag"
+brew "agg"
+brew "asciinema"
+brew "asdf"
+brew "autoenv"
+brew "autojump"
+brew "asimov"
+brew "bat"
+brew "brew-cask-completion"
+brew "bundletool"
+brew "cloudflared"
+brew "cloudflare-wrangler"
+brew "coreutils"
+brew "dive"
+# brew "docker"
+# brew "docker-completion"
+# brew "docker-slim"
+brew "eza"
+brew "fd"
+brew "findutils"
+brew "fzf"
+brew "gawk"
+brew "gh"
+brew "gifsicle"
+brew "git"
+brew "git-flow"
+brew "git-lfs"
+brew "git-open"
+brew "graphviz"
+brew "gnu-sed"
+brew "grep"
+brew "grip"
+brew "htop"
+brew "httpie"
+brew "k9s"
+brew "lazydocker"
+brew "lazygit"
+brew "lazyjournal"
+brew "lazyjj"
+brew "jj"
+brew "jq"
+brew "kubectx"
+brew "kubernetes-cli"
+brew "mas"
+brew "minikube"
+brew "moreutils"
+brew "navi"
+brew "neovim"
+brew "nmap"
+brew "nvtop"
+brew "opencode-ai/tap/opencode"
+brew "podman"
+brew "podman-compose"
+brew "podman-tui"
+brew "rg"
+brew "reattach-to-user-namespace"
+brew "sevenzip"
+brew "shellcheck"
+brew "syncthing"
+brew "tldr"
+brew "tmux"
+brew "tree"
+brew "tree-sitter"
+brew "ttyrec"
+brew "up"
+brew "uni"
+# brew "vim"
+brew "watch"
+brew "wget"
+brew "yazi"
+brew "yq"
+
+cask "1password"
+cask "1password-cli"
+cask "aldente"
+cask "alfred"
+cask "android-platform-tools"
+cask "app-tamer"
+cask "balenaetcher"
+cask "bartender"
+cask "blender"
+cask "cheetah3d"
+cask "google-chrome"
+cask "hex-fiend"
+cask "coteditor"
+cask "dash@6"
+cask "deltawalker"
+cask "devonagent"
+cask "drawio"
+cask "docker"
+cask "epic-games"
+cask "font-jetbrains-mono-nerd-font"
+cask "fork"
+cask "ganttproject"
+cask "gitup-app"
+cask "github"
+cask "gog-galaxy"
+cask "ghostty"
+cask "handbrake-app"
+cask "istat-menus"
+cask "jetbrains-toolbox"
+cask "ledger-live"
+cask "little-snitch"
+cask "lm-studio"
+cask "ghostty"
+# cask "microsoft-edge"
+cask "microsoft-office"
+cask "obsidian"
+cask "ollama-app"
+cask "paragon-ntfs"
+# cask "parallels"
+cask "plasticscm-cloud-edition"
+cask "podman-desktop"
+cask "portfolioperformance"
+cask "rectangle"
+cask "screenflow"
+cask "signal"
+cask "slack"
+cask "snagit"
+cask "steam"
+cask "syncthing-app"
+cask "thebrain"
+cask "thonny"
+cask "unity-hub"
+cask "visual-studio-code"
+cask "vlc"
+
+gem "rake"
+
+# npm "npm-check-updates"
+# npm "openupm-cli"
+# npm "prettyjson"
+# npm "vtop"
+
+# mas "1Password", id: 1333542190
+# mas "Assassin's Creed Mirage/Spark", id: 6472704261
+mas "Affinity Designer 2", id: 1616831348
+mas "Affinity Photo 2", id: 1616822987
+mas "Affinity Publisher 2", id: 1606941598
+mas "Amphetamine", id: 937984704
+mas "Day One", id: 1055511498
+mas "DaisyDisk", id: 411643860
+mas "Hugging Face Diffusers", id: 1666309574
+mas "Disk Diet", id: 445512770
+mas "Gemini Duplicate Finder", id: 1090488118
+mas "Good Notes 5+", id: 1444383602
+mas "iA Writer", id: 775737590
+mas "Kindle", id: 302584613
+mas "Money", id: 1185488696
+mas "Pluralsight", id: 431748264
+mas "Pixelmator Pro", id: 1289583905
+mas "Scapple", id: 568020055
+mas "Stoic", id: 1312926037
+mas "Telegram", id: 747648890
+mas "toggl-track", id: 1291898086
+mas "The Unarchiver", id: 425424353
+mas "TickTick", id: 966085870
+mas "Time Sink", id: 404363161
+mas "Vinegar", id: 1591303229
+mas "Whatsapp", id: 310633997
+mas "Xcode", id: 497799835

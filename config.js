@@ -15,8 +15,8 @@ module.exports = {
     "cloudflare-wrangler", // wrangler for pages / worker project management
     "coreutils", // Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`. Install GNU core utilities (those that come with macOS are outdated)
     "dive", // Analysis tool for docker layers to reduce size and fix caching
-    "docker",
-    "docker-completion",
+    // "docker",
+    // "docker-completion",
     "docker-slim", // Minify and secure docker images (https://dockersl.im)
     "eza", // exa successor, ls alternative
     "fd", // better find
@@ -36,7 +36,7 @@ module.exports = {
     "grep --with-default-names", // upgrade grep so we can get things like inverted match (-v)
     // better, more recent grep
     "grip", // Instant github readme previewer
-    "homebrew/dupes/grep", // better, more recent grep
+    // "homebrew/dupes/grep", // better, more recent grep
     "homebrew/dupes/screen", // better/more recent version of screen
     "htop",
     "httpie", // HTTP Client - powerful for API testing - alternative to Postman (https://github.com/jkbrzt/httpie | https://httpie.io/docs)
@@ -56,6 +56,7 @@ module.exports = {
     "neovim",
     "nmap", // Network Mapper (https://nmap.org)
     "nvtop", // NVTOP stands for Neat Videocard TOP, a (h)top like task monitor for GPUs and accelerators. It can handle multiple GPUs and print information about them in a htop-familiar way.
+    "opencode-ai/tap/opencode", // Alternative to Claude Code / Gemini CLI
     "podman",
     "podman-tui",
     "rg", // ripgrep
@@ -70,7 +71,7 @@ module.exports = {
     "ttyrec", // TTY Recorder and Player | Shell Macro? (http://0xcc.net/ttyrec/)
     "up", // Ultimate Plumber - interactive data pipelining to work with *nix shell commands
     "uni", // Unicode database querier: uni identity $  or uni i $
-    "vim --with-client-server --with-override-system-vi", // better, more recent vim
+    // "vim --with-client-server --with-override-system-vi", // better, more recent vim
     "watch",
     "wget --enable-iri", // Install wget with IRI support
     "yazi",
@@ -99,7 +100,7 @@ module.exports = {
     "devonagent",
     // "devonthink2",
     "drawio",
-    "docker", // to be replaced with podman
+    // "docker", // to be replaced with podman
     // "dotnet",
     // "electrum",
     "epic-games",
@@ -142,7 +143,7 @@ module.exports = {
     "steam",
     "syncthing-app",
     //"spark-ar-studio",
-    //"sublime-text@3",
+    //"sublime-text",
     "thebrain",
     "thonny",
     "unity-hub",
