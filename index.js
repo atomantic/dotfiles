@@ -1,61 +1,58 @@
-import { confirm } from '@inquirer/prompts';
-import nodeEmoji from 'node-emoji';
-import fs from 'fs';
-import series from 'async.series';
+import { confirm } from "@inquirer/prompts";
+import * as emoji from "node-emoji";
+import fs from "fs";
+import series from "async.series";
 
 async function run() {
-  const config = await import('./config.js');
-  const command = await import('./lib_node/command.js');
+  const config = await import("./config.js");
+  const command = await import("./lib_node/command.js");
 
   const answers = await confirm({
-    message: 'Do you want to use gitshots?',
+    message: "Do you want to use gitshots?",
     default: false,
   });
 
   if (answers) {
     // additional brew packages needed to support gitshots
-    config.default.brew.push('imagemagick', 'imagesnap');
+    config.default.brew.push("imagemagick", "imagesnap");
     // ensure ~/.gitshots exists
-    await command.default('mkdir -p ~/.gitshots', __dirname);
+    await command.default("mkdir -p ~/.gitshots", __dirname);
     // add post-commit hook
     await command.default(
-      'cp ./.git_template/hooks/gitshot-pc ./.git_template/hooks/post-commit',
+      "cp ./.git_template/hooks/gitshot-pc ./.git_template/hooks/post-commit",
       __dirname,
     );
   } else {
-    if (fs.existsSync('./.git_template/hooks/post-commit')) {
+    if (fs.existsSync("./.git_template/hooks/post-commit")) {
       // disable post-commit (in case we are undoing the git-shots enable)
       // TODO: examine and remove/comment out the file content with the git shots bit
       await command.default(
-        'mv ./.git_template/hooks/post-commit ./.git_template/hooks/disabled-pc',
+        "mv ./.git_template/hooks/post-commit ./.git_template/hooks/disabled-pc",
         __dirname,
       );
     }
   }
 
   const packagesAnswer = await confirm({
-    message: 'Do you want to install packages from config.js?',
+    message: "Do you want to install packages from config.js?",
     default: false,
   });
 
   if (!packagesAnswer) {
-    return console.log('skipping package installs');
+    return console.log("skipping package installs");
   }
 
   const tasks = [];
 
-  ['brew', 'cask', 'npm', 'gem', 'mas'].forEach((type) => {
+  ["brew", "cask", "npm", "gem", "mas"].forEach((type) => {
     if (config.default[type] && config.default[type].length) {
       tasks.push(async (cb) => {
-        console.info(
-          nodeEmoji.get('coffee'),
-          ' installing ' + type + ' packages',
-        );
+        console.info(emoji.get("coffee"), " installing " + type + " packages");
         cb();
       });
       config.default[type].forEach((item) => {
         tasks.push(async (cb) => {
-          console.info(type + ':', item);
+          console.info(type + ":", item);
           try {
             await command.default(
               `. lib_sh/echos.sh && . lib_sh/requirers.sh && require_` +
@@ -65,21 +62,21 @@ async function run() {
               __dirname,
             );
           } catch (err) {
-            console.error(nodeEmoji.get('fire'), err, err.stderr);
+            console.error(emoji.get("fire"), err, err.stderr);
           }
           cb();
         });
       });
     } else {
       tasks.push(async (cb) => {
-        console.info(nodeEmoji.get('coffee'), type + ' has no packages');
+        console.info(emoji.get("coffee"), type + " has no packages");
         cb();
       });
     }
   });
 
   series(tasks, function (err, results) {
-    console.log('package install complete');
+    console.log("package install complete");
   });
 }
 
