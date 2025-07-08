@@ -260,7 +260,6 @@ if [[ $response =~ (y|yes|Y) ]];then
   # need fontconfig to install/build fonts
   require_brew fontconfig
   ./fonts/install.sh
-  brew tap homebrew/cask-fonts
   require_brew svn #required for roboto
   require_cask font-fontawesome
   require_cask font-awesome-terminal-fonts
@@ -575,8 +574,8 @@ defaults write com.apple.CrashReporter DialogType -string "none";ok
 running "Set Help Viewer windows to non-floating mode"
 defaults write com.apple.helpviewer DevMode -bool true;ok
 
-running "Reveal IP, hostname, OS, etc. when clicking clock in login window"
-sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName;ok
+#running "Reveal IP, hostname, OS, etc. when clicking clock in login window"
+#sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName;ok
 
 running "Check for software updates daily, not just once per week"
 defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1;ok

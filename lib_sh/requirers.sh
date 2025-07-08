@@ -19,7 +19,7 @@ function require_apm() {
 
 function require_brew() {
     running "brew $1 $2"
-    brew list $1 > /dev/null 2>&1 || true
+    brew list $1 > /dev/null 2>&1
     if [[ ${PIPESTATUS[0]} != 0 ]]; then
         action "brew install $1 $2"
         brew install $1 $2
@@ -33,7 +33,7 @@ function require_brew() {
 
 function require_cask() {
     running "brew check for cask: $1"
-    brew list --cask $1 > /dev/null 2>&1 || true
+    brew list --cask $1 > /dev/null 2>&1
     if [[ ${PIPESTATUS[0]} != 0 ]]; then
         action "brew install --cask $1 $2"
         brew install --cask $1
