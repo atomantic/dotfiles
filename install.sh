@@ -164,6 +164,12 @@ fi
 # install homebrew (CLI Packages)
 # ###########################################################
 running "checking homebrew..."
+if [ -x "/opt/homebrew/bin/brew" ]; then
+  export PATH="/opt/homebrew/bin:$PATH"
+elif [ -x "/usr/local/bin/brew" ]; then
+  export PATH="/usr/local/bin:$PATH"
+fi
+
 if ! command -v brew >/dev/null 2>&1; then
   action "installing homebrew"
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -172,7 +178,7 @@ if ! command -v brew >/dev/null 2>&1; then
     exit 2
   fi
   (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/$(whoami)/.zprofile
-    eval "$(/opt/homebrew/bin/brew shellenv)"
+  eval "$(/opt/homebrew/bin/brew shellenv)"
   brew analytics off
 else
   ok
