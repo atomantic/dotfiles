@@ -986,6 +986,14 @@ open "./configs/Solarized Light.itermcolors";ok
 running "Installing the Patched Solarized Dark theme for iTerm (opening file)"
 open "./configs/Solarized Dark Patch.itermcolors";ok
 
+# Import iTerm2 profile
+if [ -f "./configs/iTerm2.itermexport" ]; then
+  running "Importing iTerm2 profile from iTerm2.itermexport"
+  open "./configs/iTerm2.itermexport"
+  ok
+  bot "iTerm2 profile imported. Please restart iTerm2 to apply all settings."
+fi
+
 running "Don’t display the annoying prompt when quitting iTerm"
 defaults write com.googlecode.iterm2 PromptOnQuit -bool false;ok
 running "hide tab title bars"
