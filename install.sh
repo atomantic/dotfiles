@@ -874,13 +874,13 @@ bot "Configuring Safari & WebKit"
 #running "Remove useless icons from Safari's bookmarks bar"
 #defaults write com.apple.Safari ProxiesInBookmarksBar "()";ok
 
-running "Enable the Develop menu and the Web Inspector in Safari"
-defaults write com.apple.Safari IncludeDevelopMenu -bool true
-defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
-defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true;ok
+# running "Enable the Develop menu and the Web Inspector in Safari"
+# defaults write com.apple.Safari IncludeDevelopMenu -bool true
+# defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
+# defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true;ok
 
-running "Add a context menu item for showing the Web Inspector in web views"
-defaults write NSGlobalDomain WebKitDeveloperExtras -bool true;ok
+# running "Add a context menu item for showing the Web Inspector in web views"
+# defaults write NSGlobalDomain WebKitDeveloperExtras -bool true;ok
 
 ###############################################################################
 bot "Configuring Mail"
@@ -1035,9 +1035,6 @@ defaults write com.apple.ActivityMonitor IconType -int 3;ok
 ###############################################################################
 bot "Address Book, Dashboard, iCal, TextEdit, and Disk Utility"
 ###############################################################################
-
-running "Enable the debug menu in Address Book"
-defaults write com.apple.addressbook ABShowDebugMenu -bool true;ok
 
 running "Enable Dashboard dev mode (allows keeping widgets on the desktop)"
 defaults write com.apple.dashboard devmode -bool true;ok

@@ -24,7 +24,6 @@ You don't need to install or configure anything upfront! This works with a brand
   - [Finder Configs](#finder-configs)
   - [Dock & Dashboard](#dock--dashboard)
   - [Configuring Hot Corners](#configuring-hot-corners)
-  - [Configuring Safari & WebKit](#configuring-safari--webkit)
   - [Configuring Mail](#configuring-mail)
   - [Spotlight](#spotlight)
   - [iTerm2](#iterm2)
@@ -210,11 +209,6 @@ The following will only happen if you agree on the prompt
 - Top right screen corner → Desktop
 - Bottom right screen corner → Start screen saver
 
-## Configuring Safari & WebKit
-
-- Enable the Develop menu and the Web Inspector in Safari
-- Add a context menu item for showing the Web Inspector in web views
-
 ## Spotlight
 
 - Disable Spotlight indexing for any volume that gets mounted and has not yet been indexed
@@ -243,9 +237,8 @@ The following will only happen if you agree on the prompt
 - Show all processes in Activity Monitor
 - Sort Activity Monitor results by CPU usage
 
-## Address Book, Dashboard, iCal, TextEdit, and Disk Utility
+## Dashboard, iCal, TextEdit, and Disk Utility
 
-- Enable the debug menu in Address Book
 - Enable Dashboard dev mode (allows keeping widgets on the desktop)
 - Use plain text mode for new TextEdit documents
 - Open and save files as UTF-8 in TextEdit
