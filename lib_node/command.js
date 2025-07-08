@@ -1,4 +1,4 @@
-const exec = require("child_process").exec;
+import { exec } from "child_process";
 export default function _command(cmd, dir, cb) {
   exec(
     cmd,
