@@ -268,15 +268,15 @@ The following is the software that I have set as default:
 
 - ack
 - ag
-- coreutils (add `$(brew --prefix)/opt/coreutils/libexec/gnubin` to `PATH`)
+- coreutils (PATH updated automatically during install)
 - dos2unix
 - findutils
 - fortune
 - gawk
 - gifsicle
 - gnupg
-- gnu-sed (add `$(brew --prefix)/opt/gnu-sed/libexec/gnubin` to `PATH`)
-- grep (add `$(brew --prefix)/opt/grep/libexec/gnubin` to `PATH`)
+- gnu-sed (PATH updated automatically during install)
+- grep (PATH updated automatically during install)
 - httpie
 - imagemagick (only if gitshots enabled)
 - imagesnap (only if gitshots enabled)

@@ -7,8 +7,7 @@ export default {
     "autojump",
     // alternative to `cat`: https://github.com/sharkdp/bat
     "bat",
-    // Install GNU core utilities (those that come with macOS are outdated)
-    // Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
+    // Install GNU core utilities (PATH updated automatically during install)
     "coreutils",
     "dos2unix",
     // Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed
@@ -20,9 +19,9 @@ export default {
     // http://www.lcdf.org/gifsicle/ (because I'm a gif junky)
     "gifsicle",
     "gnupg",
-    // Install GNU `sed` (use gsed by default by adding gnubin to PATH)
+    // Install GNU `sed` (PATH updated automatically during install)
     "gnu-sed",
-    // Install GNU grep (g-prefixed commands)
+    // Install GNU grep (PATH updated automatically during install)
     "grep",
     // https://github.com/jkbrzt/httpie
     "httpie",

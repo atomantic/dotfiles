@@ -4,12 +4,7 @@ export PATH=$PATH:.
 
 #Brew
 export PATH="/opt/homebrew/bin:$PATH"
-# Use GNU utilities via Homebrew
-if command -v brew >/dev/null; then
-  PATH="$(brew --prefix)/opt/coreutils/libexec/gnubin:$PATH"
-  PATH="$(brew --prefix)/opt/gnu-sed/libexec/gnubin:$PATH"
-  PATH="$(brew --prefix)/opt/grep/libexec/gnubin:$PATH"
-fi
+# GNU utilities will be added by install.sh
 # export PATH=/usr/local/sbin:$PATH
 # export PATH=/usr/local/bin:$PATH
 

@@ -200,6 +200,18 @@ fi
 mkdir -p ~/Library/Caches/Homebrew/Formula
 brew doctor
 
+# Add GNU utilities to PATH once in .shellpaths
+brew_prefix=$(brew --prefix)
+shellpaths_file="./homedir/.shellpaths"
+if [ -n "$brew_prefix" ]; then
+  for util in coreutils gnu-sed grep; do
+    path="$brew_prefix/opt/$util/libexec/gnubin"
+    if ! grep -qs "$path" "$shellpaths_file"; then
+      echo "export PATH=\"$path:\$PATH\"" >> "$shellpaths_file"
+    fi
+  done
+fi
+
 # skip those GUI clients, git command-line all the way
 # git is now included with macos terminal
 #require_brew git
