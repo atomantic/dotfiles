@@ -20,13 +20,10 @@ export default {
     // http://www.lcdf.org/gifsicle/ (because I'm a gif junky)
     "gifsicle",
     "gnupg",
-    // Install GNU `sed`, overwriting the built-in `sed`
-    // so we can do "sed -i 's/foo/bar/' file" instead of "sed -i '' 's/foo/bar/' file"
-    "gnu-sed --with-default-names",
-    // upgrade grep so we can get things like inverted match (-v)
-    "grep --with-default-names",
-    // better, more recent grep
-    "homebrew/dupes/grep",
+    // Install GNU `sed` (use gsed by default by adding gnubin to PATH)
+    "gnu-sed",
+    // Install GNU grep (g-prefixed commands)
+    "grep",
     // https://github.com/jkbrzt/httpie
     "httpie",
     // jq is a sort of JSON grep
