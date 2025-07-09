@@ -323,7 +323,25 @@ bot "installing npm tools needed to run this project..."
 npm install
 ok
 
-./install-brew.sh
+# TODO: Do I have relevant node based packages? vtop was replaced with gtop
+# TODO: The tripplet here needs to be simplified and cleaned up
+# ./install-node.sh
+
+brew bundle
+
+# TODO: Split the Brewfiles content correctly to address this
+# read -r -p "Do you want to install the private brew bundles [y|N]" response
+# if [[ -z $response || $response =~ ^(n|N) ]]; then
+#   ./install-brew-private.sh
+#   exit
+# fi
+
+# TODO: Split the Brewfiles content correctly to address this
+# read -r -p "Do you want to install the professional brew bundles [y|N]" response
+# if [[ -z $response || $response =~ ^(n|N) ]]; then
+#   ./install-brew-professional.sh
+#   exit
+# fi
 
 bot "OS Configuration"
 read -r -p "Do you want to update the system configurations? [y|N] " response
