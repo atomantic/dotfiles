@@ -294,9 +294,9 @@ The following is the software that I have set as default:
 - watch
 - wget --enable-iri
 
-The installer calls `brew --prefix` to detect your Homebrew prefix and appends
-`libexec/gnubin` directories for coreutils, gnu-sed, and grep to `.shellpaths`
-if they are not already present.
+The installer uses `brew --prefix` once to detect your Homebrew prefix and
+individually appends `libexec/gnubin` directories for coreutils, gnu-sed, and
+grep to `.shellpaths` if they are not already present.
 
 ## Apps
 

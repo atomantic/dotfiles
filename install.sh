@@ -203,24 +203,22 @@ brew doctor
 # Add GNU utilities to PATH once in .shellpaths
 shellpaths_file="./homedir/.shellpaths"
 
-# Determine Homebrew prefix once using brew if available
-if command -v brew >/dev/null 2>&1; then
-  brew_prefix="$(brew --prefix)"
-elif grep -qs "/opt/homebrew/bin" "$shellpaths_file"; then
-  brew_prefix="/opt/homebrew"
-elif grep -qs "/usr/local/bin" "$shellpaths_file"; then
-  brew_prefix="/usr/local"
-else
-  brew_prefix=""
-fi
+# Determine Homebrew prefix once using brew
+brew_prefix="$(brew --prefix)"
 
-if [ -n "$brew_prefix" ]; then
-  for util in coreutils gnu-sed grep; do
-    path="$brew_prefix/opt/$util/libexec/gnubin"
-    if ! grep -qs "$path" "$shellpaths_file"; then
-      echo "export PATH=\"$path:\$PATH\"" >> "$shellpaths_file"
-    fi
-  done
+# Append gnubin directories for GNU utilities if missing
+coreutils_path="$brew_prefix/opt/coreutils/libexec/gnubin"
+sed_path="$brew_prefix/opt/gnu-sed/libexec/gnubin"
+grep_path="$brew_prefix/opt/grep/libexec/gnubin"
+
+if ! grep -qs "$coreutils_path" "$shellpaths_file"; then
+  echo "export PATH=\"$coreutils_path:\$PATH\"" >> "$shellpaths_file"
+fi
+if ! grep -qs "$sed_path" "$shellpaths_file"; then
+  echo "export PATH=\"$sed_path:\$PATH\"" >> "$shellpaths_file"
+fi
+if ! grep -qs "$grep_path" "$shellpaths_file"; then
+  echo "export PATH=\"$grep_path:\$PATH\"" >> "$shellpaths_file"
 fi
 
 # skip those GUI clients, git command-line all the way
