@@ -203,13 +203,13 @@ brew doctor
 # Add GNU utilities to PATH once in .shellpaths
 shellpaths_file="./homedir/.shellpaths"
 
-# Determine Homebrew prefix without invoking brew if possible
-if grep -qs "/opt/homebrew/bin" "$shellpaths_file"; then
+# Determine Homebrew prefix once using brew if available
+if command -v brew >/dev/null 2>&1; then
+  brew_prefix="$(brew --prefix)"
+elif grep -qs "/opt/homebrew/bin" "$shellpaths_file"; then
   brew_prefix="/opt/homebrew"
 elif grep -qs "/usr/local/bin" "$shellpaths_file"; then
   brew_prefix="/usr/local"
-elif command -v brew >/dev/null 2>&1; then
-  brew_prefix="$(brew --prefix)"
 else
   brew_prefix=""
 fi
