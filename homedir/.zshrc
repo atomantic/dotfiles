@@ -36,8 +36,6 @@ source $ZSH/oh-my-zsh.sh
 
 autoload -U add-zsh-hook
 
-source /usr/local/opt/nvm/nvm.sh
-
 #export NVM_DIR="$HOME/.nvm"
 #[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
 #[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
@@ -60,3 +58,7 @@ unsetopt correct
 #fortune
 
 export GEMINI_SANDBOX=docker
+
+# NVM initialization (added by install.sh)
+export NVM_DIR="$HOME/.nvm"
+[ -s "$(brew --prefix nvm)/nvm.sh" ] && \. "$(brew --prefix nvm)/nvm.sh"
