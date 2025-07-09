@@ -1,0 +1,47 @@
+{
+  "data": {
+    "directory": ".opencode"
+  },
+  "providers": {
+    "openai": {
+      "apiKey": "your-api-key",
+      "disabled": true
+    },
+    "anthropic": {
+      "apiKey": "your-api-key",
+      "disabled": true
+    },
+    "copilot": {
+      "disabled": false
+    },
+    "groq": {
+      "apiKey": "your-api-key",
+      "disabled": true
+    },
+    "openrouter": {
+      "apiKey": "your-api-key",
+      "disabled": true
+    }
+  },
+  "agents": {
+    "coder": {
+      "model": "gpt-4.1",
+      "maxTokens": 200000
+    },
+    "task": {
+      "model": "claude-4.0-sonnet",
+      "maxTokens": 5000
+    },
+    "title": {
+      "model": "gpt-4.1",
+      "maxTokens": 80
+    }
+  },
+  "shell": {
+    "path": "/bin/zsh",
+    "args": ["-l"]
+  },
+  "debug": false,
+  "debugLSP": false,
+  "autoCompact": true
+}
