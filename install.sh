@@ -201,8 +201,19 @@ mkdir -p ~/Library/Caches/Homebrew/Formula
 brew doctor
 
 # Add GNU utilities to PATH once in .shellpaths
-brew_prefix=$(brew --prefix)
 shellpaths_file="./homedir/.shellpaths"
+
+# Determine Homebrew prefix without invoking brew if possible
+if grep -qs "/opt/homebrew/bin" "$shellpaths_file"; then
+  brew_prefix="/opt/homebrew"
+elif grep -qs "/usr/local/bin" "$shellpaths_file"; then
+  brew_prefix="/usr/local"
+elif command -v brew >/dev/null 2>&1; then
+  brew_prefix="$(brew --prefix)"
+else
+  brew_prefix=""
+fi
+
 if [ -n "$brew_prefix" ]; then
   for util in coreutils gnu-sed grep; do
     path="$brew_prefix/opt/$util/libexec/gnubin"
