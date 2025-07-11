@@ -1,9 +1,7 @@
 import { confirm } from "@inquirer/prompts";
 import * as emoji from "node-emoji";
 import fs from "fs";
-// import series from "async.series"; // Remove this line
 import command from "./lib_node/command.js";
-import config from "./config.js";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 
@@ -17,7 +15,8 @@ async function run() {
 
   if (answers) {
     // additional brew packages needed to support gitshots
-    config.brew.push("imagemagick", "imagesnap");
+    const brewConfig = (await import("./software/brew.js")).default;
+    brewConfig.packages.push("imagemagick", "imagesnap");
     // ensure ~/.gitshots exists
     await command("mkdir -p ~/.gitshots", __dirname);
     // add post-commit hook
@@ -36,44 +35,80 @@ async function run() {
     }
   }
 
-  const packagesAnswer = await confirm({
-    message: "Do you want to install packages from config.js?",
-    default: false,
-  });
-
-  if (!packagesAnswer) {
-    return console.log("skipping package installs");
+  // Check for .BrewFile in homedir
+  const brewFileExists = fs.existsSync("./homedir/.BrewFile");
+  let brewFilePackages = [];
+  
+  if (brewFileExists) {
+    const brewFileContent = fs.readFileSync("./homedir/.BrewFile", "utf8");
+    brewFilePackages = brewFileContent
+      .split("\n")
+      .map(line => line.trim())
+      .filter(line => line && !line.startsWith("#"));
   }
 
   const tasks = [];
 
-  ["brew", "cask", "npm", "gem", "mas"].forEach((type) => {
-    if (config[type] && config[type].length) {
-      tasks.push(async () => {
-        console.info(emoji.get("coffee"), " installing " + type + " packages");
+  // Dynamically read all software configuration files
+  const softwareFiles = [
+    "brew.js",
+    "cask.js", 
+    "npm.js",
+    "mas.js",
+    "gem.js"
+  ];
+
+  for (const file of softwareFiles) {
+    try {
+      const config = (await import(`./software/${file}`)).default;
+      
+      const shouldInstall = await confirm({
+        message: `Do you want to install ${config.name}?`,
+        default: false,
       });
-      config[type].forEach((item) => {
+
+      if (!shouldInstall) {
+        console.log(`Skipping ${config.name} installation`);
+        continue;
+      }
+
+      // Combine config packages with .BrewFile packages for brew type
+      let packages = config.packages;
+      if (config.type === "brew" && brewFilePackages.length > 0) {
+        packages = [...new Set([...config.packages, ...brewFilePackages])];
+        console.log(`Found ${brewFilePackages.length} additional packages in .BrewFile`);
+      }
+
+      if (packages && packages.length) {
         tasks.push(async () => {
-          console.info(type + ":", item);
-          try {
-            await command(
-              `. lib_sh/echos.sh && . lib_sh/requirers.sh && require_` +
-                type +
-                ` ` +
-                item,
-              __dirname,
-            );
-          } catch (err) {
-            console.error(emoji.get("fire"), err, err.stderr);
-          }
+          console.info(emoji.get("coffee"), ` installing ${config.type} packages`);
         });
-      });
-    } else {
-      tasks.push(async () => {
-        console.info(emoji.get("coffee"), type + " has no packages");
-      });
+        
+        packages.forEach((item) => {
+          tasks.push(async () => {
+            console.info(`${config.type}:`, item);
+            try {
+              await command(
+                `. lib_sh/echos.sh && . lib_sh/requirers.sh && require_` +
+                  config.type +
+                  ` ` +
+                  item,
+                __dirname,
+              );
+            } catch (err) {
+              console.error(emoji.get("fire"), err, err.stderr);
+            }
+          });
+        });
+      } else {
+        tasks.push(async () => {
+          console.info(emoji.get("coffee"), `${config.type} has no packages`);
+        });
+      }
+    } catch (error) {
+      console.error(`Error loading software configuration from ${file}:`, error.message);
     }
-  });
+  }
 
   for (const task of tasks) {
     await task();

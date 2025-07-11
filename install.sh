@@ -361,7 +361,7 @@ bot "installing npm tools needed to run this project..."
 npm install
 ok
 
-bot "installing packages from config.js..."
+bot "installing packages from software configuration files..."
 node index.js
 ok
 

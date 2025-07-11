@@ -102,7 +102,7 @@ Do the following to upgrade your ~/.dotfiles safely:
 2. `cd ~/.dotfiles`
 3. update dotfiles: `git up` or `git pull`
 4. remove old submodule location: `rm -rf .vim` (now lives in `homedir/.vim`)
-5. inspect `install.sh` and `config.js` to make sure all the software you want is installed
+5. inspect `install.sh` and the `software/` directory to make sure all the software you want is installed
 6. inspect `homedir/*` for any changes you want to port from `./dotfiles_old`
 7. run `install.sh` again
 
@@ -253,7 +253,40 @@ The following will only happen if you agree on the prompt
 # Software Installation
 
 homebrew, fontconfig, git, nvm (node + npm), and zsh (latest) are all installed inside the `install.sh` as foundational software for running this project.
-Additional software is configured in `config.js` and can be customized in your own fork/branch (you can change everything in your own fork/brance).
+
+Additional software is configured in separate files within the `software/` directory and can be customized in your own fork/branch:
+
+- `software/brew.js` - Homebrew utilities and command-line tools
+- `software/cask.js` - Homebrew desktop applications (GUI apps)
+- `software/npm.js` - Global NPM packages
+- `software/mas.js` - Mac App Store applications
+- `software/gem.js` - Ruby gems
+
+## .BrewFile Support
+
+You can add additional Homebrew packages by creating a `.BrewFile` in the `homedir/` directory. This file should contain one package per line, with comments starting with `#`.
+
+Example `.BrewFile`:
+```
+# Additional Homebrew packages
+htop
+neofetch
+ripgrep
+fd
+exa
+```
+
+## Installation Prompts
+
+When running the installation script, you'll be prompted for each software type:
+
+1. **Homebrew utilities** - Command-line tools and utilities
+2. **Homebrew desktop apps** - GUI applications
+3. **NPM global packages** - Node.js packages installed globally
+4. **Mac App Store apps** - Applications from the Mac App Store
+5. **Ruby gems** - Ruby packages
+
+Each prompt allows you to choose whether to install that category of software or skip it.
 
 # License
 
