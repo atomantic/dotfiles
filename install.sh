@@ -200,6 +200,27 @@ fi
 mkdir -p ~/Library/Caches/Homebrew/Formula
 brew doctor
 
+# Add GNU utilities to PATH once in .shellpaths
+shellpaths_file="./homedir/.shellpaths"
+
+# Determine Homebrew prefix once using brew
+brew_prefix="$(brew --prefix)"
+
+# Append gnubin directories for GNU utilities if missing
+coreutils_path="$brew_prefix/opt/coreutils/libexec/gnubin"
+sed_path="$brew_prefix/opt/gnu-sed/libexec/gnubin"
+grep_path="$brew_prefix/opt/grep/libexec/gnubin"
+
+if ! grep -qs "$coreutils_path" "$shellpaths_file"; then
+  echo "export PATH=\"$coreutils_path:\$PATH\"" >> "$shellpaths_file"
+fi
+if ! grep -qs "$sed_path" "$shellpaths_file"; then
+  echo "export PATH=\"$sed_path:\$PATH\"" >> "$shellpaths_file"
+fi
+if ! grep -qs "$grep_path" "$shellpaths_file"; then
+  echo "export PATH=\"$grep_path:\$PATH\"" >> "$shellpaths_file"
+fi
+
 # skip those GUI clients, git command-line all the way
 # git is now included with macos terminal
 #require_brew git
@@ -1073,15 +1094,15 @@ defaults write com.apple.messageshelper.MessageController SOInputLineSettings -d
 # running "Disable continuous spell checking"
 # defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "continuousSpellCheckingEnabled" -bool false;ok
 
-###############################################################################
-bot "SizeUp.app"
-###############################################################################
+# ###############################################################################
+# bot "SizeUp.app"
+# ###############################################################################
 
-running "Start SizeUp at login"
-defaults write com.irradiatedsoftware.SizeUp StartAtLogin -bool true;ok
+# running "Start SizeUp at login"
+# defaults write com.irradiatedsoftware.SizeUp StartAtLogin -bool true;ok
 
-running "Don't show the preferences window on next start"
-defaults write com.irradiatedsoftware.SizeUp ShowPrefsOnNextStart -bool false;ok
+# running "Don't show the preferences window on next start"
+# defaults write com.irradiatedsoftware.SizeUp ShowPrefsOnNextStart -bool false;ok
 
 killall cfprefsd
 
