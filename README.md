@@ -253,72 +253,11 @@ The following will only happen if you agree on the prompt
 - Disable automatic emoji substitution (i.e. use plain text smileys)
 - Disable smart quotes as it’s annoying for messages that contain code
 
-## SizeUp.app
-
-- Start SizeUp at login
-- Don’t show the preferences window on next start
 
 # Software Installation
 
 homebrew, fontconfig, git, nvm (node + npm), and zsh (latest) are all installed inside the `install.sh` as foundational software for running this project.
 Additional software is configured in `config.js` and can be customized in your own fork/branch (you can change everything in your own fork/brance).
-The following is the software that I have set as default:
-
-## Utilities
-
-- ack
-- ag
-- coreutils (PATH updated automatically during install)
-- dos2unix
-- findutils
-- fortune
-- gawk
-- gifsicle
-- gnupg
-- gnu-sed (PATH updated automatically during install)
-- grep (PATH updated automatically during install)
-- httpie
-- imagemagick (only if gitshots enabled)
-- imagesnap (only if gitshots enabled)
-- jq
-- mas
-- moreutils
-- nmap
-- openconnect
-- reattach-to-user-namespace
-- homebrew/dupes/screen
-- tmux
-- tree
-- ttyrec
-- vim --override-system-vi
-- watch
-- wget --enable-iri
-
-The installer uses `brew --prefix` once to detect your Homebrew prefix and
-individually appends `libexec/gnubin` directories for coreutils, gnu-sed, and
-grep to `.shellpaths` if they are not already present.
-
-## Apps
-
-- box-sync
-- gpgtools
-- iterm2
-- sizeup
-- slack
-- the-unarchiver
-- xquartz
-
-## NPM Global Modules
-
-- antic
-- buzzphrase
-- eslint
-- gulp
-- instant-markdown-d
-- npm-check
-- prettyjson
-- trash
-- vtop
 
 # License
 

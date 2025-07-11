@@ -65,7 +65,7 @@ export default {
     //'micro-snitch',
     // 'signal',
     //'macvim',
-    "sizeup",
+    // "sizeup",
     //'sketchup',
     "slack",
     // 'the-unarchiver',
