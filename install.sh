@@ -62,9 +62,15 @@ if [[ $response =~ (yes|y|Y) ]];then
         rm get-pip.py
     fi
     action "installing python dependencies from stevenblack-hosts requirements.txt"
-    sudo pip3 install -r stevenblack-hosts/requirements.txt
+    # Create a virtual environment for stevenblack-hosts
+    python3 -m venv stevenblack-hosts/venv
+    source stevenblack-hosts/venv/bin/activate
+    pip install -r stevenblack-hosts/requirements.txt
+    deactivate
     action "python3 stevenblack-hosts/updateHostsFile.py --auto --replace"
-    sudo python3 stevenblack-hosts/updateHostsFile.py --auto --replace
+    source stevenblack-hosts/venv/bin/activate
+    python3 stevenblack-hosts/updateHostsFile.py --auto --replace
+    deactivate
     ok
     bot "Your /etc/hosts file has been updated. Last version is saved in /etc/hosts.backup"
 else
