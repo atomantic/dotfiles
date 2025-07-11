@@ -1,11 +1,10 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
-
 - [Release History](#release-history)
+  - [v6.1.0](#v610)
+  - [v6.0.1](#v601)
   - [v5.12.0](#v5120)
-  - [v5.2.0](#v520)
   - [v5.1.0](#v510)
   - [v5.0.0](#v500)
   - [v4.4.2](#v442)
@@ -30,6 +29,22 @@
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # Release History
+
+## v6.1.0
+
+- use the [StevenBlack/hosts](https://github.com/StevenBlack/hosts) project to manage `/etc/hosts`
+- allow local host overrides via `./configs/hosts.local`
+
+## v6.0.1
+
+- fix brew require (font installs)
+- remove sleep at 24 hours instead of 1 hour (use macos default)
+- remove wallpaper feature
+- update /etc/hosts file with curl
+- using new macos tools for configs (e.g. sysadminctl)
+- remove bluetooth audio tweaks (let apple figure that out)
+- convert node.js installer to ESM to support latest module deps
+- removed a bunch of old settings that are no longer needed or useful
 
 ## v5.12.0
 
@@ -56,7 +71,7 @@
 - replace `NERDtree` in vim with `netrw`
 - add spell check to `vim`
 - fix package installs (run in series to prevent homebrew from stepping on itself in parallel)
-- update /etc/hosts file from someonewhocares.org
+- build /etc/hosts file using stevenblack-hosts
 
 ## v4.4.2
 
@@ -75,7 +90,7 @@
 - install node stable (rather than old 4.x.x version)
 - make gitshots optional (and only install `imagesnap` and `imagemagick` if this is on)
 - fix passwordless sudo for Sierra (optional)
-- prompt to overwrite /etc/hosts with someonewhocares.org hosts file (saved in ./configs/hosts in this project)
+- prompt to overwrite /etc/hosts with someonewhocares.org hosts file
 - fix default wallpaper in Sierra (Sierra 2)
 - remove sudden motion disable (already disabled: https://github.com/mathiasbynens/dotfiles/pull/755/files)
 - no longer setting hibernation mode to 0 (leaving default 3): https://github.com/mathiasbynens/dotfiles/commit/a3f91f67e07b6b31760b52320e0e890f93ff4e97#commitcomment-20715991

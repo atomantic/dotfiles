@@ -38,16 +38,39 @@ fi
 # ###########################################################
 # /etc/hosts -- spyware/ad blocking
 # ###########################################################
-read -r -p "Overwrite /etc/hosts with the ad-blocking hosts file from someonewhocares.org? (from ./configs/hosts file) [y|N] " response
+read -r -p "Overwrite /etc/hosts using the StevenBlack hosts project? (optional local entries from ./configs/hosts.local) [y|N] " response
 if [[ $response =~ (yes|y|Y) ]];then
     action "cp /etc/hosts /etc/hosts.backup"
     sudo cp /etc/hosts /etc/hosts.backup
     ok
-    action "curl https://someonewhocares.org/hosts/hosts > ./configs/hosts"
-    curl https://someonewhocares.org/hosts/hosts > ./configs/hosts
+    action "update stevenblack-hosts repo"
+    git submodule update --init stevenblack-hosts
+    (cd stevenblack-hosts && git pull origin master)
     ok
-    action "cp ./configs/hosts /etc/hosts"
-    sudo cp ./configs/hosts /etc/hosts
+    if [ -f ./configs/hosts.local ]; then
+        action "copy ./configs/hosts.local to stevenblack-hosts/myhosts"
+        cp ./configs/hosts.local stevenblack-hosts/myhosts
+        ok
+    fi
+    action "checking python3 and pip3"
+    if ! command -v python3 >/dev/null 2>&1; then
+        require_brew python
+    fi
+    if ! command -v pip3 >/dev/null 2>&1; then
+        curl -fsSL https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+        sudo python3 get-pip.py
+        rm get-pip.py
+    fi
+    action "installing python dependencies from stevenblack-hosts requirements.txt"
+    # Create a virtual environment for stevenblack-hosts
+    python3 -m venv stevenblack-hosts/venv
+    source stevenblack-hosts/venv/bin/activate
+    pip install -r stevenblack-hosts/requirements.txt
+    deactivate
+    action "python3 stevenblack-hosts/updateHostsFile.py --auto --replace"
+    source stevenblack-hosts/venv/bin/activate
+    python3 stevenblack-hosts/updateHostsFile.py --auto --replace
+    deactivate
     ok
     bot "Your /etc/hosts file has been updated. Last version is saved in /etc/hosts.backup"
 else
