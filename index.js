@@ -36,11 +36,11 @@ async function run() {
   }
 
   // Check for .BrewFile in homedir
-  const brewFileExists = fs.existsSync("./homedir/.BrewFile");
+  const brewFileExists = fs.existsSync(path.join(__dirname, "homedir", ".BrewFile"));
   let brewFilePackages = [];
   
   if (brewFileExists) {
-    const brewFileContent = fs.readFileSync("./homedir/.BrewFile", "utf8");
+    const brewFileContent = fs.readFileSync(path.join(__dirname, "homedir", ".BrewFile"), "utf8");
     brewFilePackages = brewFileContent
       .split("\n")
       .map(line => line.trim())
