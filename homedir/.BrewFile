@@ -1,0 +1,10 @@
+# Additional Homebrew packages
+# Add your custom packages here, one per line
+# Lines starting with # are comments and will be ignored
+
+# Example packages:
+# htop
+# neofetch
+# ripgrep
+# fd
+# exa 
