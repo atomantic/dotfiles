@@ -52,6 +52,17 @@ if [[ $response =~ (yes|y|Y) ]];then
         cp ./configs/hosts.local stevenblack-hosts/myhosts
         ok
     fi
+    action "checking python3 and pip3"
+    if ! command -v python3 >/dev/null 2>&1; then
+        require_brew python
+    fi
+    if ! command -v pip3 >/dev/null 2>&1; then
+        curl -fsSL https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+        sudo python3 get-pip.py
+        rm get-pip.py
+    fi
+    action "installing python dependencies from stevenblack-hosts requirements.txt"
+    sudo pip3 install -r stevenblack-hosts/requirements.txt
     action "python3 stevenblack-hosts/updateHostsFile.py --auto --replace"
     sudo python3 stevenblack-hosts/updateHostsFile.py --auto --replace
     ok
