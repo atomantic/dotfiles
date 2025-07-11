@@ -38,18 +38,11 @@ fi
 # ###########################################################
 # /etc/hosts -- spyware/ad blocking
 # ###########################################################
-read -r -p "Overwrite /etc/hosts with the ad-blocking hosts file from someonewhocares.org? (from ./configs/hosts file) [y|N] " response
-if [[ $response =~ (yes|y|Y) ]];then
-    action "cp /etc/hosts /etc/hosts.backup"
-    sudo cp /etc/hosts /etc/hosts.backup
+read -r -p "Build an updated ad-blocking /etc/hosts file via stevenblack-hosts? [y|N] " response
+if [[ $response =~ (yes|y|Y) ]]; then
+    action "running stevenblack-hosts"
+    sudo stevenblack-hosts
     ok
-    action "curl https://someonewhocares.org/hosts/hosts > ./configs/hosts"
-    curl https://someonewhocares.org/hosts/hosts > ./configs/hosts
-    ok
-    action "cp ./configs/hosts /etc/hosts"
-    sudo cp ./configs/hosts /etc/hosts
-    ok
-    bot "Your /etc/hosts file has been updated. Last version is saved in /etc/hosts.backup"
 else
     ok "skipped";
 fi

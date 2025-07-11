@@ -56,7 +56,7 @@
 - replace `NERDtree` in vim with `netrw`
 - add spell check to `vim`
 - fix package installs (run in series to prevent homebrew from stepping on itself in parallel)
-- update /etc/hosts file from someonewhocares.org
+- build /etc/hosts file using stevenblack-hosts
 
 ## v4.4.2
 
@@ -75,7 +75,7 @@
 - install node stable (rather than old 4.x.x version)
 - make gitshots optional (and only install `imagesnap` and `imagemagick` if this is on)
 - fix passwordless sudo for Sierra (optional)
-- prompt to overwrite /etc/hosts with someonewhocares.org hosts file (saved in ./configs/hosts in this project)
+- prompt to overwrite /etc/hosts with someonewhocares.org hosts file
 - fix default wallpaper in Sierra (Sierra 2)
 - remove sudden motion disable (already disabled: https://github.com/mathiasbynens/dotfiles/pull/755/files)
 - no longer setting hibernation mode to 0 (leaving default 3): https://github.com/mathiasbynens/dotfiles/commit/a3f91f67e07b6b31760b52320e0e890f93ff4e97#commitcomment-20715991
