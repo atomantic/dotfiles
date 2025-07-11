@@ -38,11 +38,24 @@ fi
 # ###########################################################
 # /etc/hosts -- spyware/ad blocking
 # ###########################################################
-read -r -p "Build an updated ad-blocking /etc/hosts file via stevenblack-hosts? [y|N] " response
-if [[ $response =~ (yes|y|Y) ]]; then
-    action "running stevenblack-hosts"
-    sudo stevenblack-hosts
+read -r -p "Overwrite /etc/hosts using the StevenBlack hosts project? (optional local entries from ./configs/hosts.local) [y|N] " response
+if [[ $response =~ (yes|y|Y) ]];then
+    action "cp /etc/hosts /etc/hosts.backup"
+    sudo cp /etc/hosts /etc/hosts.backup
     ok
+    action "update stevenblack-hosts repo"
+    git submodule update --init stevenblack-hosts
+    (cd stevenblack-hosts && git pull origin master)
+    ok
+    if [ -f ./configs/hosts.local ]; then
+        action "copy ./configs/hosts.local to stevenblack-hosts/myhosts"
+        cp ./configs/hosts.local stevenblack-hosts/myhosts
+        ok
+    fi
+    action "python3 stevenblack-hosts/updateHostsFile.py --auto --replace"
+    sudo python3 stevenblack-hosts/updateHostsFile.py --auto --replace
+    ok
+    bot "Your /etc/hosts file has been updated. Last version is saved in /etc/hosts.backup"
 else
     ok "skipped";
 fi

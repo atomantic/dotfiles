@@ -30,11 +30,7 @@ You don't need to install or configure anything upfront! This works with a brand
   - [Dashboard, iCal, TextEdit, and Disk Utility](#dashboard-ical-textedit-and-disk-utility)
   - [Mac App Store](#mac-app-store)
   - [Messages](#messages)
-  - [SizeUp.app](#sizeupapp)
 - [Software Installation](#software-installation)
-  - [Utilities](#utilities)
-  - [Apps](#apps)
-  - [NPM Global Modules](#npm-global-modules)
 - [License](#license)
 - [Contributions](#contributions)
 - [Loathing, Mehs and Praise](#loathing-mehs-and-praise)
@@ -137,7 +133,7 @@ Here is the current list:
 The following will only happen if you agree on the prompt
 
 - install a gitshots script to take a photo using your camera on every git commit (these go in as a post-commit hook to your .git_template)
-- build your /etc/hosts file using [stevenblack-hosts](https://github.com/StevenBlack/hosts)
+ - overwrite your /etc/hosts file using the [StevenBlack/hosts](https://github.com/StevenBlack/hosts) project. Add custom entries in `./configs/hosts.local`.
 
 ## Security
 
