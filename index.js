@@ -62,6 +62,10 @@ async function run() {
     try {
       const config = (await import(`./software/${file}`)).default;
       
+      if (!config.packages || config.packages.length === 0) {
+        console.log(`${config.name} has no packages to install`);
+        continue;
+      }
       const shouldInstall = await confirm({
         message: `Do you want to install ${config.name}?`,
         default: false,
