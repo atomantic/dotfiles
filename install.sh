@@ -304,6 +304,7 @@ ok
 # ./install-node.sh
 
 brew bundle
+./install-dependencies.sh
 
 # TODO: Split the Brewfiles content correctly to address this
 # read -r -p "Do you want to install the private brew bundles [y|N]" response

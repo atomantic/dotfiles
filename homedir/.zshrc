@@ -62,24 +62,24 @@ export DISABLE_AUTO_TITLE="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.dotfiles/oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(1password autoenv autojump brew colorize compleat cp dirpersist docker docker-compose fzf git git-auto-fetch git-commit gitfast git-hubflow github gulp k9s kubectl kubectx nvm poetry ssh tailscale tmux)
+plugins=(1password asdf autoenv autojump brew colorize compleat cp dirpersist docker docker-compose fzf git git-auto-fetch git-commit gitfast git-hubflow github gulp k9s kubectl kubectx poetry ssh tailscale tmux)
 
 source $ZSH/oh-my-zsh.sh
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use # This loads nvm
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use # This loads nvm
 
 autoload -U add-zsh-hook
 
-load-nvmrc() {
-  if [[ -f .nvmrc && -r .nvmrc ]]; then
-    nvm use &> /dev/null # the &> /dev/null ensures that there are no 'now using node version' type messages
-  else
-    nvm use stable &> /dev/null # the &> /dev/null ensures that there are no 'now using node version' type messages
-  fi
-}
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc
+# load-nvmrc() {
+#   if [[ -f .nvmrc && -r .nvmrc ]]; then
+#     nvm use &> /dev/null # the &> /dev/null ensures that there are no 'now using node version' type messages
+#   else
+#     nvm use stable &> /dev/null # the &> /dev/null ensures that there are no 'now using node version' type messages
+#   fi
+# }
+# add-zsh-hook chpwd load-nvmrc
+# load-nvmrc
 
 # Customize to your needs...
 unsetopt correct
@@ -165,16 +165,16 @@ fi
 
 
 # bun completions
-[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
-
-if [ -d "$HOME/.bun" ]; then
-  # echo "Configure BUN path and cli autocomplete"
-  # bun completions
-  [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
-  # bun
-  export BUN_INSTALL="$HOME/.bun"
-  export PATH="$BUN_INSTALL/bin:$PATH"
-fi
+# [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+#
+# if [ -d "$HOME/.bun" ]; then
+#   # echo "Configure BUN path and cli autocomplete"
+#   # bun completions
+#   [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+#   # bun
+#   export BUN_INSTALL="$HOME/.bun"
+#   export PATH="$BUN_INSTALL/bin:$PATH"
+# fi
 
 if [ -d "$ANDROID_TOOLING" ]; then
   export PATH="$ANDROID_TOOLING:$PATH"
@@ -188,5 +188,7 @@ if [ -d "$HOME/.docker" ]; then
   # End of Docker CLI completions
 fi
 
-
-
+## ASDF
+source "$(brew --prefix asdf)/libexec/asdf.sh"
+source "$(brew --prefix asdf)/etc/bash_completion.d/asdf"
+export ASDF_NODEJS_LEGACY_FILE_DYNAMIC_STRATEGY=latest_available
