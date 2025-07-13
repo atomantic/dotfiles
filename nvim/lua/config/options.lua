@@ -14,6 +14,10 @@ vim.opt.expandtab = true
 vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
 
+-- Ensures that whitespaces are correctly visualised
+vim.g.editorconfig = true
+vim.opt.listchars = { tab = '->', trail = '-', nbsp = '+', space = '·' }
+
 -- Improve window pane navigation
 -- from https://github.com/cpow/neovim-for-newbs/
 vim.keymap.set('n', '<c-k>', ':wincmd k<CR>')
