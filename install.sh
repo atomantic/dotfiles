@@ -322,7 +322,7 @@ brew bundle
 bot "OS Configuration"
 read -r -p "Do you want to update the system configurations? [y|N] " response
 if [[ -z $response || $response =~ ^(n|N) ]]; then
-  open /Applications/iTerm.app
+  open /Applications/Ghostty.app
   bot "All done"
   exit
 fi
@@ -395,14 +395,14 @@ sudo systemsetup -setwakeonmodem off
 sudo systemsetup -setwakeonnetworkaccess off
 
 # Disable file-sharing via AFP or SMB
-# sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.AppleFileServer.plist
-# sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.smbd.plist
+sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.AppleFileServer.plist
+sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.smbd.plist
 
 # Display login window as name and password
 #sudo defaults write /Library/Preferences/com.apple.loginwindow SHOWFULLNAME -bool true
 
 # Do not show password hints
-#sudo defaults write /Library/Preferences/com.apple.loginwindow RetriesUntilHint -int 0
+sudo defaults write /Library/Preferences/com.apple.loginwindow RetriesUntilHint -int 0
 
 # Disable guest account login
 sudo defaults write /Library/Preferences/com.apple.loginwindow GuestEnabled -bool false
@@ -435,18 +435,20 @@ sudo defaults write /Library/Preferences/com.apple.loginwindow GuestEnabled -boo
 #sudo perl -p -i -e 's|expire-after:10M|expire-after: 30d |g' /private/etc/security/audit_control
 
 # Disable the “Are you sure you want to open this application?” dialog
-# defaults write com.apple.LaunchServices LSQuarantine -bool false
+defaults write com.apple.LaunchServices LSQuarantine -bool false
 
 ###############################################################################
 # SSD-specific tweaks                                                         #
 ###############################################################################
 
 # disablelocal is no longer used, check man tmutil for more info
-# running "Disable local Time Machine snapshots"
-# sudo tmutil disablelocal;ok
+running "Disable local Time Machine snapshots"
+sudo tmutil disablelocal
+ok
 
-# running "Disable hibernation (speeds up entering sleep mode)"
-# sudo pmset -a hibernatemode 0;ok
+running "Disable hibernation (speeds up entering sleep mode)"
+sudo pmset -a hibernatemode 0 # was originally 3 according to 'pmset -g | grep hibernatemode'
+ok
 
 running "Remove the sleep image file to save disk space"
 sudo rm -rf /Private/var/vm/sleepimage
@@ -458,18 +460,20 @@ running "…and make sure it can’t be rewritten"
 sudo chflags uchg /Private/var/vm/sleepimage
 ok
 
-#running "Disable the sudden motion sensor as it’s not useful for SSDs"
-# sudo pmset -a sms 0;ok
+running "Disable the sudden motion sensor as it’s not useful for SSDs"
+sudo pmset -a sms 0
+ok
 
 ################################################
 # Optional / Experimental                      #
 ################################################
 
 # running "Set computer name (as done via System Preferences → Sharing)"
-# sudo scutil --set ComputerName "antic"
-# sudo scutil --set HostName "antic"
-# sudo scutil --set LocalHostName "antic"
-# sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "antic"
+# COMPUTER_NAME='MBPM4Max'
+# sudo scutil --set ComputerName $COMPUTER_NAME
+# sudo scutil --set HostName $COMPUTER_NAME
+# sudo scutil --set LocalHostName $COMPUTER_NAME
+# sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string $COMPUTER_NAME
 
 #setting up the computer label & name
 read -p "What is this machine's label (Example: Paul's MacBook Pro ) ? " mac_os_label
@@ -520,10 +524,11 @@ sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.serve
 # file=/Applications/Dropbox.app/Contents/Resources/emblem-dropbox-uptodate.icns
 # [ -e "${file}" ] && mv -f "${file}" "${file}.bak";ok
 
-# running "Wipe all (default) app icons from the Dock"
+running "Wipe all (default) app icons from the Dock"
 # # This is only really useful when setting up a new Mac, or if you don’t use
 # # the Dock to launch apps.
-# defaults write com.apple.dock persistent-apps -array "";ok
+defaults write com.apple.dock persistent-apps -array ""
+ok
 
 #running "Enable the 2D Dock"
 #defaults write com.apple.dock no-glass -bool true;ok
@@ -886,10 +891,15 @@ running "Speed up Mission Control animations"
 defaults write com.apple.dock expose-animation-duration -float 0.1
 ok
 
-running "Don’t group windows by application in Mission Control"
+running "Group windows by application in Mission Control"
 # (i.e. use the old Exposé behavior instead)
-defaults write com.apple.dock expose-group-by-app -bool false
+defaults write com.apple.dock expose-group-by-app -bool true
 ok
+
+# This breaks the downloads folder
+# running "Ensure only active applications show in the dock"
+# defaults write com.apple.dock static-only -bool true
+# ok
 
 # Dashboard is disabled by default on macOS Mojave,
 # Moreover as of macOS 10.15 Catalina, Dashboard is removed macOS.
@@ -911,8 +921,9 @@ running "Remove the animation when hiding/showing the Dock"
 defaults write com.apple.dock autohide-time-modifier -float 0
 ok
 
-# running "Automatically hide and show the Dock"
-# defaults write com.apple.dock autohide -bool true;ok
+running "Automatically hide and show the Dock"
+defaults write com.apple.dock autohide -bool true
+ok
 
 running "Make Dock icons of hidden applications translucent"
 defaults write com.apple.dock showhidden -bool true
@@ -936,7 +947,8 @@ ok
 #defaults write com.apple.dock springboard-rows -int 3
 
 # Force a restart of Launchpad with the following command to apply the changes:
-#defaults write com.apple.dock ResetLaunchPad -bool TRUE;killall Dock
+defaults write com.apple.dock ResetLaunchPad -bool TRUE
+killall Dock
 
 # bot "Configuring Hot Corners"
 # Possible values:
@@ -1109,41 +1121,41 @@ bot "Terminal & iTerm2"
 defaults write com.apple.terminal FocusFollowsMouse -bool true
 #defaults write org.x.X11 wm_ffm -bool true;ok
 
-running "Installing the Solarized Light theme for iTerm (opening file)"
-open "./configs/Solarized Light.itermcolors"
-ok
-running "Installing the Patched Solarized Dark theme for iTerm (opening file)"
-open "./configs/Solarized Dark Patch.itermcolors"
-ok
+# running "Installing the Solarized Light theme for iTerm (opening file)"
+# open "./configs/Solarized Light.itermcolors"
+# ok
+# running "Installing the Patched Solarized Dark theme for iTerm (opening file)"
+# open "./configs/Solarized Dark Patch.itermcolors"
+# ok
 
-running "Don’t display the annoying prompt when quitting iTerm"
-defaults write com.googlecode.iterm2 PromptOnQuit -bool false
-ok
-running "hide tab title bars"
-defaults write com.googlecode.iterm2 HideTab -bool true
-ok
-running "set system-wide hotkey to show/hide iterm with ^\`"
-defaults write com.googlecode.iterm2 Hotkey -bool true
-ok
-running "hide pane titles in split panes"
-defaults write com.googlecode.iterm2 ShowPaneTitles -bool false
-ok
-running "animate split-terminal dimming"
-defaults write com.googlecode.iterm2 AnimateDimming -bool true
-ok
-defaults write com.googlecode.iterm2 HotkeyChar -int 96
-defaults write com.googlecode.iterm2 HotkeyCode -int 50
-defaults write com.googlecode.iterm2 FocusFollowsMouse -int 1
-defaults write com.googlecode.iterm2 HotkeyModifiers -int 262401
-running "Make iTerm2 load new tabs in the same directory"
-/usr/libexec/PlistBuddy -c "set \"New Bookmarks\":0:\"Custom Directory\" Recycle" ~/Library/Preferences/com.googlecode.iterm2.plist
-running "setting fonts"
-defaults write com.googlecode.iterm2 "Normal Font" -string "Hack-Regular 12"
-defaults write com.googlecode.iterm2 "Non Ascii Font" -string "RobotoMonoForPowerline-Regular 12"
-ok
-running "reading iterm settings"
-defaults read -app iTerm >/dev/null 2>&1
-ok
+# running "Don’t display the annoying prompt when quitting iTerm"
+# defaults write com.googlecode.iterm2 PromptOnQuit -bool false
+# ok
+# running "hide tab title bars"
+# defaults write com.googlecode.iterm2 HideTab -bool true
+# ok
+# running "set system-wide hotkey to show/hide iterm with ^\`"
+# defaults write com.googlecode.iterm2 Hotkey -bool true
+# ok
+# running "hide pane titles in split panes"
+# defaults write com.googlecode.iterm2 ShowPaneTitles -bool false
+# ok
+# running "animate split-terminal dimming"
+# defaults write com.googlecode.iterm2 AnimateDimming -bool true
+# ok
+# defaults write com.googlecode.iterm2 HotkeyChar -int 96
+# defaults write com.googlecode.iterm2 HotkeyCode -int 50
+# defaults write com.googlecode.iterm2 FocusFollowsMouse -int 1
+# defaults write com.googlecode.iterm2 HotkeyModifiers -int 262401
+# running "Make iTerm2 load new tabs in the same directory"
+# /usr/libexec/PlistBuddy -c "set \"New Bookmarks\":0:\"Custom Directory\" Recycle" ~/Library/Preferences/com.googlecode.iterm2.plist
+# running "setting fonts"
+# defaults write com.googlecode.iterm2 "Normal Font" -string "Hack-Regular 12"
+# defaults write com.googlecode.iterm2 "Non Ascii Font" -string "RobotoMonoForPowerline-Regular 12"
+# ok
+# running "reading iterm settings"
+# defaults read -app iTerm >/dev/null 2>&1
+# ok
 
 ###############################################################################
 bot "Time Machine"
@@ -1153,8 +1165,9 @@ running "Prevent Time Machine from prompting to use new hard drives as backup vo
 defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
 ok
 
-# running "Disable local Time Machine backups"
-# hash tmutil &> /dev/null && sudo tmutil disablelocal;ok
+running "Disable local Time Machine backups"
+hash tmutil &>/dev/null && sudo tmutil disablelocal
+ok
 
 ###############################################################################
 bot "Activity Monitor"
@@ -1179,7 +1192,7 @@ ok
 # 106: Inactive Processes
 # 107: Windowed Processes
 running "Show all processes in Activity Monitor"
-defaults write com.apple.ActivityMonitor ShowCategory -int 100
+defaults write com.apple.ActivityMonitor ShowCategory -int 101
 ok
 
 running "Sort Activity Monitor results by CPU usage"
@@ -1295,7 +1308,7 @@ bot "SizeUp.app"
 
 killall cfprefsd
 
-open /Applications/iTerm.app
+open /Applications/Ghostty.app
 
 ###############################################################################
 # Kill affected applications                                                  #
@@ -1303,7 +1316,7 @@ open /Applications/iTerm.app
 bot "OK. Note that some of these changes require a logout/restart to take effect. Killing affected applications (so they can reboot)...."
 for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
   "Dock" "Finder" "Mail" "Messages" "Safari" "SizeUp" "SystemUIServer" \
-  "iCal" "Terminal"; do
+  "iCal" "Terminal" "Ghostty"; do
   killall "${app}" >/dev/null 2>&1
 done
 
