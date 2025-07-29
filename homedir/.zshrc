@@ -26,7 +26,7 @@ fi
 
 # General
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
-export ANDROID_TOOLING="$HOME/development/Android Tooling/platform-tools"
+export ANDROID_TOOLING="$HOME/development/android-tooling/platform-tools"
 
 if [ -d "$HOME/Applications/Android Studio.app" ]; then
   # echo 'Configure Android SDK based on Android Studio'
@@ -66,11 +66,15 @@ plugins=(1password asdf autoenv autojump brew colorize compleat cp dirpersist do
 
 source $ZSH/oh-my-zsh.sh
 
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use # This loads nvm
 
 autoload -U add-zsh-hook
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use # This loads nvm
+#
 # load-nvmrc() {
 #   if [[ -f .nvmrc && -r .nvmrc ]]; then
 #     nvm use &> /dev/null # the &> /dev/null ensures that there are no 'now using node version' type messages
@@ -109,7 +113,7 @@ if [ -d "/usr/local/opt/ruby/bin" ]; then
 fi
 
 # export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-export PATH="$(which node)":$PATH
+# export PATH="$(which node)":$PATH
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
