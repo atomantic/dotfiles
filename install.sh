@@ -299,12 +299,9 @@ bot "installing npm tools needed to run this project..."
 npm install
 ok
 
-# TODO: Do I have relevant node based packages? vtop was replaced with gtop
-# TODO: The tripplet here needs to be simplified and cleaned up
-# ./install-node.sh
-
-brew bundle
-./install-dependencies.sh
+bot "To install packages based on your profile, please run the following command:"
+bot "./install_packages.sh <profile>"
+bot "Available profiles: combined, private, business"
 
 # TODO: Split the Brewfiles content correctly to address this
 # read -r -p "Do you want to install the private brew bundles [y|N]" response

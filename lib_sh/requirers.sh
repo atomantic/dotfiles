@@ -55,10 +55,10 @@ function require_gem() {
 }
 
 function require_mas() {
-  running "mas $1"
-  if [[ $(mas list | grep $1 | head -1 | cut -d' ' -f1) != $1 ]]; then
-    action "mas install $1"
-    mas install $1
+  running "mas $1 ($2)"
+  if [[ $(mas list | grep $2 | head -1 | cut -d' ' -f1) != $2 ]]; then
+    action "mas install $2"
+    mas install $2
   fi
   ok
 }
@@ -102,4 +102,20 @@ function require_nvm() {
     nvm install $1
   fi
   ok
+}
+
+function require_tap() {
+    running "brew tap $1"
+    brew tap $1
+    ok
+}
+
+function require_vscode() {
+    running "vscode extension $1"
+    code --list-extensions | grep -i $1 >/dev/null
+    if [[ $? != 0 ]]; then
+        action "code --install-extension $1"
+        code --install-extension $1
+    fi
+    ok
 }
