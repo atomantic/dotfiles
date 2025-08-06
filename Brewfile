@@ -1,3 +1,4 @@
+tap "charmbracelet/tap"
 tap "opencode-ai/tap"
 brew "ack"
 brew "fontconfig"
@@ -113,8 +114,9 @@ brew "yazi"
 brew "yq"
 brew "zlib"
 brew "zsh"
-brew "opencode-ai/tap/opencode"
 cask "1password"
+brew "charmbracelet/tap/crush"
+brew "opencode-ai/tap/opencode"
 cask "1password-cli"
 cask "aldente"
 cask "alfred"
@@ -199,7 +201,6 @@ mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
 mas "Kindle", id: 302584613
 mas "Logic Pro", id: 634148309
-mas "MainStage", id: 634159523
 mas "Microsoft PowerPoint", id: 462062816
 mas "Microsoft Word", id: 462054704
 mas "Money", id: 1185488696
