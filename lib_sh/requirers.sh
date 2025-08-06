@@ -18,11 +18,11 @@ function require_apm() {
 }
 
 function require_brew() {
-  running "brew $1 $2"
+  running "brew $*"
   brew list $1 >/dev/null 2>&1 | true
   if [[ ${PIPESTATUS[0]} != 0 ]]; then
-    action "brew install $1 $2"
-    brew install $1 $2
+    action "brew install $*"
+    brew install "$@"
     if [[ $? != 0 ]]; then
       error "failed to install $1! aborting..."
       # exit -1
@@ -32,11 +32,11 @@ function require_brew() {
 }
 
 function require_cask() {
-  running "brew cask $1"
+  running "brew cask $*"
   brew cask list $1 >/dev/null 2>&1 | true
   if [[ ${PIPESTATUS[0]} != 0 ]]; then
-    action "brew cask install $1 $2"
-    brew install --cask $1
+    action "brew cask install $*"
+    brew install --cask "$@"
     if [[ $? != 0 ]]; then
       error "failed to install $1! aborting..."
       # exit -1
@@ -80,7 +80,7 @@ function require_npm() {
   npm list -g --depth 0 | grep $1@ >/dev/null
   if [[ $? != 0 ]]; then
     action "npm install -g $*"
-    npm install -g $@
+    npm install -g "$@"
   fi
   ok
 }
@@ -106,7 +106,7 @@ function require_nvm() {
 
 function require_tap() {
     running "brew tap $1"
-    brew tap $1
+    brew tap "$@"
     ok
 }
 
@@ -115,7 +115,7 @@ function require_vscode() {
     code --list-extensions | grep -i $1 >/dev/null
     if [[ $? != 0 ]]; then
         action "code --install-extension $1"
-        code --install-extension $1
+        code --install-extension "$@"
     fi
     ok
 }
