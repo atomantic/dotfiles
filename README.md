@@ -132,8 +132,7 @@ Here is the current list:
 
 The following will only happen if you agree on the prompt
 
-- install a gitshots script to take a photo using your camera on every git commit (these go in as a post-commit hook to your .git_template)
- - overwrite your /etc/hosts file using the [StevenBlack/hosts](https://github.com/StevenBlack/hosts) project. Add custom entries in `./configs/hosts.local`.
+- overwrite your /etc/hosts file using the [StevenBlack/hosts](https://github.com/StevenBlack/hosts) project. Add custom entries in `./configs/hosts.local`.
 
 ## Security
 

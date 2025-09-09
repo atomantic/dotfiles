@@ -1,5 +1,6 @@
 import { confirm } from "@inquirer/prompts";
 import fs from "fs";
+import path from "path";
 import command from "./lib_node/command.js";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
@@ -7,33 +8,6 @@ import { fileURLToPath } from "url";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 async function run() {
-  const answers = await confirm({
-    message: "Do you want to use gitshots?",
-    default: false,
-  });
-
-  if (answers) {
-    // additional brew packages needed to support gitshots
-    const brewConfig = (await import("./software/brew.js")).default;
-    brewConfig.packages.push("imagemagick", "imagesnap");
-    // ensure ~/.gitshots exists
-    await command("mkdir -p ~/.gitshots", __dirname);
-    // add post-commit hook
-    await command(
-      "cp ./.git_template/hooks/gitshot-pc ./.git_template/hooks/post-commit",
-      __dirname,
-    );
-  } else {
-    if (fs.existsSync("./.git_template/hooks/post-commit")) {
-      // disable post-commit (in case we are undoing the git-shots enable)
-      // TODO: examine and remove/comment out the file content with the git shots bit
-      await command(
-        "mv ./.git_template/hooks/post-commit ./.git_template/hooks/disabled-pc",
-        __dirname,
-      );
-    }
-  }
-
   // Check for .BrewFile in homedir
   const brewFileExists = fs.existsSync(path.join(__dirname, "homedir", ".BrewFile"));
   let brewFilePackages = [];
