@@ -263,7 +263,9 @@ fi
 # fi
 
 if [[ ! -d "./oh-my-zsh/custom/themes/powerlevel10k" ]]; then
+  bot "installing powerlevel10k theme..."
   git clone --depth=1 https://github.com/romkatv/powerlevel10k.git oh-my-zsh/custom/themes/powerlevel10k
+  ok
 fi
 
 bot "Dotfiles Setup"
