@@ -263,8 +263,8 @@ fi
 #   ok
 # fi
 
-if [[ ! -L "./oh-my-zsh/custom/themes/powerlevel10k" ]]; then
-  ln -s ../../../powerlevel10k ./oh-my-zsh/custom/themes/powerlevel10k
+if [[ ! -d "./oh-my-zsh/custom/themes/powerlevel10k" ]]; then
+  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git oh-my-zsh/custom/themes/powerlevel10k
 fi
 
 bot "Dotfiles Setup"
