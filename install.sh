@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 
-#TODO: update after macOS Catalina, default mac shell: bash is changing to zsh
-
 ###########################
+# v7.0.0
 # This script installs the dotfiles and runs all other system configuration scripts
 # @author Adam Eivy
 ###########################
