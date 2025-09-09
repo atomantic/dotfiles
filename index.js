@@ -1,5 +1,4 @@
 import { confirm } from "@inquirer/prompts";
-import * as emoji from "node-emoji";
 import fs from "fs";
 import command from "./lib_node/command.js";
 import { dirname } from "path";
@@ -85,7 +84,7 @@ async function run() {
 
       if (packages && packages.length) {
         tasks.push(async () => {
-          console.info(emoji.get("coffee"), ` installing ${config.type} packages`);
+          console.info("☕", ` installing ${config.type} packages`);
         });
         
         packages.forEach((item) => {
@@ -100,13 +99,13 @@ async function run() {
                 __dirname,
               );
             } catch (err) {
-              console.error(emoji.get("fire"), err, err.stderr);
+              console.error("🔥", err, err.stderr);
             }
           });
         });
       } else {
         tasks.push(async () => {
-          console.info(emoji.get("coffee"), `${config.type} has no packages`);
+          console.info("☕", `${config.type} has no packages`);
         });
       }
     } catch (error) {

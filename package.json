@@ -30,7 +30,6 @@
   },
   "homepage": "https://github.com/atomantic/dotfiles#readme",
   "dependencies": {
-    "@inquirer/prompts": "^7.8.4",
-    "node-emoji": "^2.2.0"
+    "@inquirer/prompts": "^7.8.4"
   }
 }
