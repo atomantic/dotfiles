@@ -351,10 +351,8 @@ export NVM_DIR="$HOME/.nvm"
 require_nvm stable
 
 #####################################
-# Now we can switch to node.js mode
-# for better maintainability and
-# easier configuration via
-# JSON files and inquirer prompts
+# Install packages from simple list files
+# with built-in bash prompts
 #####################################
 
 bot "installing packages from software configuration files..."
