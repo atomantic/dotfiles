@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 
-#TODO: update after macOS Catalina, default mac shell: bash is changing to zsh
-
 ###########################
+# v7.0.0
 # This script installs the dotfiles and runs all other system configuration scripts
 # @author Adam Eivy
 ###########################
@@ -351,18 +350,52 @@ export NVM_DIR="$HOME/.nvm"
 require_nvm stable
 
 #####################################
-# Now we can switch to node.js mode
-# for better maintainability and
-# easier configuration via
-# JSON files and inquirer prompts
+# Install packages from simple list files
+# with built-in bash prompts
 #####################################
 
-bot "installing npm tools needed to run this project..."
-npm install
-ok
-
 bot "installing packages from software configuration files..."
-node index.js
+
+# Function to install packages from list files
+install_packages() {
+    local list_file=$1
+    local install_cmd=$2
+    local name=$3
+    
+    if [[ ! -f "software/$list_file" ]]; then
+        action "skipping $name (software/$list_file not found)"
+        return
+    fi
+    
+    # Check if file has any non-comment, non-empty lines
+    if ! grep -v '^[[:space:]]*#' "software/$list_file" | grep -v '^[[:space:]]*$' > /dev/null 2>&1; then
+        action "skipping $name (no packages defined)"
+        return
+    fi
+    
+    read -r -p "Do you want to install $name? [y|N] " response
+    if [[ $response =~ (y|yes|Y) ]]; then
+        action "installing $name"
+        while IFS= read -r package || [[ -n "$package" ]]; do
+            # Skip comments and empty lines
+            [[ $package =~ ^[[:space:]]*# ]] && continue
+            [[ -z "${package// }" ]] && continue
+            
+            # Source the shell functions and install the package
+            . lib_sh/echos.sh && . lib_sh/requireers.sh && $install_cmd "$package"
+        done < "software/$list_file"
+    else
+        action "skipping $name installation"
+    fi
+}
+
+# Install each package type
+install_packages "brew.list" "require_brew" "Homebrew utilities"
+install_packages "cask.list" "require_cask" "Homebrew desktop apps" 
+install_packages "npm.list" "require_npm" "NPM global packages"
+install_packages "mas.list" "require_mas" "Mac App Store apps"
+install_packages "gem.list" "require_gem" "Ruby gems"
+
 ok
 
 running "cleanup homebrew"

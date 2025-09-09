@@ -50,7 +50,7 @@ When I finish with your machine, you will be able to look at your command-line i
 ![iTerm Screenshot](img/term.png)
 
 Check out how your shell prompt includes the full path, node.js version & the working git branch along with a lot of other info!
-We use powerlevel9k for command prompt, so customization of what you want is easily changable in `./.zshrc`
+We use powerlevel10k for command prompt, so customization of what you want is easily changable in `./.zshrc`
 The top terminal is using vim as a full replacement IDE.
 The bottom left two are git terminals.
 The bottom right is running `vtop`
@@ -132,8 +132,7 @@ Here is the current list:
 
 The following will only happen if you agree on the prompt
 
-- install a gitshots script to take a photo using your camera on every git commit (these go in as a post-commit hook to your .git_template)
- - overwrite your /etc/hosts file using the [StevenBlack/hosts](https://github.com/StevenBlack/hosts) project. Add custom entries in `./configs/hosts.local`.
+- overwrite your /etc/hosts file using the [StevenBlack/hosts](https://github.com/StevenBlack/hosts) project. Add custom entries in `./configs/hosts.local`.
 
 ## Security
 
@@ -252,15 +251,17 @@ The following will only happen if you agree on the prompt
 
 # Software Installation
 
-homebrew, fontconfig, git, nvm (node + npm), and zsh (latest) are all installed inside the `install.sh` as foundational software for running this project.
+homebrew, fontconfig, git, nvm (node + npm), and zsh (latest) are all installed inside the `install.sh` as foundational software.
 
-Additional software is configured in separate files within the `software/` directory and can be customized in your own fork/branch:
+Additional software is configured in simple list files within the `software/` directory and can be customized in your own fork/branch:
 
-- `software/brew.js` - Homebrew utilities and command-line tools
-- `software/cask.js` - Homebrew desktop applications (GUI apps)
-- `software/npm.js` - Global NPM packages
-- `software/mas.js` - Mac App Store applications
-- `software/gem.js` - Ruby gems
+- `software/brew.list` - Homebrew utilities and command-line tools
+- `software/cask.list` - Homebrew desktop applications (GUI apps)
+- `software/npm.list` - Global NPM packages
+- `software/mas.list` - Mac App Store applications  
+- `software/gem.list` - Ruby gems
+
+Each file contains one package per line, with `#` for comments.
 
 ## .BrewFile Support
 

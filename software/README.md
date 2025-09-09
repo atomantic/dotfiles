@@ -20,11 +20,13 @@ export default {
 
 ### Available Files
 
-- `brew.js` - Homebrew utilities and command-line tools
-- `cask.js` - Homebrew desktop applications (GUI apps)
-- `npm.js` - Global NPM packages
-- `mas.js` - Mac App Store applications
-- `gem.js` - Ruby gems
+- `brew.list` - Homebrew utilities and command-line tools
+- `cask.list` - Homebrew desktop applications (GUI apps)
+- `npm.list` - Global NPM packages
+- `mas.list` - Mac App Store applications
+- `gem.list` - Ruby gems
+
+Each file contains one package per line, with `#` for comments.
 
 ## .BrewFile Support
 
@@ -54,27 +56,27 @@ Each prompt allows you to choose whether to install that category of software or
 
 ## Adding Packages
 
-To add packages to any category, simply edit the corresponding `.js` file in this directory and add the package name to the `packages` array. The packages will be automatically installed when you run the installation script and choose to install that category.
+To add packages to any category, simply edit the corresponding `.list` file in this directory and add the package name on a new line. The packages will be automatically installed when you run the installation script and choose to install that category.
 
 ## Adding New Software Types
 
 To add a new software type:
 
-1. Create a new `.js` file in this directory
-2. Export an object with `name`, `type`, and `packages` properties
-3. Add the filename to the `softwareFiles` array in `index.js`
+1. Create a new `.list` file in this directory
+2. Add one package per line, with `#` for comments
+3. Add the installation call to the `install.sh` script  
 4. Ensure the corresponding `require_*` function exists in `lib_sh/requirers.sh`
 
 Example new software type:
-```javascript
-// software/pip.js
-export default {
-  name: "Python packages",
-  type: "pip",
-  packages: [
-    "requests",
-    "flask",
-    "pytest",
-  ],
-};
+```bash
+# software/pip.list
+# Python packages
+requests
+flask
+pytest
+```
+
+Then add to `install.sh`:
+```bash
+install_packages "pip.list" "require_pip" "Python packages"
 ``` 
