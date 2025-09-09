@@ -35,13 +35,13 @@ nmap
 reattach-to-user-namespace
 ripgrep
 # better/more recent version of screen
-homebrew/dupes/screen
+screen
 tmux
 todo-txt
 tree
 ttyrec
 # better, more recent vim
-vim --with-client-server --with-override-system-vi
+vim
 watch
 # Install wget with IRI support
-wget --enable-iri
+wget

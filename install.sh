@@ -368,7 +368,7 @@ install_packages() {
     fi
     
     # Check if file has any non-comment, non-empty lines
-    if ! grep -v '^\s*#' "software/$list_file" | grep -v '^\s*$' > /dev/null 2>&1; then
+    if ! grep -v '^[[:space:]]*#' "software/$list_file" | grep -v '^[[:space:]]*$' > /dev/null 2>&1; then
         action "skipping $name (no packages defined)"
         return
     fi
@@ -382,7 +382,7 @@ install_packages() {
             [[ -z "${package// }" ]] && continue
             
             # Source the shell functions and install the package
-            . lib_sh/echos.sh && . lib_sh/requireers.sh && $install_cmd $package
+            . lib_sh/echos.sh && . lib_sh/requireers.sh && $install_cmd "$package"
         done < "software/$list_file"
     else
         action "skipping $name installation"
