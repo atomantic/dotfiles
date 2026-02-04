@@ -1,3 +1,157 @@
+#!/bin/bash
+
+# Updated code-review function with --cli support
+code-review() {
+	local cli_tool="q"
+	local mr_input=""
+
+	# Parse arguments
+	while [[ $# -gt 0 ]]; do
+		case $1 in
+			--cli)
+				if [[ -n "$2" && "$2" != --* ]]; then
+					cli_tool="$2"
+					shift 2
+				else
+					echo "Error: --cli requires a value (q or claude)"
+					return 1
+				fi
+				;;
+			*)
+				if [[ -z "$mr_input" ]]; then
+					mr_input="$1"
+				fi
+				shift
+				;;
+		esac
+	done
+
+	if [ -z "$mr_input" ]; then
+		echo "Usage: code-review [--cli q|claude] <mr_number> or code-review [--cli q|claude] <merge_url>"
+		return 1
+	fi
+
+	local mr_number=""
+
+	echo "🔍 Starting code review for: $mr_input (using $cli_tool CLI)"
+
+	# Check if we're already in a git repository and MR input is just a number
+	local current_repo_path=""
+	local skip_setup=false
+
+	if [[ "$mr_input" =~ ^[0-9]+$ ]] && git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+		# We're in a git repo and MR input is just a number - use current directory
+		current_repo_path="$(pwd)"
+		skip_setup=true
+		echo "📂 Using current repository: $current_repo_path"
+	fi
+
+	# Ask user if they want to set up repo locally (only for URLs and in interactive mode)
+	local setup_locally="N"
+	if [[ "$skip_setup" == false ]]; then
+		if [[ -t 0 && -t 1 ]]; then
+			echo -n "Set up repository locally for review? (y/N): "
+			read setup_locally
+		else
+			echo "Running in non-interactive mode - performing remote review only"
+		fi
+	else
+		setup_locally="Y"  # Force local setup since we're already in the repo
+	fi
+
+	if [[ $setup_locally =~ ^[Yy]$ ]]; then
+		local repo_path
+
+		if [[ "$skip_setup" == true ]]; then
+			# Use current directory since we're already in the right repo
+			repo_path="$current_repo_path"
+		else
+			echo "📁 Setting up repository locally..."
+
+			# Setup repository and get path
+			repo_path=$(code-setup --cli "$cli_tool" "$mr_input" 2>/dev/null | tail -1)
+
+			if [[ -z "$repo_path" || ! -d "$repo_path" ]]; then
+				echo "❌ Error: Could not determine repository path"
+				return 1
+			fi
+
+			echo "📂 Switching to repository: $repo_path"
+			cd "$repo_path" || return 1
+		fi
+
+		# Extract MR number
+		if [[ "$mr_input" =~ ^https?:// ]]; then
+			mr_number=$(echo "$mr_input" | sed -E 's|.*/-/merge_requests/([0-9]+).*|\1|')
+		elif [[ "$mr_input" =~ ^[0-9]+$ ]]; then
+			mr_number="$mr_input"
+		else
+			mr_number="$mr_input"
+		fi
+
+		# Checkout the MR branch for review
+		if [[ -n "$mr_number" ]]; then
+			echo "🔄 Checking out MR branch #$mr_number..."
+
+			# Switch to main branch first to avoid checkout conflicts
+			git checkout main 2>/dev/null || git checkout master 2>/dev/null || git checkout qa 2>/dev/null || true
+
+			# Fetch all remote branches to ensure we have the latest
+			git fetch origin
+
+			# Try to find and checkout the MR branch using native git
+			local branch_found=false
+
+			# Check if branch exists locally first
+			if git show-ref --verify --quiet "refs/heads/mr-$mr_number"; then
+				git checkout "mr-$mr_number"
+				branch_found=true
+			# Check for common MR branch patterns
+			elif git show-ref --verify --quiet "refs/remotes/origin/mr-$mr_number"; then
+				git checkout -b "mr-$mr_number" "origin/mr-$mr_number"
+				branch_found=true
+			elif git show-ref --verify --quiet "refs/remotes/origin/feature/mr-$mr_number"; then
+				git checkout -b "feature/mr-$mr_number" "origin/feature/mr-$mr_number"
+				branch_found=true
+			fi
+
+			# Fallback to CLI tools if native git didn't work
+			if [[ "$branch_found" == false ]]; then
+				echo "🔄 Using CLI tool to checkout MR branch..."
+				if command -v glab >/dev/null 2>&1; then
+					glab mr checkout "$mr_number"
+				elif command -v gh >/dev/null 2>&1; then
+					gh pr checkout "$mr_number"
+				fi
+			fi
+
+			echo "✅ Branch checked out successfully"
+		fi
+	fi
+
+	echo "🤖 Launching AI code review (this may take a moment)..."
+
+	# Prepare the prompt
+	local review_prompt
+	if [[ -n "$CODE_REVIEW_PROMPT" ]]; then
+		review_prompt="$CODE_REVIEW_PROMPT
+
+Review this merge: $mr_input"
+	else
+		# Fallback basic prompt if variable not found
+		review_prompt="You are an expert software engineer conducting a thorough code review. Use glab or gh CLI tools to analyze the changes and post review comments.
+
+Review this merge: $mr_input"
+	fi
+
+	# Execute with the specified CLI tool
+	if [[ "$cli_tool" == "claude" ]]; then
+		claude --dangerously-skip-permissions -p "$review_prompt"
+	else
+		q chat --no-interactive --trust-all-tools "$review_prompt"
+	fi
+}
+
 #########################################
 # Utility Functions
 
@@ -127,8 +281,87 @@ function fo() {
   [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
 }
 
+#########################################
+# Ghostty Project Launcher
+# Usage: proj <project-path> [theme]
+# Themes: blue, green, purple, orange, red, cyan
+# Example: proj ~/projects/my-api green
+# Example: proj ~/projects/frontend purple
+function proj() {
+  local project_path="${1:-.}"
+  local theme="${2:-blue}"
+  local theme_dir="$HOME/Library/Application Support/com.mitchellh.ghostty/themes"
+  local theme_file="$theme_dir/$theme.conf"
 
+  # Resolve to absolute path
+  if [[ "$project_path" == "." ]]; then
+    project_path="$(pwd)"
+  else
+    project_path="$(cd "$project_path" 2>/dev/null && pwd)"
+  fi
 
-function gittyup(){
-  git pull --rebase --autostash  && git push
+  if [[ -z "$project_path" || ! -d "$project_path" ]]; then
+    echo "Error: Directory not found: $1"
+    return 1
+  fi
+
+  if [[ ! -f "$theme_file" ]]; then
+    echo "Available themes: blue, green, purple, orange, red, cyan"
+    echo "Error: Theme not found: $theme"
+    return 1
+  fi
+
+  local project_name=$(basename "$project_path")
+
+  # Theme emoji mapping
+  local emoji
+  case "$theme" in
+    blue)   emoji="🔵" ;;
+    green)  emoji="🟢" ;;
+    purple) emoji="🟣" ;;
+    orange) emoji="🟠" ;;
+    red)    emoji="🔴" ;;
+    cyan)   emoji="🩵" ;;
+    *)      emoji="⚪" ;;
+  esac
+
+  local window_title="${emoji} ${project_name}"
+
+  # Find ghostty binary
+  local ghostty_bin
+  if command -v ghostty &>/dev/null; then
+    ghostty_bin="ghostty"
+  elif [[ -x "/Applications/Ghostty.app/Contents/MacOS/ghostty" ]]; then
+    ghostty_bin="/Applications/Ghostty.app/Contents/MacOS/ghostty"
+  elif [[ -x "$HOME/Applications/Ghostty.app/Contents/MacOS/ghostty" ]]; then
+    ghostty_bin="$HOME/Applications/Ghostty.app/Contents/MacOS/ghostty"
+  elif [[ -x "$HOME/Documents/Ghostty.app/Contents/MacOS/ghostty" ]]; then
+    ghostty_bin="$HOME/Documents/Ghostty.app/Contents/MacOS/ghostty"
+  else
+    echo "Error: Ghostty not found"
+    return 1
+  fi
+
+  # Launch Ghostty with project-specific settings
+  "$ghostty_bin" \
+    --config-file="$theme_file" \
+    --title="$window_title" \
+    --working-directory="$project_path" &
+
+  disown
+  echo "Launched: $window_title"
+}
+
+# List available Ghostty themes
+function proj-themes() {
+  echo "Available Ghostty project themes:"
+  echo "  blue   - Default/main projects"
+  echo "  green  - Backend/API projects"
+  echo "  purple - Frontend/UI projects"
+  echo "  orange - DevOps/Infrastructure"
+  echo "  red    - Production/Critical"
+  echo "  cyan   - Data/Analytics"
+  echo ""
+  echo "Usage: proj <project-path> [theme]"
+  echo "Example: proj ~/projects/my-api green"
 }
