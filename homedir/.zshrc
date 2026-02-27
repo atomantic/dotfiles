@@ -52,7 +52,7 @@ unsetopt correct
 # run fortune on new terminal :)
 #fortune
 
-export GEMINI_SANDBOX=docker
+#export GEMINI_SANDBOX=docker
 
 # NVM initialization (added by install.sh)
 export NVM_DIR="$HOME/.nvm"
