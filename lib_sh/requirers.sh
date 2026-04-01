@@ -7,6 +7,13 @@
 
 # source ./echos.sh
 
+# Use arch -arm64 on Apple Silicon to avoid Rosetta issues
+if [[ "$(uname -m)" == "arm64" ]]; then
+    BREW_CMD="arch -arm64 brew"
+else
+    BREW_CMD="brew"
+fi
+
 function require_apm() {
     running "checking atom plugin: $1"
     apm list --installed --bare | grep $1@ > /dev/null
@@ -19,10 +26,10 @@ function require_apm() {
 
 function require_brew() {
     running "brew $1 $2"
-    brew list $1 > /dev/null 2>&1
+    $BREW_CMD list $1 > /dev/null 2>&1
     if [[ ${PIPESTATUS[0]} != 0 ]]; then
         action "brew install $1 $2"
-        brew install $1 $2
+        $BREW_CMD install $1 $2
         if [[ $? != 0 ]]; then
             error "failed to install $1! aborting..."
             # exit -1
@@ -33,10 +40,10 @@ function require_brew() {
 
 function require_cask() {
     running "brew check for cask: $1"
-    brew list --cask $1 > /dev/null 2>&1
+    $BREW_CMD list --cask $1 > /dev/null 2>&1
     if [[ ${PIPESTATUS[0]} != 0 ]]; then
         action "brew install --cask $1 $2"
-        brew install --cask $1
+        $BREW_CMD install --cask $1
         if [[ $? != 0 ]]; then
             error "failed to install $1! aborting..."
             # exit -1
