@@ -201,17 +201,17 @@ if ! command -v brew >/dev/null 2>&1; then
   fi
   (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/$(whoami)/.zprofile
   eval "$(/opt/homebrew/bin/brew shellenv)"
-  brew analytics off
+  $BREW_CMD analytics off
 else
   ok
   bot "Homebrew"
   read -r -p "run brew update && upgrade? [y|N] " response
   if [[ $response =~ (y|yes|Y) ]]; then
     action "updating homebrew..."
-    brew update
+    $BREW_CMD update
     ok "homebrew updated"
     action "upgrading brew packages..."
-    brew upgrade
+    $BREW_CMD upgrade
     ok "brews upgraded"
   else
     ok "skipped brew package upgrades."
@@ -220,13 +220,13 @@ fi
 
 # Just to avoid a potential bug
 mkdir -p ~/Library/Caches/Homebrew/Formula
-brew doctor
+$BREW_CMD doctor
 
 # Add GNU utilities to PATH once in .shellpaths
 shellpaths_file="./homedir/.shellpaths"
 
 # Determine Homebrew prefix once using brew
-brew_prefix="$(brew --prefix)"
+brew_prefix="$($BREW_CMD --prefix)"
 
 # Append gnubin directories for GNU utilities if missing
 coreutils_path="$brew_prefix/opt/coreutils/libexec/gnubin"
@@ -401,7 +401,7 @@ install_packages "gem.list" "require_gem" "Ruby gems"
 ok
 
 running "cleanup homebrew"
-brew cleanup --force > /dev/null 2>&1
+$BREW_CMD cleanup --force > /dev/null 2>&1
 rm -f -r /Library/Caches/Homebrew/* > /dev/null 2>&1
 ok
 
@@ -1175,6 +1175,6 @@ for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
   killall "${app}" > /dev/null 2>&1
 done
 
-brew update && brew upgrade && brew cleanup
+$BREW_CMD update && $BREW_CMD upgrade && $BREW_CMD cleanup
 
 bot "Woot! All done"
