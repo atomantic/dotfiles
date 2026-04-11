@@ -5,6 +5,33 @@
 # @author Adam Eivy
 ###########################
 
+###########################
+# CI Mode (CI=true)
+#
+# When CI environment variable is set, interactive prompts are auto-answered:
+#
+#   Prompt                          | CI Default | Reason
+#   --------------------------------|------------|---------------------------
+#   Passwordless sudo?              | NO         | Already passwordless on runner
+#   Overwrite /etc/hosts?           | NO         | Not testing ad-blocking
+#   Git username?                   | ci-user    | Via CI_GIT_USER env var
+#   Full name (osascript)           | CI User    | Via CI_GIT_FULLNAME env var
+#   Email (dscl)                    | ci@local   | Via CI_GIT_EMAIL env var
+#   Name correct?                   | YES        | Accept CI defaults
+#   Email correct?                  | YES        | Accept CI defaults
+#   Custom wallpaper?               | SKIP       | Entire section skipped
+#   Brew update/upgrade?            | NO         | Fresh on runner
+#   p10k configure                  | SKIP       | Interactive TUI
+#   Vim plugins?                    | NO         | Not critical path
+#   Install fonts?                  | NO         | Not critical path
+#   System configurations?          | NO         | Skips ~1000 lines of defaults write
+#   XCode CLT wait loop             | 120s max   | Timeout guard
+#   XCode license                   | accept     | Non-interactive accept
+#   open /Applications/...          | SKIP       | No GUI in CI
+#   killall loop                    | SKIP       | No GUI apps in CI
+#   Final brew update/upgrade       | SKIP       | Already clean
+###########################
+
 # include my library helpers for colorized echo and require_brew, etc
 source ./lib_sh/echos.sh
 source ./lib_sh/requirers.sh
@@ -25,9 +52,13 @@ if [ $? -ne 0 ]; then
     kill -0 "$$" || exit
   done 2>/dev/null &
 
-  bot "Do you want me to setup this machine to allow you to run sudo without a password?\nPlease read here to see what I am doing:\nhttp://wiki.summercode.com/sudo_without_a_password_in_mac_os_x \n"
+  if [[ -z ${CI:-} ]]; then
+    bot "Do you want me to setup this machine to allow you to run sudo without a password?\nPlease read here to see what I am doing:\nhttp://wiki.summercode.com/sudo_without_a_password_in_mac_os_x \n"
 
-  read -r -p "Make sudo passwordless? [y|N] " response
+    read -r -p "Make sudo passwordless? [y|N] " response
+  else
+    response="n"
+  fi
 
   if [[ $response =~ (yes|y|Y) ]]; then
     if ! grep -q "#includedir /private/etc/sudoers.d" /etc/sudoers; then
@@ -41,7 +72,11 @@ fi
 # ###########################################################
 # /etc/hosts -- spyware/ad blocking
 # ###########################################################
-read -r -p "Overwrite /etc/hosts with the ad-blocking hosts file from someonewhocares.org? (from ./configs/hosts file) [y|N] " response
+if [[ -z ${CI:-} ]]; then
+  read -r -p "Overwrite /etc/hosts with the ad-blocking hosts file from someonewhocares.org? (from ./configs/hosts file) [y|N] " response
+else
+  response="n"
+fi
 if [[ $response =~ (yes|y|Y) ]]; then
   action "Update hosts from someonewhocares.org"
   sudo curl -o ./configs/hosts https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
@@ -62,9 +97,17 @@ fi
 bot "OK, now I am going to update the .gitconfig for your user info:"
 grep 'user = GITHUBUSER' ./homedir/.gitconfig >/dev/null 2>&1
 if [[ $? = 0 ]]; then
-  read -r -p "What is your git username? " githubuser
+  if [[ -z ${CI:-} ]]; then
+    read -r -p "What is your git username? " githubuser
+  else
+    githubuser="${CI_GIT_USER:-ci-user}"
+  fi
 
-  fullname=$(osascript -e "long user name of (system info)")
+  if [[ -z ${CI:-} ]]; then
+    fullname=$(osascript -e "long user name of (system info)")
+  else
+    fullname="${CI_GIT_FULLNAME:-CI User}"
+  fi
 
   if [[ -n "$fullname" ]]; then
     lastname=$(echo $fullname | awk '{print $2}')
@@ -77,13 +120,21 @@ if [[ $? = 0 ]]; then
   if [[ -z $firstname ]]; then
     firstname=$(dscl . -read /Users/$(whoami) | grep FirstName | sed "s/FirstName: //")
   fi
-  email=$(dscl . -read /Users/$(whoami) | grep EMailAddress | sed "s/EMailAddress: //")
+  if [[ -z ${CI:-} ]]; then
+    email=$(dscl . -read /Users/$(whoami) | grep EMailAddress | sed "s/EMailAddress: //")
+  else
+    email="${CI_GIT_EMAIL:-ci@localhost}"
+  fi
 
   if [[ ! "$firstname" ]]; then
     response='n'
   else
-    echo -e "I see that your full name is $COL_YELLOW$firstname $lastname$COL_RESET"
-    read -r -p "Is this correct? [Y|n] " response
+    if [[ -z ${CI:-} ]]; then
+      echo -e "I see that your full name is $COL_YELLOW$firstname $lastname$COL_RESET"
+      read -r -p "Is this correct? [Y|n] " response
+    else
+      response='y'
+    fi
   fi
 
   if [[ $response =~ ^(no|n|N) ]]; then
@@ -97,8 +148,12 @@ if [[ $? = 0 ]]; then
   if [[ ! $email ]]; then
     response='n'
   else
-    echo -e "The best I can make out, your email address is $COL_YELLOW$email$COL_RESET"
-    read -r -p "Is this correct? [Y|n] " response
+    if [[ -z ${CI:-} ]]; then
+      echo -e "The best I can make out, your email address is $COL_YELLOW$email$COL_RESET"
+      read -r -p "Is this correct? [Y|n] " response
+    else
+      response='y'
+    fi
   fi
 
   if [[ $response =~ ^(no|n|N) ]]; then
@@ -132,30 +187,34 @@ fi
 # ###########################################################
 # Wallpaper
 # ###########################################################
-MD5_NEWWP=$(md5 img/wallpaper.jpg | awk '{print $4}')
-MD5_OLDWP=$(md5 /System/Library/CoreServices/DefaultDesktop.jpg | awk '{print $4}')
-if [[ "$MD5_NEWWP" != "$MD5_OLDWP" ]]; then
-  read -r -p "Do you want to use the project's custom desktop wallpaper? [y|N] " response
-  if [[ $response =~ (yes|y|Y) ]]; then
-    running "Set a custom wallpaper image"
-    # rm -rf ~/Library/Application Support/Dock/desktoppicture.db
-    bot "I will backup system wallpapers in ~/.dotfiles/img/"
-    sudo cp /System/Library/CoreServices/DefaultDesktop.jpg img/DefaultDesktop.jpg >/dev/null 2>&1
-    sudo cp /Library/Desktop\ Pictures/El\ Capitan.jpg img/El\ Capitan.jpg >/dev/null 2>&1
-    sudo cp /Library/Desktop\ Pictures/Sierra.jpg img/Sierra.jpg >/dev/null 2>&1
-    sudo cp /Library/Desktop\ Pictures/Sierra\ 2.jpg img/Sierra\ 2.jpg >/dev/null 2>&1
-    sudo rm -f /System/Library/CoreServices/DefaultDesktop.jpg >/dev/null 2>&1
-    sudo rm -f /Library/Desktop\ Pictures/El\ Capitan.jpg >/dev/null 2>&1
-    sudo rm -f /Library/Desktop\ Pictures/Sierra.jpg >/dev/null 2>&1
-    sudo rm -f /Library/Desktop\ Pictures/Sierra\ 2.jpg >/dev/null 2>&1
-    sudo cp ./img/wallpaper.jpg /System/Library/CoreServices/DefaultDesktop.jpg
-    sudo cp ./img/wallpaper.jpg /Library/Desktop\ Pictures/Sierra.jpg
-    sudo cp ./img/wallpaper.jpg /Library/Desktop\ Pictures/Sierra\ 2.jpg
-    sudo cp ./img/wallpaper.jpg /Library/Desktop\ Pictures/El\ Capitan.jpg
-    ok
-  else
-    ok "skipped"
+if [[ -z ${CI:-} ]]; then
+  MD5_NEWWP=$(md5 img/wallpaper.jpg | awk '{print $4}')
+  MD5_OLDWP=$(md5 /System/Library/CoreServices/DefaultDesktop.jpg | awk '{print $4}')
+  if [[ "$MD5_NEWWP" != "$MD5_OLDWP" ]]; then
+    read -r -p "Do you want to use the project's custom desktop wallpaper? [y|N] " response
+    if [[ $response =~ (yes|y|Y) ]]; then
+      running "Set a custom wallpaper image"
+      # rm -rf ~/Library/Application Support/Dock/desktoppicture.db
+      bot "I will backup system wallpapers in ~/.dotfiles/img/"
+      sudo cp /System/Library/CoreServices/DefaultDesktop.jpg img/DefaultDesktop.jpg >/dev/null 2>&1
+      sudo cp /Library/Desktop\ Pictures/El\ Capitan.jpg img/El\ Capitan.jpg >/dev/null 2>&1
+      sudo cp /Library/Desktop\ Pictures/Sierra.jpg img/Sierra.jpg >/dev/null 2>&1
+      sudo cp /Library/Desktop\ Pictures/Sierra\ 2.jpg img/Sierra\ 2.jpg >/dev/null 2>&1
+      sudo rm -f /System/Library/CoreServices/DefaultDesktop.jpg >/dev/null 2>&1
+      sudo rm -f /Library/Desktop\ Pictures/El\ Capitan.jpg >/dev/null 2>&1
+      sudo rm -f /Library/Desktop\ Pictures/Sierra.jpg >/dev/null 2>&1
+      sudo rm -f /Library/Desktop\ Pictures/Sierra\ 2.jpg >/dev/null 2>&1
+      sudo cp ./img/wallpaper.jpg /System/Library/CoreServices/DefaultDesktop.jpg
+      sudo cp ./img/wallpaper.jpg /Library/Desktop\ Pictures/Sierra.jpg
+      sudo cp ./img/wallpaper.jpg /Library/Desktop\ Pictures/Sierra\ 2.jpg
+      sudo cp ./img/wallpaper.jpg /Library/Desktop\ Pictures/El\ Capitan.jpg
+      ok
+    else
+      ok "skipped"
+    fi
   fi
+else
+  ok "CI: skipped wallpaper"
 fi
 
 # ###########################################################
@@ -171,8 +230,14 @@ if ! xcode-select --print-path &>/dev/null; then
   # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   # Wait until the XCode Command Line Tools are installed
+  XCODE_CLT_TIMEOUT=0
   until xcode-select --print-path &>/dev/null; do
     sleep 5
+    XCODE_CLT_TIMEOUT=$((XCODE_CLT_TIMEOUT + 5))
+    if [[ -n ${CI:-} ]] && [[ $XCODE_CLT_TIMEOUT -ge 120 ]]; then
+      error "XCode CLT install timed out after 120s in CI"
+      exit 1
+    fi
   done
 
   print_result $? ' XCode Command Line Tools Installed'
@@ -180,7 +245,11 @@ if ! xcode-select --print-path &>/dev/null; then
   # Prompt user to agree to the terms of the Xcode license
   # https://github.com/alrra/dotfiles/issues/10
 
-  sudo xcodebuild -license
+  if [[ -z ${CI:-} ]]; then
+    sudo xcodebuild -license
+  else
+    sudo xcodebuild -license accept 2>/dev/null || true
+  fi
   print_result $? 'Agree with the XCode Command Line Tools licence'
 
 fi
@@ -201,7 +270,11 @@ if [[ $? != 0 ]]; then
 else
   ok
   bot "Homebrew"
-  read -r -p "run brew update && upgrade? [y|N] " response
+  if [[ -z ${CI:-} ]]; then
+    read -r -p "run brew update && upgrade? [y|N] " response
+  else
+    response="n"
+  fi
   if [[ $response =~ (y|yes|Y) ]]; then
     action "updating homebrew..."
     brew update
@@ -240,7 +313,9 @@ if [[ ! -d "./oh-my-zsh/custom/themes/powerlevel10k" ]]; then
   git clone https://github.com/romkatv/powerlevel10k.git oh-my-zsh/custom/themes/powerlevel10k
 fi
 
-p10k configure
+if [[ -z ${CI:-} ]]; then
+  p10k configure
+fi
 
 bot "Dotfiles Setup"
 bot "symlinking homedir dotfiles with GNU stow"
@@ -253,7 +328,11 @@ bot "create symlink for nvim"
 ln -s ~/.dotfiles/nvim ~/.config/nvim
 
 bot "VIM Setup"
-read -r -p "Do you want to install vim plugins now? [y|N] " response
+if [[ -z ${CI:-} ]]; then
+  read -r -p "Do you want to install vim plugins now? [y|N] " response
+else
+  response="n"
+fi
 if [[ $response =~ (y|yes|Y) ]]; then
   bot "Installing vim plugins"
   # cmake is required to compile vim bundle YouCompleteMe
@@ -264,7 +343,11 @@ else
   ok "skipped. Install by running :PluginInstall within vim"
 fi
 
-read -r -p "Install fonts? [y|N] " response
+if [[ -z ${CI:-} ]]; then
+  read -r -p "Install fonts? [y|N] " response
+else
+  response="n"
+fi
 if [[ $response =~ (y|yes|Y) ]]; then
   bot "installing fonts"
   # need fontconfig to install/build fonts
@@ -301,9 +384,15 @@ rm -f -r /Library/Caches/Homebrew/* >/dev/null 2>&1
 ok
 
 bot "OS Configuration"
-read -r -p "Do you want to update the system configurations? [y|N] " response
+if [[ -z ${CI:-} ]]; then
+  read -r -p "Do you want to update the system configurations? [y|N] " response
+else
+  response="n"
+fi
 if [[ -z $response || $response =~ ^(n|N) ]]; then
-  open /Applications/Ghostty.app
+  if [[ -z ${CI:-} ]]; then
+    open /Applications/Ghostty.app
+  fi
   bot "All done"
   exit
 fi
@@ -1289,18 +1378,24 @@ bot "SizeUp.app"
 
 killall cfprefsd
 
-open /Applications/Ghostty.app
+if [[ -z ${CI:-} ]]; then
+  open /Applications/Ghostty.app
+fi
 
 ###############################################################################
 # Kill affected applications                                                  #
 ###############################################################################
-bot "OK. Note that some of these changes require a logout/restart to take effect. Killing affected applications (so they can reboot)...."
-for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
-  "Dock" "Finder" "Mail" "Messages" "Safari" "SizeUp" "SystemUIServer" \
-  "iCal" "Terminal" "Ghostty"; do
-  killall "${app}" >/dev/null 2>&1
-done
+if [[ -z ${CI:-} ]]; then
+  bot "OK. Note that some of these changes require a logout/restart to take effect. Killing affected applications (so they can reboot)...."
+  for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
+    "Dock" "Finder" "Mail" "Messages" "Safari" "SizeUp" "SystemUIServer" \
+    "iCal" "Terminal" "Ghostty"; do
+    killall "${app}" >/dev/null 2>&1
+  done
+fi
 
-brew update && brew upgrade && brew cleanup
+if [[ -z ${CI:-} ]]; then
+  brew update && brew upgrade && brew cleanup
+fi
 
 bot "Woot! All done"
