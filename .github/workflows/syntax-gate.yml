@@ -1,0 +1,71 @@
+name: Syntax Gate
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  syntax:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Bash syntax check (bash -n)
+        run: |
+          set -euo pipefail
+          errors=0
+          # Check all .sh files except submodules
+          while IFS= read -r f; do
+            if ! bash -n "$f" 2>&1; then
+              echo "FAIL: $f"
+              errors=$((errors + 1))
+            fi
+          done < <(find . -name '*.sh' \
+            -not -path './oh-my-zsh/*' \
+            -not -path './z-zsh/*' \
+            -not -path './.vim/*' \
+            -not -path './.git/*')
+          if [[ $errors -gt 0 ]]; then
+            echo "::error::$errors file(s) failed bash syntax check"
+            exit 1
+          fi
+          echo "All bash files pass syntax check"
+
+      - name: ZSH syntax check (zsh -n)
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq && sudo apt-get install -y -qq zsh
+          errors=0
+          for f in homedir/.zshrc; do
+            if [[ -f "$f" ]]; then
+              if ! zsh -n "$f" 2>&1; then
+                echo "FAIL: $f"
+                errors=$((errors + 1))
+              fi
+            fi
+          done
+          if [[ $errors -gt 0 ]]; then
+            echo "::error::$errors file(s) failed zsh syntax check"
+            exit 1
+          fi
+          echo "All zsh files pass syntax check"
+
+      - name: JSON validation
+        run: |
+          set -euo pipefail
+          for f in packages.json; do
+            if [[ -f "$f" ]]; then
+              if ! jq empty "$f" 2>&1; then
+                echo "::error::$f is not valid JSON"
+                exit 1
+              fi
+              echo "OK: $f"
+            fi
+          done
+          echo "All JSON files valid"
