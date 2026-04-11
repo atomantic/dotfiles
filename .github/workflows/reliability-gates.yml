@@ -35,8 +35,10 @@ jobs:
             exit 0
           fi
           echo "Checking ${#files[@]} files..."
+          # SC1090/SC1091: Can't follow non-constant/not-included source
+          # SC1087: False positive on jq array syntax in string arguments
           shellcheck --severity=warning --shell=bash \
-            --exclude=SC1090,SC1091 \
+            --exclude=SC1090,SC1091,SC1087 \
             "${files[@]}"
           echo "ShellCheck passed"
 
@@ -60,10 +62,12 @@ jobs:
       - name: Verify stow symlinks
         run: |
           set -euo pipefail
-          # Create dotfiles directory at expected location
           if [[ "$HOME/.dotfiles" != "$GITHUB_WORKSPACE" ]]; then
             ln -s "$GITHUB_WORKSPACE" "$HOME/.dotfiles"
           fi
+          for dotfile in .zshrc .shellaliases .shellfn .shellvars .shellpaths .gitconfig; do
+            [[ -f "$HOME/$dotfile" && ! -L "$HOME/$dotfile" ]] && rm "$HOME/$dotfile"
+          done
           stow -v -d "$HOME/.dotfiles" -t "$HOME" homedir
           # Verify key symlinks exist and point to correct targets
           errors=0

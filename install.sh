@@ -319,6 +319,13 @@ fi
 
 bot "Dotfiles Setup"
 bot "symlinking homedir dotfiles with GNU stow"
+if [[ -n ${CI:-} ]]; then
+  for f in "$HOME/.dotfiles/homedir"/.*; do
+    base=$(basename "$f")
+    [[ "$base" == "." || "$base" == ".." ]] && continue
+    [[ -e "$HOME/$base" && ! -L "$HOME/$base" ]] && rm -rf "$HOME/$base"
+  done
+fi
 stow -v -d "$HOME/.dotfiles" -t "$HOME" homedir
 
 # Initializing templates
