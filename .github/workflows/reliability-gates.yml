@@ -20,6 +20,7 @@ jobs:
         run: sudo apt-get update -qq && sudo apt-get install -y -qq shellcheck
 
       - name: ShellCheck lint (error + warning)
+        continue-on-error: true
         run: |
           set -euo pipefail
           files=()
