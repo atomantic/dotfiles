@@ -1,0 +1,102 @@
+name: Reliability Gates
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  shellcheck:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Install ShellCheck
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq shellcheck
+
+      - name: ShellCheck lint (error + warning)
+        run: |
+          set -euo pipefail
+          files=()
+          while IFS= read -r f; do
+            files+=("$f")
+          done < <(find . -name '*.sh' \
+            -not -path './oh-my-zsh/*' \
+            -not -path './z-zsh/*' \
+            -not -path './.vim/*' \
+            -not -path './.git/*')
+          if [[ ${#files[@]} -eq 0 ]]; then
+            echo "No shell files found"
+            exit 0
+          fi
+          echo "Checking ${#files[@]} files..."
+          shellcheck --severity=warning --shell=bash \
+            --exclude=SC1090,SC1091 \
+            "${files[@]}"
+          echo "ShellCheck passed"
+
+  symlinks-and-brewfile:
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    strategy:
+      matrix:
+        os: [macos-15, macos-26]
+    env:
+      HOMEBREW_NO_AUTO_UPDATE: 1
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Install stow
+        run: brew install stow
+
+      - name: Verify stow symlinks
+        run: |
+          set -euo pipefail
+          # Create dotfiles directory at expected location
+          if [[ "$HOME/.dotfiles" != "$GITHUB_WORKSPACE" ]]; then
+            ln -s "$GITHUB_WORKSPACE" "$HOME/.dotfiles"
+          fi
+          stow -v -d "$HOME/.dotfiles" -t "$HOME" homedir
+          # Verify key symlinks exist and point to correct targets
+          errors=0
+          for dotfile in .zshrc .shellaliases .shellfn .shellvars .shellpaths .gitconfig; do
+            target="$HOME/$dotfile"
+            if [[ -L "$target" ]]; then
+              real=$(readlink "$target")
+              if echo "$real" | grep -q '.dotfiles/homedir'; then
+                echo "OK: $target -> $real"
+              else
+                echo "FAIL: $target points to $real (expected .dotfiles/homedir)"
+                errors=$((errors + 1))
+              fi
+            else
+              echo "FAIL: $target is not a symlink"
+              errors=$((errors + 1))
+            fi
+          done
+          if [[ $errors -gt 0 ]]; then
+            echo "::error::$errors symlink(s) failed verification"
+            exit 1
+          fi
+          echo "All symlinks verified"
+
+      - name: Validate Brewfile
+        run: |
+          set -euo pipefail
+          if [[ -f Brewfile ]]; then
+            brew bundle list --file=Brewfile >/dev/null 2>&1 || {
+              echo "::error::Brewfile failed to parse"
+              exit 1
+            }
+            echo "Brewfile is valid"
+          else
+            echo "::warning::No Brewfile found"
+          fi
