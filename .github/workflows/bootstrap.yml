@@ -1,0 +1,94 @@
+name: Bootstrap CI
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  bootstrap:
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    strategy:
+      matrix:
+        os: [macos-15, macos-26]
+    env:
+      CI: true
+      HOMEBREW_NO_AUTO_UPDATE: 1
+      HOMEBREW_NO_INSTALL_CLEANUP: 1
+      HOMEBREW_BUNDLE_MAS_SKIP: 1
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Create dotfiles symlink
+        run: |
+          if [[ "$HOME/.dotfiles" != "$GITHUB_WORKSPACE" ]]; then
+            ln -s "$GITHUB_WORKSPACE" "$HOME/.dotfiles"
+          fi
+
+      - name: Install stow
+        run: brew install stow
+
+      - name: Run install.sh
+        working-directory: ${{ github.workspace }}
+        run: |
+          set -euo pipefail
+          bash install.sh
+        env:
+          CI: true
+          CI_GIT_USER: ci-user
+          CI_GIT_FULLNAME: CI User
+          CI_GIT_EMAIL: ci@localhost
+
+      - name: Verify symlinks
+        run: |
+          set -euo pipefail
+          errors=0
+          for dotfile in .zshrc .shellaliases .shellfn .shellvars .shellpaths .gitconfig; do
+            target="$HOME/$dotfile"
+            if [[ -L "$target" ]]; then
+              real=$(readlink "$target")
+              if echo "$real" | grep -q '.dotfiles/homedir'; then
+                echo "OK: $target -> $real"
+              else
+                echo "FAIL: $target -> $real"
+                errors=$((errors + 1))
+              fi
+            else
+              echo "FAIL: $target not a symlink"
+              errors=$((errors + 1))
+            fi
+          done
+          if [[ $errors -gt 0 ]]; then
+            echo "::error::$errors symlink(s) broken"
+            exit 1
+          fi
+
+      - name: Verify git config
+        run: |
+          set -euo pipefail
+          git config --global --get commit.template || {
+            echo "::error::commit.template not set"
+            exit 1
+          }
+          echo "Git config verified"
+
+      - name: Verify Homebrew packages
+        run: |
+          set -euo pipefail
+          for pkg in git zsh ruby; do
+            if brew list "$pkg" &>/dev/null; then
+              echo "OK: $pkg installed"
+            else
+              echo "WARN: $pkg not installed via brew"
+            fi
+          done
+
+      - name: Verify shell configuration
+        run: |
+          set -euo pipefail
+          # Check zshrc is loadable
+          zsh -n ~/.zshrc 2>&1 || echo "::warning::~/.zshrc has syntax issues"
+          echo "Shell config check complete"
