@@ -16,7 +16,7 @@
 #   Overwrite /etc/hosts?           | NO         | Not testing ad-blocking
 #   Git username?                   | ci-user    | Via CI_GIT_USER env var
 #   Full name (osascript)           | CI User    | Via CI_GIT_FULLNAME env var
-#   Email (dscl)                    | ci@local   | Via CI_GIT_EMAIL env var
+#   Email (dscl)                    | ci@localhost | Via CI_GIT_EMAIL env var
 #   Name correct?                   | YES        | Accept CI defaults
 #   Email correct?                  | YES        | Accept CI defaults
 #   Custom wallpaper?               | SKIP       | Entire section skipped
