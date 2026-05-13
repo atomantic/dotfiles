@@ -18,7 +18,6 @@ require('lazy').setup({
   spec = {
     -- add LazyVim and import its plugins
     { 'LazyVim/LazyVim', import = 'lazyvim.plugins' },
-    { import = 'lazyvim.plugins.extras.lsp.none-ls' },
     -- import/override with your plugins
     { import = 'plugins' },
   },
@@ -82,16 +81,3 @@ require('lazy').setup({
 --     },
 --   },
 -- })
-
---[[
-local lsp_zero = require("lsp-zero")
-
-lsp_zero.on_attach(function(client, bufnr)
-  -- see :help lsp-zero-keybindings-- to learn the available actions
-  lsp_zero.default_keymaps({ buffer = bufnr })
-end)
-
--- here you can setup the language servers
-require("lspconfig").tsserver.setup({})
-require("lspconfig").tailwindcss.setup({})
---]]

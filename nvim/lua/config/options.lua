@@ -2,12 +2,13 @@
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
 --
--- vim.lsp.set_log_level('debug')
 vim.lsp.set_log_level('off')
 
--- my own configs
--- vim.cmd('set autochdir=true')
-vim.cmd('cd ' .. vim.fn.getcwd())
+vim.g.lazyvim_python_lsp = 'pyright'
+vim.g.lazyvim_python_ruff = 'ruff'
+vim.g.lazyvim_ruby_lsp = 'solargraph'
+vim.g.lazyvim_ruby_formatter = 'rubocop'
+vim.g.lazyvim_prettier_needs_config = false
 
 -- Set indentation options
 vim.opt.autoindent = true
@@ -19,22 +20,7 @@ vim.opt.tabstop = 2
 vim.g.editorconfig = true
 vim.opt.listchars = { tab = '->', trail = '-', nbsp = '+', space = '·' }
 
--- Improve window pane navigation
--- from https://github.com/cpow/neovim-for-newbs/
-vim.keymap.set('n', '<c-k>', ':wincmd k<CR>')
-vim.keymap.set('n', '<c-j>', ':wincmd j<CR>')
-vim.keymap.set('n', '<c-h>', ':wincmd h<CR>')
-vim.keymap.set('n', '<c-l>', ':wincmd l<CR>')
+vim.opt.number = true
 
-vim.wo.number = true
-
--- Optimisations
-vim.opt.syntax = 'off' -- Disable syntax highlighting if using Treesitter
--- vim.opt.lazyredraw = true -- Redraw only when needed
 vim.opt.updatetime = 300 -- Faster updates for LSP/diagnostics
 vim.opt.timeoutlen = 500 -- Shorter key timeout
-vim.opt.history = 100 -- Limit command history
-vim.opt.undolevels = 100 -- Limit undo levels
-vim.opt.swapfile = false -- Disable swap files for speed
-vim.opt.backup = false
-vim.opt.writebackup = false

@@ -1,89 +1,50 @@
--- Reduced version of lsp-zero in case I want to take over myself due to lsp-zero side effects
--- Originally from github.com/cpow/neovim-for-newbs/
--- if true then return {} end
+local tools = require('helper.tool-installer-config')
+local is_check = vim.env.NVIM_DOTFILES_CHECK == '1'
 
 return {
   {
     'mason-org/mason.nvim',
-    lazy = false,
-    config = function()
-      require('mason').setup()
+    config = is_check and function()
+      require('mason').setup({})
+    end or nil,
+    opts = function(_, opts)
+      if is_check then
+        opts.ensure_installed = {}
+      end
     end,
   },
   {
     'mason-org/mason-lspconfig.nvim',
-    lazy = false,
-    opts = {
-      auto_install = true,
-    },
+    enabled = not is_check,
   },
   {
     'neovim/nvim-lspconfig',
-    lazy = false,
-    config = function()
-      local capabilities = require('cmp_nvim_lsp').default_capabilities()
+    opts = function(_, opts)
+      if is_check then
+        opts.servers = { ['*'] = opts.servers and opts.servers['*'] or {} }
+        return
+      end
 
-      local lspconfig = require('lspconfig')
-      lspconfig.tsserver.setup({ capabilities = capabilities })
-      lspconfig.solargraph.setup({ capabilities = capabilities })
-      lspconfig.html.setup({ capabilities = capabilities })
-      lspconfig.lua_ls.setup({ capabilities = capabilities })
-
-      vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
-      vim.keymap.set('n', '<leader>gd', vim.lsp.buf.definition, {})
-      vim.keymap.set('n', '<leader>gr', vim.lsp.buf.references, {})
-      vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {})
+      opts.servers = vim.tbl_deep_extend('force', opts.servers or {}, tools.lsp_servers)
     end,
   },
   {
     'WhoIsSethDaniel/mason-tool-installer.nvim',
+    enabled = not is_check,
+    event = 'VeryLazy',
+    dependencies = { 'mason-org/mason.nvim' },
     config = function()
       require('mason-tool-installer').setup({
-        ensure_installed = {
-          'ast-grep',
-          'chrome-debug-adapter',
-          'css-lsp',
-          'eslint-lsp',
-          'cucumber-language-server',
-          'reformat-gherkin',
-          'html-lsp',
-          'lua-language-server',
-          'json-lsp',
-          'markdownlint-cli2',
-          'mdformat',
-          'prettier',
-          'shellcheck',
-          'shfmt',
-          'sonarlint-language-server',
-          'stylelint-lsp',
-          'stylua',
-          'typescript-language-server',
-          'vim-language-server',
-          'vtsls',
-          'yaml-language-server',
-          'yq',
-
-          -- python
-          'black',
-          'debugpy',
-          'flake8',
-          'isort',
-          'pyright',
-          'python-lsp-server',
-
-          -- docker
-          'docker-compose-language-service',
-          'dockerfile-language-server',
-        },
-        run_on_start = true,
+        ensure_installed = tools.ensure_installed,
+        run_on_start = not is_check,
         start_delay = 3000,
-        debounce_hours = 5,
+        debounce_hours = 12,
       })
       vim.api.nvim_create_autocmd('User', {
         pattern = 'MasonToolsStartingInstall',
         callback = function()
           vim.schedule(function()
-            print('mason-tool-installer is starting')
+            vim.notify('Mason tool installer is starting', vim.log.levels.INFO)
           end)
         end,
       })
@@ -91,7 +52,7 @@ return {
         pattern = 'MasonToolsUpdateCompleted',
         callback = function(e)
           vim.schedule(function()
-            print('mason-tool-installer updated:\n' .. vim.inspect(e.data))
+            vim.notify('Mason tools updated: ' .. vim.inspect(e.data), vim.log.levels.INFO)
           end)
         end,
       })
