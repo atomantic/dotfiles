@@ -3,8 +3,13 @@
 # This script installs packages based on the selected profile
 # It reads the packages from packages.json
 
-source ./lib_sh/echos.sh
-source ./lib_sh/requirers.sh
+DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
+cd "$DOTFILES_DIR" || exit 1
+
+# shellcheck disable=SC1091
+source "$DOTFILES_DIR/lib_sh/echos.sh"
+# shellcheck disable=SC1091
+source "$DOTFILES_DIR/lib_sh/requirers.sh"
 
 PROFILE=$1
 
@@ -26,24 +31,30 @@ install_packages() {
   local type=$2
 
   if [[ "$type" == "brew" || "$type" == "cask" ]]; then
-    for package_json in $(jq -r ".$profile.$type[] | @base64" packages.json); do
+    for package_json in $(jq -r ".[\"$profile\"][\"$type\"][] | @base64" packages.json); do
       _jq() {
-        echo ${package_json} | base64 --decode | jq -r ${1}
+        echo "$package_json" | base64 --decode | jq -r "$1"
       }
-      local name=$(_jq '.name')
-      local options=$(_jq '.options')
-      require_"$type" "$name" "$options"
+      local name
+      local options
+      name=$(_jq '.name')
+      options=$(_jq '.options // ""')
+      if [[ -n "$options" ]]; then
+        require_"$type" "$name" "$options" || return 1
+      else
+        require_"$type" "$name" || return 1
+      fi
     done
   elif [[ "$type" == "mas" ]]; then
-    for mas_package in $(jq -r ".$profile.mas[] | @base64" packages.json); do
+    for mas_package in $(jq -r ".[\"$profile\"].mas[] | @base64" packages.json); do
       _jq() {
-       echo ${mas_package} | base64 --decode | jq -r ${1}
+       echo "$mas_package" | base64 --decode | jq -r "$1"
       }
-     require_mas "$(_jq '.name')" "$(_jq '.id')"
+     require_mas "$(_jq '.name')" "$(_jq '.id')" || return 1
     done
   else
-    for package in $(jq -r ".$profile.$type[]" packages.json); do
-      require_"$type" "$package"
+    for package in $(jq -r ".[\"$profile\"][\"$type\"][]" packages.json); do
+      require_"$type" "$package" || return 1
     done
   fi
 }
@@ -51,21 +62,21 @@ install_packages() {
 # Install common packages
 bot "Installing common packages..."
 for type in brew cask npm gem vscode mas; do
-  install_packages "common" "$type"
+  install_packages "common" "$type" || exit 1
 done
 
 # Install profile-specific packages
 if [[ "$PROFILE" == "private" || "$PROFILE" == "combined" ]]; then
   bot "Installing private packages..."
   for type in brew cask npm gem vscode mas; do
-    install_packages "private" "$type"
+    install_packages "private" "$type" || exit 1
   done
 fi
 
 if [[ "$PROFILE" == "business" || "$PROFILE" == "combined" ]]; then
   bot "Installing business packages..."
   for type in brew cask npm gem vscode mas; do
-    install_packages "business" "$type"
+    install_packages "business" "$type" || exit 1
   done
 fi
 

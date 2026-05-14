@@ -32,10 +32,13 @@
 #   Final brew update/upgrade       | SKIP       | Already clean
 ###########################
 
+DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
+cd "$DOTFILES_DIR" || exit 1
+
 # include my library helpers for colorized echo and require_brew, etc
-source ./lib_sh/echos.sh
-source ./lib_sh/requirers.sh
-source ./lib_sh/asdf_setup.sh
+source "$DOTFILES_DIR/lib_sh/echos.sh"
+source "$DOTFILES_DIR/lib_sh/requirers.sh"
+source "$DOTFILES_DIR/lib_sh/asdf_setup.sh"
 
 bot "Hi! I'm going to install tooling and tweak your system settings. Here I go..."
 
@@ -195,7 +198,7 @@ if [[ -z ${CI:-} ]]; then
     if [[ $response =~ (yes|y|Y) ]]; then
       running "Set a custom wallpaper image"
       # rm -rf ~/Library/Application Support/Dock/desktoppicture.db
-      bot "I will backup system wallpapers in ~/.dotfiles/img/"
+      bot "I will backup system wallpapers in $DOTFILES_DIR/img/"
       sudo cp /System/Library/CoreServices/DefaultDesktop.jpg img/DefaultDesktop.jpg >/dev/null 2>&1
       sudo cp /Library/Desktop\ Pictures/El\ Capitan.jpg img/El\ Capitan.jpg >/dev/null 2>&1
       sudo cp /Library/Desktop\ Pictures/Sierra.jpg img/Sierra.jpg >/dev/null 2>&1
@@ -313,26 +316,37 @@ if [[ ! -d "./oh-my-zsh/custom/themes/powerlevel10k" ]]; then
   git clone https://github.com/romkatv/powerlevel10k.git oh-my-zsh/custom/themes/powerlevel10k
 fi
 
-if [[ -z ${CI:-} ]]; then
+if [[ -n ${CI:-} ]]; then
+  ok "CI: skipped p10k configure"
+elif command -v p10k >/dev/null 2>&1; then
   p10k configure
+else
+  warn "p10k command not found; run 'p10k configure' after restarting your shell"
 fi
 
 bot "Dotfiles Setup"
 bot "symlinking homedir dotfiles with GNU stow"
 if [[ -n ${CI:-} ]]; then
-  for f in "$HOME/.dotfiles/homedir"/.*; do
+  for f in "$DOTFILES_DIR/homedir"/.*; do
     base=$(basename "$f")
     [[ "$base" == "." || "$base" == ".." ]] && continue
     [[ -e "$HOME/$base" && ! -L "$HOME/$base" ]] && rm -rf "$HOME/$base"
   done
 fi
-stow -v -d "$HOME/.dotfiles" -t "$HOME" homedir
+stow -v -d "$DOTFILES_DIR" -t "$HOME" homedir || exit 1
 
 # Initializing templates
 git config --global commit.template ~/.gitmessage
 
 bot "create symlink for nvim"
-ln -s ~/.dotfiles/nvim ~/.config/nvim
+mkdir -p "$HOME/.config"
+if [[ -L "$HOME/.config/nvim" ]]; then
+  ln -sfn "$DOTFILES_DIR/nvim" "$HOME/.config/nvim"
+elif [[ -e "$HOME/.config/nvim" ]]; then
+  warn "$HOME/.config/nvim already exists and is not a symlink; skipping nvim symlink"
+else
+  ln -s "$DOTFILES_DIR/nvim" "$HOME/.config/nvim"
+fi
 
 bot "VIM Setup"
 if [[ -z ${CI:-} ]]; then
@@ -383,7 +397,7 @@ npm config set save-exact true
 install_asdf_plugins
 
 bot "Installing packages (combined profile)..."
-./install_packages.sh combined
+"$DOTFILES_DIR/install_packages.sh" combined || exit 1
 
 running "cleanup homebrew"
 brew cleanup --force >/dev/null 2>&1
