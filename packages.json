@@ -69,6 +69,7 @@
       { "name": "moreutils", "description": "Collection of miscellaneous GNU utilities" },
       { "name": "navi", "description": "An interactive cheatsheet tool for the command-line" },
       { "name": "tree-sitter", "description": "Parser generator tool and an incremental parsing library" },
+      { "name": "tree-sitter-cli", "description": "Command-line interface for tree-sitter grammars" },
       { "name": "neovim", "description": "Ambitious Vim-fork focused on extensibility and agility" },
       { "name": "nmap", "description": "Port scanning utility for large networks" },
       { "name": "nvm", "description": "Manage multiple Node.js versions" },

@@ -20,6 +20,7 @@ Local files should extend LazyVim through plugin `opts` instead of replacing Laz
 - General command-line tools are installed through `mason-tool-installer.nvim`.
 - Formatting uses `conform.nvim`.
 - Linting uses `nvim-lint`.
+- Language tool installs are gated by local toolchain availability in `lua/helper/toolchain.lua`.
 - Python uses LazyVim's Python extra with Pyright and Ruff.
 - Ruby is configured to use Solargraph through LazyVim's Ruby extra.
 
@@ -33,6 +34,7 @@ Run the smoke check after changing the Neovim config or updating plugins:
 ./nvim/check_config.sh
 ```
 
-The check runs Neovim headlessly against the repo config, checks representative filetypes, and verifies
-the expected plugin specs. It sets `NVIM_DOTFILES_CHECK=1`, which prevents the local Mason tool installer
-from starting automatic installs during the check.
+The check runs Neovim headlessly with this repo's `nvim/` directory as the active XDG config, checks
+representative filetypes, verifies expected plugin specs, and confirms configured plugins are represented in
+`lazy-lock.json`. It sets `NVIM_DOTFILES_CHECK=1`, which disables Lazy update checks, Lazy missing-plugin
+installs, Lazy bootstrap cloning, and the local Mason tool installer during the check.

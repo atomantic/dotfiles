@@ -1,3 +1,4 @@
+local toolchain = require('helper.toolchain')
 local tools = require('helper.tool-installer-config')
 local is_check = vim.env.NVIM_DOTFILES_CHECK == '1'
 
@@ -10,12 +11,17 @@ return {
     opts = function(_, opts)
       if is_check then
         opts.ensure_installed = {}
+      else
+        opts.ensure_installed = toolchain.filter_mason_tools(opts.ensure_installed)
       end
     end,
   },
   {
     'mason-org/mason-lspconfig.nvim',
     enabled = not is_check,
+    opts = function(_, opts)
+      opts.ensure_installed = toolchain.filter_names(opts.ensure_installed, toolchain.lsp_servers)
+    end,
   },
   {
     'neovim/nvim-lspconfig',
@@ -26,6 +32,7 @@ return {
       end
 
       opts.servers = vim.tbl_deep_extend('force', opts.servers or {}, tools.lsp_servers)
+      opts.servers = toolchain.gate_lsp_servers(opts.servers)
     end,
   },
   {
@@ -35,7 +42,7 @@ return {
     dependencies = { 'mason-org/mason.nvim' },
     config = function()
       require('mason-tool-installer').setup({
-        ensure_installed = tools.ensure_installed,
+        ensure_installed = toolchain.filter_mason_tools(tools.ensure_installed),
         run_on_start = not is_check,
         start_delay = 3000,
         debounce_hours = 12,
