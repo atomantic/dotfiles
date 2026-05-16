@@ -28,7 +28,8 @@ A **macOS dotfiles and system configuration automation project** that automates 
 ├── nvim/                  # Neovim/LazyVim configuration
 │   └── lua/               # Lua plugin configurations
 ├── configs/               # App configurations (iTerm, hosts)
-└── scripts/               # Utility shell scripts
+├── scripts/               # Utility shell scripts
+└── .compound-engineering/solutions/  # Documented solutions and tooling decisions
 ```
 
 ## Build/Install Commands
@@ -45,6 +46,9 @@ npm install                # Install Node.js dependencies
 
 ### Testing
 This project has no formal test suite. The `npm test` command is not implemented.
+
+### Documented Solutions
+`.compound-engineering/solutions/` contains documented solutions to past problems, tooling decisions, conventions, and workflow patterns. Entries are organized by category and searchable via YAML frontmatter such as `module`, `problem_type`, and `tags`; relevant when implementing or debugging in documented areas. The `docs/` tree is not used for AI learning artifacts.
 
 ### Linting
 ```bash
