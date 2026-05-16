@@ -2,6 +2,8 @@ name: Bootstrap CI
 on:
   push:
     branches: [main]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 jobs:
@@ -35,7 +37,7 @@ jobs:
         working-directory: ${{ github.workspace }}
         run: |
           set -euo pipefail
-          bash install.sh
+          bash install.sh ./software
         env:
           CI: true
           CI_GIT_USER: ci-user

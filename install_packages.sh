@@ -120,24 +120,35 @@ validate_manifest_line() {
         error "Malformed $type entry in $source_file: $line"
         return 1
       fi
+      part1="$(trim_manifest_line "$line")"
+      if [[ -z "$part1" ]]; then
+        error "Malformed $type entry in $source_file: package name is required"
+        return 1
+      fi
       ;;
     cask)
       IFS='|' read -r part1 part2 part3 <<< "$line"
-      if [[ -n "${part3:-}" ]]; then
+      part1="$(trim_manifest_line "$part1")"
+      part2="$(trim_manifest_line "${part2:-}")"
+      if [[ -z "$part1" || -n "${part3:-}" || ( "$line" == *"|"* && -z "$part2" ) ]]; then
         error "Malformed cask entry in $source_file: $line"
         return 1
       fi
       ;;
     brew)
       IFS='|' read -r part1 part2 part3 <<< "$line"
-      if [[ -n "${part3:-}" ]]; then
+      part1="$(trim_manifest_line "$part1")"
+      part2="$(trim_manifest_line "${part2:-}")"
+      if [[ -z "$part1" || -n "${part3:-}" || ( "$line" == *"|"* && -z "$part2" ) ]]; then
         error "Malformed brew entry in $source_file: $line"
         return 1
       fi
       ;;
     mas)
       IFS='|' read -r part1 part2 part3 <<< "$line"
-      if [[ -z "${part1:-}" || -z "${part2:-}" || -n "${part3:-}" ]]; then
+      part1="$(trim_manifest_line "$part1")"
+      part2="$(trim_manifest_line "${part2:-}")"
+      if [[ -z "$part1" || -z "$part2" || -n "${part3:-}" || ! "$part2" =~ ^[0-9]+$ ]]; then
         error "Malformed mas entry in $source_file: $line"
         return 1
       fi
@@ -145,6 +156,40 @@ validate_manifest_line() {
     *)
       error "Unknown package type '$type' in $source_file"
       return 1
+      ;;
+  esac
+
+  return 0
+}
+
+provider_available() {
+  local type="$1"
+  local label="$2"
+  local nvm_script
+
+  case "$type" in
+    npm)
+      if ! command -v brew >/dev/null 2>&1; then
+        warn "skipping $label; Homebrew is required to locate nvm"
+        return 1
+      fi
+      nvm_script="$(brew --prefix nvm 2>/dev/null)/nvm.sh"
+      if [[ ! -r "$nvm_script" ]]; then
+        warn "skipping $label; nvm is not installed"
+        return 1
+      fi
+      ;;
+    mas)
+      if ! command -v mas >/dev/null 2>&1; then
+        warn "skipping $label; mas is not installed"
+        return 1
+      fi
+      ;;
+    vscode)
+      if ! command -v code >/dev/null 2>&1; then
+        warn "skipping $label; VS Code command line tool 'code' is not installed"
+        return 1
+      fi
       ;;
   esac
 
@@ -264,6 +309,8 @@ install_type() {
     action "skipping $label in CI"
     return 0
   fi
+
+  provider_available "$type" "$label" || return 0
 
   read -r -p "Do you want to install $label? [y|N] " response
   if [[ ! $response =~ (yes|y|Y) ]]; then

@@ -12,7 +12,7 @@ This directory is the canonical package source for `install.sh` and `install_pac
 - `mas.list` - Mac App Store apps
 - `vscode.list` - VS Code extensions
 
-Root-level files are the common package set. Profile-specific overrides live in `private/` and `business/`.
+Root-level files are the common package set. Profile-specific additions live in `private/` and `business/`. Profile files are appended after the common files; they do not remove or replace common entries.
 
 ## Line Format
 
@@ -30,4 +30,4 @@ For `brew.list`, the option string is passed through to the existing installer h
 
 ## Adding Packages
 
-Edit the relevant list file and add a new line. Keep comments on their own lines when possible so the parser stays simple and the file remains easy to scan.
+Edit the relevant list file and add a new line. Keep comments on their own lines when possible so the parser stays simple and the file remains easy to scan. Custom software directories must include every root manifest file listed above, even when some files are intentionally empty.

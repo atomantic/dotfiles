@@ -45,7 +45,8 @@ if [[ -n "${1:-}" ]]; then
   if [[ -d "$1" ]]; then
     SOFTWARE_DIR="$(cd "$1" && pwd -P)"
   else
-    warn "Ignoring unexpected argument '$1'; expected a software manifest directory."
+    error "Software manifest directory not found: $1"
+    exit 1
   fi
 fi
 

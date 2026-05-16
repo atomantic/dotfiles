@@ -106,7 +106,7 @@ require_vscode extension_id       # Install VS Code extension
 #### Software Manifests
 - Keep package inventory in `software/*.list`
 - Use `software/private/*.list` and `software/business/*.list` only for overlay packages
-- Keep one package per line and avoid inline syntax that would confuse the bash reader
+- Keep one package per line; use pipe-delimited metadata only where `software/README.md` documents it
 
 #### Error Handling
 - Check command exit status with `$?` or `${PIPESTATUS[0]}`
