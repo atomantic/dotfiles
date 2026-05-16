@@ -56,16 +56,10 @@ jobs:
           fi
           echo "All zsh files pass syntax check"
 
-      - name: JSON validation
+      - name: Software manifest validation
         run: |
           set -euo pipefail
-          for f in packages.json; do
-            if [[ -f "$f" ]]; then
-              if ! jq empty "$f" 2>&1; then
-                echo "::error::$f is not valid JSON"
-                exit 1
-              fi
-              echo "OK: $f"
-            fi
-          done
-          echo "All JSON files valid"
+          if [[ -d software ]]; then
+            ./install_packages.sh --check combined
+          fi
+          echo "Software manifests validated"

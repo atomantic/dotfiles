@@ -11,9 +11,9 @@ A **macOS dotfiles and system configuration automation project** that automates 
 ```
 .dotfiles/
 ├── install.sh             # Main installation script
-├── install_packages.sh    # Profile-based package installer
-├── Brewfile               # Homebrew bundle (brew, cask, mas, vscode)
-├── packages.json          # Package profiles (common/private/business)
+├── install_packages.sh    # Software manifest installer
+├── Brewfile               # Homebrew bundle (legacy/manual extras)
+├── software/              # Package manifests (common/private/business)
 ├── homedir/               # Dotfiles symlinked to ~ via GNU stow
 │   ├── .gitconfig         # Git configuration
 │   ├── .zshrc             # ZSH configuration
@@ -35,7 +35,10 @@ A **macOS dotfiles and system configuration automation project** that automates 
 
 ```bash
 ./install.sh               # Full system setup (run from Terminal, not iTerm)
-./install_packages.sh      # Profile-based package installation
+./install.sh ./software     # Full setup with an explicit software manifest directory
+./install_packages.sh      # Install software manifests
+./install_packages.sh private   # Install private overlay packages
+./install_packages.sh business  # Install business overlay packages
 brew bundle                 # Install Homebrew packages from Brewfile
 npm install                # Install Node.js dependencies
 ```
@@ -99,6 +102,11 @@ require_mas "App Name" app_id     # Install Mac App Store app
 require_tap user/repo             # Add Homebrew tap
 require_vscode extension_id       # Install VS Code extension
 ```
+
+#### Software Manifests
+- Keep package inventory in `software/*.list`
+- Use `software/private/*.list` and `software/business/*.list` only for overlay packages
+- Keep one package per line and avoid inline syntax that would confuse the bash reader
 
 #### Error Handling
 - Check command exit status with `$?` or `${PIPESTATUS[0]}`

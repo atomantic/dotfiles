@@ -108,7 +108,7 @@ Do the following to upgrade your ~/.dotfiles safely:
 2. `cd ~/.dotfiles`
 3. update dotfiles: `git up` or `git pull`
 4. remove old submodule location: `rm -rf .vim` (now lives in `homedir/.vim`)
-5. inspect `install.sh` and `config.js` to make sure all the software you want is installed
+5. inspect `install.sh` and `software/` to make sure all the software you want is installed
 6. inspect `homedir/*` for any changes you want to port from `./dotfiles_old`
 7. run `install.sh` again
 
@@ -328,9 +328,16 @@ The following will only happen if you agree on the prompt
 
 # Software Installation
 
-homebrew, fontconfig, git, nvm (node + npm), and zsh (latest) are all installed inside the `install.sh` as foundational software for running this project.
-Additional software is configured in `config.js` and can be customized in your own fork/branch (you can change everything in your own fork/brance).
-The following is the software that I have set as default:
+`install.sh` installs the foundational tools needed to run the rest of the setup. The package inventory now lives in `software/` as plain text lists grouped by type and profile.
+
+- `software/*.list` is the common/default set
+- `software/private/*.list` adds private-only packages
+- `software/business/*.list` adds business-only packages
+
+Run `./install_packages.sh` directly if you want to install just the package manifests without the rest of the system configuration.
+You can also run `./install.sh ./software` to point the full installer at a different software manifest directory.
+
+The following is the default common software set:
 
 ## Utilities
 

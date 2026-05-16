@@ -40,6 +40,15 @@ source "$DOTFILES_DIR/lib_sh/echos.sh"
 source "$DOTFILES_DIR/lib_sh/requirers.sh"
 source "$DOTFILES_DIR/lib_sh/asdf_setup.sh"
 
+SOFTWARE_DIR="$DOTFILES_DIR/software"
+if [[ -n "${1:-}" ]]; then
+  if [[ -d "$1" ]]; then
+    SOFTWARE_DIR="$(cd "$1" && pwd -P)"
+  else
+    warn "Ignoring unexpected argument '$1'; expected a software manifest directory."
+  fi
+fi
+
 bot "Hi! I'm going to install tooling and tweak your system settings. Here I go..."
 
 # Do we need to ask for sudo password or is it already passwordless?
@@ -373,7 +382,7 @@ if [[ $response =~ (y|yes|Y) ]]; then
   bot "installing fonts"
   # need fontconfig to install/build fonts
   require_brew fontconfig
-  brew tap homebrew/cask-fonts
+  require_tap homebrew/cask-fonts
   # Using JetBrains Mono Nerd Font as the single font for all terminal/editor needs
   require_cask font-jetbrains-mono-nerd-font
   ok
@@ -396,8 +405,8 @@ npm config set save-exact true
 
 install_asdf_plugins
 
-bot "Installing packages (combined profile)..."
-"$DOTFILES_DIR/install_packages.sh" combined || exit 1
+bot "Installing packages from software manifests (combined profile)..."
+"$DOTFILES_DIR/install_packages.sh" "$SOFTWARE_DIR" combined || exit 1
 
 running "cleanup homebrew"
 brew cleanup --force >/dev/null 2>&1
