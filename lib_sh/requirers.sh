@@ -87,50 +87,19 @@ function require_node() {
 }
 
 function require_npm() {
-  sourceNVM || return 1
-  nvm use stable || nvm use default || true
-  running "npm $*"
-  npm list -g --depth 0 | grep $1@ >/dev/null
-  if [[ $? != 0 ]]; then
-    action "npm install -g $*"
-    npm install -g "$@" || return 1
-  fi
-  ok
-}
-
-function sourceNVM() {
-  export NVM_DIR="$HOME/.nvm"
-  local nvm_script
-  nvm_script="$(brew --prefix nvm)/nvm.sh"
-  if [[ -r "$nvm_script" ]]; then
-    source "$nvm_script"
-  else
-    error "nvm is installed but $nvm_script is not readable"
+  if ! command -v mise >/dev/null 2>&1; then
+    error "mise is required before installing global npm packages"
     return 1
   fi
-}
 
-function require_nvm() {
-  local version=${1:-}
+  mise install node@22 || return 1
 
-  if [[ -z "$version" && -r ".nvmrc" ]]; then
-    version=$(<.nvmrc)
-  elif [[ -z "$version" && -r "./homedir/.nvmrc" ]]; then
-    version=$(<./homedir/.nvmrc)
+  running "npm $*"
+  mise exec node@22 -- npm list -g --depth 0 | grep $1@ >/dev/null
+  if [[ $? != 0 ]]; then
+    action "npm install -g $*"
+    mise exec node@22 -- npm install -g "$@" || return 1
   fi
-
-  if [[ -z "$version" ]]; then
-    warn "No Node version provided and no .nvmrc found; skipping Node install"
-    return 0
-  fi
-
-  mkdir -p "$HOME/.nvm"
-  cp "$(brew --prefix nvm)/nvm-exec" "$HOME/.nvm/"
-  sourceNVM || return 1
-
-  nvm install "$version" || return 1
-  nvm alias default "$version" >/dev/null
-  nvm use "$version" >/dev/null
   ok
 }
 

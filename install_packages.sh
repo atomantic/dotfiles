@@ -165,17 +165,11 @@ validate_manifest_line() {
 provider_available() {
   local type="$1"
   local label="$2"
-  local nvm_script
 
   case "$type" in
     npm)
-      if ! command -v brew >/dev/null 2>&1; then
-        warn "skipping $label; Homebrew is required to locate nvm"
-        return 1
-      fi
-      nvm_script="$(brew --prefix nvm 2>/dev/null)/nvm.sh"
-      if [[ ! -r "$nvm_script" ]]; then
-        warn "skipping $label; nvm is not installed"
+      if ! command -v mise >/dev/null 2>&1; then
+        warn "skipping $label; mise is not installed"
         return 1
       fi
       ;;

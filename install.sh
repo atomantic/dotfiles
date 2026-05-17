@@ -395,10 +395,11 @@ fi
 #   ok
 # fi
 
-# always pin versions (no surprises, consistent dev/build machines)
-npm config set save-exact true
+require_brew mise
+setup_mise_tools || exit 1
 
-setup_mise_tools
+# always pin versions (no surprises, consistent dev/build machines)
+mise exec node@22 -- npm config set save-exact true || exit 1
 
 bot "Installing packages from software manifests (combined profile)..."
 "$DOTFILES_DIR/install_packages.sh" "$SOFTWARE_DIR" combined || exit 1

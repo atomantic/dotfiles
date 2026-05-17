@@ -67,13 +67,11 @@ tree-sitter
 tree-sitter-cli
 neovim
 nmap
-nvm
 nvtop
 podman
 podman-compose
 podman-tui
 portaudio
-pyenv
 reattach-to-user-namespace
 ripgrep
 sevenzip
