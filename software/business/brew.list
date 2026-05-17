@@ -1,0 +1,17 @@
+# Business Homebrew utilities
+dotnet
+gradle
+ios-deploy
+k9s
+kubectx
+minikube
+mintoolkit
+nginx|restart_service: :changed
+postgresql@15
+openjdk@17
+pandoc
+pkgconf
+# stgit
+tcl-tk
+xcbeautify
+xcodegen

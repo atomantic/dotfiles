@@ -36,7 +36,7 @@ return {
         },
         opts = { lazy = true, lsp = { auto_attach = true } },
         keys = {
-          { '<leader>cn', '<cmd>Navbuddy<CR>', { desc = 'Open Navbuddy' } },
+          { '<leader>cn', '<cmd>Navbuddy<CR>', desc = 'Open Navbuddy' },
         },
       },
     },

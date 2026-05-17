@@ -2,6 +2,6 @@
 legacy_version_file = true
 
 [tools]
-node = "24"
+node = "22"
 bun = "latest"
 python = "3.14"

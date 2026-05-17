@@ -20,9 +20,9 @@ This repository separates user-facing files by their target location:
 ```
 .dotfiles/
 ├── install.sh             # Main installation script
-├── install_packages.sh    # Profile-based package installer
-├── Brewfile               # Homebrew bundle (brew, cask, mas, vscode)
-├── packages.json          # Package profiles (common/private/business)
+├── install_packages.sh    # Software manifest installer
+├── Brewfile               # Homebrew bundle (legacy/manual extras)
+├── software/              # Package manifests (common/private/business)
 ├── homedir/               # Dotfiles symlinked to ~ via GNU stow
 │   ├── .gitconfig         # Git configuration
 │   ├── .zshrc             # ZSH configuration
@@ -37,14 +37,18 @@ This repository separates user-facing files by their target location:
 ├── nvim/                  # Neovim/LazyVim configuration
 │   └── lua/               # Lua plugin configurations
 ├── configs/               # App configurations (iTerm, hosts)
-└── scripts/               # Utility shell scripts
+├── scripts/               # Utility shell scripts
+└── .compound-engineering/solutions/  # Documented solutions and tooling decisions
 ```
 
 ## Build/Install Commands
 
 ```bash
 ./install.sh               # Full system setup (run from Terminal, not iTerm)
-./install_packages.sh      # Profile-based package installation
+./install.sh ./software     # Full setup with an explicit software manifest directory
+./install_packages.sh      # Install software manifests
+./install_packages.sh private   # Install private overlay packages
+./install_packages.sh business  # Install business overlay packages
 brew bundle                 # Install Homebrew packages from Brewfile
 npm install                # Install Node.js dependencies
 ```
@@ -52,6 +56,9 @@ npm install                # Install Node.js dependencies
 ### Testing
 
 This project has no formal test suite. The `npm test` command is not implemented.
+
+### Documented Solutions
+`.compound-engineering/solutions/` contains documented solutions to past problems, tooling decisions, conventions, and workflow patterns. Entries are organized by category and searchable via YAML frontmatter such as `module`, `problem_type`, and `tags`; relevant when implementing or debugging in documented areas. The `docs/` tree is not used for AI learning artifacts.
 
 ### Linting
 
@@ -119,6 +126,11 @@ require_mas "App Name" app_id     # Install Mac App Store app
 require_tap user/repo             # Add Homebrew tap
 require_vscode extension_id       # Install VS Code extension
 ```
+
+#### Software Manifests
+- Keep package inventory in `software/*.list`
+- Use `software/private/*.list` and `software/business/*.list` only for overlay packages
+- Keep one package per line; use pipe-delimited metadata only where `software/README.md` documents it
 
 #### Error Handling
 

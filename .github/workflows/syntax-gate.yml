@@ -69,3 +69,11 @@ jobs:
             fi
           done
           echo "All JSON files valid"
+
+      - name: Software manifest validation
+        run: |
+          set -euo pipefail
+          if [[ -d software ]]; then
+            ./install_packages.sh --check combined
+          fi
+          echo "Software manifests validated"

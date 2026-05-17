@@ -1,5 +1,9 @@
 name: Bootstrap CI
 on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 jobs:
@@ -33,7 +37,7 @@ jobs:
         working-directory: ${{ github.workspace }}
         run: |
           set -euo pipefail
-          bash install.sh
+          bash install.sh ./software
         env:
           CI: true
           CI_GIT_USER: ci-user
@@ -67,8 +71,12 @@ jobs:
       - name: Verify git config
         run: |
           set -euo pipefail
-          git config --global --get commit.template || {
-            echo "::error::commit.template not set"
+          git config --global --get user.email || {
+            echo "::error::user.email not set"
+            exit 1
+          }
+          git config --global --get init.defaultBranch | grep -qx main || {
+            echo "::error::init.defaultBranch is not main"
             exit 1
           }
           echo "Git config verified"

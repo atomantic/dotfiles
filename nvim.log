@@ -1,0 +1,13 @@
+WRN 2026-05-14T02:15:44.230 ?.94129    server_start:197: Failed to start server: operation not permitted: /var/folders/nt/yvjqkg4130x9mdzyc9l6khv00000gn/T/nvim.agent1/hsZzVF/nvim.94129.0
+WRN 2026-05-14T02:15:57.499 ?.94273    server_start:197: Failed to start server: operation not permitted: /var/folders/nt/yvjqkg4130x9mdzyc9l6khv00000gn/T/nvim.agent1/2K5koz/nvim.94273.0
+WRN 2026-05-14T02:16:07.975 ?.94432    server_start:197: Failed to start server: operation not permitted: /var/folders/nt/yvjqkg4130x9mdzyc9l6khv00000gn/T/nvim.agent1/FXVTYn/nvim.94432.0
+WRN 2026-05-14T02:16:07.975 ?.94437    server_start:197: Failed to start server: operation not permitted: /var/folders/nt/yvjqkg4130x9mdzyc9l6khv00000gn/T/nvim.agent1/K5uP2X/nvim.94437.0
+WRN 2026-05-14T02:16:28.949 ?.94579    server_start:197: Failed to start server: operation not permitted: /var/folders/nt/yvjqkg4130x9mdzyc9l6khv00000gn/T/nvim.agent1/R9j2w8/nvim.94579.0
+WRN 2026-05-14T02:16:28.963 ?.94581    server_start:197: Failed to start server: operation not permitted: /var/folders/nt/yvjqkg4130x9mdzyc9l6khv00000gn/T/nvim.agent1/4RRrd1/nvim.94581.0
+WRN 2026-05-14T02:16:55.587 ?.94823    server_start:197: Failed to start server: operation not permitted: /var/folders/nt/yvjqkg4130x9mdzyc9l6khv00000gn/T/nvim.agent1/ti9gsm/nvim.94823.0
+WRN 2026-05-14T02:20:39.216 ?.95273    server_start:197: Failed to start server: operation not permitted: /var/folders/nt/yvjqkg4130x9mdzyc9l6khv00000gn/T/nvim.agent1/jfgIcL/nvim.95273.0
+WRN 2026-05-14T02:20:46.033 ?.95375    server_start:197: Failed to start server: operation not permitted: /var/folders/nt/yvjqkg4130x9mdzyc9l6khv00000gn/T/nvim.agent1/bhyPz3/nvim.95375.0
+WRN 2026-05-14T02:20:53.489 ?.95461    server_start:197: Failed to start server: operation not permitted: /var/folders/nt/yvjqkg4130x9mdzyc9l6khv00000gn/T/nvim.agent1/oaGCQn/nvim.95461.0
+WRN 2026-05-14T02:24:52.776 ?.95968    server_start:197: Failed to start server: operation not permitted: /var/folders/nt/yvjqkg4130x9mdzyc9l6khv00000gn/T/nvim.agent1/XIM3rc/nvim.95968.0
+WRN 2026-05-14T02:24:52.779 ?.95969    server_start:197: Failed to start server: operation not permitted: /var/folders/nt/yvjqkg4130x9mdzyc9l6khv00000gn/T/nvim.agent1/ov7182/nvim.95969.0
+WRN 2026-05-14T02:37:44.481 ?.1060     server_start:197: Failed to start server: operation not permitted: /var/folders/nt/yvjqkg4130x9mdzyc9l6khv00000gn/T/nvim.agent1/fN5YrA/nvim.1060.0

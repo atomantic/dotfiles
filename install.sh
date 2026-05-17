@@ -32,10 +32,23 @@
 #   Final brew update/upgrade       | SKIP       | Already clean
 ###########################
 
+DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
+cd "$DOTFILES_DIR" || exit 1
+
 # include my library helpers for colorized echo and require_brew, etc
-source ./lib_sh/echos.sh
-source ./lib_sh/requirers.sh
-source ./lib_sh/asdf_setup.sh
+source "$DOTFILES_DIR/lib_sh/echos.sh"
+source "$DOTFILES_DIR/lib_sh/requirers.sh"
+source "$DOTFILES_DIR/lib_sh/mise_setup.sh"
+
+SOFTWARE_DIR="$DOTFILES_DIR/software"
+if [[ -n "${1:-}" ]]; then
+  if [[ -d "$1" ]]; then
+    SOFTWARE_DIR="$(cd "$1" && pwd -P)"
+  else
+    error "Software manifest directory not found: $1"
+    exit 1
+  fi
+fi
 
 bot "Hi! I'm going to install tooling and tweak your system settings. Here I go..."
 
@@ -195,7 +208,7 @@ if [[ -z ${CI:-} ]]; then
     if [[ $response =~ (yes|y|Y) ]]; then
       running "Set a custom wallpaper image"
       # rm -rf ~/Library/Application Support/Dock/desktoppicture.db
-      bot "I will backup system wallpapers in ~/.dotfiles/img/"
+      bot "I will backup system wallpapers in $DOTFILES_DIR/img/"
       sudo cp /System/Library/CoreServices/DefaultDesktop.jpg img/DefaultDesktop.jpg >/dev/null 2>&1
       sudo cp /Library/Desktop\ Pictures/El\ Capitan.jpg img/El\ Capitan.jpg >/dev/null 2>&1
       sudo cp /Library/Desktop\ Pictures/Sierra.jpg img/Sierra.jpg >/dev/null 2>&1
@@ -313,24 +326,32 @@ if [[ ! -d "./oh-my-zsh/custom/themes/powerlevel10k" ]]; then
   git clone https://github.com/romkatv/powerlevel10k.git oh-my-zsh/custom/themes/powerlevel10k
 fi
 
-if [[ -z ${CI:-} ]]; then
+if [[ -n ${CI:-} ]]; then
+  ok "CI: skipped p10k configure"
+elif command -v p10k >/dev/null 2>&1; then
   p10k configure
+else
+  warn "p10k command not found; run 'p10k configure' after restarting your shell"
 fi
 
 bot "Dotfiles Setup"
 bot "symlinking homedir dotfiles with GNU stow"
+mkdir -p "$HOME/.config"
+if [[ -L "$HOME/.config/mise" ]] && [[ "$(readlink "$HOME/.config/mise")" == *".dotfiles/config/mise" ]]; then
+  rm "$HOME/.config/mise"
+fi
 if [[ -n ${CI:-} ]]; then
-  for f in "$HOME/.dotfiles/homedir"/.*; do
+  for f in "$DOTFILES_DIR/homedir"/.*; do
     base=$(basename "$f")
     [[ "$base" == "." || "$base" == ".." ]] && continue
+    [[ "$base" == ".config" ]] && continue
     [[ -e "$HOME/$base" && ! -L "$HOME/$base" ]] && rm -rf "$HOME/$base"
   done
 fi
-
-stow -v -d "$HOME/.dotfiles" -t "$HOME" homedir
+stow -v -d "$DOTFILES_DIR" -t "$HOME" homedir || exit 1
 
 bot "symlinking .config dotfiles with GNU stow"
-stow -v -d "$HOME/.dotfiles" -t "$HOME/.config" config
+stow -v -d "$DOTFILES_DIR" -t "$HOME/.config" config || exit 1
 
 bot "VIM Setup"
 if [[ -z ${CI:-} ]]; then
@@ -357,7 +378,7 @@ if [[ $response =~ (y|yes|Y) ]]; then
   bot "installing fonts"
   # need fontconfig to install/build fonts
   require_brew fontconfig
-  brew tap homebrew/cask-fonts
+  require_tap homebrew/cask-fonts
   # Using JetBrains Mono Nerd Font as the single font for all terminal/editor needs
   require_cask font-jetbrains-mono-nerd-font
   ok
@@ -369,19 +390,14 @@ fi
 #   ok
 # fi
 
-# node version manager
-require_brew nvm
-
-# nvm -- install the version from the .nvmrc file
-require_nvm
+require_brew mise
+setup_mise_tools || exit 1
 
 # always pin versions (no surprises, consistent dev/build machines)
-npm config set save-exact true
+mise exec node@22 -- npm config set save-exact true || exit 1
 
-install_asdf_plugins
-
-bot "Installing packages (combined profile)..."
-./install_packages.sh combined
+bot "Installing packages from software manifests (combined profile)..."
+"$DOTFILES_DIR/install_packages.sh" "$SOFTWARE_DIR" combined || exit 1
 
 running "cleanup homebrew"
 brew cleanup --force >/dev/null 2>&1

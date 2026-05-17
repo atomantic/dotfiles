@@ -235,7 +235,6 @@
   autostash = true
 [commit]
 	gpgSign = false
-	template = /Users/dreamora/.gitmessage
 [smartgit "submodule"]
 	fetchalways = false
 	update = true

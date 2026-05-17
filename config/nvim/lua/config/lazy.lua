@@ -1,5 +1,14 @@
+local is_check = vim.env.NVIM_DOTFILES_CHECK == '1'
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  if is_check then
+    vim.api.nvim_echo({
+      { 'lazy.nvim is not installed at ' .. lazypath .. '\n', 'ErrorMsg' },
+      { 'Run Neovim normally once to bootstrap plugins before running the smoke check.' },
+    }, true, {})
+    os.exit(1)
+  end
+
   local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
   local out = vim.fn.system({ 'git', 'clone', '--filter=blob:none', '--branch=stable', lazyrepo, lazypath })
   if vim.v.shell_error ~= 0 then
@@ -18,7 +27,6 @@ require('lazy').setup({
   spec = {
     -- add LazyVim and import its plugins
     { 'LazyVim/LazyVim', import = 'lazyvim.plugins' },
-    { import = 'lazyvim.plugins.extras.lsp.none-ls' },
     -- import/override with your plugins
     { import = 'plugins' },
   },
@@ -31,9 +39,12 @@ require('lazy').setup({
     version = false, -- always use the latest git commit
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
-  install = { colorscheme = { 'tokyonight', 'habamax', 'catppuccin' } },
+  install = {
+    missing = not is_check,
+    colorscheme = { 'tokyonight', 'habamax', 'catppuccin' },
+  },
   checker = {
-    enabled = true, -- check for plugin updates periodically
+    enabled = not is_check, -- check for plugin updates periodically
     notify = false, -- notify on update
   }, -- automatically check for plugin updates
   performance = {
@@ -82,16 +93,3 @@ require('lazy').setup({
 --     },
 --   },
 -- })
-
---[[
-local lsp_zero = require("lsp-zero")
-
-lsp_zero.on_attach(function(client, bufnr)
-  -- see :help lsp-zero-keybindings-- to learn the available actions
-  lsp_zero.default_keymaps({ buffer = bufnr })
-end)
-
--- here you can setup the language servers
-require("lspconfig").tsserver.setup({})
-require("lspconfig").tailwindcss.setup({})
---]]

@@ -105,3 +105,9 @@ jobs:
           else
             echo "::warning::No Brewfile found"
           fi
+
+      - name: Validate software manifests
+        run: |
+          set -euo pipefail
+          ./install_packages.sh --check combined
+          echo "Software manifests are valid"
