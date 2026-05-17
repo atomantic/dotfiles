@@ -13,7 +13,6 @@ else
 	export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 fi
 
-
 # Add jetbrains command line
 export PATH="$HOME/Library/Application Support/JetBrains/Toolbox/scripts:$PATH"
 # export PATH=/opt/homebrew/bin:/usr/local/bin:$PATH
@@ -64,7 +63,7 @@ export DISABLE_AUTO_TITLE="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.dotfiles/oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(1password asdf autoenv autojump brew colorize compleat cp dirpersist docker docker-compose fzf git git-auto-fetch git-commit gitfast git-hubflow github gulp k9s kubectl kubectx poetry ssh tailscale tmux)
+plugins=(1password mise autoenv autojump brew colorize compleat cp dirpersist docker docker-compose fzf git git-auto-fetch git-commit gitfast git-hubflow github gulp k9s kubectl kubectx poetry ssh tailscale tmux)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -74,10 +73,6 @@ source ~/.shellpaths
 source ~/.shellaliases
 
 autoload -U add-zsh-hook
-
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use # This loads nvm
 #
@@ -122,15 +117,6 @@ fi
 # export PATH="$(which node)":$PATH
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-if command -v pyenv &> /dev/null; then
-	export PYENV_ROOT="$HOME/.pyenv"
-	[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-    eval "$(pyenv init --path)"
-    eval "$(pyenv init -)"
-else
-  	echo "pyenv not installed, skip configuration"
-fi
 
 if [ -d "$HOME/google-cloud-sdk" ]; then
   # echo "Configure google-cloud-sdk"
@@ -197,16 +183,6 @@ if [ -d "$HOME/.docker" ]; then
   compinit
   # End of Docker CLI completions
 fi
-
-## ASDF
-# source "$(brew --prefix asdf)/libexec/asdf.sh"
-# source "$(brew --prefix asdf)/etc/bash_completion.d/asdf"
-# export ASDF_NODEJS_LEGACY_FILE_DYNAMIC_STRATEGY=latest_available
-# The following lines have been added by Docker Desktop to enable Docker CLI completions.
-fpath=($HOME/.docker/completions $fpath)
-autoload -Uz compinit
-compinit
-# End of Docker CLI completions
 
 [[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
 

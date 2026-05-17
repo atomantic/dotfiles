@@ -5,7 +5,6 @@ brew "fontconfig"
 brew "adwaita-icon-theme"
 brew "agg"
 brew "asciinema"
-brew "asdf"
 brew "asimov", restart_service: :changed
 brew "autoenv"
 brew "autojump"

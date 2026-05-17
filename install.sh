@@ -38,7 +38,7 @@ cd "$DOTFILES_DIR" || exit 1
 # include my library helpers for colorized echo and require_brew, etc
 source "$DOTFILES_DIR/lib_sh/echos.sh"
 source "$DOTFILES_DIR/lib_sh/requirers.sh"
-source "$DOTFILES_DIR/lib_sh/asdf_setup.sh"
+source "$DOTFILES_DIR/lib_sh/mise_setup.sh"
 
 SOFTWARE_DIR="$DOTFILES_DIR/software"
 if [[ -n "${1:-}" ]]; then
@@ -395,16 +395,10 @@ fi
 #   ok
 # fi
 
-# node version manager
-require_brew nvm
-
-# nvm -- install the version from the .nvmrc file
-require_nvm
-
 # always pin versions (no surprises, consistent dev/build machines)
 npm config set save-exact true
 
-install_asdf_plugins
+setup_mise_tools
 
 bot "Installing packages from software manifests (combined profile)..."
 "$DOTFILES_DIR/install_packages.sh" "$SOFTWARE_DIR" combined || exit 1

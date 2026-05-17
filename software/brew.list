@@ -9,7 +9,7 @@ openssl@3
 readline
 asciinema
 git
-asdf
+mise
 asimov
 autoenv
 python@3.11
