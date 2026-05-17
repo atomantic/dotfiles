@@ -326,13 +326,11 @@ if [[ -n ${CI:-} ]]; then
     [[ -e "$HOME/$base" && ! -L "$HOME/$base" ]] && rm -rf "$HOME/$base"
   done
 fi
+
 stow -v -d "$HOME/.dotfiles" -t "$HOME" homedir
 
-# Initializing templates
-git config --global commit.template ~/.gitmessage
-
-bot "create symlink for nvim"
-ln -s ~/.dotfiles/nvim ~/.config/nvim
+bot "symlinking .config dotfiles with GNU stow"
+stow -v -d "$HOME/.dotfiles" -t "$HOME/.config" config
 
 bot "VIM Setup"
 if [[ -z ${CI:-} ]]; then

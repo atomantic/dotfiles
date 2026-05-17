@@ -8,6 +8,9 @@ export PATH=/opt/homebrew/bin:$PATH
 
 export DOTNET_ROOT=/usr/local/share/dotnet
 
+# Trash-Put related paths
+export PATH="/opt/homebrew/opt/trash-cli/bin:$PATH"
+
 #GO
 #export PATH=$PATH:/usr/local/opt/go/libexec/bin
 
