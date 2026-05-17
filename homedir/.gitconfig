@@ -195,7 +195,7 @@
   tool = vimdiff
 
 [init]
-	templateDir = /Users/dreamora/.git_template
+  # templateDir = /Users/dreamora/.git_template
 	defaultBranch = main
 
 [merge]
@@ -251,7 +251,7 @@
 	helper = 
 	helper = !/opt/homebrew/bin/gh auth git-credential
 [oh-my-zsh]
-	git-commit-alias = 7c10d9839f05b8b73e26aa4e0f04cc886fbba6a6
+	git-commit-alias = 7478f1fd22a18c1b857655c4467ca79ba44e9dfa
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f

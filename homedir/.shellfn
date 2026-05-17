@@ -14,7 +14,7 @@ ocd() {
   opencode "$@"
 }
 
-oc1() {
+oc() {
   local base="$(basename "$PWD" | tr '.' '_')-$(echo "$PWD" | md5sum | cut -c1-4)"
   local session="$base"
   local i=1

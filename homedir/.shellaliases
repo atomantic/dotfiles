@@ -1,31 +1,27 @@
 #!/bin/sh
 
-alias upgrade-speckit='uv tool upgrade specify-cli'
 alias localjenkinsrestart='docker stop jenkins;docker rm jenkins;docker run --name jenkins -i -d -p 8787:8080 -p 50000:50000 -v /Users/marcschaerer/quatico/jenkins_home:/var/jenkins_home:rw local_jenkins'
-
 alias github-switch-accounts='gh auth switch && gh auth setup-git'
-alias checkPackage='npm ls --depth 1'
 
 #################################
 # AI Aliases
 #################################
 
-alias codexGpt5='codex --model gpt-5-codex'
+alias upgrade-speckit='uv tool upgrade specify-cli'
 alias gemini='npx https://github.com/google-gemini/gemini-cli'
 
 #################################
 # Simple Program Name Shortening
+#################################
+
+alias rm='trash-put'
+alias lz='lazygit'
 alias g=git
 alias ack=ag
 
-alias cat='bat'
-
-#################################
-#
-alias env_dbt='source $HOME/development/learning/dbt-learning/dbt-env/bin/activate'
-
 #############################
 # Utilities
+#############################
 
 # Lock the screen (when going AFK)
 alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
@@ -33,9 +29,6 @@ alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 # buzzphrase commit
 # used for my presentation decks when I have nothing to say about the commit
 alias bpc='git add -A . && git cam "$(buzzphrase 2)" && git push'
-
-# recursive dos2unix in current directory
-alias dos2lf='dos2unix `find ./ -type f`'
 
 # Flush the DNS on Mac
 alias dnsflush='dscacheutil -flushcache'
@@ -56,19 +49,22 @@ alias game.seek='txt="";for i in {1..20};do txt=$txt"$i. ";done;txt=$txt" Ready 
 
 alias httpserver='python3 -m http.server '
 
+#############################
 # Git Tools
-# assumes git-up is installed (gem install git-up)
-# switches to 'develop' branch, updates all local branches (nicely using git-up), removes all local branches already merged into 'develop'
-alias gitdev='git checkout develop; gitup; git branch --merged develop | grep -v "\* develop" | xargs -n 1 git branch -d; git branch;'
+#############################
+
+alias gitclean='git clean -fdX'
+
 alias gitwip='git add -A && git commit -m "WIP $(date +'%Y%m%d-%H%M')" -s'
 alias gitcts='git add -A && git commit -m "$(date +'%Y%m%d-%H%M')" -s'
-alias secondbrain='github-switch-accounts && gitcts && git sync && github-switch-accounts'
-alias secondbrain-today='github-switch-accounts && git reset $(git rev-list --max-count=1 --before="today" HEAD) && gitcts && gitup && git pwl && github-switch-accounts'
-alias gitclean='git clean -fdX'
+
 # push git repo, but first, use git-up to make sure you are in sync and rebased with the remote
 alias pushup="git up && git push"
 
+#############################
 # Networking
+#############################
+
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias iplocal="ipconfig getifaddr en0"
@@ -84,19 +80,22 @@ alias network.established='lsof -l -i +L -R -V | grep ESTABLISHED'
 alias network.externalip='curl -s http://checkip.dyndns.org/ | sed "s/[a-zA-Z<>/ :]//g"'
 alias network.internalip="ifconfig en0 | egrep -o '([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+)'"
 
-# Directory listings
+#############################
+# Directory Listings
+#############################
+
 # LS_COLORS='no=01;37:fi=01;37:di=07;96:ln=01;36:pi=01;32:so=01;35:do=01;35:bd=01;33:cd=01;33:ex=01;31:mi=00;05;37:or=00;05;37:'
 # -G Add colors to ls
 # -l Long format
 # -h Short size suffixes (B, K, M, G, P)
 # -p Postpend slash to folders
-alias ls='eza -lah --git'
 # alias ls='ls -G -h -p '
 # alias ll='ls -l -G -h -p '
 
 if [ -d "eza" ]; then
-	alias ll="eza -l -g --icons"
-	alias lla="ll -a"
+  alias ls='eza -lah --git'
+  alias ll="eza -l -g --icons"
+  alias lla="ll -a"
 fi
 
 # Print each PATH entry on a separate line
@@ -105,10 +104,17 @@ alias path='echo -e ${PATH//:/\\n}'
 # Copy and paste and prune the usless newline
 alias pbcopynn='tr -d "\n" | pbcopy'
 
-# firewall management
+#############################
+# Firewall management
+#############################
+
 alias port-forward-enable="echo 'rdr pass inet proto tcp from any to any port 2376 -> 127.0.0.1 port 2376' | sudo pfctl -ef -"
 alias port-forward-disable="sudo pfctl -F all -f /etc/pf.conf"
 alias port-forward-list="sudo pfctl -s nat"
+
+#############################
+# MacOS Tools
+#############################
 
 # Set the extended MacOS attributes on a file such that Quicklook will open it as text
 alias qltext='xattr -wx com.apple.FinderInfo "54 45 58 54 21 52 63 68 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00" $1'
@@ -126,21 +132,25 @@ alias spoton="sudo mdutil -a -i on"
 alias updateAll='sudo softwareupdate -i -a; brew update; brew upgrade; brew upgrade --cask --greedy; brew cleanup; mas upgrade; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update; sudo gem cleanup'
 alias updateMas='brew update; brew upgrade; brew upgrade --cask --greedy; brew cleanup; mas upgrade; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update; sudo gem cleanup'
 alias update='brew update; brew upgrade; brew upgrade --cask --greedy; brew cleanup; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update; sudo gem cleanup'
+alias updateBrew='brew update; brew upgrade --greedy; brew upgrade --cask --greedy; brew cleanup'
 
 alias vtop="vtop --theme wizard"
 
 alias jsonfix="pbpaste | jq . | pbcopy"
 
 alias lookbusy="cat /dev/urandom | hexdump -C | grep \"34 32\""
-alias td="todo.sh"
-alias tda="todo.sh add"
-alias tdl="todo.sh list"
-alias tdd="todo.sh do"
 
 ########################
-# YARN
+# YARN NX
 ########################
 alias ynx='yarn nx'
+alias ynb='yarn nx run-many --target=build --all'
+alias ync='yarn nx run-many --target=clean --all'
+alias ynl='yarn nx run-many --target=lint --all'
+alias yns='yarn nx run-many --target=serve'
+alias ynt='yarn nx run-many --target=test --all'
+alias ynte='yarn nx run-many --target=test:e2e --all'
+alias ynw='yarn nx run-many --target=watch --all'
 
 ########################
 # PNPM
@@ -164,17 +174,6 @@ alias killNode="killall -9 node"
 alias killTomcat="pkill -9 -f tomcat"
 
 ########################
-# Java Version
-########################
-
-# alias listJava="/usr/libexec/java_home -V"
-# alias setJ8="export JAVA_HOME=`/usr/libexec/java_home -v 1.8`"
-# alias setJ11="export JAVA_HOME=`/usr/libexec/java_home -v 11`"
-# alias setJ17="export JAVA_HOME=`/usr/libexec/java_home -v 17`"
-# alias setJ18="export JAVA_HOME=`/usr/libexec/java_home -v 18`"
-# alias setJava="export JAVA_HOME=`/usr/libexec/java_home -v 1`"
-
-########################
 # MVN
 ########################
 
@@ -190,33 +189,13 @@ alias mvn-check="mvn artifact:check-buildplan -U -DskipTests -DskipITs"
 # GIT
 ########################
 
-alias lz='lazygit'
-
 alias gitmaster='git pull origin master;git submodule update --init --recursive;git lfs fetch;git submodule foreach sh -e -c "git switch master;git pull origin master;git lfs fetch"'
 alias gitmastersubmodules='git submodule update --init --recursive; git submodule foreach sh -e -c "git switch master;git pull origin master;git lfs fetch"'
 
+# TODO: This should not be here
 source ~/.init_gitaliases.sh
 alias git-reinit-aliases='~/.init_gitaliases.sh'
 alias gopen='git open'
-alias gdc='yarn dist && git commit'
-alias gpyi='git pull --rebase && yarn install --frozen-lockfile --force'
-
-########################
-# YARN NX
-########################
-alias ynb='yarn nx run-many --target=build --all'
-alias ync='yarn nx run-many --target=clean --all'
-alias ynl='yarn nx run-many --target=lint --all'
-alias yns='yarn nx run-many --target=serve'
-alias ynt='yarn nx run-many --target=test --all'
-alias ynte='yarn nx run-many --target=test:e2e --all'
-alias ynw='yarn nx run-many --target=watch --all'
-
-########################
-# CONSOLE
-########################
-
-alias c='clear'
 
 ########################
 # GNU Utils
@@ -231,3 +210,4 @@ alias timeout=gtimeout
 alias line-extract="$HOME/.dotfiles/scripts/line_extract.sh"
 alias delete-files="$HOME/.dotfiles/scripts/delete_files.sh"
 alias convert-android-keystore="$HOME/.dotfiles/scripts/convert-android-keystore.sh"
+alias ide="$HOME/.dotfiles/scripts/ide"
