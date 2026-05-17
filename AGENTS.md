@@ -6,6 +6,15 @@ This document provides guidelines for AI coding agents working in this dotfiles 
 
 A **macOS dotfiles and system configuration automation project** that automates development environment setup including shell configuration (ZSH/Oh-My-Zsh/Powerlevel10k), editor configs (Vim, Neovim/LazyVim), Git workflows, and Homebrew package management.
 
+## Key Repository Mapping
+
+This repository separates user-facing files by their target location:
+
+- `homedir/`: files managed in `$HOME` through GNU Stow.
+- `config/`: files managed under `~/.config`; link contained app directories
+  or files individually instead of replacing the whole `~/.config` directory.
+- `scripts/`: executable utilities intended to be available as global shell commands.
+
 ## Repository Structure
 
 ```
@@ -41,9 +50,11 @@ npm install                # Install Node.js dependencies
 ```
 
 ### Testing
+
 This project has no formal test suite. The `npm test` command is not implemented.
 
 ### Linting
+
 ```bash
 shellcheck <script.sh>     # Lint shell scripts (installed via Homebrew)
 eslint <file.js>           # Lint JavaScript files
@@ -53,6 +64,7 @@ stylua nvim/               # Format Lua files for Neovim
 ## Code Style Guidelines
 
 ### General Formatting (.editorconfig)
+
 - **Line endings**: Unix (LF)
 - **Encoding**: UTF-8
 - **Indentation**: 2 spaces (no tabs)
@@ -63,20 +75,26 @@ stylua nvim/               # Format Lua files for Neovim
 ### Shell Scripts (Bash)
 
 #### Shebang
+
 Always use the portable shebang:
+
 ```bash
 #!/usr/bin/env bash
 ```
 
 #### Sourcing Libraries
+
 Source helper libraries at the top of scripts:
+
 ```bash
 source ./lib_sh/echos.sh
 source ./lib_sh/requirers.sh
 ```
 
 #### Output Helpers (lib_sh/echos.sh)
+
 Use colorized output functions for user feedback:
+
 ```bash
 bot "Starting installation..."    # Green robot announcement
 running "Installing package"      # Yellow running indicator
@@ -89,7 +107,9 @@ print_error "Failed"              # ✖ error mark
 ```
 
 #### Package Requirements (lib_sh/requirers.sh)
+
 Use helper functions for idempotent package installation:
+
 ```bash
 require_brew package_name         # Install Homebrew formula
 require_cask app_name             # Install Homebrew cask
@@ -101,10 +121,12 @@ require_vscode extension_id       # Install VS Code extension
 ```
 
 #### Error Handling
+
 - Check command exit status with `$?` or `${PIPESTATUS[0]}`
 - Use descriptive error messages with the `error` function
 
 #### User Prompts
+
 ```bash
 read -r -p "Prompt message? [y|N] " response
 if [[ $response =~ (yes|y|Y) ]]; then
@@ -113,12 +135,14 @@ fi
 ```
 
 ### JavaScript (Node.js)
+
 - **Environment**: Node.js, ES6
 - **No undefined variables** (`no-undef: 2`)
 - **No unused local variables** (`no-unused-vars: 2`)
 - **Quotes**: Single preferred but not enforced
 
 ### Lua (Neovim - stylua.toml)
+
 - **Indentation**: 2 spaces
 - **Line width**: 120 characters
 - **Quotes**: Single (forced)
@@ -127,7 +151,9 @@ fi
 ## Git Conventions
 
 ### Commit Messages (Conventional Commits)
+
 Use git aliases for conventional commit types:
+
 ```bash
 git feat "message"           # feat: message
 git fix "message"            # fix: message
@@ -146,6 +172,7 @@ With scope: `git feat -s scope "message"` → `feat(scope): message`
 Breaking change: `git feat -a "message"` → `feat!: message`
 
 ### Useful Git Aliases
+
 ```bash
 git s                        # Short status
 git up                       # Pull with rebase and autostash
@@ -156,6 +183,7 @@ git pwl                      # Push --force-with-lease (safe force push)
 ```
 
 ### Branch/Push Settings
+
 - Default branch: `main`
 - Pull: Rebase with autostash
 - Push: Simple (current branch only)
@@ -163,21 +191,25 @@ git pwl                      # Push --force-with-lease (safe force push)
 ## Naming Conventions
 
 ### Files
+
 - Shell scripts: `snake_case.sh`
 - Config files: Standard names (`.gitconfig`, `.zshrc`, etc.)
 - Lua files: `snake_case.lua`
 
 ### Functions
+
 - Shell: `snake_case` (e.g., `require_brew`, `print_success`)
 - Lua: `snake_case`
 
 ### Variables
+
 - Shell: `UPPER_CASE` for exports, `lower_case` for locals
 - Colors: `COL_` prefix (e.g., `COL_GREEN`, `COL_RESET`)
 
 ## Symlink Management
 
 Dotfiles in `homedir/` are symlinked to `$HOME` using GNU Stow:
+
 ```bash
 stow -v -d "$HOME/.dotfiles" -t "$HOME" homedir
 ```
