@@ -135,12 +135,11 @@ function hidehiddenfiles() {
 
 ## hammer a service with curl for a given number of times
 ## usage: curlhammer $url
-function curlhammer () {
-  bot "about to hammer $1 with $2 curls ⇒";
-  echo "curl -k -s -D - $1 -o /dev/null | grep 'HTTP/1.1' | sed 's/HTTP\/1.1 //'"
-  for i in {1..$2}
-  do
-    curl -k -s -D - $1 -o /dev/null | grep 'HTTP/1.1' | sed 's/HTTP\/1.1 //'
+function curlhammer() {
+  bot "about to hammer $1 with $2 curls ⇒"
+  echo "curl -k -s -D - \"$1\" -o /dev/null | grep 'HTTP/1.1' | sed 's/HTTP\/1.1 //'"
+  for i in {1..$2}; do
+    curl -k -s -D - "$1" -o /dev/null | grep 'HTTP/1.1' | sed 's/HTTP\/1.1 //'
   done
   bot "done"
 }
@@ -150,17 +149,17 @@ function curlhammer () {
 ## usage: curlheader $url
 function curlheader() {
   if [[ -z "$2" ]]; then
-    echo "curl -k -s -D - $1 -o /dev/null"
-    curl -k -s -D - $1 -o /dev/null:
+    echo "curl -k -s -D - \"$1\" -o /dev/null"
+    curl -k -s -D - "$1" -o /dev/null
   else
-    echo "curl -k -s -D - $2 -o /dev/null | grep $1:"
-    curl -k -s -D - $2 -o /dev/null | grep $1:
+    echo "curl -k -s -D - \"$2\" -o /dev/null | grep \"$1:\""
+    curl -k -s -D - "$2" -o /dev/null | grep "$1:"
   fi
 }
 
 ## get the timings for a curl to a URL
 ## usage: curltime $url
-function curltime(){
+function curltime() {
   curl -w "   time_namelookup:  %{time_namelookup}\n\
       time_connect:  %{time_connect}\n\
    time_appconnect:  %{time_appconnect}\n\
@@ -171,8 +170,8 @@ time_starttransfer:  %{time_starttransfer}\n\
         time_total:  %{time_total}\n" -o /dev/null -s "$1"
 }
 
-function fixperms(){
-    find . \( -name "*.sh" -or -type d \) -exec chmod 755 {} \; && find . -type f ! -name "*.sh" -exec chmod 644 {} \;
+function fixperms() {
+  find . \( -name "*.sh" -or -type d \) -exec chmod 755 {} \; && find . -type f ! -name "*.sh" -exec chmod 644 {} \;
 }
 
 # Create a new directory and enter it

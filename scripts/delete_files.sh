@@ -20,16 +20,16 @@ if [ ! -d "$target_directory" ]; then
     exit 1
 fi
 
-# Loop until no more files are found matching the pattern
-while true; do
-    if find "$target_directory" -type f -name "*$pattern*" -print -delete; then
-        echo "Files matching pattern '$pattern' deleted in this iteration in $target_directory."
-        sleep 5
-    else
-        echo "No more files found matching pattern '$pattern' in '$target_directory'."
-        break
-    fi
-done
+# Find and delete files matching the pattern
+# We don't need a loop here unless we expect files to be recreated immediately,
+# but even then, it's better to let a scheduler handle it or use a more controlled loop.
+# The previous loop was infinite because 'find' returns 0 (success) even if it finds nothing.
+
+if find "$target_directory" -type f -name "*$pattern*" -print -delete | grep -q .; then
+    echo "Files matching pattern '$pattern' deleted in $target_directory."
+else
+    echo "No files found matching pattern '$pattern' in '$target_directory'."
+fi
 
 echo "Script completed for pattern $pattern in $target_directory"
 
