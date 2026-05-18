@@ -27,6 +27,7 @@ homedir/.vim/bundle/*
 # AI Tooling
 .sisyphus
 .serena
+/.serena
 
 # BEGIN idream-managed agent workspace
 # local files and generated output
@@ -55,4 +56,3 @@ ai-setup-backup-*.tar.gz
 .sisyphus/
 .planning/
 # END idream-managed agent workspace
-/.serena
