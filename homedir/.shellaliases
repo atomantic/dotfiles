@@ -211,3 +211,4 @@ alias line-extract="$HOME/.dotfiles/scripts/line_extract.sh"
 alias delete-files="$HOME/.dotfiles/scripts/delete_files.sh"
 alias convert-android-keystore="$HOME/.dotfiles/scripts/convert-android-keystore.sh"
 alias ide="$HOME/.dotfiles/scripts/ide"
+alias antigravity='agy'

@@ -210,3 +210,6 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 # ~/.bun/bin
 export BEADS_DIR="$HOME/.config/airconsole/beads/.beads"
+
+# Added by Antigravity
+export PATH="/Users/marc/.antigravity/antigravity/bin:$PATH"
