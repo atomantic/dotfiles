@@ -29,7 +29,7 @@ jobs:
           done < <(find . -name '*.sh' \
             -not -path './oh-my-zsh/*' \
             -not -path './z-zsh/*' \
-            -not -path './.vim/*' \
+            -not -path './homedir/.vim/*' \
             -not -path './.git/*')
           if [[ $errors -gt 0 ]]; then
             echo "::error::$errors file(s) failed bash syntax check"

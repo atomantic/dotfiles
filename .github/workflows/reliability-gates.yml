@@ -19,7 +19,30 @@ jobs:
       - name: Install ShellCheck
         run: sudo apt-get update -qq && sudo apt-get install -y -qq shellcheck
 
-      - name: ShellCheck lint (error + warning)
+      - name: ShellCheck lint (errors)
+        run: |
+          set -euo pipefail
+          files=()
+          while IFS= read -r f; do
+            files+=("$f")
+          done < <(find . -name '*.sh' \
+            -not -path './oh-my-zsh/*' \
+            -not -path './z-zsh/*' \
+            -not -path './homedir/.vim/*' \
+            -not -path './.git/*')
+          if [[ ${#files[@]} -eq 0 ]]; then
+            echo "No shell files found"
+            exit 0
+          fi
+          echo "Checking ${#files[@]} files..."
+          # SC1090/SC1091: Can't follow non-constant/not-included source
+          # SC1087: False positive on jq array syntax in string arguments
+          shellcheck --severity=error --shell=bash \
+            --exclude=SC1090,SC1091,SC1087 \
+            "${files[@]}"
+          echo "ShellCheck passed"
+
+      - name: ShellCheck lint (warnings)
         continue-on-error: true
         run: |
           set -euo pipefail
@@ -29,19 +52,17 @@ jobs:
           done < <(find . -name '*.sh' \
             -not -path './oh-my-zsh/*' \
             -not -path './z-zsh/*' \
-            -not -path './.vim/*' \
+            -not -path './homedir/.vim/*' \
             -not -path './.git/*')
           if [[ ${#files[@]} -eq 0 ]]; then
             echo "No shell files found"
             exit 0
           fi
-          echo "Checking ${#files[@]} files..."
           # SC1090/SC1091: Can't follow non-constant/not-included source
           # SC1087: False positive on jq array syntax in string arguments
           shellcheck --severity=warning --shell=bash \
             --exclude=SC1090,SC1091,SC1087 \
             "${files[@]}"
-          echo "ShellCheck passed"
 
   symlinks-and-brewfile:
     runs-on: ${{ matrix.os }}

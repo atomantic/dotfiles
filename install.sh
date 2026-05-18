@@ -260,10 +260,12 @@ if ! xcode-select --print-path &>/dev/null; then
 
   if [[ -z ${CI:-} ]]; then
     sudo xcodebuild -license
+    license_status=$?
   else
-    sudo xcodebuild -license accept 2>/dev/null || true
+    sudo xcodebuild -license accept 2>/dev/null
+    license_status=$?
   fi
-  print_result $? 'Agree with the XCode Command Line Tools licence'
+  print_result "$license_status" 'Agree with the XCode Command Line Tools licence'
 
 fi
 
@@ -341,12 +343,11 @@ if [[ -L "$HOME/.config/mise" ]] && [[ "$(readlink "$HOME/.config/mise")" == *".
   rm "$HOME/.config/mise"
 fi
 if [[ -n ${CI:-} ]]; then
-  for f in "$DOTFILES_DIR/homedir"/.*; do
+  while IFS= read -r f; do
     base=$(basename "$f")
-    [[ "$base" == "." || "$base" == ".." ]] && continue
     [[ "$base" == ".config" ]] && continue
-    [[ -e "$HOME/$base" && ! -L "$HOME/$base" ]] && rm -rf "$HOME/$base"
-  done
+    [[ -n "$base" && -e "$HOME/$base" && ! -L "$HOME/$base" ]] && rm -rf -- "$HOME/$base"
+  done < <(find "$DOTFILES_DIR/homedir" -mindepth 1 -maxdepth 1)
 fi
 stow -v -d "$DOTFILES_DIR" -t "$HOME" homedir || exit 1
 
