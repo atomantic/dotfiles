@@ -137,9 +137,10 @@ function hidehiddenfiles() {
 ## usage: curlhammer $url
 function curlhammer() {
   bot "about to hammer $1 with $2 curls ⇒"
-  echo "curl -k -s -D - \"$1\" -o /dev/null | grep 'HTTP/1.1' | sed 's/HTTP\/1.1 //'"
-  for i in {1..$2}; do
-    curl -k -s -D - "$1" -o /dev/null | grep 'HTTP/1.1' | sed 's/HTTP\/1.1 //'
+  # Note: -k (insecure) removed for security. Add it back if you need to test with self-signed certs.
+  echo "curl -s -D - \"$1\" -o /dev/null | grep 'HTTP/1.1' | sed 's/HTTP\/1.1 //'"
+  for ((i = 1; i <= $2; i++)); do
+    curl -s -D - "$1" -o /dev/null | grep 'HTTP/1.1' | sed 's/HTTP\/1.1 //'
   done
   bot "done"
 }
@@ -149,11 +150,11 @@ function curlhammer() {
 ## usage: curlheader $url
 function curlheader() {
   if [[ -z "$2" ]]; then
-    echo "curl -k -s -D - \"$1\" -o /dev/null"
-    curl -k -s -D - "$1" -o /dev/null
+    echo "curl -s -D - \"$1\" -o /dev/null"
+    curl -s -D - "$1" -o /dev/null
   else
-    echo "curl -k -s -D - \"$2\" -o /dev/null | grep \"$1:\""
-    curl -k -s -D - "$2" -o /dev/null | grep "$1:"
+    echo "curl -s -D - \"$2\" -o /dev/null | grep \"$1:\""
+    curl -s -D - "$2" -o /dev/null | grep "$1:"
   fi
 }
 
