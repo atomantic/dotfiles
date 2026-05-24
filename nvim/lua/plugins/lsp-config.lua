@@ -14,7 +14,7 @@ return {
     'mason-org/mason-lspconfig.nvim',
     lazy = false,
     opts = {
-      auto_install = true,
+      automatic_enable = false,
     },
   },
   {
@@ -75,7 +75,7 @@ return {
           'docker-compose-language-service',
           'dockerfile-language-server',
         },
-        run_on_start = true,
+        run_on_start = false,
         start_delay = 3000,
         debounce_hours = 5,
       })

@@ -36,7 +36,9 @@ export HOMEBREW_EDITOR=nvim
 
 export ANDROID_TOOLING="$HOME/development/Android Tooling"
 
-export TERM="xterm-256color"
+if [ -z "${TERM:-}" ]; then
+  export TERM="xterm-256color"
+fi
 
 
 export OLLAMA_NUM_PARALLEL=4
