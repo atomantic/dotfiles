@@ -214,17 +214,6 @@ compinit
 export PATH="$PATH:/$HOME/.lmstudio/bin"
 # End of LM Studio CLI section
 
-# Atuin
-if command -v atuin &> /dev/null; then
-  if [ -d "$HOME/.atuin/bin/env" ]; then
-    source "$HOME/.atuin/bin/env"
-  fi
-  eval "$(atuin init zsh)"
-else
-  echo 'Atuin not installed, skipping configuration'
-fi
-# End Atuin
-
 export PATH="/opt/homebrew/opt/icu4c@78/bin:$PATH"
 export PATH="/opt/homebrew/opt/icu4c@78/sbin:$PATH"
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
@@ -234,3 +223,17 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 # ~/.bun/bin
 export BEADS_DIR="$HOME/.config/airconsole/beads/.beads"
+eval "$(mise activate zsh)"
+
+
+
+# Atuin
+if command -v atuin &>/dev/null; then
+	if [ -d "$HOME/.atuin/bin/env" ]; then
+		source "$HOME/.atuin/bin/env"
+	fi
+	eval "$(atuin init zsh)"
+else
+	echo 'Atuin not installed, skipping configuration'
+fi
+# End Atuin

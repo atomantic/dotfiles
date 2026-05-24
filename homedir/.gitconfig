@@ -195,7 +195,6 @@
   tool = vimdiff
 
 [init]
-	templateDir = /Users/dreamora/.git_template
 	defaultBranch = main
 
 [merge]

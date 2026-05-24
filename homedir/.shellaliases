@@ -17,7 +17,7 @@ alias gemini='npx https://github.com/google-gemini/gemini-cli'
 # Simple Program Name Shortening
 alias g=git
 alias ack=ag
-
+alias rm=safe-rm
 alias cat='bat'
 
 #################################
