@@ -5,6 +5,9 @@
 [includeIf "gitdir:~/private/"]
   path = ~/.gitconfig-private
 
+[includeIf "gitdir:~/development/marc/"]
+  path = ~/.gitconfig-private
+
 [github]
   # https://github.com/blog/180-local-github-config
   user =
