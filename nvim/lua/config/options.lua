@@ -3,7 +3,7 @@
 -- Add any additional options here
 --
 -- vim.lsp.set_log_level('debug')
-vim.lsp.set_log_level('off')
+vim.lsp.log.set_level(vim.lsp.log_levels.OFF) -- replaces deprecated vim.lsp.set_log_level()
 
 -- my own configs
 -- vim.cmd('set autochdir=true')
