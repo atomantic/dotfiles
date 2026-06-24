@@ -11,6 +11,7 @@ You don't need to install or configure anything upfront! This works with a brand
 - [Watch me run!](#watch-me-run)
 - [Installation](#installation)
   - [Restoring Dotfiles](#restoring-dotfiles)
+- [Updating](#updating)
 - [3.x.x+ Upgrade Instructions!](#3xx-upgrade-instructions)
 - [Additional](#additional)
   - [VIM as IDE](#vim-as-ide)
@@ -91,6 +92,17 @@ cd ~/.dotfiles;
 If you have existing dotfiles for configuring git, zsh, vim, etc, these will be backed-up into `~/.dotfiles_backup/$(date +"%Y.%m.%d.%H.%M.%S")` and replaced with the files from this project. You can restore your original dotfiles by using `./restore.sh $RESTOREDATE` where `$RESTOREDATE` is the date folder name you want to restore.
 
 > The restore script does not currently restore system settings--only your original dotfiles. To restore system settings, you'll need to manually undo what you don't like (so don't forget to fork, review, tweak)
+
+# Updating
+
+To upgrade an existing install, just run:
+
+```sh
+cd ~/.dotfiles
+./update.sh
+```
+
+`update.sh` runs any one-off migrations for things that changed shape since your last update (for example, moving your git identity out of the tracked `homedir/.gitconfig` and into the untracked `~/.gitconfig.local`), safely pulls the latest code (stashing local work and rebasing with autostash), and then re-runs the interactive `install.sh` to apply new config, symlinks, and software prompts. It is idempotent — safe to run as often as you like. Any file it has to replace is backed up under `~/.dotfiles_backup/` first.
 
 # 3.x.x+ Upgrade Instructions!
 
