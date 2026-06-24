@@ -12,7 +12,7 @@ docker
 #gpg-suite
 #ireadfast
 iterm2
-#little-snitch
+little-snitch
 #macbreakz
 #micro-snitch
 #signal
@@ -20,6 +20,7 @@ iterm2
 #sizeup
 #sketchup
 slack
+tailscale
 #the-unarchiver
 #torbrowser
 #transmission

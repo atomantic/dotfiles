@@ -18,6 +18,10 @@ gawk
 # http://www.lcdf.org/gifsicle/ (because I'm a gif junky)
 gifsicle
 gnupg
+# GitHub CLI: https://cli.github.com
+gh
+# GitLab CLI: https://gitlab.com/gitlab-org/cli
+glab
 # Install GNU `sed` (PATH updated automatically during install)
 gnu-sed
 # Install GNU grep (PATH updated automatically during install)
