@@ -133,6 +133,12 @@ Here is the current list:
 The following will only happen if you agree on the prompt
 
 - overwrite your /etc/hosts file using the [StevenBlack/hosts](https://github.com/StevenBlack/hosts) project. Add custom entries in `./configs/hosts.local`.
+- configure your **git identity** (name, email, github username). Your identity is written to `~/.gitconfig.local` — an untracked file that the committed `~/.gitconfig` pulls in via `[include]`. This keeps your personal info out of version control, so `git pull` on the dotfiles repo stays clean and you never risk committing your identity. Edit `~/.gitconfig.local` any time to change it. For multiple identities (e.g. work vs. personal), add an `includeIf` block to `~/.gitconfig`, for example:
+
+  ```ini
+  [includeIf "gitdir:~/work/"]
+    path = ~/.gitconfig.work
+  ```
 
 ## Security
 

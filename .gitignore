@@ -9,6 +9,9 @@ img/*.backup.jpg
 node_modules
 # personal swap gitconfigs
 homedir/.gitconfig_*
+# local git identity written by install.sh (normally lives at ~/.gitconfig.local,
+# outside the repo; ignored here too in case it lands in the repo tree)
+homedir/.gitconfig.local
 homedir/.vim/backup/*
 !homedir/.vim/backup/.gitignore
 homedir/.vim/temp/*
