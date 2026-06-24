@@ -158,6 +158,23 @@ Review this merge: $mr_input"
 # Create a new git repo with one README commit and CD into it
 function gitnr() { mkdir $1; cd $1; git init; touch README; git add README; git commit -mFirst-commit;}
 
+# gittyup: sync the current branch with its remote and push local commits.
+# Rebases local work on top of upstream (autostashing any dirty changes) then
+# pushes. If the branch has no upstream yet, pushes and sets it on origin.
+# usage: gittyup
+function gittyup() {
+  local branch
+  branch="$(git symbolic-ref --short HEAD 2>/dev/null)" || {
+    echo "gittyup: not on a branch (detached HEAD?)"; return 1
+  }
+  if git rev-parse --abbrev-ref --symbolic-full-name '@{u}' >/dev/null 2>&1; then
+    git pull --rebase --autostash && git push
+  else
+    echo "gittyup: no upstream for '$branch'; pushing and setting origin/$branch"
+    git push -u origin "$branch"
+  fi
+}
+
 # Do a Matrix movie effect of falling characters
 function matrix1() {
 echo -e "\e[1;40m" ; clear ; while :; do echo $LINES $COLUMNS $(( $RANDOM % $COLUMNS)) $(( $RANDOM % 72 )) ;sleep 0.05; done|gawk '{ letters="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()"; c=$4; letter=substr(letters,c,1);a[$3]=0;for (x in a) {o=a[x];a[x]=a[x]+1; printf "\033[%s;%sH\033[2;32m%s",o,x,letter; printf "\033[%s;%sH\033[1;37m%s\033[0;0H",a[x],x,letter;if (a[x] >= $1) { a[x]=0; } }}'
