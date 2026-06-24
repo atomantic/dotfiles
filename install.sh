@@ -384,7 +384,7 @@ install_packages() {
             [[ -z "${package// }" ]] && continue
             
             # Source the shell functions and install the package
-            . lib_sh/echos.sh && . lib_sh/requireers.sh && $install_cmd "$package"
+            . lib_sh/echos.sh && . lib_sh/requirers.sh && $install_cmd "$package"
         done < "software/$list_file"
     else
         action "skipping $name installation"
