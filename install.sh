@@ -1031,12 +1031,19 @@ sudo mdutil -i on / > /dev/null;ok
 bot "Terminal & iTerm2"
 ###############################################################################
 
-# Import iTerm2 profile
-running "Importing iTerm2 profile from com.googlecode.iterm2.plist"
-defaults write com.googlecode.iterm2 PrefsCustomFolder -string "$HOME/.dotfiles/configs"
-defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
-ok
-bot "iTerm2 profile imported. Please restart iTerm2 to apply all settings."
+# Import iTerm2 profile — only enable "load from custom folder" when the
+# prefs plist actually exists there, otherwise iTerm2 errors on launch with
+# "Failed to load settings from custom directory."
+if [ -f "$HOME/.dotfiles/configs/com.googlecode.iterm2.plist" ]; then
+  running "Importing iTerm2 profile from com.googlecode.iterm2.plist"
+  defaults write com.googlecode.iterm2 PrefsCustomFolder -string "$HOME/.dotfiles/configs"
+  defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
+  ok
+  bot "iTerm2 profile imported. Please restart iTerm2 to apply all settings."
+else
+  running "Skipping iTerm2 custom-folder prefs (configs/com.googlecode.iterm2.plist not found)"
+  ok
+fi
 
 ###############################################################################
 bot "Time Machine"
