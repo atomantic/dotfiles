@@ -10,7 +10,9 @@ You don't need to install or configure anything upfront! This works with a brand
 - [Forget About Manual Configuration!](#forget-about-manual-configuration)
 - [Watch me run!](#watch-me-run)
 - [Installation](#installation)
+  - [What `install.sh` does](#what-installsh-does)
   - [Restoring Dotfiles](#restoring-dotfiles)
+- [Updating](#updating)
 - [3.x.x+ Upgrade Instructions!](#3xx-upgrade-instructions)
 - [Additional](#additional)
   - [VIM as IDE](#vim-as-ide)
@@ -79,18 +81,48 @@ cd ~/.dotfiles;
 ./install.sh
 ```
 
+## What `install.sh` does
+
+`install.sh` is the single entry point for setting up a machine. It is **interactive** (it asks before each major step) and **idempotent** (safe to run again and again — re-run it any time you want to pick up new config or software). When you run it, it will:
+
+- **Back up** any existing dotfile it is about to replace into `~/.dotfiles_backup/<timestamp>/` (restore later with `./restore.sh`).
+- **Symlink** the files in `homedir/` into your `$HOME` (`.zshrc`, `.vimrc`, `.gitconfig`, `.shellaliases`, `.shellfn`, etc.).
+- Prompt to configure your **git identity** (name, email, github username) and write it to the untracked `~/.gitconfig.local` — kept out of version control and pulled into `~/.gitconfig` via `[include]`, so your personal info never lands in the repo.
+- Optionally overwrite `/etc/hosts` using [StevenBlack/hosts](https://github.com/StevenBlack/hosts) (add your own entries in `configs/hosts.local`).
+- Apply macOS system tweaks — Finder, Dock, security, and more (see [Settings](#settings)).
+- Prompt, **per category**, to install software: Homebrew CLI tools & desktop apps, npm globals, Mac App Store apps, and Ruby gems (see [Software Installation](#software-installation)).
+
+Every prompt can be declined, so you can run it just to apply the parts you want. To upgrade an existing install later, use [`./update.sh`](#updating) instead — it pulls the latest code and then runs `install.sh` for you.
+
 - When it finishes, open iTerm and press `Command + ,` to open preferences. Under Profiles > Colors, select "Load Presets" and choose the `Solarized Dark Patch` scheme. If it isn't there for some reason, import it from `~/.dotfiles/configs` -- you may also need to select the `Hack` font and check the box for non-ascii font and set to `Roboto Mono For Powerline` (I've had mixed results for automating these settings--love a pull request that improves this)
 - I've also found that you need to reboot before fast key repeat will be enabled
 
 > Note: if you have problems cloning the submodules behind proxy, you can use this command to convert `git://` to `https://`: `git config --global url.https://github.com/.insteadOf git://github.com/`
 
-> Note: running install.sh is idempotent. You can run it again and again as you add new features or software to the scripts! I'll regularly add new configurations so keep an eye on this repo as it grows and optimizes.
+> Note: I regularly add new configurations and software, so this repo keeps growing and optimizing. To pull those changes into an existing install at any time, run [`./update.sh`](#updating).
 
 ## Restoring Dotfiles
 
 If you have existing dotfiles for configuring git, zsh, vim, etc, these will be backed-up into `~/.dotfiles_backup/$(date +"%Y.%m.%d.%H.%M.%S")` and replaced with the files from this project. You can restore your original dotfiles by using `./restore.sh $RESTOREDATE` where `$RESTOREDATE` is the date folder name you want to restore.
 
 > The restore script does not currently restore system settings--only your original dotfiles. To restore system settings, you'll need to manually undo what you don't like (so don't forget to fork, review, tweak)
+
+# Updating
+
+Use `install.sh` for the **first-time setup** on a machine; use `update.sh` to **upgrade an existing install** to the latest version of this repo. To update, just run:
+
+```sh
+cd ~/.dotfiles
+./update.sh
+```
+
+`update.sh` upgrades you safely, in this order:
+
+1. **Migrations** — runs any one-off upgrades for things that changed shape since your last update (e.g. moving your git identity out of the tracked `homedir/.gitconfig` into the untracked `~/.gitconfig.local`). These run *before* the pull when needed, so the pull stays conflict-free, and each is a no-op when it doesn't apply.
+2. **Safe pull** — if you're on a feature branch it stashes your local work and switches to `main`, then pulls with `git pull --rebase --autostash` and updates submodules.
+3. **Re-runs `install.sh`** — interactively, to apply any new config, symlinks, and software prompts.
+
+It is **idempotent** — safe to run as often as you like — and any file it has to replace is backed up under `~/.dotfiles_backup/<timestamp>/` first (restore with `./restore.sh`). If the pull hits a conflict it can't resolve, `update.sh` stops and tells you how to recover rather than leaving a half-applied update.
 
 # 3.x.x+ Upgrade Instructions!
 
@@ -133,6 +165,12 @@ Here is the current list:
 The following will only happen if you agree on the prompt
 
 - overwrite your /etc/hosts file using the [StevenBlack/hosts](https://github.com/StevenBlack/hosts) project. Add custom entries in `./configs/hosts.local`.
+- configure your **git identity** (name, email, github username). Your identity is written to `~/.gitconfig.local` — an untracked file that the committed `~/.gitconfig` pulls in via `[include]`. This keeps your personal info out of version control, so `git pull` on the dotfiles repo stays clean and you never risk committing your identity. Edit `~/.gitconfig.local` any time to change it. For multiple identities (e.g. work vs. personal), add an `includeIf` block to `~/.gitconfig`, for example:
+
+  ```ini
+  [includeIf "gitdir:~/work/"]
+    path = ~/.gitconfig.work
+  ```
 
 ## Security
 
