@@ -275,6 +275,12 @@ if [[ $response =~ (y|yes|Y) ]]; then
     if [[ $file == "." || $file == ".." ]]; then
       continue
     fi
+    # .gitignore is NOT symlinked into ~/: it is the shared baseline that seeds
+    # the machine-local ~/.gitignore.local (git's core.excludesfile). See the
+    # "Machine-local override files" step below.
+    if [[ $file == ".gitignore" ]]; then
+      continue
+    fi
     running "~/$file"
     # if the file exists:
     if [[ -e ~/$file ]]; then
@@ -290,6 +296,46 @@ if [[ $response =~ (y|yes|Y) ]]; then
   done
 
   popd > /dev/null 2>&1
+fi
+
+# ###########################################################
+# Machine-local override files
+# ###########################################################
+# These untracked files let each machine add private/proprietary settings that
+# must not be committed or synced to other machines. They are seeded once and
+# then owned by you (install.sh never overwrites them).
+bot "Setting up machine-local override files (~/.zshrc.local, ~/.gitignore.local)"
+
+# ~/.gitignore.local is git's core.excludesfile (see homedir/.gitconfig). Seed it
+# from the shared baseline so the defaults still apply, then you can append your
+# own machine-local ignores below the marker.
+gitignore_local="$HOME/.gitignore.local"
+if [ ! -f "$gitignore_local" ]; then
+  running "seeding ~/.gitignore.local from the shared baseline (homedir/.gitignore)"
+  {
+    cat ./homedir/.gitignore
+    echo ""
+    echo "# ----------------------------------------------------------------------"
+    echo "# Machine-local ignores below — NOT tracked, NOT synced to other machines."
+    echo "# Add private/proprietary entries here (e.g. internal tool directories)."
+    echo "# ----------------------------------------------------------------------"
+  } >"$gitignore_local"
+  ok
+else
+  ok "~/.gitignore.local already exists; leaving it untouched"
+fi
+
+# ~/.zshrc.local is sourced at the end of ~/.zshrc.
+zshrc_local="$HOME/.zshrc.local"
+if [ ! -f "$zshrc_local" ]; then
+  running "creating ~/.zshrc.local for machine-local shell settings"
+  {
+    echo "# Machine-local zsh settings — NOT tracked, NOT synced to other machines."
+    echo "# Sourced at the end of ~/.zshrc. Add private/proprietary settings here."
+  } >"$zshrc_local"
+  ok
+else
+  ok "~/.zshrc.local already exists; leaving it untouched"
 fi
 
 bot "VIM Setup"

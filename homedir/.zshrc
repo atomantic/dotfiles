@@ -62,3 +62,8 @@ export NVM_DIR="$HOME/.nvm"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 export PATH="$HOME/.local/bin:$PATH"
+
+# Machine-local shell settings — NOT tracked, NOT synced to other machines.
+# Put private/proprietary or per-machine config in ~/.zshrc.local (created by
+# install.sh). Keeps this committed .zshrc clean across machines.
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local

@@ -88,11 +88,24 @@ cd ~/.dotfiles;
 - **Back up** any existing dotfile it is about to replace into `~/.dotfiles_backup/<timestamp>/` (restore later with `./restore.sh`).
 - **Symlink** the files in `homedir/` into your `$HOME` (`.zshrc`, `.vimrc`, `.gitconfig`, `.shellaliases`, `.shellfn`, etc.).
 - Prompt to configure your **git identity** (name, email, github username) and write it to the untracked `~/.gitconfig.local` — kept out of version control and pulled into `~/.gitconfig` via `[include]`, so your personal info never lands in the repo.
+- Seed your **machine-local override files** (see below) so per-machine, private/proprietary settings stay out of the repo.
 - Optionally overwrite `/etc/hosts` using [StevenBlack/hosts](https://github.com/StevenBlack/hosts) (add your own entries in `configs/hosts.local`).
 - Apply macOS system tweaks — Finder, Dock, security, and more (see [Settings](#settings)).
 - Prompt, **per category**, to install software: Homebrew CLI tools & desktop apps, npm globals, Mac App Store apps, and Ruby gems (see [Software Installation](#software-installation)).
 
 Every prompt can be declined, so you can run it just to apply the parts you want. To upgrade an existing install later, use [`./update.sh`](#updating) instead — it pulls the latest code and then runs `install.sh` for you.
+
+### Machine-local overrides (private / per-machine settings)
+
+Some settings are specific to one machine (work tools, proprietary config) and must **not** be committed or synced to your other machines. Keep them in these untracked override files — `install.sh` seeds them and then never touches them again, and they are git-ignored so they can't be committed:
+
+| File | Loaded by | Use it for |
+|------|-----------|------------|
+| `~/.gitconfig.local` | `[include]` in `~/.gitconfig` | git identity + any per-machine git config |
+| `~/.gitignore.local` | git's `core.excludesfile` (seeded from the shared `homedir/.gitignore` baseline) | global ignore entries, e.g. internal tool directories |
+| `~/.zshrc.local` | `source` at the end of `~/.zshrc` | machine-local shell config, `PATH` entries, completions |
+
+Edit these freely — they belong to you. The tracked files in `homedir/` stay clean, so `git pull` / `./update.sh` never conflicts with your local customizations. (`~/.gitignore.local` is a one-time copy of the shared baseline plus your additions; if the baseline changes later you can re-copy the top section.)
 
 - When it finishes, open iTerm and press `Command + ,` to open preferences. Under Profiles > Colors, select "Load Presets" and choose the `Solarized Dark Patch` scheme. If it isn't there for some reason, import it from `~/.dotfiles/configs` -- you may also need to select the `Hack` font and check the box for non-ascii font and set to `Roboto Mono For Powerline` (I've had mixed results for automating these settings--love a pull request that improves this)
 - I've also found that you need to reboot before fast key repeat will be enabled
