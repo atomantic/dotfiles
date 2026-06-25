@@ -7,11 +7,14 @@ id_rsa
 # desktop image backups
 img/*.backup.jpg
 node_modules
-# personal swap gitconfigs
+# personal swap gitconfigs / per-identity gitconfigs (e.g. .gitconfig-work)
 homedir/.gitconfig_*
-# local git identity written by install.sh (normally lives at ~/.gitconfig.local,
-# outside the repo; ignored here too in case it lands in the repo tree)
+homedir/.gitconfig-*
+# machine-local override files written by install.sh. These normally live at ~/
+# (outside the repo); ignored here too in case they ever land in the repo tree.
 homedir/.gitconfig.local
+homedir/.gitignore.local
+homedir/.zshrc.local
 homedir/.vim/backup/*
 !homedir/.vim/backup/.gitignore
 homedir/.vim/temp/*

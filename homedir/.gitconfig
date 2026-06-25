@@ -37,7 +37,10 @@
   fontdiff = -family Monaco -size 10 -weight normal -slant roman -underline 0 -overstrike 0
 
 [core]
-  excludesfile = ~/.gitignore
+  # Global ignore lives in ~/.gitignore.local (untracked, machine-local) so each
+  # machine can add private/proprietary entries without committing them.
+  # install.sh seeds it from the shared baseline (homedir/.gitignore).
+  excludesfile = ~/.gitignore.local
   quotepath = false
   # line endings
   # force LF during add
