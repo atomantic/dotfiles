@@ -520,17 +520,21 @@ function iproj() {
 function iproj-list() {
   local search_dir="${1:-$PWD}"
   echo "Project tab identities in $search_dir:"
-  # (N) = null-glob so an empty/childless dir yields no iterations instead of
-  # a "no matches found" error under zsh's default NOMATCH.
-  for repo in "$search_dir"/*/(N); do
+  # Iterate subdirs via `find` rather than a glob so this file stays
+  # parseable under bash (the zsh-only `*(N)` null-glob qualifier is a bash
+  # syntax error) and so an empty/childless dir just yields nothing instead
+  # of zsh's default NOMATCH error.
+  local repo name emoji color_str
+  local -a rgb
+  while IFS= read -r repo; do
     # -e (not -d): a worktree/submodule .git is a gitlink *file*, not a dir.
     [[ -e "$repo/.git" ]] || continue
-    local name=$(basename "$repo")
-    local emoji="$(_iterm2_project_emoji "$name")"
-    local color_str="$(_iterm2_project_color "$name")"
-    local -a rgb=( ${=color_str} )
+    name=$(basename "$repo")
+    emoji="$(_iterm2_project_emoji "$name")"
+    color_str="$(_iterm2_project_color "$name")"
+    rgb=( ${=color_str} )
     printf "  %s %-25s  rgb(%3d,%3d,%3d)\n" "$emoji" "$name" "${rgb[1]}" "${rgb[2]}" "${rgb[3]}"
-  done
+  done < <(find "$search_dir" -mindepth 1 -maxdepth 1 -type d 2>/dev/null)
 }
 
 # Auto-apply iTerm2 tab labels on cd — finds nearest git root
@@ -569,13 +573,16 @@ function _iterm2_apply_on_cd() {
   fi
 }
 
-autoload -U add-zsh-hook
+# Hook registration is zsh-only (add-zsh-hook / chpwd / precmd) — guard it so
+# this shared file loads cleanly under bash too. The functions above parse
+# fine under bash; they simply never get wired up (or called) there.
+[ -n "$ZSH_VERSION" ] && autoload -U add-zsh-hook
 # A real directory change resumes auto-labeling after a manual `iproj` reset.
 function _iterm2_on_chpwd() {
   ITERM2_MANUAL_OVERRIDE=""
   _iterm2_apply_on_cd
 }
-add-zsh-hook chpwd _iterm2_on_chpwd
+[ -n "$ZSH_VERSION" ] && add-zsh-hook chpwd _iterm2_on_chpwd
 # Apply on every prompt until it sticks, then switch to a lighter keep-alive
 # iTerm2 shell integration can override tab titles, so we re-apply on precmd
 function _iterm2_precmd_label() {
@@ -591,4 +598,4 @@ function _iterm2_precmd_label() {
     printf '\e]2;%s\a' "${emoji} ${project_name}"
   fi
 }
-add-zsh-hook precmd _iterm2_precmd_label
+[ -n "$ZSH_VERSION" ] && add-zsh-hook precmd _iterm2_precmd_label
