@@ -644,15 +644,18 @@ function _ghostty_theme_emoji() {
 # Detect theme name from a .ghostty-theme file (reads the comment header)
 function _ghostty_theme_name() {
   local file="$1"
-  local first_line
+  local first_line cap comment
   first_line=$(head -1 "$file" 2>/dev/null)
   if [[ "$first_line" =~ ^#.*-\ (.+)\ theme$ ]]; then
-    echo "${match[1]:l}"  # lowercase
+    # Regex captures live in $match (zsh) or $BASH_REMATCH (bash); lowercase
+    # via tr so this works under both shells (avoids zsh-only ${x:l}).
+    [[ -n "$ZSH_VERSION" ]] && cap="${match[1]}" || cap="${BASH_REMATCH[1]}"
+    echo "$cap" | tr '[:upper:]' '[:lower:]'
   elif [[ "$first_line" =~ ^#.*-\ (.+)$ ]]; then
-    # Try to extract color keyword from comment
-    local comment="${first_line#\# }"
+    # Try to extract a color keyword from the comment
+    comment=$(echo "${first_line#\# }" | tr '[:upper:]' '[:lower:]')
     for color in blue green purple orange red cyan; do
-      if [[ "${comment:l}" == *"$color"* ]]; then
+      if [[ "$comment" == *"$color"* ]]; then
         echo "$color"
         return
       fi
