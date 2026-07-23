@@ -382,3 +382,197 @@ function proj-themes() {
   echo "Usage: proj <project-path> [theme]"
   echo "Example: proj ~/projects/my-api green"
 }
+
+#########################################
+# iTerm2 tab labeling
+# Deterministic emoji + color per project name via hash.
+# Same project always gets the same visual identity across sessions.
+#
+# Usage: iproj [path]
+#   iproj .              # label current tab for this project
+#   iproj ~/projects/foo # label for a specific project
+#   iproj                # reset tab to defaults
+
+# 60 visually distinct emojis — indexed by hash of project name
+_ITERM2_EMOJI_POOL=(
+  "🔷" "🟢" "🟣" "🟠" "🔴" "🩵" "💎" "🌀" "⚡" "🔥"
+  "🌊" "🍀" "🎯" "🚀" "💜" "🧊" "🌙" "☀️" "🎲" "🏔️"
+  "🐙" "🦊" "🐺" "🦅" "🐝" "🪐" "🌵" "🍊" "🫐" "🍋"
+  "⭐" "🔮" "🎪" "🏗️" "⚓" "🛡️" "🎸" "🎭" "🧬" "🔬"
+  "💡" "🗿" "🌋" "❄️" "🌈" "🎨" "🧲" "⚙️" "🔑" "🪨"
+  "🦎" "🐋" "🦜" "🌸" "🍄" "🌿" "🪸" "🐚" "🦋" "🪻"
+)
+
+# 30 distinct tab colors — hue-spread RGB values
+_ITERM2_COLOR_POOL=(
+  "40 100 200"   # blue
+  "50 160 70"    # green
+  "140 60 180"   # purple
+  "210 130 40"   # orange
+  "190 55 55"    # red
+  "50 160 180"   # cyan
+  "180 60 120"   # magenta
+  "100 140 50"   # olive
+  "60 120 160"   # steel blue
+  "170 100 60"   # brown
+  "80 60 160"    # indigo
+  "50 180 120"   # teal
+  "200 80 80"    # coral
+  "120 100 180"  # lavender
+  "160 150 40"   # gold
+  "60 140 140"   # dark cyan
+  "180 80 160"   # orchid
+  "100 160 100"  # sage
+  "70 80 180"    # royal blue
+  "180 120 80"   # tan
+  "100 50 130"   # deep purple
+  "40 170 100"   # emerald
+  "200 100 120"  # rose
+  "80 130 60"    # forest
+  "150 80 40"    # rust
+  "60 100 130"   # slate
+  "170 60 90"    # crimson
+  "90 170 60"    # lime
+  "130 70 150"   # violet
+  "50 130 90"    # jade
+)
+
+function _iterm2_hash() {
+  # Deterministic hash of a string -> integer
+  printf '%s' "$1" | md5 | tr -d 'a-f' | cut -c1-8
+}
+
+function _iterm2_project_emoji() {
+  local hash=$(_iterm2_hash "$1")
+  local idx=$(( (hash % ${#_ITERM2_EMOJI_POOL[@]}) + 1 ))
+  echo "${_ITERM2_EMOJI_POOL[$idx]}"
+}
+
+function _iterm2_project_color() {
+  # Use a different slice of the hash for color than emoji
+  local hash=$(_iterm2_hash "color_$1")
+  local idx=$(( (hash % ${#_ITERM2_COLOR_POOL[@]}) + 1 ))
+  echo "${_ITERM2_COLOR_POOL[$idx]}"
+}
+
+function _iterm2_tab_color() {
+  local r="$1" g="$2" b="$3"
+  printf '\e]6;1;bg;red;brightness;%d\a' "$r"
+  printf '\e]6;1;bg;green;brightness;%d\a' "$g"
+  printf '\e]6;1;bg;blue;brightness;%d\a' "$b"
+}
+
+function _iterm2_tab_color_reset() {
+  printf '\e]6;1;bg;*;default\a'
+}
+
+function _iterm2_tab_title() {
+  # \e]1; sets tab title, \e]2; sets window title
+  # Set both to prevent iTerm2 shell integration from overriding
+  printf '\e]1;%s\a' "$1"
+  printf '\e]2;%s\a' "$1"
+}
+
+function _iterm2_label_tab() {
+  local project_name="$1"
+  local emoji="$(_iterm2_project_emoji "$project_name")"
+  local color_str="$(_iterm2_project_color "$project_name")"
+  local -a rgb=( ${=color_str} )
+  _iterm2_tab_color "${rgb[1]}" "${rgb[2]}" "${rgb[3]}"
+  _iterm2_tab_title "${emoji} ${project_name}"
+  echo "${emoji} ${project_name}"
+}
+
+function iproj() {
+  # Reset mode — no args
+  if [[ $# -eq 0 ]]; then
+    _iterm2_tab_color_reset
+    _iterm2_tab_title ""
+    ITERM2_PROJECT_ACTIVE=""
+    echo "Tab reset to defaults"
+    return 0
+  fi
+
+  local project_path="$1"
+
+  if [[ "$project_path" == "." ]]; then
+    project_path="$(pwd)"
+  else
+    project_path="$(cd "$project_path" 2>/dev/null && pwd)"
+  fi
+
+  if [[ -z "$project_path" || ! -d "$project_path" ]]; then
+    echo "Error: Directory not found: $1"
+    return 1
+  fi
+
+  local project_name=$(basename "$project_path")
+  ITERM2_PROJECT_ACTIVE="$project_path"
+  local label="$(_iterm2_label_tab "$project_name")"
+  echo "iTerm2 tab: $label"
+}
+
+# Preview all project identities
+# Usage: iproj-list [directory]  (defaults to cwd)
+function iproj-list() {
+  local search_dir="${1:-$PWD}"
+  echo "Project tab identities in $search_dir:"
+  for repo in "$search_dir"/*/; do
+    [[ -d "$repo/.git" ]] || continue
+    local name=$(basename "$repo")
+    local emoji="$(_iterm2_project_emoji "$name")"
+    local color_str="$(_iterm2_project_color "$name")"
+    local -a rgb=( ${=color_str} )
+    printf "  %s %-25s  rgb(%3d,%3d,%3d)\n" "$emoji" "$name" "${rgb[1]}" "${rgb[2]}" "${rgb[3]}"
+  done
+}
+
+# Auto-apply iTerm2 tab labels on cd — finds nearest git root
+ITERM2_PROJECT_ACTIVE=""
+
+function _iterm2_apply_on_cd() {
+  [[ "$TERM_PROGRAM" == "iTerm.app" ]] || return 0
+
+  local git_root=""
+  local search_dir="$PWD"
+
+  # Walk up to find nearest .git directory
+  while [[ "$search_dir" != "/" ]]; do
+    if [[ -d "$search_dir/.git" ]]; then
+      git_root="$search_dir"
+      break
+    fi
+    search_dir="$(dirname "$search_dir")"
+  done
+
+  if [[ "$git_root" == "$ITERM2_PROJECT_ACTIVE" ]]; then
+    return 0
+  fi
+
+  if [[ -n "$git_root" ]]; then
+    ITERM2_PROJECT_ACTIVE="$git_root"
+    local project_name="$(basename "$git_root")"
+    _iterm2_label_tab "$project_name" > /dev/null
+  elif [[ -n "$ITERM2_PROJECT_ACTIVE" ]]; then
+    ITERM2_PROJECT_ACTIVE=""
+    _iterm2_tab_color_reset
+    _iterm2_tab_title ""
+  fi
+}
+
+autoload -U add-zsh-hook
+add-zsh-hook chpwd _iterm2_apply_on_cd
+# Apply on every prompt until it sticks, then switch to a lighter keep-alive
+# iTerm2 shell integration can override tab titles, so we re-apply on precmd
+function _iterm2_precmd_label() {
+  [[ "$TERM_PROGRAM" == "iTerm.app" ]] || return 0
+  [[ -n "$ITERM2_PROJECT_ACTIVE" ]] || _iterm2_apply_on_cd
+  # Re-apply title on each prompt to prevent iTerm2 shell integration from overriding
+  if [[ -n "$ITERM2_PROJECT_ACTIVE" ]]; then
+    local project_name="$(basename "$ITERM2_PROJECT_ACTIVE")"
+    local emoji="$(_iterm2_project_emoji "$project_name")"
+    printf '\e]1;%s\a' "${emoji} ${project_name}"
+    printf '\e]2;%s\a' "${emoji} ${project_name}"
+  fi
+}
+add-zsh-hook precmd _iterm2_precmd_label
