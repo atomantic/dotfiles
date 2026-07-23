@@ -766,6 +766,9 @@ function _ghostty_apply_osc() {
   fi
 
   if [[ -n "$theme_file" ]]; then
+    # Switching directly between two themed dirs: reset first, else palette/
+    # foreground keys the new theme omits bleed through from the previous one.
+    [[ -n "$GHOSTTY_THEME_ACTIVE" ]] && _ghostty_reset_colors
     GHOSTTY_THEME_ACTIVE="$theme_file"
     _ghostty_set_colors "$theme_file"
     # Set tab title to project name with theme emoji
@@ -791,7 +794,10 @@ function _ghostty_set_colors() {
     [[ -z "${line// /}" ]] && continue
 
     local key="${line%%=*}"
-    local val="${line#*= }"
+    # Strip up to the first '=' only (no space required) — Ghostty config
+    # accepts `key=value` with or without spaces around '='; the space-then
+    # trim below normalizes either form.
+    local val="${line#*=}"
     key="${key// /}"
     val="${val// /}"
 
