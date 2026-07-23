@@ -256,8 +256,8 @@ add-zsh-hook precmd _iterm2_precmd_label
 - **Tab color** uses iTerm2 OSC `\e]6;1;bg;<channel>;brightness;<0-255>\a`.
 - **Tab/window title** uses OSC `\e]1;` (tab) and `\e]2;` (window). Both are set because iTerm2
   shell integration otherwise overwrites the title.
-- **Auto-labeling** — a `chpwd` hook walks up from `$PWD` to the nearest `.git` directory and
-  labels the tab with that repo's name. A `precmd` hook re-applies the title every prompt so the
+- **Auto-labeling** — a `chpwd` hook walks up from `$PWD` to the nearest `.git` (a directory in a
+  normal clone, or a gitlink file in a worktree/submodule) and labels the tab with that repo's name. A `precmd` hook re-applies the title every prompt so the
   shell-integration override doesn't win. `ITERM2_PROJECT_ACTIVE` caches the current repo root to
   avoid redundant re-labeling.
 

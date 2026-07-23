@@ -489,6 +489,9 @@ function iproj() {
     _iterm2_tab_color_reset
     _iterm2_tab_title ""
     ITERM2_PROJECT_ACTIVE=""
+    # Suppress auto-labeling until the next cd, otherwise the precmd hook
+    # re-detects the current repo and re-labels the tab on the next prompt.
+    ITERM2_MANUAL_OVERRIDE=1
     echo "Tab reset to defaults"
     return 0
   fi
@@ -517,8 +520,11 @@ function iproj() {
 function iproj-list() {
   local search_dir="${1:-$PWD}"
   echo "Project tab identities in $search_dir:"
-  for repo in "$search_dir"/*/; do
-    [[ -d "$repo/.git" ]] || continue
+  # (N) = null-glob so an empty/childless dir yields no iterations instead of
+  # a "no matches found" error under zsh's default NOMATCH.
+  for repo in "$search_dir"/*/(N); do
+    # -e (not -d): a worktree/submodule .git is a gitlink *file*, not a dir.
+    [[ -e "$repo/.git" ]] || continue
     local name=$(basename "$repo")
     local emoji="$(_iterm2_project_emoji "$name")"
     local color_str="$(_iterm2_project_color "$name")"
@@ -529,6 +535,8 @@ function iproj-list() {
 
 # Auto-apply iTerm2 tab labels on cd — finds nearest git root
 ITERM2_PROJECT_ACTIVE=""
+# Set by `iproj` (reset) to pause auto-labeling; cleared on the next real cd.
+ITERM2_MANUAL_OVERRIDE=""
 
 function _iterm2_apply_on_cd() {
   [[ "$TERM_PROGRAM" == "iTerm.app" ]] || return 0
@@ -536,9 +544,10 @@ function _iterm2_apply_on_cd() {
   local git_root=""
   local search_dir="$PWD"
 
-  # Walk up to find nearest .git directory
+  # Walk up to find the nearest .git — a directory in a normal clone, or a
+  # gitlink *file* in a worktree/submodule, so test with -e (not -d).
   while [[ "$search_dir" != "/" ]]; do
-    if [[ -d "$search_dir/.git" ]]; then
+    if [[ -e "$search_dir/.git" ]]; then
       git_root="$search_dir"
       break
     fi
@@ -561,12 +570,19 @@ function _iterm2_apply_on_cd() {
 }
 
 autoload -U add-zsh-hook
-add-zsh-hook chpwd _iterm2_apply_on_cd
+# A real directory change resumes auto-labeling after a manual `iproj` reset.
+function _iterm2_on_chpwd() {
+  ITERM2_MANUAL_OVERRIDE=""
+  _iterm2_apply_on_cd
+}
+add-zsh-hook chpwd _iterm2_on_chpwd
 # Apply on every prompt until it sticks, then switch to a lighter keep-alive
 # iTerm2 shell integration can override tab titles, so we re-apply on precmd
 function _iterm2_precmd_label() {
   [[ "$TERM_PROGRAM" == "iTerm.app" ]] || return 0
-  [[ -n "$ITERM2_PROJECT_ACTIVE" ]] || _iterm2_apply_on_cd
+  # First-prompt detection (shell started inside a repo, before any chpwd),
+  # unless the user paused labeling with `iproj`.
+  [[ -n "$ITERM2_PROJECT_ACTIVE" || -n "$ITERM2_MANUAL_OVERRIDE" ]] || _iterm2_apply_on_cd
   # Re-apply title on each prompt to prevent iTerm2 shell integration from overriding
   if [[ -n "$ITERM2_PROJECT_ACTIVE" ]]; then
     local project_name="$(basename "$ITERM2_PROJECT_ACTIVE")"
