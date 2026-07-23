@@ -599,3 +599,247 @@ function _iterm2_precmd_label() {
   fi
 }
 [ -n "$ZSH_VERSION" ] && add-zsh-hook precmd _iterm2_precmd_label
+
+#########################################
+# Ghostty Project Launcher
+# Usage: proj <project-path> [theme]
+# Themes: blue, green, purple, orange, red, cyan
+#
+# Theme resolution order:
+#   1. .ghostty-theme file in the project directory
+#   2. Named theme passed as second argument
+#   3. Default: blue
+#
+# Examples:
+#   proj ~/projects/my-api          # uses .ghostty-theme if present, else blue
+#   proj ~/projects/frontend purple # uses purple theme (ignores .ghostty-theme)
+#   proj .                          # open current dir
+
+# Find ghostty binary (shared helper)
+function _ghostty_bin() {
+  if command -v ghostty &>/dev/null; then
+    echo "ghostty"
+  elif [[ -x "/Applications/Ghostty.app/Contents/MacOS/ghostty" ]]; then
+    echo "/Applications/Ghostty.app/Contents/MacOS/ghostty"
+  elif [[ -x "$HOME/Applications/Ghostty.app/Contents/MacOS/ghostty" ]]; then
+    echo "$HOME/Applications/Ghostty.app/Contents/MacOS/ghostty"
+  elif [[ -x "$HOME/Documents/Ghostty.app/Contents/MacOS/ghostty" ]]; then
+    echo "$HOME/Documents/Ghostty.app/Contents/MacOS/ghostty"
+  fi
+}
+
+# Map theme name to emoji
+function _ghostty_theme_emoji() {
+  case "$1" in
+    blue)   echo "🔵" ;;
+    green)  echo "🟢" ;;
+    purple) echo "🟣" ;;
+    orange) echo "🟠" ;;
+    red)    echo "🔴" ;;
+    cyan)   echo "🩵" ;;
+    *)      echo "⚪" ;;
+  esac
+}
+
+# Detect theme name from a .ghostty-theme file (reads the comment header)
+function _ghostty_theme_name() {
+  local file="$1"
+  local first_line cap comment
+  first_line=$(head -1 "$file" 2>/dev/null)
+  if [[ "$first_line" =~ ^#.*-\ (.+)\ theme$ ]]; then
+    # Regex captures live in $match (zsh) or $BASH_REMATCH (bash); lowercase
+    # via tr so this works under both shells (avoids zsh-only ${x:l}).
+    [[ -n "$ZSH_VERSION" ]] && cap="${match[1]}" || cap="${BASH_REMATCH[1]}"
+    echo "$cap" | tr '[:upper:]' '[:lower:]'
+  elif [[ "$first_line" =~ ^#.*-\ (.+)$ ]]; then
+    # Try to extract a color keyword from the comment
+    comment=$(echo "${first_line#\# }" | tr '[:upper:]' '[:lower:]')
+    for color in blue green purple orange red cyan; do
+      if [[ "$comment" == *"$color"* ]]; then
+        echo "$color"
+        return
+      fi
+    done
+    echo "custom"
+  else
+    echo "custom"
+  fi
+}
+
+function proj() {
+  local project_path="${1:-.}"
+  local theme_override="$2"
+  local theme_dir="$HOME/Library/Application Support/com.mitchellh.ghostty/themes"
+
+  # Resolve to absolute path
+  if [[ "$project_path" == "." ]]; then
+    project_path="$(pwd)"
+  else
+    project_path="$(cd "$project_path" 2>/dev/null && pwd)"
+  fi
+
+  if [[ -z "$project_path" || ! -d "$project_path" ]]; then
+    echo "Error: Directory not found: $1"
+    return 1
+  fi
+
+  local ghostty_bin
+  ghostty_bin="$(_ghostty_bin)"
+  if [[ -z "$ghostty_bin" ]]; then
+    echo "Error: Ghostty not found"
+    return 1
+  fi
+
+  local theme_file=""
+  local theme_name=""
+
+  # Theme resolution: explicit arg > .ghostty-theme > default
+  if [[ -n "$theme_override" ]]; then
+    theme_file="$theme_dir/$theme_override.conf"
+    theme_name="$theme_override"
+    if [[ ! -f "$theme_file" ]]; then
+      echo "Available themes: blue, green, purple, orange, red, cyan"
+      echo "Error: Theme not found: $theme_override"
+      return 1
+    fi
+  elif [[ -f "$project_path/.ghostty-theme" ]]; then
+    theme_file="$project_path/.ghostty-theme"
+    theme_name="$(_ghostty_theme_name "$theme_file")"
+  else
+    theme_name="blue"
+    theme_file="$theme_dir/blue.conf"
+  fi
+
+  local project_name=$(basename "$project_path")
+  local emoji="$(_ghostty_theme_emoji "$theme_name")"
+  local window_title="${emoji} ${project_name}"
+
+  "$ghostty_bin" \
+    --config-file="$theme_file" \
+    --title="$window_title" \
+    --working-directory="$project_path" &>/dev/null &
+
+  disown
+  echo "Launched: $window_title"
+}
+
+# List available Ghostty themes
+function proj-themes() {
+  echo "Available Ghostty project themes:"
+  echo "  blue   🔵 Default/main projects"
+  echo "  green  🟢 Backend/API projects"
+  echo "  purple 🟣 Frontend/UI projects"
+  echo "  orange 🟠 DevOps/Infrastructure"
+  echo "  red    🔴 Production/Critical"
+  echo "  cyan   🩵 Data/Analytics"
+  echo ""
+  echo "Or drop a .ghostty-theme file in any project directory."
+  echo ""
+  echo "Usage: proj <project-path> [theme]"
+  echo "Example: proj ~/projects/my-api green"
+  echo "Example: proj ~/projects/PortOS        # auto-detects .ghostty-theme"
+}
+
+#########################################
+# Ghostty auto-theme on cd
+# Walks up from cwd to find nearest .ghostty-theme and applies colors
+# via OSC escape sequences. Reverts to defaults when leaving a themed dir.
+
+GHOSTTY_THEME_ACTIVE=""
+
+function _ghostty_apply_osc() {
+  # Only run inside Ghostty
+  [[ "$TERM_PROGRAM" == "ghostty" ]] || return 0
+
+  local theme_file=""
+  local search_dir="$PWD"
+
+  # Walk up to find nearest .ghostty-theme
+  while [[ "$search_dir" != "/" ]]; do
+    if [[ -f "$search_dir/.ghostty-theme" ]]; then
+      theme_file="$search_dir/.ghostty-theme"
+      break
+    fi
+    search_dir="$(dirname "$search_dir")"
+  done
+
+  # Same theme already active — skip
+  if [[ "$theme_file" == "$GHOSTTY_THEME_ACTIVE" ]]; then
+    return 0
+  fi
+
+  if [[ -n "$theme_file" ]]; then
+    # Switching directly between two themed dirs: reset first, else palette/
+    # foreground keys the new theme omits bleed through from the previous one.
+    [[ -n "$GHOSTTY_THEME_ACTIVE" ]] && _ghostty_reset_colors
+    GHOSTTY_THEME_ACTIVE="$theme_file"
+    _ghostty_set_colors "$theme_file"
+    # Set tab title to project name with theme emoji
+    local project_dir="$(dirname "$theme_file")"
+    local project_name="$(basename "$project_dir")"
+    local theme_name="$(_ghostty_theme_name "$theme_file")"
+    local emoji="$(_ghostty_theme_emoji "$theme_name")"
+    printf '\e]2;%s\a' "${emoji} ${project_name}"
+  elif [[ -n "$GHOSTTY_THEME_ACTIVE" ]]; then
+    # Left a themed directory — reset to defaults
+    GHOSTTY_THEME_ACTIVE=""
+    _ghostty_reset_colors
+    # Reset title (empty string restores default behavior)
+    printf '\e]2;%s\a' ""
+  fi
+}
+
+function _ghostty_set_colors() {
+  local file="$1"
+  while IFS= read -r line; do
+    # Skip comments and empty lines
+    [[ "$line" =~ ^[[:space:]]*# ]] && continue
+    [[ -z "${line// /}" ]] && continue
+
+    local key="${line%%=*}"
+    # Strip up to the first '=' only (no space required) — Ghostty config
+    # accepts `key=value` with or without spaces around '='; the space-then
+    # trim below normalizes either form.
+    local val="${line#*=}"
+    key="${key// /}"
+    val="${val// /}"
+
+    case "$key" in
+      foreground)
+        [[ "$val" != \#* ]] && val="#$val"
+        printf '\e]10;%s\a' "$val"
+        ;;
+      background)
+        [[ "$val" != \#* ]] && val="#$val"
+        printf '\e]11;%s\a' "$val"
+        ;;
+      cursor-color)
+        [[ "$val" != \#* ]] && val="#$val"
+        printf '\e]12;%s\a' "$val"
+        ;;
+      palette)
+        # val format: "N=#RRGGBB" e.g. "0=#0f0f0f"
+        local idx="${val%%=*}"
+        local color="${val#*=}"
+        [[ "$color" != \#* ]] && color="#$color"
+        printf '\e]4;%s;%s\a' "$idx" "$color"
+        ;;
+    esac
+  done < "$file"
+}
+
+function _ghostty_reset_colors() {
+  # Reset foreground, background, cursor to terminal defaults
+  printf '\e]110\a'   # reset foreground
+  printf '\e]111\a'   # reset background
+  printf '\e]112\a'   # reset cursor
+  # Reset all 16 palette colors
+  printf '\e]104\a'   # reset all palette entries
+}
+
+# Register the chpwd hook
+[ -n "$ZSH_VERSION" ] && autoload -U add-zsh-hook
+[ -n "$ZSH_VERSION" ] && add-zsh-hook chpwd _ghostty_apply_osc
+
+# Apply on shell startup too (in case shell starts in a themed directory)
+_ghostty_apply_osc
