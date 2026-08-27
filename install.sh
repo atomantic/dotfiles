@@ -1097,6 +1097,23 @@ defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true;ok
 # running "Disable local Time Machine backups"
 # hash tmutil &> /dev/null && sudo tmutil disablelocal;ok
 
+read -r -p "Audit Time Machine exclusions for regenerable caches and build products? [y|N] " response
+if [[ $response =~ (yes|y|Y) ]];then
+    action "./scripts/setup-timemachine-exclusions.sh"
+    ./scripts/setup-timemachine-exclusions.sh
+    ok
+    read -r -p "Apply the missing fixed-path exclusions listed above? (requires Full Disk Access) [y|N] " response
+    if [[ $response =~ (yes|y|Y) ]];then
+        action "./scripts/setup-timemachine-exclusions.sh --apply"
+        ./scripts/setup-timemachine-exclusions.sh --apply
+        ok
+    else
+        ok "skipped";
+    fi
+else
+    ok "skipped";
+fi
+
 ###############################################################################
 bot "Activity Monitor"
 ###############################################################################

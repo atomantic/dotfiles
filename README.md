@@ -273,7 +273,28 @@ The following will only happen if you agree on the prompt
 ## Time Machine
 
 - Prevent Time Machine from prompting to use new hard drives as backup volume
-- Disable local Time Machine backups
+- Audit conservative exclusions for regenerable caches, downloaded models, and
+  developer build products (`install.sh` prompts to run this, or run it directly):
+
+  ```bash
+  ./scripts/setup-timemachine-exclusions.sh
+  ```
+
+- Apply missing fixed-path exclusions after reviewing the report:
+
+  ```bash
+  ./scripts/setup-timemachine-exclusions.sh --apply
+  ```
+
+  Applying exclusions requires Terminal to have Full Disk Access. The script is
+  idempotent and discovers `node_modules`, Swift `.build`, pnpm, Turbo, and Parcel
+  caches under common source roots. It deliberately preserves source, Git
+  worktrees, virtual environments, conversations, generated media, Xcode
+  archives, simulator device data, and cloud-synced user files.
+
+  Exclusions limit future backup growth but do not delete existing Time Machine
+  history. Time Machine also needs enough free space on the source Data volume to
+  create a local APFS snapshot before a backup can begin.
 
 ## Activity Monitor
 
