@@ -83,6 +83,19 @@ if [[ ${#PROJECT_ROOTS[@]} -eq 0 ]]; then
     "$HOME/github.com"
     "$HOME/gitlab.com"
   )
+else
+  # Explicit roots come from the caller, so a typo deserves an error instead of a
+  # silently empty scan that still reports success. Canonicalize them too: find
+  # echoes each root exactly as it was given, so a relative root would put
+  # ambiguous, cwd-dependent paths in the report and in any exclusion added.
+  for root_index in "${!PROJECT_ROOTS[@]}"; do
+    root="${PROJECT_ROOTS[$root_index]}"
+    if [[ ! -d "$root" ]]; then
+      echo "error: --project-root is not a directory: $root" >&2
+      exit 2
+    fi
+    PROJECT_ROOTS[root_index]="$(cd "$root" && pwd -P)"
+  done
 fi
 
 is_excluded() {
@@ -145,9 +158,15 @@ process_candidate() {
 
 report_filesystems() {
   local destination=""
+  local data_volume="/System/Volumes/Data"
+
+  # Pre-Catalina systems have no separate Data volume. Fall back to / there, and
+  # keep df out of the pipeline's exit status: under `set -o pipefail` a failing
+  # df would abort the whole audit before a single candidate is reported.
+  [[ -d "$data_volume" ]] || data_volume="/"
 
   echo "Filesystem capacity"
-  df -h /System/Volumes/Data 2>/dev/null | sed -n '1,2p'
+  { df -h "$data_volume" 2>/dev/null || true; } | sed -n '1,2p'
 
   destination="$(
     { tmutil destinationinfo 2>/dev/null || true; } |
@@ -156,7 +175,7 @@ report_filesystems() {
   if [[ -n "$destination" && -d "$destination" ]]; then
     echo
     echo "Time Machine destination"
-    df -h "$destination" 2>/dev/null | sed -n '1,2p'
+    { df -h "$destination" 2>/dev/null || true; } | sed -n '1,2p'
   else
     echo
     echo "Time Machine destination is unavailable or not configured."
