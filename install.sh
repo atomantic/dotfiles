@@ -1100,15 +1100,21 @@ defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true;ok
 read -r -p "Audit Time Machine exclusions for regenerable caches and build products? [y|N] " response
 if [[ $response =~ (yes|y|Y) ]];then
     action "./scripts/setup-timemachine-exclusions.sh"
-    ./scripts/setup-timemachine-exclusions.sh
-    ok
-    read -r -p "Apply the missing fixed-path exclusions listed above? (requires Full Disk Access) [y|N] " response
-    if [[ $response =~ (yes|y|Y) ]];then
-        action "./scripts/setup-timemachine-exclusions.sh --apply"
-        ./scripts/setup-timemachine-exclusions.sh --apply
+    if ./scripts/setup-timemachine-exclusions.sh; then
         ok
+        read -r -p "Apply the missing fixed-path exclusions listed above? (requires Full Disk Access) [y|N] " response
+        if [[ $response =~ (yes|y|Y) ]];then
+            action "./scripts/setup-timemachine-exclusions.sh --apply"
+            if ./scripts/setup-timemachine-exclusions.sh --apply; then
+                ok
+            else
+                warn "some exclusions could not be applied; grant Terminal Full Disk Access and re-run ./scripts/setup-timemachine-exclusions.sh --apply"
+            fi
+        else
+            ok "skipped";
+        fi
     else
-        ok "skipped";
+        warn "the Time Machine exclusion audit failed; skipping"
     fi
 else
     ok "skipped";
