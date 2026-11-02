@@ -103,9 +103,12 @@ _ITERM2_COLOR_POOL=(
 )
 
 function _iterm2_hash() {
-  # Deterministic hash of a string -> integer
-  # (macOS `md5`. On Linux use: md5sum | awk '{print $1}' | tr -d 'a-f' | cut -c1-8)
-  printf '%s' "$1" | md5 | tr -d 'a-f' | cut -c1-8
+  # Keep eight hexadecimal digits and explicitly interpret them as base 16,
+  # so leading zeroes and a-f digits work in zsh arithmetic.
+  # (macOS `md5`; Linux can use `md5sum` and select its first field.)
+  local digits
+  digits=$(printf '%s' "$1" | md5 | awk '{print $NF}' | cut -c1-8)
+  printf '%s\n' "$((16#$digits))"
 }
 
 function _iterm2_project_emoji() {
@@ -155,6 +158,9 @@ function iproj() {
     _iterm2_tab_color_reset
     _iterm2_tab_title ""
     ITERM2_PROJECT_ACTIVE=""
+    # Suppress auto-labeling until the next cd, otherwise precmd re-detects
+    # this repo and relabels the tab immediately.
+    ITERM2_MANUAL_OVERRIDE=1
     echo "Tab reset to defaults"
     return 0
   fi
@@ -183,8 +189,10 @@ function iproj() {
 function iproj-list() {
   local search_dir="${1:-$PWD}"
   echo "Project tab identities in $search_dir:"
-  for repo in "$search_dir"/*/; do
-    [[ -d "$repo/.git" ]] || continue
+  setopt local_options nonomatch no_glob_dots
+  for repo in "$search_dir"/*/ "$search_dir"/.[!.]*/ "$search_dir"/..?*/; do
+    # A worktree/submodule stores .git as a file; normal clones use a directory.
+    [[ -e "$repo/.git" ]] || continue
     local name=$(basename "$repo")
     local emoji="$(_iterm2_project_emoji "$name")"
     local color_str="$(_iterm2_project_color "$name")"
@@ -195,6 +203,7 @@ function iproj-list() {
 
 # Auto-apply iTerm2 tab labels on cd — finds nearest git root
 ITERM2_PROJECT_ACTIVE=""
+ITERM2_MANUAL_OVERRIDE=""
 
 function _iterm2_apply_on_cd() {
   [[ "$TERM_PROGRAM" == "iTerm.app" ]] || return 0
@@ -202,9 +211,9 @@ function _iterm2_apply_on_cd() {
   local git_root=""
   local search_dir="$PWD"
 
-  # Walk up to find nearest .git directory
+  # Walk up to find .git metadata (directory in a clone, file in worktrees).
   while [[ "$search_dir" != "/" ]]; do
-    if [[ -d "$search_dir/.git" ]]; then
+    if [[ -e "$search_dir/.git" ]]; then
       git_root="$search_dir"
       break
     fi
@@ -226,13 +235,17 @@ function _iterm2_apply_on_cd() {
   fi
 }
 
+function _iterm2_on_chpwd() {
+  ITERM2_MANUAL_OVERRIDE=""
+  _iterm2_apply_on_cd
+}
 autoload -U add-zsh-hook
-add-zsh-hook chpwd _iterm2_apply_on_cd
+add-zsh-hook chpwd _iterm2_on_chpwd
 # Apply on every prompt until it sticks, then switch to a lighter keep-alive
 # iTerm2 shell integration can override tab titles, so we re-apply on precmd
 function _iterm2_precmd_label() {
   [[ "$TERM_PROGRAM" == "iTerm.app" ]] || return 0
-  [[ -n "$ITERM2_PROJECT_ACTIVE" ]] || _iterm2_apply_on_cd
+  [[ -n "$ITERM2_PROJECT_ACTIVE" || -n "$ITERM2_MANUAL_OVERRIDE" ]] || _iterm2_apply_on_cd
   # Re-apply title on each prompt to prevent iTerm2 shell integration from overriding
   if [[ -n "$ITERM2_PROJECT_ACTIVE" ]]; then
     local project_name="$(basename "$ITERM2_PROJECT_ACTIVE")"
@@ -248,18 +261,21 @@ add-zsh-hook precmd _iterm2_precmd_label
 
 ## How it works
 
-- **`_iterm2_hash`** — hashes the project name with `md5`, strips hex letters, takes the first
-  8 digits → a stable integer. Deterministic, so identity is consistent everywhere.
+- **`_iterm2_hash`** — hashes the project name with `md5`, keeps the first eight hexadecimal
+  digits, and explicitly interprets them as base 16. This avoids zsh interpreting leading-zero
+  hashes as octal while preserving the hash's hexadecimal value. Deterministic, so identity is
+  consistent everywhere.
 - **`_iterm2_project_emoji` / `_iterm2_project_color`** — index into the emoji/color pools with
   `hash % pool_size`. Color hashes a `color_`-prefixed string so emoji and color pick
   independently.
 - **Tab color** uses iTerm2 OSC `\e]6;1;bg;<channel>;brightness;<0-255>\a`.
 - **Tab/window title** uses OSC `\e]1;` (tab) and `\e]2;` (window). Both are set because iTerm2
   shell integration otherwise overwrites the title.
-- **Auto-labeling** — a `chpwd` hook walks up from `$PWD` to the nearest `.git` (a directory in a
-  normal clone, or a gitlink file in a worktree/submodule) and labels the tab with that repo's name. A `precmd` hook re-applies the title every prompt so the
-  shell-integration override doesn't win. `ITERM2_PROJECT_ACTIVE` caches the current repo root to
-  avoid redundant re-labeling.
+- **Auto-labeling** — a `chpwd` hook walks up from `$PWD` to the nearest `.git` metadata entry
+  (a directory in a normal clone, or a file in a linked worktree/submodule) and labels the tab with
+  that repo's name. A `precmd` hook re-applies the title every prompt so the shell-integration
+  override doesn't win. `ITERM2_PROJECT_ACTIVE` caches the current repo root to avoid redundant
+  re-labeling; `iproj` reset suppresses auto-labeling until the next directory change.
 
 ## Verification
 
@@ -282,7 +298,9 @@ The only OS-specific piece is the hash. Change `_iterm2_hash` to:
 
 ```zsh
 function _iterm2_hash() {
-  printf '%s' "$1" | md5sum | awk '{print $1}' | tr -d 'a-f' | cut -c1-8
+  local digits
+  digits=$(printf '%s' "$1" | md5sum | awk '{print $1}' | cut -c1-8)
+  printf '%s\n' "$((16#$digits))"
 }
 ```
 
