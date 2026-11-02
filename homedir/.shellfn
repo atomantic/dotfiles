@@ -523,13 +523,11 @@ function iproj() {
 function iproj-list() {
   local search_dir="${1:-$PWD}"
   echo "Project tab identities in $search_dir:"
-  # Use a shell glob so this works with the BSD find shipped on macOS as well
-  # as GNU find. In zsh, disable NOMATCH locally so empty directories are fine.
+  # Iterate subdirectories with find, including hidden directories, without
+  # relying on zsh glob options or bash-incompatible glob qualifiers.
   local repo name emoji color_str
   local -a rgb
-  [[ -n "$ZSH_VERSION" ]] && setopt local_options nonomatch
-  for repo in "$search_dir"/*; do
-    [[ -d "$repo" && ! -L "$repo" ]] || continue
+  while IFS= read -r repo; do
     # -e (not -d): a worktree/submodule .git is a gitlink *file*, not a dir.
     [[ -e "$repo/.git" ]] || continue
     name=$(basename "$repo")
@@ -537,7 +535,7 @@ function iproj-list() {
     color_str="$(_iterm2_project_color "$name")"
     rgb=( ${=color_str} )
     printf "  %s %-25s  rgb(%3d,%3d,%3d)\n" "$emoji" "$name" "${rgb[1]}" "${rgb[2]}" "${rgb[3]}"
-  done
+  done < <(find "$search_dir" -mindepth 1 -maxdepth 1 -type d 2>/dev/null)
 }
 
 # Auto-apply iTerm2 tab labels on cd — finds nearest git root

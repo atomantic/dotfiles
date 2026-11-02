@@ -310,9 +310,9 @@ if [[ $SCAN_PROJECTS -eq 1 ]]; then
           ;;
       esac
     done < <(
-      # Avoid GNU-only -maxdepth so this works with macOS/BSD find. Prune
-      # discovered caches and Git metadata instead of descending into them.
-      find "$root" -xdev -type d \
+      # Both macOS/BSD and GNU find support -maxdepth. Keep the search bounded
+      # so deeply nested directories are not unexpectedly added as exclusions.
+      find "$root" -xdev -maxdepth 6 -type d \
         \( -name .git -o -name node_modules -o -name .pnpm-store -o -name .build -o -name .turbo -o -name .parcel-cache \) \
         -prune -print 2>/dev/null
     )

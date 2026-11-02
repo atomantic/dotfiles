@@ -72,19 +72,16 @@ migrate_gitconfig_identity() {
   local tracked="$ROOT_DIR/homedir/.gitconfig"
   local local_cfg="$HOME/.gitconfig.local"
   local tmp_cfg=""
+  local original_local_backup=""
+  local rollback_tmp=""
+  local tracked_was_symlink=0
 
   [ -f "$tracked" ] || return 0
+  [ -L "$tracked" ] && tracked_was_symlink=1
 
-  if [ -f "$local_cfg" ] && [ ! -L "$local_cfg" ] && grep -q '^\[user\]' "$local_cfg"; then
+  if [ -f "$local_cfg" ] && grep -q '^\[user\]' "$local_cfg"; then
     ok "git identity already lives in ~/.gitconfig.local — nothing to migrate"
     return 0
-  fi
-
-  if [ -e "$local_cfg" ] || [ -L "$local_cfg" ]; then
-    if [ ! -f "$local_cfg" ] || [ -L "$local_cfg" ]; then
-      error "cannot safely update ~/.gitconfig.local: it exists but is not a regular file"
-      return 1
-    fi
   fi
 
   local name email ghuser
@@ -102,6 +99,19 @@ migrate_gitconfig_identity() {
     return 0
   fi
 
+  if [ -e "$local_cfg" ] || [ -L "$local_cfg" ]; then
+    if [ ! -f "$local_cfg" ] || [ -L "$local_cfg" ]; then
+      error "cannot safely update ~/.gitconfig.local: it exists but is not a regular file"
+      return 1
+    fi
+  fi
+
+  # Checkout restores the index, so it cannot clean a staged personal identity.
+  if ! git diff --cached --quiet --no-ext-diff --no-textconv -- homedir/.gitconfig; then
+    error "staged changes in homedir/.gitconfig; preserve or unstage them before migrating identity"
+    return 1
+  fi
+
   tmp_cfg=$(mktemp "$HOME/.gitconfig.local.XXXXXX") || {
     error "could not create a private temporary git-config file; migration stopped"
     return 1
@@ -112,15 +122,12 @@ migrate_gitconfig_identity() {
     return 1
   fi
   {
-    printf '\n# Local git identity — NOT tracked by the dotfiles repo.\n'
-    printf '# Migrated by update.sh; edit freely. Pulled in via [include] in ~/.gitconfig.\n'
-    printf '[user]\n'
-    [ -n "$name" ] && printf '\tname = %s\n' "$name"
-    [ -n "$email" ] && printf '\temail = %s\n' "$email"
-    if [ -n "$ghuser" ]; then
-      printf '[github]\n'
-      printf '\tuser = %s\n' "$ghuser"
-    fi
+    printf '\n# Local git identity — NOT tracked by the dotfiles repo.\n' &&
+    printf '# Migrated by update.sh; edit freely. Pulled in via [include] in ~/.gitconfig.\n' &&
+    printf '[user]\n' &&
+    { [ -z "$name" ] || printf '\tname = %s\n' "$name"; } &&
+    { [ -z "$email" ] || printf '\temail = %s\n' "$email"; } &&
+    { [ -z "$ghuser" ] || { printf '[github]\n' && printf '\tuser = %s\n' "$ghuser"; }; }
   } >>"$tmp_cfg" || {
     rm -f "$tmp_cfg"
     error "could not write the migrated identity; migration stopped"
@@ -139,6 +146,14 @@ migrate_gitconfig_identity() {
     error "git-config backup failed verification; migration stopped before changing identity files"
     return 1
   fi
+  if [ -f "$local_cfg" ]; then
+    original_local_backup="$BACKUP_DIR/.gitconfig.local"
+    if ! cp -p "$local_cfg" "$original_local_backup" || ! cmp -s "$local_cfg" "$original_local_backup"; then
+      rm -f "$tmp_cfg"
+      error "local git-config backup failed verification; migration stopped before changing identity files"
+      return 1
+    fi
+  fi
 
   running "moving the tracked git identity to ~/.gitconfig.local"
   if ! mv "$tmp_cfg" "$local_cfg"; then
@@ -150,6 +165,34 @@ migrate_gitconfig_identity() {
   # The tracked file may carry other personal tweaks (e.g. includeIf blocks).
   # The verified copy above is recoverable if checkout fails.
   if ! git checkout -- homedir/.gitconfig; then
+    # Git can update the tracked file and then fail in a post-checkout hook.
+    # Restore the verified copy before undoing the new local identity.
+    if [ "$tracked_was_symlink" -eq 1 ] || [ -L "$tracked" ] || [ -d "$tracked" ]; then
+      error "checkout failed; restore homedir/.gitconfig from $BACKUP_DIR/.gitconfig before retrying"
+      return 1
+    fi
+    if ! rollback_tmp=$(mktemp "$ROOT_DIR/homedir/.gitconfig-rollback.XXXXXX"); then
+      error "checkout failed; restore homedir/.gitconfig from $BACKUP_DIR/.gitconfig before retrying"
+      return 1
+    fi
+    if ! cp -p "$BACKUP_DIR/.gitconfig" "$rollback_tmp" || ! cmp -s "$BACKUP_DIR/.gitconfig" "$rollback_tmp" || ! mv "$rollback_tmp" "$tracked"; then
+      rm -f "$rollback_tmp"
+      error "checkout failed; restore homedir/.gitconfig from $BACKUP_DIR/.gitconfig before retrying"
+      return 1
+    fi
+    rollback_tmp=""
+    # Undo installing the local identity so a retry does not mistake a partial
+    # migration for a completed one. Preserve any pre-existing local config.
+    if [ -n "$original_local_backup" ]; then
+      if ! rollback_tmp=$(mktemp "$HOME/.gitconfig.local.XXXXXX"); then
+        error "could not create a rollback file; restore ~/.gitconfig.local from $original_local_backup"
+      elif ! cp -p "$original_local_backup" "$rollback_tmp" || ! mv "$rollback_tmp" "$local_cfg"; then
+        rm -f "$rollback_tmp"
+        error "could not restore ~/.gitconfig.local; its previous contents are at $original_local_backup"
+      fi
+    elif ! rm -f "$local_cfg"; then
+      error "could not remove the partially migrated ~/.gitconfig.local; remove it before retrying"
+    fi
     error "could not restore homedir/.gitconfig; verified backup retained at $BACKUP_DIR/.gitconfig"
     return 1
   fi

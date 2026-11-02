@@ -189,7 +189,8 @@ function iproj() {
 function iproj-list() {
   local search_dir="${1:-$PWD}"
   echo "Project tab identities in $search_dir:"
-  for repo in "$search_dir"/*/; do
+  setopt local_options nonomatch no_glob_dots
+  for repo in "$search_dir"/*/ "$search_dir"/.[!.]*/ "$search_dir"/..?*/; do
     # A worktree/submodule stores .git as a file; normal clones use a directory.
     [[ -e "$repo/.git" ]] || continue
     local name=$(basename "$repo")
